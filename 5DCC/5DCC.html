@@ -1,0 +1,73 @@
+<!--Hello all! This is a task from 5day coding challenge from codeinstitute which is free. Good start to begin with HTML, CSS, JavaScript.-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="5DCC.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+
+  </head>
+  <body>
+    <div id="container">
+     <header>
+        <h1>Spaghetti Carbonara</h1>
+        <img src="https://i.ibb.co/3cSSM7K/spaghetti-carbonara.jpg" alt="spaghetti-carbonara">
+        <p>Spaghetti Carbonara is a very caloric Italian food. Indeed <em>carbonaro</em> is the Italian word for charcoal burner, some believe the dish was first made as a hearty meal for Italian charcoal workers. </p>
+    </header>
+     <section id="ingredients" onmouseover="ingredientsHover()" onmouseout="ingredientsNormal()">
+        <h2>Ingredients  <i class="fa fa-cart-plus" aria-hidden="true"></i></h2>
+
+        <ul>
+          <li>Spaghetti</li>
+          <li>2 eggs and one yolk</li>
+          <li>Cheese Grana Padano or Parmesan</li>
+          <li>Black pepper</li>
+          <li>Salt</li>
+          <li>Pancetta (type of bacon)</li>
+          <li>1 clove of garlic.</li> 
+          <li>extra virgin olive oil</li>
+          <li> 20g of butter </li>
+        </ul>  
+     </section>
+     <section id="preparation" onmouseover="preparationHover()" onmouseout="preparationNormal()">
+        <h2>Preparation <i class="fa fa-check-square-o" aria-hidden="true" ></i></h2>
+        <ol>
+          <li>Cook Spaghetti in boiled water with salt until al dente.</li>
+          <li>Mix eggs with grated cheese, salt and pepper and put aside.</li>
+          <li>Warm the pan for a minute and add olive oil and little of butter.</li>
+          <li>Add cutted pancetta to the pan and cook until it starts to crisp up.</li>
+          <li>Peel the garlic, then crush with the palm of your hand, add it to the pan and leave it to flavour the fat and pancetta for 1 minute. Then take it out from the pan. </li>
+          <li>Add cooked Spaghetti to the warm pan with the basic. </li>
+          <li>Add litt water from Spaghetti.</li>
+          <li>Pour in the egg mixture and toss well.</li>
+          <li>Add more cooking water until it’s lovely and glossy.</li>
+          <li>Serve with a grating of cheese and an extra twist of pepper.</li>
+        </ol>  
+     </section>
+     <footer>
+        <p>Copyright Misha 2019</p>
+     </footer>
+    </div>
+  <script>
+        function ingredientsHover() {
+            document.getElementById('ingredients').firstElementChild.firstElementChild.style.fontSize = '300%';
+        }
+
+        function ingredientsNormal() {
+            document.getElementById('ingredients').firstElementChild.firstElementChild.style.fontSize = '100%';
+               
+        }
+
+        function preparationHover() {
+            document.getElementById('preparation').firstElementChild.firstElementChild.style.fontSize = '300%';
+        }
+
+        function preparationNormal() {
+            document.getElementById('preparation').firstElementChild.firstElementChild.style.fontSize = '100%';
+        }
+    </script>  
+  </body>
+  
+</html>

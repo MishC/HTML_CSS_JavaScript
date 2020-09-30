@@ -1,0 +1,16 @@
+body {
+    margin-left: 20px;
+    font-family: Lucida, sans-serif;
+   
+	}
+
+p{ 
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+ul{
+    list-style-type:none;
+    
+}

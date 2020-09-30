@@ -1,0 +1,19 @@
+h1 { font-family: Poster Bodoni BT; text-align: center; height: 16px; color: #ffffff; letter-spacing: 5px;}
+
+BODY { margin-left: 0;
+margin-top:0; margin-right: 0; background-color:#000000}
+
+.into {font-weight: 800;  color: #000000; text-align:center; font-size: 200%}
+p { font-weight: 900; color: blue;  height: 13px; margin-left:20px;margin-right:20px;}
+.iv {text-indent: 0 }
+.gg{background-color:#cccccc;height:10px;width:100%;margin:0px }
+.ok {background-color: #cccccc; color:#ffffff; text-indent:3px;border:0;font-weight: 900} 
+.ob {border:0;background-color: #cccccc; font-weight: 900; color:#ffffff;margin:0;text-indent:3px}
+.ob a:visited {color:#000000; text-decoration:none;}
+.ob a {color:#000000; text-decoration:none;}
+table{margin-left:0;}
+img{border: 0; }
+.a {background-color: white}
+.intoo{font-size: 14px; color: #737373}
+.intoo a {font-size: 14px; color: #737373; text-decoration: underline;}
+.intoo a:visited {font-size: 14px; color: #737373; text-decoration: underline;}
