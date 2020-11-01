@@ -1,12 +1,8 @@
-//SIDE MENU
-function openNav() {
-  document.getElementById("mySidepanel").style.width = "250px";
-}
 
-function closeNav() {
-  document.getElementById("mySidepanel").style.width = "0";
-} 
 $(document).ready(function() {
+document.getElementById("mySidepanel").style.fontFamily = "Helvetica, sans-serif";
+
+
 
 //SLICK SLIDER
     $('.slider').slick({
@@ -22,6 +18,14 @@ $(document).ready(function() {
 });
 
 });
+//SIDE MENU
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "300px";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+} 
 
 
 
