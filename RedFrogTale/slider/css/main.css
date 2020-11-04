@@ -1,3 +1,6 @@
+html {
+  box-sizing: border-box;
+}
 body {
     background-image: url('../../images/bg_2.jpg');
     background-repeat: no-repeat;
@@ -5,7 +8,7 @@ body {
     /*background-color:#9ccc9c;*/
     margin:0px;
     font-family: Helvetica, sans-serif;
-  
+	text-align: justify;
 }
 
 /*SIDE PANEL*/
