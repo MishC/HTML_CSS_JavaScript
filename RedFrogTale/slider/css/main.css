@@ -62,7 +62,7 @@ body {
 	max-width:1780px;
     padding: 10px;
     text-align: center;
-    background-color: #9ccc9c;
+    background-color: white;
     color:red;
     font-family: Copperplate, "Copperplate Gothic Light", fantasy; 
     font-style: bolder; font-variant: bolder; font-weight: 1000;
@@ -77,7 +77,7 @@ body {
 
 /* SLIDER START */
 .slider {
-     background-color:#9ccc9c;
+     background-color:white;
      margin:auto;
      max-width:1800px;
      padding:0px;
@@ -96,7 +96,7 @@ body {
 }
 .slick-prev,
 .slick-next {
-    background: #9ccc9c;
+    background: white;
     opacity: 0.8;
     color:black;
     font-weight:bolder;
@@ -117,6 +117,6 @@ body {
 
 .slick-prev:hover,
 .slick-next:hover {
-	background: #9ccc9c;
+	background: white;
 }
 /* SLIDER END */
