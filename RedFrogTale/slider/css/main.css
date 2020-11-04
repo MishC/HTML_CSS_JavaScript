@@ -1,22 +1,13 @@
-html {
-  box-sizing: border-box;
-}
+
 
 body {
   background-image: url('../../images/bg_2.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
   /*background-color:#9ccc9c;*/
-  margin-top: 0px;
-  margin-left:0px;
-  min-height: 100vh;
-  max-height:800px;
-  max-width: 1800px;
-  font-size: 18px;
-  text-align: justify;
+  margin:0px;
   font-family: Helvetica, sans-serif;
   
-}
-h1{color:red;
 }
 
 /*SIDE PANEL*/
@@ -67,37 +58,28 @@ h1{color:red;
 .openbtn:hover {
   background-color:#444;
 }
-
 /*SIDE PANEL END*/
+
 /* SLIDER START */
-.slider-div h2 {
-   position: relative;
-  left: 600px;
-   
-  font-size: 60px;
-  margin:auto;
-  size: 100px;
-  color:red;
-}
+
 
 .slider {
-   margin-top: 50px;
-   margin-left: 200px;
-  position: center;
-  text-align: center;
-  padding: 0px;
-  color: black;
-  max-width: 1600px;
-   max-height:800px;
-
+   background-color:#9ccc9c;
+   margin:auto;
+   max-width:1800px;
+   padding:0px;
+   top:-50px;
+   bottom:20px;
 }
 
 .slide {
-  	
-  padding: 0px;
+   margin: auto;
+   padding: 30px;
 }
-.slide img
-border-radius: 25px;
+.slide img {
+    margin: auto;
+    padding:10px;
+	width:80%;height:80%;
 }
 .slick-prev,
 .slick-next {
@@ -108,23 +90,40 @@ border-radius: 25px;
   width: 40px;
   height: 40px;
   z-index: 1;
-  
-}
+  }
 
 .slick-prev {
-  left: -5%; 	
-
-
+  left: 100px;
+	top:50%;
 }
 
 .slick-next {
-  right: 1%;
+  right: 100px;
+  top:50%;
 }
 
 .slick-prev:hover,
 .slick-next:hover {
-  background: white;
+  background: #9ccc9c;
 }
 
 /* SLIDER END */
 
+/*header*/
+.header {
+	margin:auto;
+	max-width:1780px;
+    padding: 10px;
+    text-align: center;
+    background-color: #9ccc9c;
+    color:red;
+    font-family: Copperplate, "Copperplate Gothic Light", fantasy; 
+    font-style: bolder; font-variant: bolder; font-weight: 1000;
+	top:0px;
+    
+}
+
+.header h2 {
+   font-size: 90px;
+} 
+/*header*/
