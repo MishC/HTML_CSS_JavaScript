@@ -62,7 +62,7 @@ body {
 /*header*/
 .header {
 	margin:auto;
-	max-width:1780px;
+	max-width:1180px;
     padding: 10px;
     text-align: center;
     background-color: white;
@@ -74,7 +74,7 @@ body {
 }
 
 .header h2 {
-    font-size: 90px;
+    font-size: 70px;
 } 
 /*header*/
 
@@ -82,7 +82,7 @@ body {
 .slider {
      background-color:white;
      margin:auto;
-     max-width:1800px;
+     max-width:1200px;
      padding:0px;
      top:-50px;
      bottom:20px;
