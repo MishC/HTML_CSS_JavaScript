@@ -58,12 +58,12 @@
 .slick-next:hover:before,
 .slick-next:focus:before
 {
-    opacity: 0.7;
+    opacity: 1;
 }
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before
 {
-    opacity: 0.7;
+    opacity: 1;
 }
 
 .slick-prev:before,
@@ -71,7 +71,6 @@
 {
     
 	font-weight: bold;
-    font-size: 40px;
 	line-height: 1;
     color: black;
 
@@ -116,4 +115,10 @@
     content: '<<';
 }
 
-
+@media screen and (max-width: 768px) {
+.slick-prev:before,
+.slick-next:before
+{
+font-size: 20px;
+    }
+}
