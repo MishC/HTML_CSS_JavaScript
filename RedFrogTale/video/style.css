@@ -5,6 +5,7 @@ body {
   background-image: url('../images/bg_2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 100vh;
   margin:0px;
   font-family: Helvetica, sans-serif;
 }
@@ -80,6 +81,19 @@ iframe{ width:600px;
 /*SIDE PANEL END*/
 
 @media screen and (max-width: 768px) {
+body {font-size:14px;
+}
+/*SIDE PANEL START*/
+#mySidepanel{max-width: 20vh;
+           max-height: 30vh;
+		   padding-top:60px;
+		   font-size:1.5em;}
+.sidepanel a{font-size:1em;}		   
+.sidepanel closebtn{font-size:1em;}
+.closebtn{font-size:1em;}		   
+.openbtn {font-size: 1em;}
+/*SIDE PANEL END*/
+
 .player { margin:auto;
 width: 300px;
 }
