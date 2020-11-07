@@ -78,6 +78,14 @@ h1{color:red;
 /*SIDE PANEL END*/
 
 @media screen and (max-width: 768px) {
-body{font-size: 12px; font-weight:bold;}
+body{font-size: 14px;}
+#mySidepanel{max-width: 20vh;
+           max-height: 30vh;
+		   padding-top:60px;
+		   font-size:1.5em;}
+.sidepanel a{font-size:1em;}		   
+.sidepanel closebtn{font-size:1em;}
+.closebtn{font-size:1em;}		   
+.openbtn {font-size: 1em;}
 .content {margin:auto; }
 }
