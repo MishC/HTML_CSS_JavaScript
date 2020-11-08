@@ -1,12 +1,12 @@
 
 $(document).ready(function() {
-document.getElementById("mySidepanel").style.fontFamily = "Helvetica, sans-serif";
+//document.getElementById("mySidepanel").style.fontFamily = "Helvetica, sans-serif";
 
 
 
 //SLICK SLIDER
     $('.slider').slick({
-     infinite: false,
+    infinite: false,
     arrows: true,
     fade: true,
     
