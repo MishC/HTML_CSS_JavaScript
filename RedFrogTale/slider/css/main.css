@@ -127,7 +127,7 @@ body {
            max-height: 30vh;
 		   padding-top:60px;
 		   font-size:1.5em;
-		   } 
+		   z-index:2;} 
 .sidepanel a{font-size:1em;}		   
 .sidepanel closebtn{font-size:1em;}
 .closebtn{font-size:1em;}		   
@@ -143,6 +143,7 @@ body {
 .slick-next {
 width: 5px;
 height: 5px;
+z-index:1;
 }
 .slick-prev {
     left: 30px;
