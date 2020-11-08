@@ -108,22 +108,6 @@ body {
     padding:10px;
 	width:80%;height:80%;
 }
-.slick-prev,
-.slick-next {
-	position:absolute;
-	font-size: 30px;
-    background-color: white;
-	opacity: 1;    
-    font-weight:bolder;
-    width: 60px;
-    height: 60px;
-	}
-
-.slick-prev:hover,
-.slick-next:hover {
-	background: white;
-}
-
 
 /* SLIDER END */
 
