@@ -1,60 +1,78 @@
-body {margin:0px; min-height:100vh; min-width:100vh;
+body {margin:0px; height:100vh; 
 	font-family: 'font-family: 'Ovo', sans-serif;
-    -webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	box-sizing: border-box;
 }
-
+header {height: 15%; 
+	width: 100%;}
+/*BEATING HEART START*/
+section.beating-heart {
+	background: rgba(39, 52, 97, 0.89);
+	text-align: center;
+    min-width:100vh;
+	padding: 50px 10px;
+	color: white;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+		-ms-flex-pack: center;
+			justify-content: center;
+	-webkit-box-align: center;
+		-ms-flex-align: center;
+			align-items: center;
+	-ms-flex-item-align: center;
+		align-self: center;
+  }
+  
+  section.beating-heart span {
+	font-size: 90px;
+	line-height: 100px;
+  }
 content {display:grid;
-	     gap:10px;
+	     gap:100px;
 		 grid-auto-flow: column;
 		justify-content: center;
-		align-content: center;}
-
-/*.Text{
-	display: flex;
-	flex-direction: row;
-	align-items:flex-start;
-	margin-top:0px;
-	margin-left:20px;
-	animation:1s linear 1s 1 opacity_off;
-	animation-fill-mode: both;
-	
-}
-img {float:left;
-	  width:300px;
-	}*/
+		align-content: center;
+		height:70%;
+	    padding:50px;}
  
-   .about {
+   #first {
 	font-size: 42px;
 	font-family:Helvetica, sans-serif;
 	font-weight: bold;
 	padding:20px;
 	
-	animation: 1.5s linear 4s 1 slideInFromLeft;
+	animation: 1.5s linear 2s 1 slideInFromLeft;
 	animation-fill-mode: both;	
-	-webkit-animation: 1.5s linear 4s 1 slideInFromLeft;  
+	-webkit-animation: 1s linear 2s 1 slideInFromLeft;  
 	-webkit-animation-fill-mode: both;	
 	padding: 30px;
 	
 	float:left;
 	opacity:0;
    }	
-   .middle{animation: 1.5s linear 6.5s 1 slideInFromLeft;
+   .middle{animation: 1.5s linear 4s 1 slideInFromLeft;
 	animation-fill-mode: both;	
-	   -webkit-animation: 1.5s linear 6.5s 1 slideInFromLeft;  
+	   -webkit-animation: 1s linear 4s 1 slideInFromLeft;  
 	-webkit-animation-fill-mode: both;}	
    .last {
-	animation: 1.5s linear 15s 1 slideInFromLeft;  
+	   color:red;
+	animation: 1.5s linear 12s 1 slideInFromLeft;  
 	animation-fill-mode: both;	
-	-webkit-animation: 1.5s linear 15s 1 slideInFromLeft;  
+	-webkit-animation: 1.5s linear 12s 1 slideInFromLeft;  
 	-webkit-animation-fill-mode: both;	
 	
    }	
-
+   #second {font-size: 42px;
+	font-family:Helvetica, sans-serif;
+	font-weight: bold;
+	padding:20px 0px 0px 0px;
+	}
 .robots {
 	flex-wrap: wrap;
-	display: flex;
-	padding:30px;
-	
+	display: flex;	
 }
 
 .head, 
@@ -72,8 +90,14 @@ img {float:left;
 	height: 150px; 
 	border-radius: 200px 200px 0 0; 
 	margin-bottom: 10px;
-	animation:
-} 
+	animation: 2s sight 6s 1;
+}
+@keyframes sight {
+0% {width: 200px;}
+50% {width: 300px;}
+100%{width: 200px;}
+}
+
 .head:hover {
 	width: 300px;
     transition: 1s ease-in-out;
@@ -94,13 +118,17 @@ img {float:left;
 	width: 40px; 
 	height: 125px;
 	border-radius: 100px; 
+	
 } 
 
 .left_arm { 
 	margin-right: 10px; 
-	
+	animation: 1.5s dance_larm 8s 3;
 } 
-
+@keyframes dance_larm {
+50%{	-webkit-transform: rotate(40deg);
+	transform:rotate(40deg);	}
+}
 .left_arm:hover {
 	
 	-webkit-transform: rotate(-140deg);
@@ -112,8 +140,12 @@ img {float:left;
 
 .right_arm { 
 	margin-left: 10px; 
+	animation: 1.5s dance_rarm 8s 3;
 }
-
+@keyframes dance_rarm {
+	50%{	-webkit-transform: rotate(-40deg);
+		transform:rotate(-40deg);	}
+	}
 .right_arm:hover {
 	-webkit-transform: rotate(140deg);
     -moz-transform: rotate(140deg);
@@ -143,8 +175,12 @@ img {float:left;
 
 .left_leg { 
 	margin-left: 45px; 
+	animation: 1.5s dance_lleg 8s 3;
 } 
-
+@keyframes dance_lleg {
+	50%{	-webkit-transform: rotate(20deg);
+		transform:rotate(20deg);	}
+	}
 .left_leg:hover {
 	-webkit-transform: rotate(20deg);
     -moz-transform: rotate(20deg);
@@ -156,9 +192,12 @@ img {float:left;
 .right_leg { 
 	margin-top: -120px;
 	margin-left: 110px; 
-	
+	animation: 1.5s dance_rleg 8s 3;
 }
-
+@keyframes dance_rleg {
+	50%{	-webkit-transform: rotate(-20deg);
+		transform:rotate(-20deg);	}
+	}
 
 .right_leg:hover {
 	-webkit-transform: rotate(-20deg);
@@ -188,40 +227,15 @@ img {float:left;
 	left: 120px; 
 }
 
-/*BEATING HEART START*/
-section.beating-heart {
-	background: rgba(39, 52, 97, 0.89);
-	
-	text-align: center;
-	height: 20vh;
-	padding: 50px 10px;
-	color: white;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-		-ms-flex-pack: center;
-			justify-content: center;
-	-webkit-box-align: center;
-		-ms-flex-align: center;
-			align-items: center;
-	-ms-flex-item-align: center;
-		align-self: center;
-  }
-  
-  section.beating-heart span {
-	font-size: 100px;
-	line-height: 105px;
-  }
   
   .heart {
 	position: relative;
 	fill: red;
-	width: 150px;
+	width: 120px;
 	margin: 0 50px;
-	-webkit-animation: pulse 1s 5;
+	-webkit-animation: pulse 1s 2;
 	-webkit-animation-delay: 0s;
-			animation: pulse 1s 5;
+			animation: pulse 1s 2;
         animation-delay: 0s;
 		}
    .heart_robot {position: fixed;
@@ -231,15 +245,16 @@ section.beating-heart {
 	margin-left: -160px;
 	margin-top: 40px;
 	 z-index:2;
-	 -webkit-animation: changeColor 1s 5;
+	 -webkit-animation: changeColor 1s 2;
 	 -webkit-animation-delay: 0s;
-		 animation: changeColor 1s 5;
+		 animation: changeColor 1s 2;
 		 animation-delay: 0s;}
  /* FOOTER START */
  footer {
+    height:10%;
 	position: relative;
 	z-index: -2;
-	height: 100px;
+	height: 10vh;
 	background: rgba(39, 52, 97, 0.89);
 	color: white;
 	text-align: center;
@@ -254,10 +269,10 @@ section.beating-heart {
 	text-align: center;
 	z-index: 1;
 	left: 50%;
-	-webkit-transform: translate(-50%);
+	/*-webkit-transform: translate(-50%);
 			transform: translate(-50%);
 	bottom: 50px;
-	width: 800px;
+	width: 800px;*/
   }
   
   /* FOOTER END */		 
