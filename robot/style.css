@@ -53,23 +53,33 @@ content {display:grid;
 	float:left;
 	opacity:0;
    }	
-   .middle{animation: 1.5s linear 4s 1 slideInFromLeft;
+   p.middle{animation: 1.5s linear 4s 1 slideInFromLeft;
 	animation-fill-mode: both;	
-	   -webkit-animation: 1s linear 4s 1 slideInFromLeft;  
+	   -webkit-animation: 1.5s linear 4s 1 slideInFromLeft;  
 	-webkit-animation-fill-mode: both;}	
-   .last {
+   p.last {
 	   color:red;
 	animation: 1.5s linear 12s 1 slideInFromLeft;  
 	animation-fill-mode: both;	
 	-webkit-animation: 1.5s linear 12s 1 slideInFromLeft;  
 	-webkit-animation-fill-mode: both;	
 	
-   }	
-   #second {font-size: 42px;
+   }
+   #about1 {display:flex;
+	flex-wrap:wrap;
+	flex-direction: row;
+ }
+ .about1>* {
+	flex: 1 1 160px;
+}
+
+   #second, #fourth, #fifth {font-size: 36px;
 	font-family:Helvetica, sans-serif;
 	font-weight: bold;
 	padding:20px 0px 0px 0px;
+	text-justify: left;
 	}
+
 .robots {
 	flex-wrap: wrap;
 	display: flex;	
