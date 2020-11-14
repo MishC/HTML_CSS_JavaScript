@@ -1,16 +1,20 @@
-body {margin:0px; max-height:100vh; 
-	font-family: 'font-family: 'Ovo', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+html {
 	box-sizing: border-box;
+  }
+body {margin:0px; min-height:100vh; 
+	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+
 }
-header {height: 20%; 
-	width: 100%;}
+header {
+	width: 100vw;}
 /*BEATING HEART START*/
 section.beating-heart {
+	height: 20vh; 
+	font-family: 'Lato', sans-serif;
 	background: rgba(39, 52, 97, 0.89);
 	text-align: center;
-    min-width:100vh;
 	padding: 50px 10px;
 	color: white;
 	display: -webkit-box;
@@ -27,63 +31,64 @@ section.beating-heart {
   }
   
   section.beating-heart span {
-	font-size: 90px;
-	line-height: 100px;
-  }
-content {display:grid;
-	     gap:100px;
+	font-size: 4em;
+	}
+	.heart {
+		position: relative;
+		fill: red;
+		width: 110px;
+		margin: 0 50px;
+		-webkit-animation: pulse 1s 2;
+		-webkit-animation-delay: 0s;
+				animation: pulse 1s 2;
+			animation-delay: 0s;
+			}
+	   .heart_robot {position: fixed;
+		justify-content: flex-start;
+		fill: #5f93e8;
+		width: 50px;
+		margin-left: -160px;
+		margin-top: 40px;
+		 z-index:2;
+		 -webkit-animation: changeColor 1s 2;
+		 -webkit-animation-delay: 0s;
+			 animation: changeColor 1s 2;
+			 animation-delay: 0s;}
+/*BEATING HEART ENDS*/			 	
+content { 
+	     height: 70vh;
+	     display:grid;
+	     
+		 grid-template-columns: 1fr 1fr 0.2fr 1fr;
 		 grid-auto-flow: column;
 		justify-content: center;
 		align-content: center;
 		height:70%;
-		
-	    padding:50px;}
+		padding-top:50px;	
+			
+	    }
  
-   #first {
-	font-size: 42px;
-	font-family:Helvetica, sans-serif;
+   #about1 {
+	height: 50vh;
+	font-size: 3em;
+	font-family: 'Lato', Helvetica, sans-serif;
 	font-weight: bold;
-	padding:20px;
-	
-	animation: 1.5s linear 2s 1 slideInFromLeft;
-	animation-fill-mode: both;	
-	-webkit-animation: 1s linear 2s 1 slideInFromLeft;  
-	-webkit-animation-fill-mode: both;	
-	padding: 30px;
-	
-	float:left;
-	opacity:0;
-   }	
-   #hidden {display:flex;
-			flex-wrap: wrap;
-			flex-direction:row; 
+	text-justify:right;
+}	
+   
+p.first{opacity:0;}
+p.middle{opacity:0;}
+p.last {opacity:0;};
 
-			justify-content:flex-start;
-		    max-width: 70vh;}
-   p.middle{animation: 1.5s linear 4s 1 slideInFromLeft;
-	animation-fill-mode: both;	
-	   -webkit-animation: 1.5s linear 4s 1 slideInFromLeft;  
-	-webkit-animation-fill-mode: both;}	
-   p.last {
-	   color:red;
-	animation: 1.5s linear 12s 1 slideInFromLeft;  
-	animation-fill-mode: both;	
-	-webkit-animation: 1.5s linear 12s 1 slideInFromLeft;  
-	-webkit-animation-fill-mode: both;	
-	
-   }
-  
-
-   #second, #fourth, #fifth {font-size: 36px;
-	font-family:Helvetica, sans-serif;
-	font-weight: bold;
-	padding:20px 0px 0px 0px;
-	text-justify: left;
-	}
+/*ROBOT STARTS*/
 
 .robots {
 	flex-wrap: wrap;
 	display: flex;	
+	justify-items: center;
+	align-items: center;
+	padding-top:30px;
+
 }
 
 .head, 
@@ -101,7 +106,7 @@ content {display:grid;
 	height: 150px; 
 	border-radius: 200px 200px 0 0; 
 	margin-bottom: 10px;
-	animation: 2s sight 6s 1;
+	animation: 3s sight 6s 1;
 }
 @keyframes sight {
 0% {width: 200px;}
@@ -134,7 +139,7 @@ content {display:grid;
 
 .left_arm { 
 	margin-right: 10px; 
-	animation: 1.5s dance_larm 8s 3;
+	animation: 1.5s dance_larm 9s 3;
 } 
 @keyframes dance_larm {
 50%{	-webkit-transform: rotate(40deg);
@@ -151,7 +156,7 @@ content {display:grid;
 
 .right_arm { 
 	margin-left: 10px; 
-	animation: 1.5s dance_rarm 8s 3;
+	animation: 1.5s dance_rarm 9s 3;
 }
 @keyframes dance_rarm {
 	50%{	-webkit-transform: rotate(-40deg);
@@ -186,7 +191,7 @@ content {display:grid;
 
 .left_leg { 
 	margin-left: 45px; 
-	animation: 1.5s dance_lleg 8s 3;
+	animation: 1.5s dance_lleg 9s 3;
 } 
 @keyframes dance_lleg {
 	50%{	-webkit-transform: rotate(20deg);
@@ -203,7 +208,7 @@ content {display:grid;
 .right_leg { 
 	margin-top: -120px;
 	margin-left: 110px; 
-	animation: 1.5s dance_rleg 8s 3;
+	animation: 1.5s dance_rleg 9s 3;
 }
 @keyframes dance_rleg {
 	50%{	-webkit-transform: rotate(-20deg);
@@ -238,33 +243,13 @@ content {display:grid;
 	left: 120px; 
 }
 
-  
-  .heart {
-	position: relative;
-	fill: red;
-	width: 120px;
-	margin: 0 50px;
-	-webkit-animation: pulse 1s 2;
-	-webkit-animation-delay: 0s;
-			animation: pulse 1s 2;
-        animation-delay: 0s;
-		}
-   .heart_robot {position: fixed;
-	justify-content: flex-start;
-	fill: #5f93e8;
-	width: 50px;
-	margin-left: -160px;
-	margin-top: 40px;
-	 z-index:2;
-	 -webkit-animation: changeColor 1s 2;
-	 -webkit-animation-delay: 0s;
-		 animation: changeColor 1s 2;
-		 animation-delay: 0s;}
+/*ROBOT ENDS*/
+
  /* FOOTER START */
- footer {
-    height:15vh;
-	position: relative;
-	z-index: -2;
+footer {
+	height:10vh;
+	min-width:100vw;
+	
 	background: rgba(39, 52, 97, 0.89);
 	color: white;
 	text-align: center;
@@ -277,12 +262,11 @@ content {display:grid;
 	color: white;
 	font-weight: bold;
 	text-align: center;
-	z-index: 1;
 	left: 50%;
 	-webkit-transform: translate(-50%);
 			transform: translate(-50%);
-	bottom: 50px;
-	width: 800px;
+	/*bottom: 50px;
+	width: 800px;*/
   }
   
   /* FOOTER END */		 
@@ -354,30 +338,6 @@ content {display:grid;
   /*CHANGING COLOR*/
 
 
- 
-  /*SLIDER FROM LEFT START*/
-  @keyframes slideInFromLeft {
-    0% {opacity:0;
-        transform: translateX(-200%);
-    }
-    100% {
-		opacity:1;
-        transform: translateX(0);
-	}
-
-}
-/*SLIDER FROM LEFT END*/
-
-@keyframes speaking {
-    0% {
-        transform: translateY(0px);
-    }
-    100% {
-        transform: translateY(-25px);
-    }
-}
-
-
 @keyframes opacity_off {
     0% {
         opacity: 1;
@@ -387,3 +347,11 @@ content {display:grid;
     }
 }
 
+@keyframes opacity_on {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
