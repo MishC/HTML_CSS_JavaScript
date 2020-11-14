@@ -6,7 +6,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ovo&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 	
@@ -23,31 +24,14 @@
 		</section>	
 	</header>
 	
-	<content>	
-		<div id="first">
-			<p>Hello Robot!</p>
+	<content>
+		<div></div>
+		<div id="about1">
+			<p class="first">Hello Robot!</p>
 			<p class="middle">Can you dance?</p>
 			<p class="last">Perfect!</p>
 		</div>
-		<div id="hidden">
-		<div id="second"  style="display:none;">
-		
-		<p >Japan is using 1/3 of its budget for Care-Robots to help elderly </p>
-		<p class="third">Japan is using a quarter millions robots as workers in the 
-			industry </p>	
-	</div>
-		<div id="fourth"  style="display:none;">
-		<p class="fourth">Honda Motor Asimo, with its humanoid appearance and ability to walk and climb stairs, 
-		is the world's most advanced robot</p>	
-	</div> 
-	<!--<div id="fifth"  style="display:none;">
-	<p>There is a factory in Japan which can run unsupervised for 30 days at a time. Robots build other robots at the rate of 50 per 24-hour shift.</p>
-	</div>-->
-    </div>
 		<div class="robots">
-		<!--<div class="Text">	
-			<img src="speaking.png">
-		</div>-->
 			<div class="android"> 
 				<div class="head"> 
 					<div class="eyes"> 
@@ -76,16 +60,12 @@
 	</content>
 	<footer><h1>Mishc (ZTM 2020)</h1>
 	</footer>
-<script>
-	$(document).ready(function() {
-		// Hide the div
-$("#first").delay(15000).fadeOut(100);
-// Show the div in 5s
-$("#second").delay(15100).fadeIn(100);
-$(".third").delay(16100).fadeIn(100);
-$("#fourth").delay(17100).fadeIn(100);
-//$("#fifth").delay(17100).fadeIn(100);
-});
-</script>
+	<script>
+		$(document).ready(function() {
+	$("p.first").hide().delay(2100).fadeIn(2000).css("opacity",1);	
+	$("p.middle").hide().delay(4000).fadeIn(2000).css("opacity",1);		
+	$("p.last").hide().delay(13100).fadeIn(2000).css({"opacity":1, "color":"red"});
+	});
+	</script>	
 </body>
 </html>
