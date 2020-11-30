@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+	<title>Song Quiz</title>
+	
+</head>
+<body>	
+    <h1>GUESS THE SONG</h1>
+    <br>
+    <h3> Please guess all songs!</h3>
+	<form name="form" action="" method="" onsubmit="return false;" style="display:block;">
+	<div id="main">	
+       
+        <h2>SONG 1</h2>
+	<audio controls>
+	<source src="https://srv-store2.gofile.io/download/fh5yVN/DJ_Snake_feat._Justin_Bieber_Let_Me_Love_You_1.mp3">
+	</audio>
+    <form>
+		<div>
+		<fieldset class="songs">
+    <input type="radio" name="song1" value="correct">"Let me love you" by DJ Snake and Justine Bieber<br>  
+    <input type="radio" name="song1" value="incorrect">"Lean on" by Dj Snake and Major Lazer<br>  
+    <input type="radio" name="song1" value="incorrect">"Waiting for love" by Avicii <br>  
+	   </fieldset>
+	   </div>
+	<h2>SONG 2</h2>
+	 <audio controls>
+	<source src="https://srv-store2.gofile.io/download/fh5yVN/Evanescence_My_Immortal.mp3">
+	</audio>
+	<div>
+
+	<fieldset class="songs">
+	<input type="radio" name="song2" value="incorrect">"What's up" by 4 Non Blondes <br>  
+    <input type="radio" name="song2" value="incorrect">"Lucky man" by the Verve<br>  
+    <input type="radio" name="song2" value="correct">"My Immoratal" by the Evanescence<br>  
+	</fieldset>
+	</div>
+	<h2>SONG 3</h2>
+	<audio controls>
+        <source src="https://srv-store2.gofile.io/download/fh5yVN/Eurythmics_Annie_Lennox_Dave_Stewart_Sweet_Dreams_(Are_Made_of_This).mp3">
+	</audio>
+	<div>
+	<fieldset class="songs">
+	<input type="radio" name="song3" value="incorrect">"Don't Let Me Down" by Chainsmonkers<br>  
+    <input type="radio" name="song3" value="correct">"Sweet dreams" by Eurythmics<br>  
+    <input type="radio" name="song3" value="incorrect">" Listen To Your Heart" by Roxette<br> 
+	 </fieldset>
+	</div>	 	
+		<h2>SONG 4</h2>
+		<audio controls>
+			<source src="https://srv-store2.gofile.io/download/fh5yVN/Puff_Daddy_Faith_Evans_feat._112_I.mp3">
+		</audio>
+	<div>
+		<fieldset class="songs">
+			<input type="radio" name="song4" value="incorrect">"Another Day In Paradise" by Phil Collins<br>  
+    		<input type="radio" name="song4" value="correct">"I'll be missing you" by Puff Daddy<br>  
+			<input type="radio" name="song4" value="incorrect">"Every Breath You Take" by Sting<br> 
+		</fieldset>
+	</div>
+	    <br>
+        <button type="button" class="btn btn-primary" onclick=results(); > Results </button> 
+    <p id="result"></p>	
+</div>
+ </form>
+<script type="text/javascript">
+   
+function results() {
+    var numberSong = document.querySelectorAll('.songs').length;
+    var results=[];
+    result="";
+    
+        for (var num=1; num<numberSong+1; num++){
+         var radioes = document.getElementsByName("song" + num.toString());  
+        //document.getElementById("result").innerHTML=results;
+             for(var i = 0; i < radioes.length; i++)  {  
+                    if(radioes[i].checked)  { 
+                     //console.log(radioes[i].value);
+                        results.push(radioes[i].value);
+                         console.log(results)
+                        
+                        }
+    	                 
+                }
+                }
+                for (var i=0; i<results.length; i++) {
+                if (results[i] === "correct"){
+                            result= result.concat('You identified correctly SONG'+ (i+1).toString() + " <br>" );
+                         }
+                         else {
+                            result= result.concat('You didn\'t identified SONG'+ (i+1).toString()+ " <br>");
+                        }
+                    }
+               
+ return document.getElementById("result").innerHTML = result;	
+ }				   
+
+</script>   
+</body>
+</html>
