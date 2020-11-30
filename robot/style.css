@@ -56,7 +56,7 @@ section.beating-heart {
 			 animation-delay: 0s;}
 /*BEATING HEART ENDS*/			 	
 content { 
-	     height: 70vh;
+	     height: 70%;
 	     display:grid;
 	     
 		 grid-template-columns: 1fr 1fr 0.2fr 1fr;
@@ -142,16 +142,16 @@ p.last {opacity:0;};
 	animation: 1.5s dance_larm 9s 3;
 } 
 @keyframes dance_larm {
-50%{	-webkit-transform: rotate(40deg);
-	transform:rotate(40deg);	}
+50%{	-webkit-transform: rotate(120deg);
+	transform:rotate(120deg);	}
 }
 .left_arm:hover {
 	
-	-webkit-transform: rotate(-140deg);
-    -moz-transform: rotate(-140deg);
-    -o-transform: rotate(-140deg);
-    -ms-transform: rotate(-140deg);
-    transform: rotate(-140deg);
+	-webkit-transform: rotate(120deg);
+    -moz-transform: rotate(120deg);
+    -o-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
 }
 
 .right_arm { 
@@ -159,15 +159,15 @@ p.last {opacity:0;};
 	animation: 1.5s dance_rarm 9s 3;
 }
 @keyframes dance_rarm {
-	50%{	-webkit-transform: rotate(-40deg);
-		transform:rotate(-40deg);	}
+	50%{	-webkit-transform: rotate(-120deg);
+		transform:rotate(-120deg);	}
 	}
 .right_arm:hover {
-	-webkit-transform: rotate(140deg);
-    -moz-transform: rotate(140deg);
-    -o-transform: rotate(140deg);
-    -ms-transform: rotate(140deg);
-    transform: rotate(140deg);
+	-webkit-transform: rotate(-120deg);
+    -moz-transform: rotate(-120deg);
+    -o-transform: rotate(-120deg);
+    -ms-transform: rotate(-120deg);
+    transform: rotate(-120deg);
 }
 
 .torso { 
@@ -247,12 +247,11 @@ p.last {opacity:0;};
 
  /* FOOTER START */
 footer {
-	height:10vh;
+	min-height:10vh;
 	min-width:100vw;
-	
 	background: rgba(39, 52, 97, 0.89);
-	color: white;
 	text-align: center;
+
   }
   
   footer h1 {
@@ -265,8 +264,6 @@ footer {
 	left: 50%;
 	-webkit-transform: translate(-50%);
 			transform: translate(-50%);
-	/*bottom: 50px;
-	width: 800px;*/
   }
   
   /* FOOTER END */		 
