@@ -6810,10 +6810,10 @@ License - nucleoapp.com/license/
   margin: 0;
   color: #ffffff;
   background: #FFFFFF;
-  background: -moz-linear-gradient(top, #FFFFFF 35%, #00757A 80%);
-  background: -webkit-linear-gradient(top, #FFFFFF 35%, #00757A 80%);
-  background: -ms-linear-gradient(top, #FFFFFF 35%, #00757A 80%);
-  background: linear-gradient(to bottom, #FFFFFF 35%, #00757A 80%);
+  background: -moz-linear-gradient(top, #FFFFFF 35%, #2a9df4 80%);
+  background: -webkit-linear-gradient(top, #FFFFFF 35%, #2a9df4 80%);
+  background: -ms-linear-gradient(top, #FFFFFF 35%, #2a9df4 80%);
+  background: linear-gradient(to bottom, #FFFFFF 35%, #2a9df4 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
