@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+	<title>Song Quiz</title>
+	
+</head>
+<body>	
+	<h1>GUESS THE SONG!</h1>
+	<form name="form" action="" method="" onsubmit="return false;" style="display:block;">
+	<div id="main">	
+       
+        <h2>SONG 1</h2>
+	<audio controls>
+	<source src="https://srv-store2.gofile.io/download/fh5yVN/DJ_Snake_feat._Justin_Bieber_Let_Me_Love_You_1.mp3">
+	</audio>
+    <form>
+		<div>
+		<fieldset class="songs">
+    <input type="checkbox" name="song1" value="0" onclick="return validateNumber();">"Let me love you" by DJ Snake and Justine Bieber<br>  
+    <input type="checkbox" name="song1" value="1" onclick="return validateNumber();">"Lean on" by Dj Snake and Major Lazer<br>  
+    <input type="checkbox" name="song1" value="2" onclick="return validateNumber();">"Waiting for love" by Avicii <br>  
+	   </fieldset>
+	   </div>
+	<h2>SONG 2</h2>
+	 <audio controls>
+	<source src="https://srv-store2.gofile.io/download/fh5yVN/Evanescence_My_Immortal.mp3">
+	</audio>
+	<div>
+
+	<fieldset class="songs">
+	<input type="checkbox" name="song2" value="0" onclick="return validateNumber();">"What's up" by 4 Non Blondes <br>  
+    <input type="checkbox" name="song2" value="1" onclick="return validateNumber();">"Lucky man" by the Verve<br>  
+    <input type="checkbox" name="song2" value="2" onclick="return validateNumber();">"My Immoratal" by the Evanescence<br>  
+	</fieldset>
+	</div>
+	<h2>SONG 3</h2>
+	<audio controls>
+        <source src="https://srv-store2.gofile.io/download/fh5yVN/Eurythmics_Annie_Lennox_Dave_Stewart_Sweet_Dreams_(Are_Made_of_This).mp3">
+	</audio>
+	<div>
+	<fieldset class="songs">
+	<input type="checkbox" name="song3" value="0" onclick="return validateNumber();">"Don't Let Me Down" by Chainsmonkers<br>  
+    <input type="checkbox" name="song3" value="1" onclick="return validateNumber();">"Sweet dreams" by Eurythmics<br>  
+    <input type="checkbox" name="song3" value="2" onclick="return validateNumber();">" Listen To Your Heart" by Roxette<br> 
+	 </fieldset>
+	</div>	 	
+		<h2>SONG 4</h2>
+		<audio controls>
+			<source src="https://srv-store2.gofile.io/download/fh5yVN/Puff_Daddy_Faith_Evans_feat._112_I.mp3">
+		</audio>
+	<div>
+		<fieldset class="songs">
+			<input type="checkbox" name="song4" value="0" onclick="validateNumber();">"Another Day In Paradise" by Phil Collins<br>  
+    		<input type="checkbox" name="song4" value="1" onclick="validateNumber();">"I'll be missing you" by Puff Daddy<br>  
+			<input type="checkbox" name="song4" value="2" onclick="validateNumber();">"Every Breath You Take" by Sting<br> 
+		</fieldset>
+	</div>
+	    <br>
+    <button onclick=results(); > Results </button> 
+    <p id="result"></p>	
+</div>
+ </form>
+<script type="text/javascript">
+function validateNumber()  
+{
+    var numberSong = document.querySelectorAll('.songs').length;
+   //var results=[];
+    for (var num=1; num<=numberSong; num++)
+    {
+    var checkboxes = document.getElementsByName("song" + num.toString());  
+    
+	
+	var numberOfCheckedItems = 0;  
+    for(var i = 0; i < checkboxes.length; i++)  
+    {  
+        if(checkboxes[i].checked)  { 
+            numberOfCheckedItems++;  
+            //console.log(checkboxes[i].value);
+           // results.push(checkboxes[i].value);
+        }
+    }  
+    if(numberOfCheckedItems > 1)  
+    {  
+        alert("You can't select more than two answers!");  
+        return false;  
+    }  
+    }	 
+}						   
+function results() {
+    var numberSong = document.querySelectorAll('.songs').length;
+    var results=[];
+    result="";
+    var answers= ["0","2","1","1"];
+        for (var num=1; num<numberSong+1; num++){
+         var checkboxes = document.getElementsByName("song" + num.toString());  
+        //document.getElementById("result").innerHTML=results;
+             for(var i = 0; i < checkboxes.length; i++)  {  
+                    if(checkboxes[i].checked)  { 
+                     //console.log(checkboxes[i].value);
+                        results.push(checkboxes[i].value);
+                         //console.log(results)
+                         
+                
+                        }
+    	                 
+                }
+                }
+                for (var i=0; i<results.length; i++) {
+                if (results[i] === answers[i]){
+                            
+                            result= result.concat('You identified correctly SONG'+ (i+1).toString() + " <br>" );
+                            }
+                         else {
+                            result= result.concat('You didn\'t identified SONG'+ (i+1).toString()+ " <br>");
+                        }
+                    }
+                
+ return document.getElementById("result").innerHTML = result;	
+ }				   
+
+</script>   
+</body>
+</html>
