@@ -28,13 +28,14 @@ h2{color:#0686c7}
 
     text-align:center;
 
-    font-size:30px;
+    font-size:18px;
 
     animation-name:flow;
 
     animation-duration:1s;
 
 }
+.model>span {font-size:30px;}
 
 @keyframes flow{
 
