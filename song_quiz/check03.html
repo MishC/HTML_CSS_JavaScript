@@ -66,7 +66,7 @@
 		</fieldset>
 	</div>
 	    <br>
-        <button type="button" class="btn btn-primary" onclick="results();""> Results </button> 
+        <button type="button" class="btn btn-primary" onclick="results();"> Results </button> 
  </form>
 <script type="text/javascript">
 function cut(){
@@ -75,19 +75,19 @@ document.getElementById("result").style.display = "none";
 
 }   
 function check(results){
-    for (var i=0; i<results.length; i++) {
+    for (let i=0; i<results.length; i++) {
         results[i]==="correct"
     }
 }
 
 function results() {
-    var numberSong = document.querySelectorAll('.songs').length;
+   const numberSong = document.querySelectorAll('.songs').length;
     var results=[];
     result="";
     
         for (var num=1; num<numberSong+1; num++){
          var radioes = document.getElementsByName("song" + num.toString());  
-             for(var i = 0; i < radioes.length; i++)  {  
+             for(let i = 0; i < radioes.length; i++)  {  
                     if(radioes[i].checked)  { 
                         results.push(radioes[i].value);
                          console.log(results)
@@ -99,28 +99,42 @@ function results() {
                 if (results.length!=(num-1)) {
                     return alert("You need to answer all questions");
                     }
-                for (var i=0; i<results.length; i++) {
+                    
+                for (let i=0; i<results.length; i++) {
                 if (results[i] === "correct"){
                            result= result.concat('You identified correctly SONG'+ (i+1).toString() + " <br><br>" );
+                           
                          }
                          else {
                             result= result.concat('You didn\'t identified SONG'+ (i+1).toString()+ " <br><br>");
                         }
                     }
+   
+function yourScore(results){
+let score=Number(0);             
+results.forEach(function(element) {
+        if (element === "correct") {
+            score++;
+        }
+    })
+   // var img = document.createElement("img");
+    //img.src = "";
+    Score= (score/numberSong)*100;
+    if (Score<50) {return Score +" %"}
+    else {return Score +" % " + "<img src=\"clapping-hands.png\">"}
+}
 document.getElementById("result").classList.add("model");  
 
               return      window.setTimeout(function (){             
-document.getElementById("result").innerHTML = "<div style=\"float:right; padding:2px; margin:2px; cursor:pointer; margin-right:25px; \" onclick=\"cut();\">&#10005;</div><br><br><br><br>"  + result;  
+document.getElementById("result").innerHTML = "<div style=\"float:right; padding:2px; margin:2px; cursor:pointer; margin-right:25px; \" onclick=\"cut();\">&#10005;</div><br><br><br><br>"  + result +
+"<br>" + 'Your score: ' + yourScore(results);  
 document.getElementById("result").style.display = "block"; 
 radioes.checked = false;
 
 }, 2000);
 
-
+}
                 
-              }
-
-
 </script>   
 </body>
 </html>
