@@ -117,8 +117,7 @@ results.forEach(function(element) {
             score++;
         }
     })
-   // var img = document.createElement("img");
-    //img.src = "";
+  
     Score= (score/numberSong)*100;
     if (Score<50) {return Score +" %"}
     else {return Score +" % " + "<img src=\"clapping-hands.png\">"}
@@ -127,7 +126,7 @@ document.getElementById("result").classList.add("model");
 
               return      window.setTimeout(function (){             
 document.getElementById("result").innerHTML = "<div style=\"float:right; padding:2px; margin:2px; cursor:pointer; margin-right:25px; \" onclick=\"cut();\">&#10005;</div><br><br><br><br>"  + result +
-"<br>" + 'Your score: ' + yourScore(results);  
+"<hr style=\"width:25%;\">"+'Your score: ' + "<span>" + yourScore(results) + "</span>" + "<hr style=\"width:25%;\">";  
 document.getElementById("result").style.display = "block"; 
 radioes.checked = false;
 
