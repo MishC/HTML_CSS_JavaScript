@@ -34,7 +34,8 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Files -->
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
-  
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -107,47 +108,16 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="moving-clouds" style="background-image: url('./assets/img/clouds.png'); "></div>
 
   </div>
-</div>
-<div class="main">
-  <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-  
-    
-     
-   <div class="d-flex flex-wrap justify-content-around">
-    
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_1')">Gallery</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_2')">My stories</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_3')">UNESCO heritage</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_4')" >Aurora Borealis</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_5')">Wheather</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_6')" >Be inspired</button>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-   
-  
-    
-  </div>
- 
-
-</div>
-
-<div  id="main_photo" class="main">
-  <div class="container">
-    <div class="col-md-8">&nbsp;</div>
-
-<img src="assets/img/girl_with_a_flag01.jpg" class="img-rounded img-responsive" >
-  </div>
-</div>
-</div>
-
-
-
-<!--
+  <div class="main">
+    <div class="container">
+    </br> 
+    <div class="title">
+        <h3>What do you want to see?</h3>
+    </div>
+       
+    <div class="d-flex flex-wrap justify-content-around">
          <div>  
-          
+           <div id="switches">
              <label>
               <span class="title" text-bold><h6>Gallery</h6></span>
               <input id="Bergen_gallery" name="0" type="checkbox" data-toggle="switch"  data-on-color="primary" data-off-color="primary" onchange="toggle(document.getElementById('Bergen_gallery').id, document.getElementById('Gallery').id)">
@@ -157,7 +127,7 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
              
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>My stories</h6></span>
                <input id="My_stories" name="1" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -166,7 +136,7 @@ The above copyright notice and this permission notice shall be included in all c
            </div>
 
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>UNESCO heritage</h6></span>
                <input id="UNESCO_heritage" name="2" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary"  onchange="toggle(document.getElementById('UNESCO_heritage').id, document.getElementById('UNESCO').id)">
@@ -177,7 +147,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>Aurora Borealis</h6></span>
                <input id="Aurora_Borealis" name="3" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -187,7 +157,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 
             <div>  
-             
+              <div id="switches">
                 <label>
                   <span class="title"><h6>Wheather</h6></span>
                  <input id="Wheather" name="4" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -196,7 +166,7 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
 
               <div>  
-               
+                <div id="switches">
                   <label>
                     <span class="title"><h6>Be inspired</h6></span>
                    <input id="Inspiration" name="5" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -206,14 +176,17 @@ The above copyright notice and this permission notice shall be included in all c
 
       </div>
     </div>
-  </div> ->>
-<!- -Nav content END-->
+  </div> 
+<!---Nav content END-->
   <br/>
 
  <!----------------*-Gallery-*-------------------------------------------------->
-
-  <div id="subject_1" style="display:none">
+<div id="container_all"> 
+  <div id="Gallery">
     <div class="container">
+      <div class="title">
+        <h3>&nbsp;</h3>
+       </div>
       </div>
        <div class="container1">
         <img src="assets/img/gallery/bleik-beach-andoya.jpg" alt="Andoya beach" data-toggle="popover" data-placement="top"  title="North sea beach" >     
@@ -225,78 +198,27 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </div> 
 <!----------------*-END OF Gallery-*-------------------------------------------------->
-<!----------------*-My stories-*-------------------------------------------------->  
-<div id="subject_2" style="display:none">
-  <div class="container">
-    <div class="title">
-      <h3 class="title">The day in Trolltunga</h3>
-     </div> <p>
-  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. 
-       Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
-       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-     </p>
-     <p>
-       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-  </p>
-      </div>   
-</div>     
-<!----------------*-END OF My stories-*-------------------------------------------------->
-
+  
 <!----------------*-UNESCO-*-------------------------------------------------->
 
-<div id="subject_3" style="display:none">
+<div id="UNESCO">
     <div class="container">
-      
+      <div class="title">
         <h3 class="title">List of Norwegian UNESCO Heritage</h3>
-      <div class="d-flex flex-column  p-4 justify-content-between">
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6">
-              <span class="title"><h6>Bryggen in Bergen (1979)</h6></span>
-          </label>
-
-              <input id="Bryggen"  class="UNESCO_type" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-          </div>
- 
-          <div class="d-flex w-100 justify-content-between">
-            <label class="col-6">
-               <span class="title"> <h6>Urnes Stave Church (1980)</h6></span>
-             </label>
-           <input id="Urnes"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-          </div>
-       
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6">
-            <span class="title"><h6>Røros Mining Town (1980)</h6></span>
-          </label>
-           <input id="Roros"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-        </div>
-      
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Rock Art of Alta (1985)</h6></span></label>
-           <input id="Alta"   type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-         </div>
-         
-         <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Vegaøyan – The Vega Archipelago (2004)</h6></span></label>
-           <input id="Vegaoyan"   type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
        </div>
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Struve Geodetic Arc (2005)</h6></span></label>
-           <input id="Struve"    type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" style="justify-content: right;">
-          </div>
-       
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)</h6></span></label>
-           <input id="Fjords"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-         </div> 
-         
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Rjukan–Notodden Industrial Heritage Site (2015)</h6></span> </label>
-         
-           <input id="Rjukan" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
+      <ul>
+        <li>Bryggen (1979)</li>
+        <li>Urnes Stave Church (1980)</li>
+        <li>Røros Mining Town (1980)</li>
+        <li>Rock Art of Alta (1985)</li>
+        <li>Vegaøyan – The Vega Archipelago (2004)</li>
+        <li>Struve Geodetic Arc (2005)</li>
+        <li>West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)</li>
+        <li>Rjukan–Notodden Industrial Heritage Site (2015)</li>
+        </ul>
+        <div class="title">
+          <a href="#UNESCO_more"><h3 class="title-uppercase">See more</h3></a>
          </div>
-
-        </div>
       </div> 
     </div>
   <!----------------*-UNESCO-*-------------------------------------------------->
@@ -312,7 +234,7 @@ The above copyright notice and this permission notice shall be included in all c
            Many fires, the last in 1955, have ravaged the characteristic wooden houses of Bryggen. Its rebuilding has traditionally followed 
           old patterns and methods, thus leaving its main structure preserved, which is a relic of an ancient wooden urban structure once common in Northern Europe. Today, some 62 buildings remain of this former townscape.
         </article>
-      <img src="assets/img/gallery/bergen.jpg" style="float: right;">  
+      <img src="assets/img/gallery/bergen.jpg" style:"float: right;">  
     </div>
 
         <div class="title blue">
@@ -417,27 +339,9 @@ The above copyright notice and this permission notice shall be included in all c
    </div> 
   </div>
 </div> 
-   <!--_____________________Unesco_more END______________________________________-->
-   <!--_____________________Aurora Borealis START________________________________-->
-   <div id="subject_4" style="display:none">
-    <div class="container">
-      <div class="title">
-        <h3 class="title">Aurora borealis</h3>
-       </div>
-    </div>
-  </div>  
-  <!-- _________________Wheather_____________________________________________-->
-  <div id="subject_5" style="display:none">
-    <div class="container">
-        <div class="title">
-          <h3>What wheather</h3>
-        </div> 
-       
-    
-      </div>
-    </div>    
+   
   <!-- __________________Carousel____________________________________________ -->
-  <div id="subject_6" style="display:none">
+  <div id="inspire">
     <div class="container">
         <div class="title">
           <h3>Travel the Norway</h3>
@@ -495,7 +399,7 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </div>
    </div>
-  </div>
+</div>
     <!-- ________________________END OF CAROUSEL______________________________________________________---->
     <!--_________________________FOOTER________________________________________________________________-->
     <footer class="footer footer-black  footer-black">
@@ -504,13 +408,13 @@ The above copyright notice and this permission notice shall be included in all c
           <nav class="footer-nav">
             <ul>
               <li>
-                <a href="https://www.yr.no/nb" target="_blank">Wheather in Norway</a>
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
               </li>
               <li>
-                <a href="https://www.visitnorway.no/" target="_blank">Visit Norway</a>
+                <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
               </li>
               <li>
-                <a href="https://www.lonelyplanet.com/norway" target="_blank">Lonely Planet</a>
+                <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
               </li>
             </ul>
           </nav>
@@ -519,7 +423,7 @@ The above copyright notice and this permission notice shall be included in all c
               ©
               <script>
                 document.write(new Date().getFullYear())
-              </script> by Creative Tim
+              </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
             </span>
           </div>
         </div>
@@ -543,30 +447,106 @@ The above copyright notice and this permission notice shall be included in all c
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <script>
-      
-      
+      $(document).ready(function() {
 
-function toggleDiv(id) {
-  document.getElementById('main_photo').style.display="none";
-  document.querySelectorAll('[id^="subject"]').forEach(function(div) {
-    if (div.id == id) {
-      // Toggle specified DIV
+        if ($("#datetimepicker").length != 0) {
+          $('#datetimepicker').datetimepicker({
+            icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-chevron-up",
+              down: "fa fa-chevron-down",
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-screenshot',
+              clear: 'fa fa-trash',
+              close: 'fa fa-remove'
+            }
+          });
+        }
 
-      div.style.display = div.style.display == "none" ? "block" : "none";
+        function scrollToDownload() {
 
-      console.log(div);
-    } else {
-      // Hide other DIVs
-      console.log(div.id);
-      div.style.display = "none";
-    }
+          if ($('.section-download').length != 0) {
+            $("html, body").animate({
+              scrollTop: $('.section-download').offset().top
+            }, 1000);
+          }
+        }
+      });
+ function getUnchecked(arr) {
+   radioes=[];
+      for (let num=0; num<arr.length; num++){
+    
+      radioes.push(document.getElementsByName(String(arr[num]))[0]); 
+                         
+                }
+                return radioes
+              }
+    
+    function toggle(id1,id2) {
+    const numberSwitch = document.querySelectorAll('#switches').length; 
+    var isChecked = document.getElementById(id1);
+    console.log(isChecked);
+    numberID=Number(isChecked.name);
+    console.log(numberSwitch);
+    console.log(numberID);
+    var x = document.getElementById(id2);
+    
+   let arr=Array.from(Array(numberSwitch).keys());
+    arr.splice(numberID,1)
+    console.log(arr);
+   
+  // var switchOff=arr.forEach(rem);
+  // console.log(switchOff);
+  var radioes=[];
+
+   for (let num=0; num<arr.length; num++){
+     
+     radioes.push(document.getElementsByName(String(arr[num]))[0]); 
+               
+             
+                }
+                
+                console.log(radioes[0]);
+                console.log(radioes[1]);
+       /*       for (let num=0; num<arr.length; num++){
+     
+     if (radioes[num].checked) {radioes[num].checked=false;radioes[num].checked=false;radioes[num].onchange(); }
+              
+            
+               }*/
+               /*const list = document.querySelectorAll('input[type=checkbox]');*/
+/*Array.prototype.forEach.call(radioes, function (checkbox) {
+  checkbox.checked = false; 
+});*/
+
+    if(isChecked.checked){
+      x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
-  
-);
+
+ /* for (var num=0; num<numberSwitch; num++) {
+           if (num===numberID){
+            x.style.display = "block";
+            console.log('Selected' + num);
+           }
+          else{
+           var data=document.querySelector([name="num"]).onchange;
+            console.log('Not'+ num);
+            id=num;
+            var y= document.
+           // console.log(data);
+           radioes.checked = false;
+
+          }
+      }  */ 
+    
 }
 
 
     </script>
+</body>
 
-    </body>
 </html>

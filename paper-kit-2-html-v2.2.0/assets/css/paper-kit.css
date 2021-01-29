@@ -25,7 +25,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
-.bootstrap-switch {
+ .bootstrap-switch {
   display: inline-block;
   direction: ltr;
   cursor: pointer;
@@ -36,7 +36,7 @@
   overflow: hidden;
   margin-bottom: 5px;
   line-height: 8px;
-  width: 61px !important;
+  width: 121px !important;
   height: 26px;
   outline: none;
   z-index: 0;
@@ -289,6 +289,7 @@
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-success {
   background-color: #cfcfca;
 }
+
 
 /* Functional styling;
  * These styles are required for noUiSlider to function.
@@ -968,7 +969,7 @@
 .btn {
   box-sizing: border-box;
   border-width: 2px;
-  font-size: 12px;
+  font-size: 24px;
   font-weight: 600;
   padding: 0.5rem 18px;
   line-height: 1.75;
@@ -1273,8 +1274,8 @@ fieldset[disabled] .btn-success.active {
 }
 
 .btn-info {
-  background-color: #51bcda;
-  border-color: #51bcda;
+  background-color: #2a9df4;
+  border-color: #2a9df4;
   color: #FFFFFF;
   opacity: 1;
   filter: alpha(opacity=100);
@@ -3044,8 +3045,7 @@ h1,
 .h1,
 h2,
 .h2,
-h3,
-.h3,
+
 h4,
 .h4,
 h5,
@@ -3065,7 +3065,7 @@ textarea {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: "Montserrat", "Helvetica", Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 h1,
@@ -3110,7 +3110,7 @@ h5,
 
 h6,
 .h6 {
-  font-size: 0.9em;
+  font-size: 1.2em;
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.5em;
@@ -3189,6 +3189,7 @@ h3 .small {
 
 .title-uppercase {
   text-transform: uppercase;
+  font-weight:800;
 }
 
 .description {
@@ -3290,8 +3291,8 @@ blockquote small {
 
 body {
   color: #66615b;
-  font-size: 14px;
-  font-weight: 300;
+  font-size: 15px;
+  font-weight: 520;
   font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
 }
 
@@ -3590,7 +3591,6 @@ License - nucleoapp.com/license/
   display: inline-block;
   font: normal normal normal 14px/1 'nucleo-icons';
   font-size: inherit;
-  speak: none;
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
@@ -5551,7 +5551,6 @@ License - nucleoapp.com/license/
 .modal-footer .divider {
   background-color: #DDDDDD;
   display: inline-block;
-  float: inherit;
   height: 63px;
   margin: 0px -3px;
   width: 1px;
@@ -5808,50 +5807,49 @@ License - nucleoapp.com/license/
 .footer {
   background-attachment: fixed;
   position: relative;
-  line-height: 20px;
+ 
 }
 
 .footer .footer-nav ul {
-  padding-left: 0;
+  padding: 0;
   margin-bottom: 0;
 }
 
 .footer nav>ul {
   list-style: none;
   font-weight: normal;
+  
 }
 
 .footer nav>ul>li {
   display: inline-block;
-  padding: 10px 15px;
-  margin: 15px 3px;
-  line-height: 20px;
+  font-size:12px;
+  padding: 0px 10px;
+  /*margin: 15px 3px;*/
   text-align: center;
 }
 
 .footer nav>ul a:not(.btn) {
-  color: #777777;
+  color: #FFFFFF;
   display: block;
   margin-bottom: 3px;
   line-height: 1.6;
   opacity: .8;
-  font-size: 12px;
   text-transform: uppercase;
   font-weight: 600;
 }
 
 .footer nav>ul a:not(.btn):hover,
 .footer nav>ul a:not(.btn):focus {
-  color: #777777;
+  color: #FFFFFF;
   opacity: 1;
 }
 
 .footer .copyright {
-  color: #777777;
-  padding: 10px 0px;
-  font-size: 14px;
+  color: #FFFFFF;
+  padding: 0px 0px;
+  font-size: 12px;
   margin: 15px 3px;
-  line-height: 20px;
   text-align: center;
 }
 
@@ -5860,8 +5858,8 @@ License - nucleoapp.com/license/
 }
 
 .footer {
-  background-color: #FFFFFF;
-  line-height: 36px;
+  background-color: #383636;
+  padding:0px;
 }
 
 .footer.footer-black h4 {
@@ -5889,7 +5887,7 @@ License - nucleoapp.com/license/
 }
 
 .footer .links ul a:not(.btn) {
-  color: #66615b;
+  color: #FFFFFF;
   display: block;
   font-size: 0.9em;
   margin-bottom: 3px;
@@ -5897,7 +5895,7 @@ License - nucleoapp.com/license/
 
 .footer .links ul a:not(.btn):hover,
 .footer .links ul a:not(.btn):focus {
-  color: #403D39;
+  color: #FFFFFF;
 }
 
 .footer .links ul.uppercase-links {
@@ -5910,7 +5908,6 @@ License - nucleoapp.com/license/
 
 .footer .links ul.stacked-links>li {
   display: block;
-  line-height: 26px;
 }
 
 .footer .links ul.stacked-links h4 {
@@ -5939,7 +5936,7 @@ License - nucleoapp.com/license/
 }
 
 .footer .copyright {
-  color: #A49E9E;
+  color: #FFFFFF;
   font-size: 0.9em;
 }
 
@@ -5948,7 +5945,7 @@ License - nucleoapp.com/license/
 }
 
 .footer .title {
-  color: #403D39;
+  color: #FFFFFF;
 }
 
 .card {
@@ -6105,7 +6102,6 @@ License - nucleoapp.com/license/
 
 .card .stats {
   display: inline-block;
-  float: right;
   color: #9A9A9A;
   font-size: 12px;
   margin-top: 6px;
@@ -6814,6 +6810,7 @@ License - nucleoapp.com/license/
   background: -webkit-linear-gradient(top, #FFFFFF 35%, #2a9df4 80%);
   background: -ms-linear-gradient(top, #FFFFFF 35%, #2a9df4 80%);
   background: linear-gradient(to bottom, #FFFFFF 35%, #2a9df4 80%);
+  /*background: linear-gradient(to bottom, #FFFFFF 35%, #4e6773 100%);*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -7449,9 +7446,7 @@ License - nucleoapp.com/license/
   .dropdown-menu {
     display: none;
   }
-  .navbar-fixed-top {
-    -webkit-backface-visibility: hidden;
-  }
+  
   .social-line .btn {
     margin: 0 0 10px 0;
   }
@@ -8188,3 +8183,51 @@ License - nucleoapp.com/license/
 }
 
 /*# sourceMappingURL=kit-free.css.map */
+
+/*My section*/
+.d-flex  {padding: 2% 5% }
+label {flex-flow: row; flex-direction: row; justify-content: space-around;}
+#subject_1 {display:none; padding-bottom:5%}
+#subject_2 {display:none;padding-bottom:5%} 
+#subject_3 {display:none;padding-bottom:5%}
+#subject_4 {display:none;padding-bottom:5%}
+#subject_5 {display:none;padding-bottom:5%}
+#subject_6 {display:none;padding-bottom:5%}
+#UNESCO_more {display:none;padding: 5% 0%}
+input {padding:10%}
+#switches {display:block;}
+#main_photo {padding: 3% 0%}  
+.container1 {
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: center;
+}
+.container1 > img {
+	width: 600px;
+	height: 400px;
+	margin: 10px;
+  transition: all 1s;
+}
+
+.container1 > img:hover {
+	transform: scale(1.1);
+}
+.blue {color:#00bbff;
+  font-weight: 800;
+  text-align: justify;
+  
+  }
+ #UNESCO > ul {font-size: 16px;
+      font-weight: 500;
+      list-style: none;
+    padding-left: 0;
+}
+ 
+@media screen and (max-width: 500px) {  
+  .btn {font-size:18px;}
+}
+
+
+
+
+/*End of my section*/
