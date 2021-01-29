@@ -34,7 +34,8 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Files -->
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="./assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />
-  
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="./assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -107,47 +108,16 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="moving-clouds" style="background-image: url('./assets/img/clouds.png'); "></div>
 
   </div>
-</div>
-<div class="main">
-  <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-  
-    
-     
-   <div class="d-flex flex-wrap justify-content-around">
-    
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_1')">Gallery</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_2')">My stories</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_3')">UNESCO heritage</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_4')" >Aurora Borealis</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_5')">Wheather</button>
-    <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_6')" >Be inspired</button>
-    <div class="col-md-12">&nbsp;</div>
-    <div class="col-md-12">&nbsp;</div>
-   
-  
-    
-  </div>
- 
-
-</div>
-
-<div  id="main_photo" class="main">
-  <div class="container">
-    <div class="col-md-8">&nbsp;</div>
-
-<img src="assets/img/girl_with_a_flag01.jpg" class="img-rounded img-responsive" >
-  </div>
-</div>
-</div>
-
-
-
-<!--
+  <div class="main">
+    <div class="container">
+    </br> 
+    <div class="title">
+        <h3>What do you want to see?</h3>
+    </div>
+       
+    <div class="d-flex flex-wrap justify-content-around">
          <div>  
-          
+           <div id="switches">
              <label>
               <span class="title" text-bold><h6>Gallery</h6></span>
               <input id="Bergen_gallery" name="0" type="checkbox" data-toggle="switch"  data-on-color="primary" data-off-color="primary" onchange="toggle(document.getElementById('Bergen_gallery').id, document.getElementById('Gallery').id)">
@@ -157,7 +127,7 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
              
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>My stories</h6></span>
                <input id="My_stories" name="1" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -166,7 +136,7 @@ The above copyright notice and this permission notice shall be included in all c
            </div>
 
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>UNESCO heritage</h6></span>
                <input id="UNESCO_heritage" name="2" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary"  onchange="toggle(document.getElementById('UNESCO_heritage').id, document.getElementById('UNESCO').id)">
@@ -177,7 +147,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 
           <div>  
-           
+            <div id="switches">
               <label>
                 <span class="title"><h6>Aurora Borealis</h6></span>
                <input id="Aurora_Borealis" name="3" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -187,7 +157,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 
             <div>  
-             
+              <div id="switches">
                 <label>
                   <span class="title"><h6>Wheather</h6></span>
                  <input id="Wheather" name="4" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -196,7 +166,7 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
 
               <div>  
-               
+                <div id="switches">
                   <label>
                     <span class="title"><h6>Be inspired</h6></span>
                    <input id="Inspiration" name="5" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
@@ -206,14 +176,17 @@ The above copyright notice and this permission notice shall be included in all c
 
       </div>
     </div>
-  </div> ->>
-<!- -Nav content END-->
+  </div> 
+<!---Nav content END-->
   <br/>
 
  <!----------------*-Gallery-*-------------------------------------------------->
-
-  <div id="subject_1" style="display:none">
+<div id="container_all"> 
+  <div id="Gallery">
     <div class="container">
+      <div class="title">
+        <h3>&nbsp;</h3>
+       </div>
       </div>
        <div class="container1">
         <img src="assets/img/gallery/bleik-beach-andoya.jpg" alt="Andoya beach" data-toggle="popover" data-placement="top"  title="North sea beach" >     
@@ -225,205 +198,62 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </div> 
 <!----------------*-END OF Gallery-*-------------------------------------------------->
-<!----------------*-My stories-*-------------------------------------------------->  
-<div id="subject_2" style="display:none">
-  <div class="container">
-    <div class="title">
-      <h3 class="title">The day in Trolltunga</h3>
-     </div> <p>
-  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. 
-       Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
-       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-     </p>
-     <p>
-       Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-  </p>
-      </div>   
-</div>     
-<!----------------*-END OF My stories-*-------------------------------------------------->
-
+  
 <!----------------*-UNESCO-*-------------------------------------------------->
 
-<div id="subject_3" style="display:none">
+<div id="UNESCO">
     <div class="container">
-      
-        <h3 class="title" style="text-align: center;">List of Norwegian UNESCO Heritage</h3>
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6">
-              <span class="title"><h6>Bryggen in Bergen (1979)</h6></span>
-          </label>
-              <input id="Bryggen"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 0)" >
-          </div>
-          <article class="typography-line">
-            <div class="row">
-            
-              Bryggen, the old wharf of Bergen, is a reminder of the town’s importance as part of the Hanseatic League’s trading empire from the 14th to the mid-16th century.
-               Many fires, the last in 1955, have ravaged the characteristic wooden houses of Bryggen. Its rebuilding has traditionally followed 
-              old patterns and methods, thus leaving its main structure preserved, which is a relic of an ancient wooden urban structure once common in Northern Europe. Today, some 62 buildings remain of this former townscape.
-            
-           <img src="assets/img/gallery/bergen.jpg">   
-             </div>
-        </article>
- 
-          <div class="d-flex w-100 justify-content-between">
-            <label class="col-6">
-               <span class="title"> <h6>Urnes Stave Church (1980)</h6></span>
-             </label>
-           <input id="Urnes"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 1)">
-          </div>
-          <article class="typography-line">
-            <div class="row">
-                The wooden stave church of Urnes stands in the natural setting of Sogn og Fjordane. 
-                It was built in the 12th and 13th centuries and is an outstanding example of traditional Scandinavian wooden architecture.
-                 It brings together traces of Celtic art, Viking traditions and Romanesque spatial structures.
-                 <img src="assets/img/gallery/urnesStaveChurch.jpg">   
-              </div> 
-            </article>
-       
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-8">
-            <span class="title"><h6>Røros Mining Town (1980)</h6></span>
-          </label>
-           <input id="Roros"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 2)">
-        </div>
-        <article class="typography-line">
-          <div class="row">
-            
-            Røros Mining Town and the Circumference is linked to the copper mines, established in the 17th century and exploited for 333 years until 1977. 
-            The site comprises the Town and its industrial-rural cultural landscapes; Femundshytta, a smelter with its associated area; and the Winter Transport Route. 
-            Completely rebuilt after its destruction by Swedish troops in 1679, Røros contains about 2000 wooden one- and two-storey houses and a smelting house.
-             Many of these buildings have preserved their blackened wooden façades, giving the town a medieval appearance. Surrounded by a buffer zone, coincident with the area of privileges (the Circumference) 
-            granted to the mining enterprise by the Danish-Norwegian Crown (1646), the property illustrates the establishment and 
-            flourishing of a lasting culture based on copper mining in a remote region with a harsh climate.
-            <img src="assets/img/gallery/roros-mining-town-L.jpg">
-           </div> 
-          </article> 
-      
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Rock Art of Alta (1985)</h6></span></label>
-           <input id="Alta" class=" bootstrap-switch-large "  label="See more" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 3)">
-         </div>
-         <article class="typography-line">
-        <div class="row">
-          This group of petroglyphs in the Alta Fjord, near the Arctic Circle, bears traces of a settlement dating from c. 4200 to 500 B.C. 
-          The thousands of paintings and engravings add to our understanding of the environment and human activities on the fringes of the Far North in prehistoric times.
-          <img src="assets/img/gallery/alta_rock.jpg">
-         </div> 
-        </article> 
-         
-         <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Vegaøyan – The Vega Archipelago (2004)</h6></span></label>
-           <input id="Vegaoyan"   type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 4)">
+      <div class="title">
+        <h3 class="title">List of Norwegian UNESCO Heritage</h3>
        </div>
-       <article class="typography-line">
-        <div class="row">
-          A cluster of islands centered on Vega, just south of the Arctic Circle, forms a cultural landscape of 103,710 ha, of which 6,930 ha is land. The islands bear testimony to a distinctive frugal way of life, 
-          based on fishing and harvesting down from the eider ducks over the past 1,500 years.
-           Fishing villages, quays, warehouses, eider houses (built for eider ducks to nest in), 
-           farming landscapes, lighthouses and beacons are important sites. Evidence is also found of human settlement from the Stone Age onwards.
-            By the 9th century, the islands had become an important centre for the supply of down, which appears to have accounted for around a third of the islanders’ income.
-            <img src="assets/img/gallery/vega.jpg">
-         </div> 
-        </article> 
-
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Struve Geodetic Arc (2005)</h6></span></label>
-           <input id="Struve"    type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 5)" >
-          </div>
-          <article class="typography-line">
-            <div class="row">
-           
-              The Struve Arc is a chain of survey triangulations stretching from Hammerfest in Norway to the Black Sea, through 10 countries and over 2,820 km. These are points of a survey, 
-              carried out between 1816 and 1855 by the astronomer Friedrich Georg Wilhelm Struve, which represented the first accurate measuring of a long segment of a meridian. 
-              This helped to establish the exact size and shape of the planet and marked an important step in the development of earth sciences and topographic mapping. 
-              It is an extraordinary example of collaboration among scientists from different countries, and of collaboration between monarchs for a scientific cause. 
-              The original arc consisted of 258 main triangles with 265 main station points. 
-              The listed site includes 34 of the original station points, with different markings, i.e. a drilled hole in rock, iron cross, cairns, or built obelisks.
-              <img src="assets/img/gallery/hammerfest-harbour-norway.jpg">
-             </div> 
-            </article> 
-       
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)</h6></span></label>
-           <input id="Fjords"  type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 6)">
-         </div> 
-         <article class="typography-line">
-          <div class="row">
-         
-           The Naeroyfjord the most beautiful and wildest arm of the Sognefjord is on the UNESCO World Heritage list.
-            Fjord cruises in unique setting, with sheer, snow-topped mountains, waterfalls and idyllic farms clinging to the mountainsides. 
-            The Nærøyfjord is 17 km long and the narrowest point is only 250 m wide. The passage through Nærøyfjord is one of the most dramatic fjord trips in Europe.
-             A passenger boat between Gudvangen-Aurland-Flåm is running all year. 
-             <img src="assets/img/gallery/naeroyfjord-norway.jpg">
-            
-          </div> 
-      
-           
-        
-         <div class="row">
-        
-           The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. 
-           It is located entirely in the Stranda Municipality. It is a 15-kilometre -long branch off the Sunnylvsfjorden, which is a branch off the Storfjorden.
-           The fjord is 260 metres deep while the surrounding mountains are 1600-1700 metres high. 
-           The fjord is also known for its spectacular waterfalls and deserted fjord farms high up on the steep cliffsides. 
-           The now deserted fjord farms tell the tales of a different time and way of life. 
-           The idyllic nature and the dramatic mountains will impress any visitor in the area. 
-           <img src="assets/img/gallery/geiganger.jpg&dh=500&dw=800&t=4">
-
-          </div> 
-       
-       </article> 
-         
-        <div class="d-flex w-100 justify-content-between">
-          <label class="col-6"><span class="title"><h6>Rjukan–Notodden Industrial Heritage Site (2015)</h6></span> </label>
-         
-           <input id="Rjukan" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 7)">
+      <ul>
+        <li>Bryggen (1979)</li>
+        <li>Urnes Stave Church (1980)</li>
+        <li>Røros Mining Town (1980)</li>
+        <li>Rock Art of Alta (1985)</li>
+        <li>Vegaøyan – The Vega Archipelago (2004)</li>
+        <li>Struve Geodetic Arc (2005)</li>
+        <li>West Norwegian Fjords – Geirangerfjord and Nærøyfjord (2005)</li>
+        <li>Rjukan–Notodden Industrial Heritage Site (2015)</li>
+        </ul>
+        <div class="title">
+          <a href="#UNESCO_more"><h3 class="title-uppercase">See more</h3></a>
          </div>
-
-         <article class="typography-line">
-          <div class="row">
-             
-            Located in a dramatic landscape of mountains, waterfalls and river valleys, the site comprises hydroelectric power plants, transmission lines, factories, 
-            transport systems and towns. The complex was established by the Norsk-Hydro Company to manufacture artificial fertilizer from nitrogen in the air. 
-            It was built to meet the Western world’s growing demand for agricultural production in the early 20th century. The company towns of Rjukan and Notodden show workers’ accommodation 
-            and social institutions linked by rail and ferry to ports where the fertilizer was loaded. 
-            The Rjukan-Notodden site manifests an exceptional combination of industrial assets and themes associated to the natural landscape. It stands out as an example of a new global industry in the early 20th century.
-          <img src="assets/img/gallery/rjukan_nottoden.jpg">
-          </div> 
-         </article> 
-
-        </div>
       </div> 
-    
+    </div>
   <!----------------*-UNESCO-*-------------------------------------------------->
   
 <div id="UNESCO_more">
   <div class="container">
-    
-    
-    
-    <article class="typography-line">
-        <div class="row">
-        
+          <div class="title-uppercase blue">
+             <h3>Bryggen</h3>
+          </div>
+    <div class="row">
+        <article class="typography-line">
           Bryggen, the old wharf of Bergen, is a reminder of the town’s importance as part of the Hanseatic League’s trading empire from the 14th to the mid-16th century.
            Many fires, the last in 1955, have ravaged the characteristic wooden houses of Bryggen. Its rebuilding has traditionally followed 
           old patterns and methods, thus leaving its main structure preserved, which is a relic of an ancient wooden urban structure once common in Northern Europe. Today, some 62 buildings remain of this former townscape.
-        
-       <img src="assets/img/gallery/bergen.jpg" style="float: right;">   
-         </div>
-    </article>
-   
-    <article class="typography-line">
-       <div class="row">
+        </article>
+      <img src="assets/img/gallery/bergen.jpg" style:"float: right;">  
+    </div>
+
+        <div class="title blue">
+          <h3>Urnes Stave Church</h3>
+        </div>
+    <div class="row">
+        <div class="typography-line">
+          Urnes Stave Church
            The wooden stave church of Urnes stands in the natural setting of Sogn og Fjordane. 
            It was built in the 12th and 13th centuries and is an outstanding example of traditional Scandinavian wooden architecture.
             It brings together traces of Celtic art, Viking traditions and Romanesque spatial structures.
          </div> 
-       </article>
+       </div> 
 
-       <article class="typography-line">
+       <div class="title blue">
+        <h3>Røros Mining Town and the Circumference</h3>
+       </div>
         <div class="row">
-          
+          <div class="typography-line">
           Røros Mining Town and the Circumference is linked to the copper mines, established in the 17th century and exploited for 333 years until 1977. 
           The site comprises the Town and its industrial-rural cultural landscapes; Femundshytta, a smelter with its associated area; and the Winter Transport Route. 
           Completely rebuilt after its destruction by Swedish troops in 1679, Røros contains about 2000 wooden one- and two-storey houses and a smelting house.
@@ -431,30 +261,35 @@ The above copyright notice and this permission notice shall be included in all c
           granted to the mining enterprise by the Danish-Norwegian Crown (1646), the property illustrates the establishment and 
           flourishing of a lasting culture based on copper mining in a remote region with a harsh climate.
          </div> 
-        </article> 
+       </div> 
 
-       <article class="typography-line"></article>
+       <div class="title blue">
+        <h3>  Rock Art of Alta </h3>
+       </div>
         <div class="row">
-        
+        <div class="typography-line">
           This group of petroglyphs in the Alta Fjord, near the Arctic Circle, bears traces of a settlement dating from c. 4200 to 500 B.C. 
           The thousands of paintings and engravings add to our understanding of the environment and human activities on the fringes of the Far North in prehistoric times.
          </div> 
-        </article> 
+       </div> 
    
-      <article class="typography-line">
+       <div class="title blue">
+        <h3>Vegaøyan – The Vega Archipelago</h3>
+       </div>
         <div class="row">
-        
+        <div class="typography-line">
           A cluster of islands centered on Vega, just south of the Arctic Circle, forms a cultural landscape of 103,710 ha, of which 6,930 ha is land. The islands bear testimony to a distinctive frugal way of life, 
           based on fishing and harvesting down from the eider ducks over the past 1,500 years.
            Fishing villages, quays, warehouses, eider houses (built for eider ducks to nest in), 
            farming landscapes, lighthouses and beacons are important sites. Evidence is also found of human settlement from the Stone Age onwards.
             By the 9th century, the islands had become an important centre for the supply of down, which appears to have accounted for around a third of the islanders’ income.
          </div> 
-        </article> 
-       
-        <article class="typography-line"></div>
+       </div> 
+       <div class="title blue">
+        <h3>Struve Geodetic Arc</h3>
+       </div>
         <div class="row">
-       
+        <div class="typography-line">
           The Struve Arc is a chain of survey triangulations stretching from Hammerfest in Norway to the Black Sea, through 10 countries and over 2,820 km. These are points of a survey, 
           carried out between 1816 and 1855 by the astronomer Friedrich Georg Wilhelm Struve, which represented the first accurate measuring of a long segment of a meridian. 
           This helped to establish the exact size and shape of the planet and marked an important step in the development of earth sciences and topographic mapping. 
@@ -462,21 +297,24 @@ The above copyright notice and this permission notice shall be included in all c
           The original arc consisted of 258 main triangles with 265 main station points. 
           The listed site includes 34 of the original station points, with different markings, i.e. a drilled hole in rock, iron cross, cairns, or built obelisks.
          </div> 
-        </article> 
-       
-       <article class="typography-line">
-         <div class="row">
-        
+       </div> 
+       <div class="title blue">
+        <h3>Naeroyfjord</h3>
+       </div>
+        <div class="row">
+        <div class="typography-line">
           The Naeroyfjord the most beautiful and wildest arm of the Sognefjord is on the UNESCO World Heritage list.
            Fjord cruises in unique setting, with sheer, snow-topped mountains, waterfalls and idyllic farms clinging to the mountainsides. 
            The Nærøyfjord is 17 km long and the narrowest point is only 250 m wide. The passage through Nærøyfjord is one of the most dramatic fjord trips in Europe.
             A passenger boat between Gudvangen-Aurland-Flåm is running all year. 
          </div> 
-     
+       </div> 
 
-       
+       <div class="title blue">
+        <h3>Geirangerfjord</h3>
+       </div>
         <div class="row">
-       
+        <div class="typography-line">
           The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. 
           It is located entirely in the Stranda Municipality. It is a 15-kilometre -long branch off the Sunnylvsfjorden, which is a branch off the Storfjorden.
           The fjord is 260 metres deep while the surrounding mountains are 1600-1700 metres high. 
@@ -484,44 +322,26 @@ The above copyright notice and this permission notice shall be included in all c
           The now deserted fjord farms tell the tales of a different time and way of life. 
           The idyllic nature and the dramatic mountains will impress any visitor in the area. 
          </div> 
-      
-      </article> 
+       </div> 
    
      
-  <article class="typography-line">
+  <div class="title blue">
+    <h3>Rjukan–Notodden Industrial Heritage Site</h3>
+   </div>
     <div class="row">
-       
+    <div class="typography-line">
       Located in a dramatic landscape of mountains, waterfalls and river valleys, the site comprises hydroelectric power plants, transmission lines, factories, 
       transport systems and towns. The complex was established by the Norsk-Hydro Company to manufacture artificial fertilizer from nitrogen in the air. 
       It was built to meet the Western world’s growing demand for agricultural production in the early 20th century. The company towns of Rjukan and Notodden show workers’ accommodation 
       and social institutions linked by rail and ferry to ports where the fertilizer was loaded. 
       The Rjukan-Notodden site manifests an exceptional combination of industrial assets and themes associated to the natural landscape. It stands out as an example of a new global industry in the early 20th century.
      </div> 
-   </article> 
-  
+   </div> 
   </div>
 </div> 
-   <!--_____________________Unesco_more END______________________________________-->
-   <!--_____________________Aurora Borealis START________________________________-->
-   <div id="subject_4" style="display:none">
-    <div class="container">
-      <div class="title">
-        <h3 class="title">Aurora borealis</h3>
-       </div>
-    </div>
-  </div>  
-  <!-- _________________Wheather_____________________________________________-->
-  <div id="subject_5" style="display:none">
-    <div class="container">
-        <div class="title">
-          <h3>What wheather</h3>
-        </div> 
-       
-    
-      </div>
-    </div>    
+   
   <!-- __________________Carousel____________________________________________ -->
-  <div id="subject_6" style="display:none">
+  <div id="inspire">
     <div class="container">
         <div class="title">
           <h3>Travel the Norway</h3>
@@ -579,7 +399,7 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </div>
    </div>
-  </div>
+</div>
     <!-- ________________________END OF CAROUSEL______________________________________________________---->
     <!--_________________________FOOTER________________________________________________________________-->
     <footer class="footer footer-black  footer-black">
@@ -588,13 +408,13 @@ The above copyright notice and this permission notice shall be included in all c
           <nav class="footer-nav">
             <ul>
               <li>
-                <a href="https://www.yr.no/nb" target="_blank">Wheather in Norway</a>
+                <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
               </li>
               <li>
-                <a href="https://www.visitnorway.no/" target="_blank">Visit Norway</a>
+                <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
               </li>
               <li>
-                <a href="https://www.lonelyplanet.com/norway" target="_blank">Lonely Planet</a>
+                <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
               </li>
             </ul>
           </nav>
@@ -603,7 +423,7 @@ The above copyright notice and this permission notice shall be included in all c
               ©
               <script>
                 document.write(new Date().getFullYear())
-              </script> by Creative Tim
+              </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
             </span>
           </div>
         </div>
@@ -627,41 +447,106 @@ The above copyright notice and this permission notice shall be included in all c
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <script>
-      
-      
+      $(document).ready(function() {
 
-function toggleDiv(id) {
-  document.getElementById('main_photo').style.display="none";
-  document.querySelectorAll('[id^="subject"]').forEach(function(div) {
-    if (div.id == id) {
-      // Toggle specified DIV
+        if ($("#datetimepicker").length != 0) {
+          $('#datetimepicker').datetimepicker({
+            icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-chevron-up",
+              down: "fa fa-chevron-down",
+              previous: 'fa fa-chevron-left',
+              next: 'fa fa-chevron-right',
+              today: 'fa fa-screenshot',
+              clear: 'fa fa-trash',
+              close: 'fa fa-remove'
+            }
+          });
+        }
 
-      div.style.display = div.style.display == "none" ? "block" : "none";
+        function scrollToDownload() {
 
-      console.log(div);
-    } else {
-      // Hide other DIVs
-      console.log(div.id);
-      div.style.display = "none";
-    }
-  }
-  
-);
-}
+          if ($('.section-download').length != 0) {
+            $("html, body").animate({
+              scrollTop: $('.section-download').offset().top
+            }, 1000);
+          }
+        }
+      });
+ function getUnchecked(arr) {
+   radioes=[];
+      for (let num=0; num<arr.length; num++){
+    
+      radioes.push(document.getElementsByName(String(arr[num]))[0]); 
+                         
+                }
+                return radioes
+              }
+    
+    function toggle(id1,id2) {
+    const numberSwitch = document.querySelectorAll('#switches').length; 
+    var isChecked = document.getElementById(id1);
+    console.log(isChecked);
+    numberID=Number(isChecked.name);
+    console.log(numberSwitch);
+    console.log(numberID);
+    var x = document.getElementById(id2);
+    
+   let arr=Array.from(Array(numberSwitch).keys());
+    arr.splice(numberID,1)
+    console.log(arr);
+   
+  // var switchOff=arr.forEach(rem);
+  // console.log(switchOff);
+  var radioes=[];
 
-function toggleCont(id1,id2) {
-  id2=Number(id2); console.log(id2);
-  console.log(document.getElementById(id1).checked);
-  container=document.querySelector("#subject_3");
-  console.log(container.querySelectorAll('article')[id2]);
-if(document.getElementById(id1).checked){
-  container.querySelectorAll('article')[id2].style.display = "block";
+   for (let num=0; num<arr.length; num++){
+     
+     radioes.push(document.getElementsByName(String(arr[num]))[0]); 
+               
+             
+                }
+                
+                console.log(radioes[0]);
+                console.log(radioes[1]);
+       /*       for (let num=0; num<arr.length; num++){
+     
+     if (radioes[num].checked) {radioes[num].checked=false;radioes[num].checked=false;radioes[num].onchange(); }
+              
+            
+               }*/
+               /*const list = document.querySelectorAll('input[type=checkbox]');*/
+/*Array.prototype.forEach.call(radioes, function (checkbox) {
+  checkbox.checked = false; 
+});*/
+
+    if(isChecked.checked){
+      x.style.display = "block";
   } else {
-    container.querySelectorAll('article')[id2].style.display= "none";
+    x.style.display = "none";
   }
+
+ /* for (var num=0; num<numberSwitch; num++) {
+           if (num===numberID){
+            x.style.display = "block";
+            console.log('Selected' + num);
+           }
+          else{
+           var data=document.querySelector([name="num"]).onchange;
+            console.log('Not'+ num);
+            id=num;
+            var y= document.
+           // console.log(data);
+           radioes.checked = false;
+
+          }
+      }  */ 
+    
 }
+
 
     </script>
+</body>
 
-    </body>
 </html>
