@@ -36,7 +36,7 @@
   overflow: hidden;
   margin-bottom: 5px;
   line-height: 8px;
-  width: 121px !important;
+  width: 61px !important;
   height: 26px;
   outline: none;
   z-index: 0;
@@ -8194,6 +8194,8 @@ label {flex-flow: row; flex-direction: row; justify-content: space-around;}
 #subject_5 {display:none;padding-bottom:5%}
 #subject_6 {display:none;padding-bottom:5%}
 #UNESCO_more {display:none;padding: 5% 0%}
+article {display:none; text-indent: 8%; font-size:18px; font-weight:300; justify-content: center; text-align:left;}
+.row > img {padding:5% 0%; max-width:100%}
 input {padding:10%}
 #switches {display:block;}
 #main_photo {padding: 3% 0%}  
