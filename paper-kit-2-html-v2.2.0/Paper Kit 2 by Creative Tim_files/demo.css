@@ -618,10 +618,8 @@
   padding-bottom: 0;
 }
 
-
 @media screen and (max-width: 991px) {
   .section-navbars .navbar-collapse {
     display: none !important;
   }
 }
-
