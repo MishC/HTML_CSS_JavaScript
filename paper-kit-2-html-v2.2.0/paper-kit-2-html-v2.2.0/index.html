@@ -21,8 +21,8 @@ The above copyright notice and this permission notice shall be included in all c
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img//apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img//favicon.png">
+  <link rel="icon_mountain" sizes="76x76" href="./assets/img/icon/journey-favicon-mountain.png">
+  <link rel="icon" type="image/png" href="./assets/img/icon/journey-favicon-mountain.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Norway - beautiful landscape
@@ -39,7 +39,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 <body class="index-page sidebar-collapse">
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent " color-on-scroll="300">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="300">
     <div class="container">
       <div class="navbar-translate">
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="nav-item">
             <a class="nav-link" rel="tooltip" title="Follow us on Instagram" data-placement="bottom" href="https://www.instagram.com/mi3acho" target="_blank">
-              <i class="fa fa-instagram"></i>
+              <i class="fa fa-instagram" aria-hidden="true" ></i>
               <p class="d-lg-none">Instagram</p>
             </a>
           </li>
@@ -81,6 +81,7 @@ The above copyright notice and this permission notice shall be included in all c
   </nav>
   <!-- End Navbar -->
   <!---Nav content-->
+  <div id="initial">
   <div class="page-header section-dark" style="background-image: url('./assets/img/norway_summer_03.jpg')">
     <div class="filter"></div>
     <div class="content-center">
@@ -92,30 +93,43 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
           <div class="fog-low right">
             <img src="./assets/img/fog-low.png" alt="">
-          </div>
-        </div>
-        <h2 class="presentation-subtitle text-center mb-5 fw-bolder">Beautiful landscape closer to you</h2>
+          </div> <!--end of title-brand-->
+       </div>
+        <h2 class="presentation-subtitle text-center mb-5 fw-bolder" style="font-weight: 500;">Beautiful landscape closer to you</h2>
      
         <p class="presentation-subsubtitle text-center"> 
           Norway is packed with unique and stunning nature to see. Whether there are fjords in the Vestlands, unique-shaped stone formations over sea or lakes,  magic Lofoten, Aurora Borealis, midnight sun - 
           Norway is the perfect travel destination all around the year.</br>
           Here, I want to share my experience with this country. 
         </p>
-          
-      </div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+        <div class="col-md-12">&nbsp;</div>
+         <div class="content" style="vertical-align: middle;text-align: center;">
+    
+    <p style="text-align: center;"> 
+  <button type="button" id="seeMore" class="btn btn-info btn-round" onclick="changeVisibility(initial,content_main)"> 
+            &nbsp;&nbsp;ENTER&nbsp; &nbsp;</button>
+  </p>
+      </div> 
     </div>
-    <div class="moving-clouds" style="background-image: url('./assets/img/clouds.png'); "></div>
-
-  </div>
+    
+   <div class="moving-clouds" style="background-image: url('./assets/img/clouds.png');z-index:2; "></div>
+     
+  </div> 
+ 
 </div>
+</div> <!-- End of div initial-->
+<!--======IMPORTANT_MAIN_CONTENT-->
+<div id="content_main" style="display:none;">
 <div class="main">
   <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">&nbsp;</div>
     <div class="col-md-12">&nbsp;</div>
   
-    
-     
+  
    <div class="d-flex flex-wrap justify-content-around">
     
     <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_1')">Gallery</button>
@@ -141,74 +155,7 @@ The above copyright notice and this permission notice shall be included in all c
 <img src="assets/img/girl_with_a_flag01.jpg" class="img-rounded img-responsive" >
   </div>
 </div>
-</div>
 
-
-
-<!--
-         <div>  
-          
-             <label>
-              <span class="title" text-bold><h6>Gallery</h6></span>
-              <input id="Bergen_gallery" name="0" type="checkbox" data-toggle="switch"  data-on-color="primary" data-off-color="primary" onchange="toggle(document.getElementById('Bergen_gallery').id, document.getElementById('Gallery').id)">
-              
-             </label>
-            </div>
-          </div>
-             
-          <div>  
-           
-              <label>
-                <span class="title"><h6>My stories</h6></span>
-               <input id="My_stories" name="1" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-              </label>
-             </div>
-           </div>
-
-          <div>  
-           
-              <label>
-                <span class="title"><h6>UNESCO heritage</h6></span>
-               <input id="UNESCO_heritage" name="2" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary"  onchange="toggle(document.getElementById('UNESCO_heritage').id, document.getElementById('UNESCO').id)">
-               
-              </label>
-             </div>
-           </div>
-
-
-          <div>  
-           
-              <label>
-                <span class="title"><h6>Aurora Borealis</h6></span>
-               <input id="Aurora_Borealis" name="3" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-              </label>
-             </div>
-            </div>
-
-
-            <div>  
-             
-                <label>
-                  <span class="title"><h6>Wheather</h6></span>
-                 <input id="Wheather" name="4" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-                </label>
-               </div>
-              </div>
-
-              <div>  
-               
-                  <label>
-                    <span class="title"><h6>Be inspired</h6></span>
-                   <input id="Inspiration" name="5" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary">
-                  </label>
-                 </div>
-                </div>
-
-      </div>
-    </div>
-  </div> ->>
-<!- -Nav content END-->
-  <br/>
 
  <!----------------*-Gallery-*-------------------------------------------------->
 
@@ -248,6 +195,7 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="container">
       
         <h3 class="title" style="text-align: center;">List of Norwegian UNESCO Heritage</h3>
+
         <div class="d-flex w-100 justify-content-between">
           <label class="col-6">
               <span class="title"><h6>Bryggen in Bergen (1979)</h6></span>
@@ -393,115 +341,8 @@ The above copyright notice and this permission notice shall be included in all c
          </article> 
 
         </div>
-      </div> 
-    
-  <!----------------*-UNESCO-*-------------------------------------------------->
-  
-<div id="UNESCO_more">
-  <div class="container">
-    
-    
-    
-    <article class="typography-line">
-        <div class="row">
-        
-          Bryggen, the old wharf of Bergen, is a reminder of the town’s importance as part of the Hanseatic League’s trading empire from the 14th to the mid-16th century.
-           Many fires, the last in 1955, have ravaged the characteristic wooden houses of Bryggen. Its rebuilding has traditionally followed 
-          old patterns and methods, thus leaving its main structure preserved, which is a relic of an ancient wooden urban structure once common in Northern Europe. Today, some 62 buildings remain of this former townscape.
-        
-       <img src="assets/img/gallery/bergen.jpg" style="float: right;">   
-         </div>
-    </article>
-   
-    <article class="typography-line">
-       <div class="row">
-           The wooden stave church of Urnes stands in the natural setting of Sogn og Fjordane. 
-           It was built in the 12th and 13th centuries and is an outstanding example of traditional Scandinavian wooden architecture.
-            It brings together traces of Celtic art, Viking traditions and Romanesque spatial structures.
-         </div> 
-       </article>
-
-       <article class="typography-line">
-        <div class="row">
-          
-          Røros Mining Town and the Circumference is linked to the copper mines, established in the 17th century and exploited for 333 years until 1977. 
-          The site comprises the Town and its industrial-rural cultural landscapes; Femundshytta, a smelter with its associated area; and the Winter Transport Route. 
-          Completely rebuilt after its destruction by Swedish troops in 1679, Røros contains about 2000 wooden one- and two-storey houses and a smelting house.
-           Many of these buildings have preserved their blackened wooden façades, giving the town a medieval appearance. Surrounded by a buffer zone, coincident with the area of privileges (the Circumference) 
-          granted to the mining enterprise by the Danish-Norwegian Crown (1646), the property illustrates the establishment and 
-          flourishing of a lasting culture based on copper mining in a remote region with a harsh climate.
-         </div> 
-        </article> 
-
-       <article class="typography-line"></article>
-        <div class="row">
-        
-          This group of petroglyphs in the Alta Fjord, near the Arctic Circle, bears traces of a settlement dating from c. 4200 to 500 B.C. 
-          The thousands of paintings and engravings add to our understanding of the environment and human activities on the fringes of the Far North in prehistoric times.
-         </div> 
-        </article> 
-   
-      <article class="typography-line">
-        <div class="row">
-        
-          A cluster of islands centered on Vega, just south of the Arctic Circle, forms a cultural landscape of 103,710 ha, of which 6,930 ha is land. The islands bear testimony to a distinctive frugal way of life, 
-          based on fishing and harvesting down from the eider ducks over the past 1,500 years.
-           Fishing villages, quays, warehouses, eider houses (built for eider ducks to nest in), 
-           farming landscapes, lighthouses and beacons are important sites. Evidence is also found of human settlement from the Stone Age onwards.
-            By the 9th century, the islands had become an important centre for the supply of down, which appears to have accounted for around a third of the islanders’ income.
-         </div> 
-        </article> 
-       
-        <article class="typography-line"></div>
-        <div class="row">
-       
-          The Struve Arc is a chain of survey triangulations stretching from Hammerfest in Norway to the Black Sea, through 10 countries and over 2,820 km. These are points of a survey, 
-          carried out between 1816 and 1855 by the astronomer Friedrich Georg Wilhelm Struve, which represented the first accurate measuring of a long segment of a meridian. 
-          This helped to establish the exact size and shape of the planet and marked an important step in the development of earth sciences and topographic mapping. 
-          It is an extraordinary example of collaboration among scientists from different countries, and of collaboration between monarchs for a scientific cause. 
-          The original arc consisted of 258 main triangles with 265 main station points. 
-          The listed site includes 34 of the original station points, with different markings, i.e. a drilled hole in rock, iron cross, cairns, or built obelisks.
-         </div> 
-        </article> 
-       
-       <article class="typography-line">
-         <div class="row">
-        
-          The Naeroyfjord the most beautiful and wildest arm of the Sognefjord is on the UNESCO World Heritage list.
-           Fjord cruises in unique setting, with sheer, snow-topped mountains, waterfalls and idyllic farms clinging to the mountainsides. 
-           The Nærøyfjord is 17 km long and the narrowest point is only 250 m wide. The passage through Nærøyfjord is one of the most dramatic fjord trips in Europe.
-            A passenger boat between Gudvangen-Aurland-Flåm is running all year. 
-         </div> 
-     
-
-       
-        <div class="row">
-       
-          The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. 
-          It is located entirely in the Stranda Municipality. It is a 15-kilometre -long branch off the Sunnylvsfjorden, which is a branch off the Storfjorden.
-          The fjord is 260 metres deep while the surrounding mountains are 1600-1700 metres high. 
-          The fjord is also known for its spectacular waterfalls and deserted fjord farms high up on the steep cliffsides. 
-          The now deserted fjord farms tell the tales of a different time and way of life. 
-          The idyllic nature and the dramatic mountains will impress any visitor in the area. 
-         </div> 
-      
-      </article> 
-   
-     
-  <article class="typography-line">
-    <div class="row">
-       
-      Located in a dramatic landscape of mountains, waterfalls and river valleys, the site comprises hydroelectric power plants, transmission lines, factories, 
-      transport systems and towns. The complex was established by the Norsk-Hydro Company to manufacture artificial fertilizer from nitrogen in the air. 
-      It was built to meet the Western world’s growing demand for agricultural production in the early 20th century. The company towns of Rjukan and Notodden show workers’ accommodation 
-      and social institutions linked by rail and ferry to ports where the fertilizer was loaded. 
-      The Rjukan-Notodden site manifests an exceptional combination of industrial assets and themes associated to the natural landscape. It stands out as an example of a new global industry in the early 20th century.
-     </div> 
-   </article> 
-  
-  </div>
-</div> 
-   <!--_____________________Unesco_more END______________________________________-->
+      </div>
+   <!--_____________________Unesco______________________________________-->
    <!--_____________________Aurora Borealis START________________________________-->
    <div id="subject_4" style="display:none">
     <div class="container">
@@ -610,7 +451,8 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </footer>
   <!---END OF FOOTER--->
-    
+  </div>   <!---END OF display none--->
+
     <!--   Core JS Files   -->
     <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
     <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -624,11 +466,20 @@ The above copyright notice and this permission notice shall be included in all c
     <script src="./assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
     <script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    
     <script>
       
-      
+function changeVisibility(id1,id2) {
+  
+
+  
+  document.getElementById("initial").style.display="none";
+  document.getElementById("content_main").style.display="block";
+  document.querySelectorAll("nav")[0].classList.remove("navbar-transparent");
+  
+
+
+}
 
 function toggleDiv(id) {
   document.getElementById('main_photo').style.display="none";
@@ -650,10 +501,8 @@ function toggleDiv(id) {
 }
 
 function toggleCont(id1,id2) {
-  id2=Number(id2); console.log(id2);
-  console.log(document.getElementById(id1).checked);
+  id2=Number(id2); 
   container=document.querySelector("#subject_3");
-  console.log(container.querySelectorAll('article')[id2]);
 if(document.getElementById(id1).checked){
   container.querySelectorAll('article')[id2].style.display = "block";
   } else {
@@ -661,7 +510,8 @@ if(document.getElementById(id1).checked){
   }
 }
 
-    </script>
+
+ </script>
 
     </body>
 </html>
