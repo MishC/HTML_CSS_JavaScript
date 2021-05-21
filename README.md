@@ -13,7 +13,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *formular_01* - PHP solution to the discussion forum connected to the database. Live: http://naturalsession.wz.cz/php_files/formular1.phphttp://naturalsession.wz.cz/php_files/formular1.php
 
-*hello_world - Animation with Canvas. Live: https://code.sololearn.com/WTyX9oACReS5
+*hello_world* - Animation with Canvas. Live: https://code.sololearn.com/WTyX9oACReS5
 
 *moody_squares* - Changing color of the JS object on the click. Live: http://www.naturalsession.wz.cz/photos.html
 
