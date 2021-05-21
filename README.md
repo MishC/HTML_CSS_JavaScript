@@ -1,7 +1,7 @@
 # HTML_CSS_JavaScript
 https://github.com/MishC/HTML_CSS_JS.git
 
-Short beginners projects - self-explanatory. ## It's fun!
+Short beginners projects - self-explanatory. **It's fun!**
 
 5DCC     - Recipe. Code Institute FREE(!) 5 days code challenge. HTML, CSS, JS. Using external fonts and icons. Optimalization for different browser windows size.
 Motion01 - HTML, CSS, Vanilla JS. Motion physics with plotting. External library: https://cdn.plot.ly/plotly-latest.min.js live: https://code.sololearn.com/WZUzl6sAzHz9
