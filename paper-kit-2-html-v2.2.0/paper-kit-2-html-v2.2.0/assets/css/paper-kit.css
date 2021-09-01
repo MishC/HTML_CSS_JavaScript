@@ -8227,11 +8227,20 @@ input {padding:10%}
       list-style: none;
     padding-left: 0;
 }
- 
-@media screen and (max-width: 500px) {  
-  .btn {font-size:18px;}
+ #subject_4 > .container > p {color:#e7d9c6;
+                              padding:10px;
+                              
+ }
+#subject_4 > .container > a {color:white;
+}
+#subject_4 > .container {
+                         height:1000px;
 }
 
+@media screen and (max-width: 1500px) {  
+  .btn, .btn-groupg {font-size:18px;margin:10px;}
+
+}
 
 
 
