@@ -8190,7 +8190,7 @@ label {flex-flow: row; flex-direction: row; justify-content: space-around;}
 #subject_1 {display:none; padding-bottom:5%}
 #subject_2 {display:none;padding-bottom:5%} 
 #subject_3 {display:none;padding-bottom:5%}
-#subject_4 {display:none;padding-bottom:5%}
+#subject_4 {display:none;padding-bottom:0%}
 #subject_5 {display:none;padding-bottom:5%}
 #subject_6 {display:none;padding-bottom:0%}
 #UNESCO_more {display:none;padding: 5% 0%}
@@ -8227,15 +8227,131 @@ input {padding:10%}
       list-style: none;
     padding-left: 0;
 }
- #subject_4 > .container > p {color:#e7d9c6;
+
+/*Subject2_Stories*/
+#subject_2 > .container {
+    align-items: center;
+    
+}
+* {
+  box-sizing: border-box;
+}
+
+
+.faqanswer {
+	display: none;
+	width: 590px;
+	background: #F1EAE0;
+	padding: 12px 20px 0 30px;	
+}
+
+.faqanswer p {
+	font-size: 18px;
+	line-height: 24px;	
+     padding: 12px 20px 30px 30px;	
+}
+
+#subject_2 > a {color: #333;
+}
+a.active {
+	font-weight: bold;
+}
+
+.toggleStory {
+	text-decoration: none;
+	color: #333;
+	font-size: 18px;
+	padding: 10px 30px;
+	line-height: 20px;
+	display: block;
+	border: 1px solid #d0d0d0;
+	width: 590px;
+	margin-bottom: -1px;
+}
+.icon-plus {
+	color: #5ec4cd;
+	margin-right: 20px;
+	font-size: 20px;
+	float:left;
+}
+
+.icon-minus {
+	color: #5ec4cd;
+	margin-right: 20px;
+	font-size: 20px;
+	float:left;
+}
+#subject_2 > p {
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+}
+
+
+/*Subject2_Stories*/
+/*Subject4_Aurora Borealis*/
+ #subject_4 > .container  p {color:#e7d9c6;
                               padding:10px;
                               
  }
-#subject_4 > .container > a {color:white;
+
+#subject_4 > .container  a {color:white;
 }
-#subject_4 > .container {
-                         height:1000px;
+#subject_4 > .container {margin:auto;
+                         height:1100px;
+                         width:82%;
+                         float:none;
+                         background-image: url('../img/night_sky.jpg'); 
+                         padding:60px;
+                         color:#e7d9c6;
 }
+.container1 > img {
+	
+	
+	
+}
+#subject_4 > .leftbox {
+                float:left; 
+                padding:0px;
+                width:22%;
+                height:1100px;
+                background-image: url('../img/northern_light_01.gif');
+                 background-size: cover;
+                 background-position:center;
+                 background-color: rgb(0, 248, 0);
+            }
+#subject_4 > .leftbox img {}
+
+
+
+#subject_4 > .rightbox {
+     float: right;
+    padding: 0px;
+    width: 22%;
+    height: 1100px;
+    background-image:url('../img/northern_light.gif');
+     background-size: cover;
+     
+                 background-position:center;
+                 background-color: rgb(0, 248, 0);
+                 background-position-x:top;
+
+ }
+#subject_5 > .container1 { width:100%;
+}
+#subject_5 > .weather_Oslo { float:left; width:45%;
+}
+
+#subject_5 > .weather_Bergen { float:right; width:45%;
+}
+.empty{width:5%}
+.green_title {
+    text-align: center; color: rgb(0, 248, 0);
+}
+
+
+
 
 @media screen and (max-width: 1500px) {  
   .btn, .btn-groupg {font-size:18px;margin:10px;}
