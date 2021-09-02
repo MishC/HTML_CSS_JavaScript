@@ -8298,24 +8298,26 @@ a.active {
 
 #subject_4 > .container  a {color:white;
 }
+
 #subject_4 > .container {margin:auto;
-                         height:1100px;
-                         width:82%;
+                         height:900px;
+                         width:56%;
                          float:none;
                          background-image: url('../img/night_sky.jpg'); 
                          padding:60px;
                          color:#e7d9c6;
+
+                         
 }
-.container1 > img {
 	
-	
-	
+#subject_4 > .container {overflow-y: scroll;
+                         scrollbar-color: light;
 }
 #subject_4 > .leftbox {
                 float:left; 
                 padding:0px;
                 width:22%;
-                height:1100px;
+                height:900px;
                 background-image: url('../img/northern_light_02.gif');
                  background-size: cover;
                  background-position:center;
@@ -8329,7 +8331,7 @@ a.active {
      float: right;
     padding: 0px;
     width: 22%;
-    height: 1100px;
+    height: 900px;
     background-image:url('../img/northern_light.gif');
      background-size: cover;
      
