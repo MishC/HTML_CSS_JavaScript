@@ -8399,7 +8399,7 @@ a.active {
  .icon1 {float:left;}    
  .description {  text-transform: capitalize;font-size:16px; position: relative; float:right; }   
  .humidity, .wind {font-weight:500;font-size:16px;} 
-
+ 
 /*Noscript*/
 #subject_5 > .weather_Oslo { float:left; width:45%;
 }
@@ -8475,13 +8475,16 @@ position:relative;}
  .city, .temp {font-size:12px;}     
  .description {  text-transform: capitalize;font-size:12px;}  
  .humidity, .wind {font-weight:500;font-size:12px;} 
- .footer { margin:50px 0 0 0; padding:0; font-size:12px; max-height:60px; position: fixed; bottom:0; left:0; z-index:2;
+ .footer { margin:50px 0 0 0; padding:0; font-size:12px; max-height:60px; position:fixed; bottom:0; left:0; z-index:2;line-height:1em;
  }
+.footer .credits, .footer-nav {line-height:1em}
 }
+/*Subject_5 end*/
+/*Subject 6 start*/
+#carousel > .container {margin-bottom: 5em;}
 
-
-
-
+#subject_6 .title{text-align:center; margin:0;}
+/*Subject 6 end*/
 
 @media screen and (max-width: 1500px) {  
   .btn, .btn-groupg {font-size:18px;margin:10px;}
