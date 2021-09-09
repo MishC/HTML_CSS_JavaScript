@@ -8209,7 +8209,7 @@ article {display:none; text-indent: 8%; font-size:18px; font-weight:300; justify
 	width: 600px;
 	height: 400px;
 	margin: 10px;
-  transition: all 1s;
+  transition: all 1.4s;
 }
 
 .container1 > img:hover {
