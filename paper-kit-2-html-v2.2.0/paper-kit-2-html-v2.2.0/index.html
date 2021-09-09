@@ -476,11 +476,13 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
 
   <!-- _________________Weather_____________________________________________-->
   <div id="subject_5" style="display:none">
-      <div>
-          <h3 class="title" style="text-align:center;">Weather forecast</h3>
-         
-      </div>
+    <div class="title">                                                  
+
+          <h3 class="title">Weather forecast</h3>
+      </div>   
+      
       <div class="container">  
+         
         <h5>Current weather:</h5>
            <div class="search">
                <input type="text" placeholder="Search city" class="search-bar">
@@ -489,7 +491,7 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg></a>
            </div> 
-         <div class="weather" >
+         <div class="weather loading" >
              <div class="city">  </div>
              <div class="temp">      </div>
              <img src="" alt="" class="icon_1" />
@@ -499,11 +501,11 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
           </div>               
     
       </div>
-      <h5>Long Term Forecast:</h5>
       <div class="container1"> 
         
-      
-
+        <h5>Long Term Forecast:</h5>
+         <div class="break">&nbsp;</div>
+         </br>
         <div class="weather_Oslo" >
         <script src="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/external_box_three_days.js"></script><noscript><a href="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/">yr.no: Forecast for Oslo</a></noscript>
         </div>
@@ -621,7 +623,6 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
     <script src="./assets/js/paper-kit.js?v=2.2.0" type="text/javascript"></script>
     
     <script>
-      
 function changeVisibility(id1,id2) {
   
 
