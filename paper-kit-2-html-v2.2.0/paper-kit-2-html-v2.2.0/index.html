@@ -36,11 +36,11 @@ The above copyright notice and this permission notice shall be included in all c
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">>
   <!-- CSS Files -->
   <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-   <link href="./assets/css/paper-kit.css?v=2.2.0" rel="stylesheet" />    
     <link href="./assets/css/paper-kit.css" rel="stylesheet" />
-
+  <!--JS Files-->>
+    <script src="./assets/js/weather_api.js" defer></script> </script>
 </head>
-
+                                   
 <body class="index-page sidebar-collapse">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="300">
@@ -182,7 +182,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="wrapper">
             <button class="toggle_child2">
                  In Trolltunga 
-                <i class="fas fa-plus icon"></i>
+                <i class="fas fa-angle-down icon"></i>
             </button>
 
 
@@ -203,7 +203,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="wrapper">
             <button class="toggle_child2">
                In Stavanger 
-                <i class="fas fa-plus icon"></i>
+                <i class="fas fa-angle-down icon"></i>
             </button>
             <div class="content_child2">
                 <p>
@@ -222,7 +222,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="wrapper">
             <button class="toggle_child2" >
                 the North of Norway  
-                <i class="fas fa-plus icon"></i>
+                <i class="fas fa-angle-down icon"></i>
             </button>
             <div class="content_child2">
                 <p>
@@ -241,7 +241,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="wrapper">
             <button class="toggle_child2">
                  Visiting Oslo
-                <i class="fas fa-plus icon"></i>
+                <i class="fas fa-angle-down icon"></i>
             </button>
             <div class="content_child2">
                 <p>
@@ -255,7 +255,7 @@ The above copyright notice and this permission notice shall be included in all c
             <button class="toggle_child2">
                
                     Jotunheinem National Park 
-                    <i class="fas fa-plus icon"></i>
+                    <i class="fas fa-angle-down icon"></i>
             </button>
             <div class="content_child2">
                 <p>
@@ -328,7 +328,7 @@ The above copyright notice and this permission notice shall be included in all c
       
         <div class="d-flex w-100 justify-content-between">
           <label class="col-6"><span class="title"><h6>Rock Art of Alta (1985)</h6></span></label>
-           <input id="Alta" class=" bootstrap-switch-large "  label="See more" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 3)">
+           <input id="Alta" class="bootstrap-switch-large"  label="See more" type="checkbox" data-toggle="switch" data-on-color="primary" data-off-color="primary" onchange="toggleCont(this.id, 3)">
          </div>
          <article class="typography-line">
         <div class="row">
@@ -443,7 +443,7 @@ Earth's magnetosphere is pretty much deformed by the solar wind. Towards the sun
 This magnetic field lines deviations to the sides allow make lower charge density at the poles, let's call it a funnel, and charged particles are drowned down this funnel by the voltage difference.
    </p>
         <p>
-Aurora are in fact caused by particles which were drawn to the elongated night side of magnetosphere and then are  they drawned back to the polar funnels by the electric potential difference between magnetic poles and magnetic fields on the night tail, while locally are drived electrons by the magnetic force.
+Aurora are in fact caused by particles which were drawn to the elongated night side of magnetosphere and then are they drawned back to the polar funnels by the electric potential difference between magnetic poles and magnetic fields on the night tail, while locally are drived electrons by the magnetic force.
 </p>
           </br></br>
         <p>
@@ -463,7 +463,7 @@ These emission are longer than usual (0.7 s for green and 107 s for red respecti
 are though just very less probable and change in symmetries take longer times.
  </p>
  <p>
-When Aurora reach the lower layers of atmosphere, which is very uncommon, molecular nitrogen and ionized molecular nitrogen take over in producing visible light emission, radiating at a large number of wavelengths in both red and blue parts of the spectrum, with 428 nm (blue) being dominant. Blue and purple emissions, typically at the lower edges of the "curtains", show up at the highest levels of solar activity. The molecular nitrogen transitions are much faster than the atomic oxygen ones because they are not forbidden by quatum mechanics laws of numbers.
+When Aurora reaches the lower layers of atmosphere, which is very uncommon, molecular nitrogen and ionized molecular nitrogen take over in producing visible light emission, radiating at a large number of wavelengths in both red and blue parts of the spectrum, with 428 nm (blue) being dominant. Blue and purple emissions, typically at the lower edges of the "curtains", show up at the highest levels of solar activity. The molecular nitrogen transitions are much faster than the atomic oxygen ones because they are not forbidden by quatum mechanics laws of numbers.
  </p>
  <p>
 Aurora and particles from space in our atmosphere are studied in Norway. They think about the connection of aurora chemistry with the deplation of ozone in the atmosphere and therefore <a href="https://www.unis.no/pulsating-aurora-a-possible-threat-to-ozone/" color="white">enhancing global warming </a></p>
@@ -474,13 +474,36 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
 
 </div>  
 
-  <!-- _________________Wheather_____________________________________________-->
+  <!-- _________________Weather_____________________________________________-->
   <div id="subject_5" style="display:none">
       <div>
-          <h3 class="bold_title">Weather forecast</h3>
-      </div>
-      <div class="container1">         
+          <h3 class="title" style="text-align:center;">Weather forecast</h3>
          
+      </div>
+      <div class="container">  
+        <h5>Current weather:</h5>
+           <div class="search">
+               <input type="text" placeholder="Search city" class="search-bar">
+               <a href="#" class="button">
+               <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="2em" height="2em">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg></a>
+           </div> 
+         <div class="weather" >
+             <div class="city">  </div>
+             <div class="temp">      </div>
+             <img src="" alt="" class="icon_1" />
+             <div class="description">    </div>
+             <div class="humidity"></div>
+             <div class="wind"></div>
+          </div>               
+    
+      </div>
+      <h5>Long Term Forecast:</h5>
+      <div class="container1"> 
+        
+      
+
         <div class="weather_Oslo" >
         <script src="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/external_box_three_days.js"></script><noscript><a href="https://www.yr.no/place/Norway/Oslo/Oslo/Oslo/">yr.no: Forecast for Oslo</a></noscript>
         </div>
@@ -621,7 +644,7 @@ function toggleDiv(id) {
 
     } else {
       // Hide other DIVs
-      console.log(div.id);
+      //console.log(div.id);
       div.style.display = "none";
     }
   }
@@ -648,27 +671,35 @@ for (let i = 0; i < toggles.length; i++) {
         if (parseInt(contentDiv[i].style.height) != contentDiv[i].scrollHeight) {
             contentDiv[i].style.height = contentDiv[i].scrollHeight + "px";
             toggles[i].style.color = "#0084e9";
-            icons[i].classList.remove('fa-plus');
-            icons[i].classList.add('fa-minus');
+            icons[i].classList.remove('fa-angle-down');
+            icons[i].classList.add('fa-angle-up');
         }
         else {
             contentDiv[i].style.height = "0px";
             toggles[i].style.color = "#111130";
-            icons[i].classList.remove('fa-minus');
-            icons[i].classList.add('fa-plus');
+            icons[i].classList.remove('fa-angle-up');
+            icons[i].classList.add('fa-angle-down');
         }
 
         for (let j = 0; j < contentDiv.length; j++) {
             if (j !== i) {
                 contentDiv[j].style.height = "0px";
                 toggles[j].style.color = "#111130";
-                icons[j].classList.remove('fa-minus');
-                icons[j].classList.add('fa-plus');
+                icons[j].classList.remove('fa-angle-up');
+                icons[j].classList.add('fa-angle-down');
             }
         }
     });
 }          
+function disableF5(e) {
+  if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82)
+  e.preventDefault();
+  
+};
 
+$(document).ready(function(){
+  $(document).on("keydown", disableF5);
+});
  </script>
 
     </body>
