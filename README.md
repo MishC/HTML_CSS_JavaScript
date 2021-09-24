@@ -17,7 +17,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *moody_squares* - Changing color of the JS object on the click. Live: http://www.naturalsession.wz.cz/photos.html
 
-*paper-kit-2-html-v2.2.0* - Personal website about Norway using UI kit Creative Tim. Under construction! Plan: Wheather api. Changes to look. Probably I will coma back to this in July 2021.
+*paper-kit-2-html-v2.2.0* - Personal website about Norway using UI kit Creative Tim. Code needs to be cleaned. Functions style in JS should be E6.
 
 *project-prettify_template* - Zero2Mastery (ZTM) layout.
 
