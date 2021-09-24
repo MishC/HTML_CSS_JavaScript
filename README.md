@@ -9,7 +9,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *RedFrogTale* - JS slider imported from Slick. Text&design: Jakub Visnak. Coding&design: Michaela Chovancova
 
-*CareerFoundry Web Development Short Course* - CareerFoundry Web Development Short Course
+*CareerFoundry Web Development Short Course* - CareerFoundry Web Development Short Course. Free!
 
 *formular_01* - PHP solution to the discussion forum connected to the database. Live: http://naturalsession.wz.cz/php_files/formular1.phphttp://naturalsession.wz.cz/php_files/formular1.php
 
