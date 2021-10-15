@@ -8485,7 +8485,11 @@ position:relative;}
 
 #subject_6 .title{text-align:center; margin:0;}
 /*Subject 6 end*/
+input.search-bar, input.searh-bar:hover, input.search-bar:active, input.search-bar:focus {padding:5px 3px;
+border-radius:10px;
+border: 2px solid #A1D9E9;}
 
+input.search-bar:focus {border: 2px solid #0976b4;}
 @media screen and (max-width: 1500px) {  
   .btn, .btn-groupg {font-size:18px;margin:10px;}
 
