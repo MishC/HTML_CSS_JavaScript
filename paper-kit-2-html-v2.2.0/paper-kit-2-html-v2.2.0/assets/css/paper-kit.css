@@ -8225,7 +8225,7 @@ article {display:none; text-indent: 8%; font-size:18px; font-weight:300; justify
       list-style: none;
     padding-left: 0;
 }
-.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-primary {background:rgb(85, 88, 218)}
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-primary {background:#A1D9E9}
 /*Subject2_Stories*/
 
 #subject_2 > a {color: #fff;
@@ -8268,10 +8268,8 @@ a.active {
     /*display: flex;*/
     align-items: center;
     justify-content: space-between;
-/*background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);*/
     font-weight: 600;
-    /*color:#fff;*/
-    border: 3px solid rgb(85, 88, 218);
+    border: 3px solid #A1D9E9;
     outline: none;
     cursor: pointer;
     padding: 15px 0;
