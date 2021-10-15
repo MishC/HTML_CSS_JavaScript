@@ -8225,10 +8225,10 @@ article {display:none; text-indent: 8%; font-size:18px; font-weight:300; justify
       list-style: none;
     padding-left: 0;
 }
-
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-primary {background:rgb(85, 88, 218)}
 /*Subject2_Stories*/
 
-#subject_2 > a {color: #333;
+#subject_2 > a {color: #fff;
                 font-weight: bold;
 
 }
@@ -8250,8 +8250,6 @@ a.active {
 }
 
 .wrapper{
-
-    background-color: #ffffff;
     font-size: 18px;
 	line-height: 24px;
     margin-bottom: 20px;
@@ -8262,7 +8260,6 @@ a.active {
 }
 #subject_2 > icon {float:right;}
 
-
 .toggle_child2{
     text-decoration: none;
     text-align:center;
@@ -8271,13 +8268,18 @@ a.active {
     /*display: flex;*/
     align-items: center;
     justify-content: space-between;
-    color: #111130;
-    font-weight: 500;
-    border: 1px solid #d0d0d0;
+/*background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);*/
+    font-weight: 600;
+    /*color:#fff;*/
+    border: 3px solid rgb(85, 88, 218);
     outline: none;
     cursor: pointer;
     padding: 15px 0;
+    border-radius:10px;
 }
+/*button {color:#fff}
+button.toggle_child2{color:#fff}
+button.toggle_child2:hover, button.toggle_child2:active, button.toggle_child2:focus{color:#fff;}*/
 .content_child2 {
     width:80%;
    /*position: relative;*/
