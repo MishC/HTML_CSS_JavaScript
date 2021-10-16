@@ -46,6 +46,7 @@ article {
   justify-content: center;
   text-align: left;
 }
+
 .row > img {
   padding: 5% 0%;
   max-width: 100%;
@@ -126,16 +127,21 @@ a.active {
   float: right;
 }
 
-.toggle_child2 {
+div.wrapper {
+  color: rgb(24, 22, 22);
+}
+button.toggle_child2 {
+  color: rgb(24, 22, 22);
   text-decoration: none;
   text-align: center;
   width: 80%;
-  background-color: transparent;
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   /*display: flex;*/
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
-  border: 3px solid #a1d9e9;
+  border: 0.1px solid #fff1eb;
+
   outline: none;
   cursor: pointer;
   padding: 15px 0;
