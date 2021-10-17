@@ -161,7 +161,10 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = `Wind: ${wind} m/s`;
   let forecast = document.querySelectorAll("h6>span.forecast");
   let forecastNight = document.querySelectorAll("h6>span.forecast-night");
+  let dateUTC = response.data.list[0].dt_txt;
+  let time = dateUTC.slice(11, 13);
 
+  let lists = response.data.list;
   console.table(lists);
   getTemperaturesForecast(lists, "12", forecast);
   getTemperaturesForecast(lists, "00", forecastNight);
