@@ -110,7 +110,8 @@ function getDayForecast(lists, T, elementArr, elementArr1) {
   /*Args: 
    lists - array of objects;
   T - temperature (string);
-  elementArr - arrays of HTML elements
+  elementArr - arrays of HTML elements for days;
+  elementArr1 - arrays of HTML elements for dates;
   */
 
   let days = [];
@@ -160,12 +161,7 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = `Wind: ${wind} m/s`;
   let forecast = document.querySelectorAll("h6>span.forecast");
   let forecastNight = document.querySelectorAll("h6>span.forecast-night");
-  let dateUTC = response.data.list[0].dt_txt;
-  let time = response.data.list[0].dt_txt.slice(11, 13);
-  console.log(time); //2021-10-17-11
-  let date = new Date(dateUTC);
-  console.log(currentDay(date));
-  let lists = response.data.list;
+
   console.table(lists);
   getTemperaturesForecast(lists, "12", forecast);
   getTemperaturesForecast(lists, "00", forecastNight);
@@ -174,33 +170,6 @@ function showWeather(response) {
   let dayForecast = document.querySelectorAll("h6.card-title");
   let dateForecast = document.querySelectorAll("h6>span.date");
   getDayForecast(lists, "12", dayForecast, dateForecast);
-
-  /*let test = [];
-  test = findTemperatures(lists, "12");
-  console.log(test);
-  let temperatures = [];
-
-  lists.forEach(function (list) {
-    if (list.dt_txt.slice(11, 13) === "12") {
-      temperatures.push(Math.round(list.main.temp));
-    }
-  });
-
-  //console.log(temperatures);
-  forecast.forEach(function (forecast, index) {
-    forecast.innerHTML = temperatures[index] + "°C";
-  });
-  //
-  let temperatures_night = [];
-  lists.forEach(function (list) {
-    if (list.dt_txt.slice(11, 13) === "00") {
-      temperatures_night.push(Math.round(list.main.temp));
-    }
-  });
-  //
-  forecastNight.forEach(function (forecast, index) {
-    forecast.innerHTML = temperatures_night[index] + "°C";
-  });*/
 }
 
 /*_________*/
