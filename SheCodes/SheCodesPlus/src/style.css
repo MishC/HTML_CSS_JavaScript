@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+body {
+  margin: 20px;
+}
+form {
+  margin-left: 2em;
+}
+h1 > a {
+  text-decoration: none;
+  font-size: 24px;
+}
+h6 {
+  margin: 0px;
+}
+h6.iconic {
+  margin-top: -20px;
+}
+img.iconic {
+  width: 40px;
+  height: 40px;
+}
+.container {
+  width: fit-content;
+}
+.row {
+  vertical-align: middle;
+  padding: 0;
+  margin: 0 auto;
+  --bs-gutter-x: 0;
+}
+
+.row1 {
+  text-align: center;
+  min-width: 170px;
+  padding: 20px 0px;
+}
+div.row.row1 {
+  border: 1px solid #1ab2a8;
+  border-radius: 0px;
+  padding: 0;
+}
+div.row.row2 {
+  border: 1px solid #1ab2a8;
+  border-radius: 0px;
+  padding: 0;
+}
+.row2 {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0px 0px;
+  text-align: center;
+  --bs-gutter-x: 1em;
+  min-width: 155px;
+  padding: 15px 0;
+}
+footer {
+  margin: 0.2em 0;
+}
+.card-title {
+  margin: 0px;
+}
+.form-control {
+  min-width: 50%;
+  border-color: #1ab2a8;
+  border-width: 3px;
+}
+
+div .card.main {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  border: 0px;
+}
+.card.sm-2 {
+  width: 4rem;
+  border: 0px;
+  padding: 10px 10px;
+}
+
+div.card-body {
+  padding: 0.5em;
+}
+
+.btn {
+  background: #1ab2a8;
+  color: rgb(255, 255, 255);
+  margin: 0;
+  font-weight: 600;
+  border-width: 3px;
+  border-color: #1ab2a8;
+  vertical-align: middle;
+  border-radius: 0%;
+  margin-left: -2px;
+}
+.btn:hover,
+.btn:visited,
+.btn:active,
+.btn:focus {
+  background: #4ec9a4;
+  border-color: #4ec9a4;
+}
+.card-text {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+li {
+  text-decoration: none;
+}
+ul.card-text {
+  text-align: left;
+  list-style-type: none;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+ul.strip {
+  background: #1ab2a8;
+  font-weight: 600;
+  color: #fff;
+  margin: 0px;
+  padding: 6px 6px;
+  border-radius: 0px;
+  /*text-align: center;*/
+}
+ul.strip1 {
+  margin: 50px 0px 0px 0px;
+}
+ul.strip li {
+  font-size: 18px;
+  text-decoration: none;
+  display: inline;
+  padding: 0 1em;
+}
+ul.temperature {
+  margin: 0;
+}
+span.city,
+span.country {
+  font-weight: 600;
+  font-size: 20px;
+  color: #50ffa9;
+  letter-spacing: 0.1rem;
+  position: relative;
+  float: right;
+  right: auto;
+}
+span.city:hover,
+span.country:hover {
+  color: #fff;
+}
+
+span.units {
+  vertical-align: super;
+  color: #1ab2a8;
+  font-size: 30px;
+  padding: 0;
+  margin: 0 0 0 -10px;
+}
+span.units > a {
+  color: #1ab2a8;
+  text-decoration: none;
+}
+.temperature {
+  font-size: 48px;
+  font-weight: 700;
+  list-style-type: none;
+}
+
+.temperature > li {
+  display: inline;
+}
+img.icon {
+  padding: 0;
+  margin-top: -20px;
+  filter: contrast(50%);
+}
+
+@media only screen and (max-width: 800px) {
+  ul,
+  li {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .row1,
+  .row2 {
+    margin: auto;
+  }
+  li#temp {
+    font-size: 35px;
+  }
+  #text {
+    font-size: smaller;
+  }
+
+  span.units > a {
+    font-size: 20px;
+  }
+  span.units {
+    font-size: 20px;
+    position: relative;
+    top: -5px;
+  }
+  span.city {
+    position: static;
+    float: none;
+  }
+  ul.strip li {
+    display: block;
+  }
+
+  h6 {
+    text-align: center;
+    font-weight: 700;
+  }
+  input.form-control {
+    width: 100%;
+  }
+
+  body {
+    width: 100%;
+    margin: 20px 0;
+  }
+  .container {
+    width: 100%;
+  }
+  #type {
+    min-width: 140px;
+    margin: 0px;
+    position: relative;
+  }
+  .btn {
+    position: relative;
+    left: auto;
+  }
+}
