@@ -15,7 +15,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *moody_squares* - Changing color of the JS object on the click. Live: http://www.naturalsession.wz.cz/photos.html
 
-*paper-kit-2-html-v2.2.0* - Personal website about Norway using UI kit Creative Tim. Code needs to be cleaned. Functions style in JS should be E6.
+*paper-kit-2-html-v2.2.0* - About Norway - UI kit Creative Tim. Code needs to be cleaned. Functions style in JS should be E6. (I was playing -> Looks ugly :D))
 
 *project-prettify_template* - Zero2Mastery (ZTM) layout.
 
@@ -26,3 +26,5 @@ Short beginners projects - self-explanatory. **It's fun!**
 *song_quiz* - Guess the song from 1 s cut. HTML, CSS, JS.
 
 *startup_files* - One side web page. Click&SignUp for e-mails. Mailchimp.
+
+*SheCodes* - weatherApp - VanillaJS.
