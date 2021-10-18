@@ -279,12 +279,13 @@ searchCity.addEventListener("submit", connectToAPI);
 /*________*/
 function currentTemp() {
   let currentTemp = document.querySelector("#temp").innerHTML.match(/-?\d+/)[0];
+
   return currentTemp;
 }
 let initTemp = currentTemp();
 let changedTemp = currentTemp();
 /*__________**/
-function compareTemp(initTemp) {
+function compareTemp(initTemp, changedTemp) {
   return initTemp === changedTemp;
 }
 /**/
@@ -293,7 +294,7 @@ let unitFahrenheit = document.querySelector("#farenheit-link");
 function changeUnitstoFahrenheit(event) {
   event.preventDefault();
 
-  if (compareTemp(initTemp) === true) {
+  if (compareTemp(initTemp, changedTemp) === true) {
     let temperatureF = Math.round((currentTemp() * 9) / 5 + 32);
 
     document.querySelector("#temp").innerHTML = `${temperatureF}`;
@@ -304,7 +305,7 @@ function changeUnitstoFahrenheit(event) {
 }
 function changeUnitstoCelsius(event) {
   event.preventDefault();
-  if (compareTemp(initTemp) === false) {
+  if (compareTemp(initTemp, changedTemp) === false) {
     let temperatureC = Math.round(((currentTemp() - 32) * 5) / 9);
     document.querySelector("#temp").innerHTML = `${temperatureC}`;
     unitCelsius.style.color = "#D67256";
@@ -315,5 +316,6 @@ function changeUnitstoCelsius(event) {
   }
 }
 
+searchCity.addEventListener("submit", changeUnitstoCelsius);
 unitFahrenheit.addEventListener("click", changeUnitstoFahrenheit);
 unitCelsius.addEventListener("click", changeUnitstoCelsius);
