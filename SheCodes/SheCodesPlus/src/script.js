@@ -99,7 +99,6 @@ function getIconsForecast(lists, T, elementArr) {
       icons.push(list.weather[0].icon);
     }
   });
-  console.log(icons);
   elementArr.forEach(function (element, index) {
     element.src =
       "https://openweathermap.org/img/wn/" + icons[index] + "@2x.png";
@@ -136,10 +135,34 @@ function getDayForecast(lists, T, elementArr, elementArr1) {
   });
 }
 //*__________________________________*//
+function cityNot(city, country) {
+  if (country === " ") {
+    document.querySelector("div.result").classList.add("display-none");
+    const h1 = document.createElement("h1");
+    h1.innerHTML = `The ${city} is not in our database`;
+  }
+}
+/*__________________________________*/
+function removeFails(temp) {
+  if (typeof temp !== "undefined") {
+    let fails = document.querySelectorAll("h3.fail");
+    if (fails.length > 0) {
+      fails.forEach((fail) => {
+        fail.remove();
+      });
+    }
+  }
+}
+//**________________________________*//
 function showWeather(response) {
-  console.log(response.data);
+  //
   let temperature = Math.round(response.data.list[0].main.temp);
+  removeFails(temperature);
   document.querySelector("#temp").innerHTML = `${temperature}`;
+
+  //let city = response.data.city.name;
+  //let country = response.data.city.country;
+  //cityNot(city, country);
   document.querySelector(
     "span.city"
   ).innerHTML = `${response.data.city.name.toUpperCase()} (${
@@ -151,13 +174,13 @@ function showWeather(response) {
   document.querySelector("img.icon").src =
     "https://openweathermap.org/img/wn/" + icon + "@2x.png";
   document.querySelector("h6.iconic").innerHTML = description;
-  /*let precipitation = response.data.rain["1h"];*/
-  let humidity = response.data.list[0].main.humidity;
-  let wind = response.data.list[0].wind.speed;
-  /*document.querySelector(
+  let precipitation = response.data.list[0].pop;
+  //let humidity = response.data.list[0].main.humidity;
+  let wind = Math.round(response.data.list[0].wind.speed);
+  document.querySelector(
     "#precipitation"
-  ).innerHTML = `Precipitation: ${precipitation} mm`;*/
-  document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
+  ).innerHTML = `Precipitation: ${precipitation} %`;
+  /*document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;*/
   document.querySelector("#wind").innerHTML = `Wind: ${wind} m/s`;
   let forecast = document.querySelectorAll("h6>span.forecast");
   let forecastNight = document.querySelectorAll("h6>span.forecast-night");
@@ -165,7 +188,7 @@ function showWeather(response) {
   let time = dateUTC.slice(11, 13);
 
   let lists = response.data.list;
-  console.table(lists);
+  //console.table(lists);
   getTemperaturesForecast(lists, "12", forecast);
   getTemperaturesForecast(lists, "00", forecastNight);
   let iconsForecast = document.querySelectorAll("img.icon-forecast");
@@ -197,8 +220,23 @@ function connectToAPI(event) {
   //console.log(city);
   let apiKey = "35022efb71ba6d400064d158d8238b4b";
   let urlCity = `https://api.openweathermap.org/data/2.5/forecast/?q=${city}&units=metric&APPID=${apiKey}`;
+  axios.get(urlCity).catch(function (error) {
+    if (error.response.status === 404) {
+      console.log("stop!");
+
+      document.querySelector("div.result").style.display = "none";
+      let h3 = document.createElement("h3");
+      document.body.appendChild(h3);
+      h3.className = "fail";
+      h3.style.textAlign = "center";
+      h3.innerHTML = `<br/>Fail: 404 <br/> Sorry, the city "${city}" is not in our database`;
+    }
+  });
+
+  document.querySelector("div.result").style.display = "block";
   return axios.get(urlCity).then(showWeather);
 }
+
 /*_______________*/
 function showWeather2(response) {
   console.log(response.data.list[0].main.temp);
