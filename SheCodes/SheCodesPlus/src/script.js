@@ -237,7 +237,7 @@ function connectToAPI(event) {
   return axios.get(urlCity).then(showWeather);
 }
 
-/*_______________*/
+/*Helping function*/
 function showWeather2(response) {
   console.log(response.data.list[0].main.temp);
   console.log(response.data.city.name);
