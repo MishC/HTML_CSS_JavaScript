@@ -67,48 +67,59 @@ function currentDay(date) {
   return currentDay;
 }
 /*____________________________________*/
-function getTemperaturesForecast(lists, T, elementArr) {
+function getTemperaturesForecast(lists, time, elementArr) {
   /*Args: 
   lists - array of objects;
-  T - temperature (string);
+  time - string;
   elementArr - arrays of HTML elements
   */
   let temperatures = [];
   lists.forEach(function (list, index) {
-    if (list.dt_txt.slice(11, 13) === T) {
+    if (list.dt_txt.slice(11, 13) === time) {
       temperatures.push(Math.round(list.main.temp));
     }
   });
+  if (lists[0].dt_txt.slice(11, 13) === (parseInt(time) + 3).toString()) {
+    icons.unshift(Math.round(lists[0].main.temp));
+    icons.pop();
+  }
 
   elementArr.forEach(function (element, index) {
     element.innerHTML = temperatures[index] + "°C";
   });
 }
+
 //*****//
-function getIconsForecast(lists, T, elementArr) {
+function getIconsForecast(lists, time, elementArr) {
   /*Args: 
    lists - array of objects;
-  T - temperature (string);
+  time - string;
   elementArr - arrays of HTML elements
   */
 
   let icons = [];
 
   lists.forEach(function (list, index) {
-    if (list.dt_txt.slice(11, 13) === T) {
+    if (list.dt_txt.slice(11, 13) === time) {
       icons.push(list.weather[0].icon);
     }
   });
+
+  if (lists[0].dt_txt.slice(11, 13) === (parseInt(time) + 3).toString()) {
+    icons.unshift(lists[0].weather[0].icon);
+    icons.pop();
+  }
+
   elementArr.forEach(function (element, index) {
     element.src =
       "https://openweathermap.org/img/wn/" + icons[index] + "@2x.png";
   });
 }
 //*__________________________________*//
-function getDayForecast(lists, T, elementArr, elementArr1) {
+function getDayForecast(lists, time, elementArr, elementArr1) {
   /*Args: 
    lists - array of objects;
-  T - temperature (string);
+  time - temperature (string);
   elementArr - arrays of HTML elements for days;
   elementArr1 - arrays of HTML elements for dates;
   */
@@ -116,7 +127,7 @@ function getDayForecast(lists, T, elementArr, elementArr1) {
   let days = [];
   let dates = [];
   lists.forEach(function (list, index) {
-    if (list.dt_txt.slice(11, 13) === T) {
+    if (list.dt_txt.slice(11, 13) === time) {
       let dateUTC = list.dt_txt;
       let date = new Date(dateUTC);
 
@@ -126,6 +137,16 @@ function getDayForecast(lists, T, elementArr, elementArr1) {
       dates.push(dateString);
     }
   });
+
+  if (lists[0].dt_txt.slice(11, 13) === (parseInt(time) + 3).toString()) {
+    dateUTC = lists[0].dt_txt;
+    let date = new Date(dateUTC);
+    days.unshift(days.push(currentDay(date)));
+    days.pop();
+    dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
+    dates.unshift(dateString);
+    dates.pop();
+  }
 
   elementArr.forEach(function (element, index) {
     element.innerHTML = days[index];
@@ -271,7 +292,6 @@ searchCity.addEventListener("submit", connectToAPI);
 /*________*/
 function currentTemp() {
   let currentTemp = document.querySelector("#temp").innerHTML.match(/-?\d+/)[0];
-  //console.log(currentTemp);
   return currentTemp;
 }
 let initTemp = currentTemp();
@@ -299,7 +319,6 @@ function changeUnitstoCelsius(event) {
   event.preventDefault();
   if (compareTemp(initTemp) === false) {
     let temperatureC = Math.round(((currentTemp() - 32) * 5) / 9);
-    console.log(temperatureC);
     document.querySelector("#temp").innerHTML = `${temperatureC}`;
     unitCelsius.style.color = "#D67256";
     unitFahrenheit.style.color = "#1ab2a8";

@@ -67,7 +67,7 @@ footer {
   margin: 0px;
 }
 .form-control {
-  min-width: 50%;
+  min-width: 100%;
   border-color: #1ab2a8;
   border-width: 3px;
 }
@@ -230,7 +230,6 @@ img.icon {
     font-weight: 700;
   }
   input.form-control {
-    width: 100%;
   }
 
   body {
