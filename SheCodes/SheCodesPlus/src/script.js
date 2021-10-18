@@ -219,8 +219,6 @@ function showWeather(response) {
   getDayForecast(lists, "12", dayForecast, dateForecast);
 }
 
-/*_________*/
-
 /*************************/
 function retrievePosition(position) {
   let apiKey = "35022efb71ba6d400064d158d8238b4b";
@@ -229,7 +227,7 @@ function retrievePosition(position) {
   let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(showWeather);
 }
-
+/*Deploying retrievePosition - Default*/
 navigator.geolocation.getCurrentPosition(retrievePosition);
 /*____________________________________________*/
 
@@ -258,18 +256,7 @@ function connectToAPI(event) {
   return axios.get(urlCity).then(showWeather);
 }
 
-/*Helping function*/
-function showWeather2(response) {
-  console.log(response.data.list[0].main.temp);
-  console.log(response.data.city.name);
-  console.log(response.data.list[0].weather[0].description);
-
-  console.log(response.data.list[0]);
-  console.log(response.data.list[0].dt_txt.slice(-8));
-}
 /*________________*/
-
-/***********************/
 
 /**********/
 let searchCity = document.querySelector("form#searchBar");
@@ -283,10 +270,10 @@ function writeCity(event) {
   now = new Date();
   placeDate.innerHTML = currentDate(now);
 }
-
+/*Events on submit form*/
 searchCity.addEventListener("submit", writeCity);
 searchCity.addEventListener("submit", connectToAPI);
-/*
+/*___*/
 
 /*Change units*/
 /*________*/
