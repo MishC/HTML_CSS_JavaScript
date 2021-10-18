@@ -291,7 +291,7 @@ function changeUnitstoFahrenheit(event) {
 
     document.querySelector("#temp").innerHTML = `${temperatureF}`;
     unitCelsius.style.color = "#1ab2a8";
-    unitFahrenheit.style.color = "#dc3545";
+    unitFahrenheit.style.color = "#D67256";
     changedTemp = temperatureF;
   }
 }
@@ -301,7 +301,7 @@ function changeUnitstoCelsius(event) {
     let temperatureC = Math.round(((currentTemp() - 32) * 5) / 9);
     console.log(temperatureC);
     document.querySelector("#temp").innerHTML = `${temperatureC}`;
-    unitCelsius.style.color = "#dc3545";
+    unitCelsius.style.color = "#D67256";
     unitFahrenheit.style.color = "#1ab2a8";
 
     changedTemp = currentTemp();

@@ -13,6 +13,7 @@ h1 > a {
 h6 {
   margin: 0px;
 }
+
 h6.iconic {
   margin-top: -20px;
 }
@@ -44,6 +45,11 @@ div.row.row2 {
   border: 1px solid #1ab2a8;
   border-radius: 0px;
   padding: 0;
+}
+div.row.row2 > h6 {
+  line-height: 1;
+  padding: 0;
+  margin: 0;
 }
 .row2 {
   text-align: center;
