@@ -273,6 +273,8 @@ function writeCity(event) {
 /*Events on submit form*/
 searchCity.addEventListener("submit", writeCity);
 searchCity.addEventListener("submit", connectToAPI);
+searchCity.addEventListener("submit", changeUnitstoCelsius);
+
 /*___*/
 
 /*Change units*/
@@ -316,6 +318,5 @@ function changeUnitstoCelsius(event) {
   }
 }
 
-searchCity.addEventListener("submit", changeUnitstoCelsius);
 unitFahrenheit.addEventListener("click", changeUnitstoFahrenheit);
 unitCelsius.addEventListener("click", changeUnitstoCelsius);
