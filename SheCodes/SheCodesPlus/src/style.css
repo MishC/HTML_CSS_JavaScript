@@ -5,6 +5,7 @@ body {
 form {
   margin-left: 2em;
 }
+
 h1 > a {
   text-decoration: none;
   font-size: 24px;
@@ -170,10 +171,18 @@ span.units > a {
 .temperature > li {
   display: inline;
 }
+
+img {
+  filter: contrast(90%);
+}
 img.icon {
   padding: 0;
   margin-top: -20px;
-  filter: contrast(50%);
+  filter: contrast(80%);
+}
+
+.dispay-none {
+  display: none;
 }
 
 @media only screen and (max-width: 800px) {
