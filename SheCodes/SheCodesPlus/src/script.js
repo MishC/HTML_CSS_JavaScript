@@ -172,6 +172,8 @@ function removeFails(temp) {
         fail.remove();
       });
     }
+    let container = document.querySelector(".container");
+    container.style.width = "fit-content";
   }
 }
 //**________________________________*//
@@ -249,6 +251,8 @@ function connectToAPI(event) {
       h3.className = "fail";
       h3.style.textAlign = "center";
       h3.innerHTML = `<br/>Fail: 404 <br/> Sorry, the city "${city}" is not in our database`;
+      let container = document.querySelector(".container");
+      container.style.width = "100%";
     }
   });
 
