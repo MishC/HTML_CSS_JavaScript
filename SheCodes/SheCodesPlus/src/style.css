@@ -121,6 +121,9 @@ ul.card-text {
   font-size: 16px;
   padding: 10px 20px;
 }
+ul.card-text h6 {
+  line-height: 1.4;
+}
 
 ul.strip {
   background: #1ab2a8;
