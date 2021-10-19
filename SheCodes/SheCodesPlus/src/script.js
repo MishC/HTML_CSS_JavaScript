@@ -80,8 +80,8 @@ function getTemperaturesForecast(lists, time, elementArr) {
     }
   });
   if (lists[0].dt_txt.slice(11, 13) === (parseInt(time) + 3).toString()) {
-    icons.unshift(Math.round(lists[0].main.temp));
-    icons.pop();
+    temperatures.unshift(Math.round(lists[0].main.temp));
+    temperatures.pop();
   }
 
   elementArr.forEach(function (element, index) {
@@ -141,7 +141,7 @@ function getDayForecast(lists, time, elementArr, elementArr1) {
   if (lists[0].dt_txt.slice(11, 13) === (parseInt(time) + 3).toString()) {
     dateUTC = lists[0].dt_txt;
     let date = new Date(dateUTC);
-    days.unshift(days.push(currentDay(date)));
+    days.unshift(currentDay(date));
     days.pop();
     dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
     dates.unshift(dateString);
