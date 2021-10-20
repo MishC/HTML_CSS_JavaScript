@@ -23,7 +23,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *robot* - Animation Robot is dancing (Inspiration: ZTM Web Development Course)
 
-*song_quiz* - Guess the song from 1 s cut. HTML, CSS, JS.
+*song_quiz* - Guess the song from few seconds cut. HTML, CSS, JS.
 
 *startup_files* - One side web page. Click&SignUp for e-mails. Mailchimp.
 
