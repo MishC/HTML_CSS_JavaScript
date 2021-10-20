@@ -27,4 +27,4 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *startup_files* - One side web page. Click&SignUp for e-mails. Mailchimp.
 
-*SheCodes* - weatherApp - VanillaJS.
+*SheCodes* - weatherApp - VanillaJS https://weather-app-mishc.netlify.app/
