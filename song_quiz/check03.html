@@ -69,11 +69,11 @@
         <button type="button" class="btn btn-primary" onclick="results();"> Results </button> 
  </form>
 <script type="text/javascript">
+
 function cut(){
-
 document.getElementById("result").style.display = "none"; 
+}
 
-}   
 function check(results){
     for (let i=0; i<results.length; i++) {
         results[i]==="correct"
@@ -90,10 +90,8 @@ function results() {
              for(let i = 0; i < radioes.length; i++)  {  
                     if(radioes[i].checked)  { 
                         results.push(radioes[i].value);
-                         console.log(results)
-                        
-                        }
-    	                 
+                     // console.log(results);                  
+                        }    	                 
                 }
                 }
                 if (results.length!=(num-1)) {
