@@ -88,6 +88,9 @@ div#subject_2 .col-4 {
 #content_main {
   display: none;
 }
+.presentation-title {
+  font-size: 102px;
+}
 article {
   display: none;
 
@@ -112,6 +115,7 @@ article {
 #seeMore {
   background: var(--primary);
   border-color: var(--primary);
+  font-size: 24px;
   position: relative;
   z-index: 100;
   transform: none;
