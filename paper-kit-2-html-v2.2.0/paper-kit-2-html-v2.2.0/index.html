@@ -183,12 +183,12 @@ The above copyright notice and this permission notice shall be included in all c
 <!----------------*-END OF Gallery-*-------------------------------------------------->
 <!----------------*-My stories-*-------------------------------------------------->  
 <div id="subject_2" style="display:none">
-  
+  <div class="container">
    
        <div class="row">
-         <div class="col-lg-4 offset-lg-2 col-md-4 offset-md-4  col-sm-12 col-xs-12">
+         <div class="col-sm-6 ms-0 me-5 pe-5">
             <div class="wrapper">
-            <button class="toggle_child2" id ="button1" onclick="reply_click(this.id)">
+            <button class=" toggle_child2 shadow shadow" id ="button1" onclick="reply_click(this.id)">
                  In Trolltunga 
                 <i class="fas fa-angle-down icon"></i>
             </button>
@@ -208,7 +208,7 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
       </div>
         <div class="wrapper">
-            <button class="toggle_child2" id ="button2" onclick="reply_click(this.id)">
+            <button class=" toggle_child2 shadow" id ="button2" onclick="reply_click(this.id)">
                In Stavanger 
                 <i class="fas fa-angle-down icon" ></i>
             </button>
@@ -227,7 +227,7 @@ The above copyright notice and this permission notice shall be included in all c
         
 
         <div class="wrapper">
-            <button class="toggle_child2" id ="button3" onclick="reply_click(this.id)" >
+            <button class=" toggle_child2 shadow" id ="button3" onclick="reply_click(this.id)" >
                 the North of Norway  
                 <i class="fas fa-angle-down icon" ></i>
             </button>
@@ -245,8 +245,8 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
         </div>
       
-        <div class="wrapper p-0 ms-0">
-            <button class="toggle_child2" id ="button4" onclick="reply_click(this.id)" >
+        <div class="wrapper">
+            <button class=" toggle_child2 shadow" id ="button4" onclick="reply_click(this.id)" >
                  Visiting Oslo
                 <i class="fas fa-angle-down icon"></i>
             </button>
@@ -258,8 +258,8 @@ The above copyright notice and this permission notice shall be included in all c
             </div>
         </div>
         
-        <div class="wrapper p-0">
-            <button class="toggle_child2"  id="button5" onclick="reply_click(this.id)">
+        <div class="wrapper">
+            <button class=" toggle_child2 shadow"  id="button5" onclick="reply_click(this.id)">
                
                     Jotunheinem National Park 
                 <i class="fas fa-angle-down icon"></i>
@@ -273,11 +273,11 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
 
           </div>
-         <div class="col-lg-4 offset-lg-1 col-md-4 offset-md-4  col-sm-12 col-xs-12 w-80 h-80">
+         <div class="col-lg-4  offset-lg-1  col-md-4 col-sm-12 w-80 h-80 ps-5 ms-5 mt-1">
            <img src="assets/img/trolltunga.jpg">
           </div>
             </div>
-         
+         </div>
     </div>     
 <!----------------*-END OF My stories-*-------------------------------------------------->
 
@@ -776,7 +776,7 @@ if(document.getElementById(id1).checked){
   }
 }
 
-let toggles = document.getElementsByClassName('toggle_child2');
+let toggles = document.getElementsByClassName(' toggle_child2 shadow');
 let contentDiv = document.getElementsByClassName('content_child2');
 let icons = document.getElementsByClassName('icon');
 console.log(contentDiv)
