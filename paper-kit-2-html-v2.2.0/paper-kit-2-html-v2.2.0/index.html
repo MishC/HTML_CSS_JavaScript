@@ -738,7 +738,7 @@ function toggleDiv(id) {
   document.querySelectorAll('[id^="subject"]').forEach(function(div) {
     if (div.id == id) {
         if (div.style.display =="none"){div.style.display="block"}
-       else{ "none"; document.getElementById('main_photo').style.display="block";}
+       else{ div.style.display ="none"; document.getElementById('main_photo').style.display="block";}
 
     } else {
       div.style.display = "none";
