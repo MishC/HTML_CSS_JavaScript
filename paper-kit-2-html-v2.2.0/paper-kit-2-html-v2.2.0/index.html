@@ -142,7 +142,7 @@ The above copyright notice and this permission notice shall be included in all c
 
   
   
-   <div class="d-flex flex-wrap justify-content-around">
+   <div class="d-flex flex-wrap justify-content-around shadow-lg">
     
     <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_1')">Gallery</button>
     <button type="button" class="btn btn-info btn-round" onclick="toggleDiv('subject_2')">My stories</button>
@@ -506,9 +506,26 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
       </div>
       
             <div class="container2">  
+               <div class="row">
+         <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12">
+      <div class="weather loading" >
+                     <div class=today>WEATHER NOW</div>
 
-       <div class="row">
-         <div class="col-lg-10  col-md-10 col-sm-10 col-xs-12">
+             <div class="city">  </div>
+             
+             <div class="flex">
+             <div class="temp">      </div>
+
+             <img src="" alt="" class="icon_1" />
+             </div>
+                          <div class="description">    </div>
+
+             <div class="humidity"></div>
+             <div class="wind"></div>
+
+            </div>  
+          </div>
+          <div class="col-lg-6  col-md-6 col-sm-12 col-xs-12">
       <div class="weather loading" >
              <div class="city">  </div>
              
@@ -524,9 +541,11 @@ Aurora and particles from space in our atmosphere are studied in Norway. They th
           </div>  
           </div>
          </div>  
+        </div>
  </div>
- </div>
-      <div class="container1"> 
+     
+ 
+ <div class="container1"> 
         
         <h5>Long Term Forecast:</h5>
                 <div class="row row2">
@@ -718,13 +737,10 @@ function toggleDiv(id) {
   document.getElementById('main_photo').style.display="none";
   document.querySelectorAll('[id^="subject"]').forEach(function(div) {
     if (div.id == id) {
-      // Toggle specified DIV
 
       div.style.display = div.style.display == "none" ? "block" : "none";
 
     } else {
-      // Hide other DIVs
-      //console.log(div.id);
       div.style.display = "none";
     }
   }
