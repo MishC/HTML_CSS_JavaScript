@@ -140,6 +140,9 @@ label {
   color: grey;
   font-size: medium;
 }
+img.icon_1 {
+  filter: contrast(50%);
+}
 .container1 {
   display: flex;
   flex-wrap: wrap;
@@ -385,7 +388,7 @@ button.toggle_child2 {
   float: left;
 }
 .weather {
-  margin: 3em 3em;
+  margin: 3em 0.5em;
   text-align: left;
   border: none;
 }
@@ -406,6 +409,12 @@ button.toggle_child2 {
 
 .city {
   font-size: 18px;
+  padding: 0;
+
+  position: relative;
+  left: -20px;
+  text-align: center;
+  color: #00bbff;
 }
 .temp {
   font-size: 25px;
