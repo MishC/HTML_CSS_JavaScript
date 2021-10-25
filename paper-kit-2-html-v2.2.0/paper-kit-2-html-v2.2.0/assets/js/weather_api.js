@@ -32,6 +32,10 @@ let weather = {
       "Weather in " + name + ", " + country;
 
     for (i = 0; i < 3; i++) {
+      document.querySelectorAll("button.btn-primary")[1].style.display = "none";
+      document.querySelector(".container-1").style.display = "none";
+      document.querySelector(".container-2").style.display = "none";
+
       const { icon, description } = data.list[i].weather[0];
       const { temp, humidity } = data.list[i].main;
       const { speed } = data.list[i].wind;
@@ -135,6 +139,7 @@ let showMore = {
 document
   .querySelectorAll("button.btn-primary")[0]
   .addEventListener("click", function () {
+    document.querySelector(".container-1").style.display = "block";
     showMore.search(parseInt(3));
     document.querySelectorAll("button.btn-primary")[1].style.display =
       "inline-block";
@@ -143,6 +148,8 @@ document
 document
   .querySelectorAll("button.btn-primary")[1]
   .addEventListener("click", function () {
+    document.querySelector(".container-2").style.display = "block";
+
     showMore.search(parseInt(6));
   });
 //wheather.fetchWeather("Oslo"); */
