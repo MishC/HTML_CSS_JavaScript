@@ -112,7 +112,7 @@ article {
 #main_photo {
   padding: 3% 0%;
 }
-#seeMore {
+.seeMore {
   background: var(--primary);
   border-color: var(--primary);
   font-size: 24px;
@@ -120,7 +120,7 @@ article {
   z-index: 100;
   transform: none;
 }
-button#seeMore:hover {
+.seeMore:hover {
   background: #6ec7c0;
   border-color: #6ec7c0;
 }

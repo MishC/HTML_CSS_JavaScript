@@ -195,8 +195,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p style="text-align: center">
                 <button
                   type="button"
-                  id="seeMore"
-                  class="btn btn-info btn-round"
+                  class="btn btn-info btn-round seeMore"
                   onclick="changeVisibility(initial,content_main)"
                 >
                   &nbsp;&nbsp;ENTER&nbsp; &nbsp;
@@ -854,9 +853,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- _________________Weather_____________________________________________-->
     <div id="subject_5" style="display: none">
-      <br />
-      <br />
-      <div class="container mb-5">
+      <div class="container mb-5 mt-5 text-center">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
             <h5>Current weather:</h5>
@@ -891,17 +888,63 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
 
         <div class="weather loading">
+          <div class="city mb-3 text-left"></div>
+
           <div class="row">
-            <div class="col-lg-6 offset-lg-4 col-md-6 offset-md-4 col-sm-4">
-              <div class="city mb-3"></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div class="temp"></div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div class="temp"></div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div class="temp"></div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
             </div>
           </div>
+          <div class="col-lg-12 text-center mt-4 mb-4">
+            <button type="button" class="btn btn-primary btn-round">
+              &nbsp;&nbsp;More&nbsp; &nbsp;
+            </button>
+          </div>
+
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
               <div class="today"></div>
 
               <div class="flex">
-                <div class="temp"></div>
+                <div>
+                  <div class="temp"></div>
+                </div>
 
                 <img src="" alt="" class="icon_1" />
               </div>
@@ -914,7 +957,9 @@ The above copyright notice and this permission notice shall be included in all c
               <div class="today"></div>
 
               <div class="flex">
-                <div class="temp"></div>
+                <div>
+                  <div class="temp"></div>
+                </div>
 
                 <img src="" alt="" class="icon_1" />
               </div>
@@ -927,7 +972,66 @@ The above copyright notice and this permission notice shall be included in all c
               <div class="today"></div>
 
               <div class="flex">
-                <div class="temp"></div>
+                <div>
+                  <div class="temp"></div>
+                </div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center mt-4 mb-4">
+            <button
+              type="button"
+              class="btn btn-primary btn-round"
+              style="display: none"
+            >
+              &nbsp;&nbsp;More&nbsp; &nbsp;
+            </button>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div>
+                  <div class="temp"></div>
+                </div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div>
+                  <div class="temp"></div>
+                </div>
+
+                <img src="" alt="" class="icon_1" />
+              </div>
+              <div class="description"></div>
+
+              <div class="humidity"></div>
+              <div class="wind"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+              <div class="today"></div>
+
+              <div class="flex">
+                <div>
+                  <div class="temp"></div>
+                </div>
 
                 <img src="" alt="" class="icon_1" />
               </div>
