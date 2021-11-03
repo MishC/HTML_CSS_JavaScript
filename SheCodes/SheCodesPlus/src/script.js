@@ -197,12 +197,11 @@ function showWeather(response) {
   document.querySelector("img.icon").src =
     "https://openweathermap.org/img/wn/" + icon + "@2x.png";
   document.querySelector("h6.iconic").innerHTML = description;
-  let precipitation = Math.round(response.data.list[0].pop);
   let humidity = response.data.list[0].main.humidity;
   let wind = Math.round(response.data.list[0].wind.speed);
-  document.querySelector(
+  /* document.querySelector(
     "#precipitation"
-  ).innerHTML = `Precipitation: ${precipitation} %`;
+  ).innerHTML = `Precipitation: ${precipitation} %`;*/
   document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
   document.querySelector("#wind").innerHTML = `Wind: ${wind} m/s`;
   let forecast = document.querySelectorAll("h6>span.forecast");
