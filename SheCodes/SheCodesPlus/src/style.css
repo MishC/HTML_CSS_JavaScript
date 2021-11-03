@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+
 body {
-  margin: 20px;
-}
-form {
-  margin-left: 2em;
+  margin: 60px auto;
+  max-width: 100%;
+
+  vertical-align: middle;
 }
 
 h1 > a {
@@ -176,7 +177,6 @@ span.units > a {
 .temperature {
   font-size: 48px;
   font-weight: 700;
-  list-style-type: none;
 }
 
 .temperature > li {
@@ -207,7 +207,7 @@ img.icon {
     margin: auto;
   }
   li#temp {
-    font-size: 35px;
+    font-size: 42px;
   }
   #text {
     font-size: smaller;
@@ -219,7 +219,7 @@ img.icon {
   span.units {
     font-size: 20px;
     position: relative;
-    top: -5px;
+    top: -10px;
   }
   span.city {
     position: static;
@@ -236,10 +236,6 @@ img.icon {
   input.form-control {
   }
 
-  body {
-    width: 100%;
-    margin: 20px 0;
-  }
   .container {
     width: 100%;
   }
