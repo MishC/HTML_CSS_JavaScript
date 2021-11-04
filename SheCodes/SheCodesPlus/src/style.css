@@ -3,8 +3,8 @@
 body {
   margin: 60px auto;
   max-width: 100%;
-
   vertical-align: middle;
+  text-align: center;
 }
 
 h1 > a {
@@ -68,7 +68,7 @@ footer {
   margin: 0px;
 }
 .form-control {
-  min-width: 100%;
+  max-width: 80%;
   border-color: #1ab2a8;
   border-width: 3px;
 }
@@ -134,7 +134,6 @@ ul.strip {
   margin: 0px;
   padding: 6px 6px;
   border-radius: 0px;
-  /*text-align: center;*/
 }
 ul.strip1 {
   margin: 50px 0px 0px 0px;
@@ -195,6 +194,9 @@ img.icon {
 .dispay-none {
   display: none;
 }
+.inline {
+  display: inline-flex;
+}
 
 @media only screen and (max-width: 800px) {
   ul,
@@ -233,17 +235,11 @@ img.icon {
     text-align: center;
     font-weight: 700;
   }
-  input.form-control {
-  }
 
   .container {
     width: 100%;
   }
-  #type {
-    min-width: 140px;
-    margin: 0px;
-    position: relative;
-  }
+
   .btn {
     position: relative;
     left: auto;
