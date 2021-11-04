@@ -133,7 +133,11 @@ function getDayForecast(lists, time, elementArr, elementArr1) {
 
       days.push(currentDay(date));
 
-      let dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
+      if (dateUTC.slice(8, 9) === "0") {
+        dateString = dateUTC.slice(9, 10) + "." + dateUTC.slice(5, 7) + ".";
+      } else {
+        dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
+      }
       dates.push(dateString);
     }
   });
@@ -143,7 +147,12 @@ function getDayForecast(lists, time, elementArr, elementArr1) {
     let date = new Date(dateUTC);
     days.unshift(currentDay(date));
     days.pop();
-    dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
+
+    if (dateUTC.slice(8, 9) === "0") {
+      dateString = dateUTC.slice(9, 10) + "." + dateUTC.slice(5, 7) + ".";
+    } else {
+      dateString = dateUTC.slice(8, 10) + "." + dateUTC.slice(5, 7) + ".";
+    }
     dates.unshift(dateString);
     dates.pop();
   }
@@ -179,13 +188,11 @@ function removeFails(temp) {
 //**________________________________*//
 function showWeather(response) {
   //
+  console.log(response);
   let temperature = Math.round(response.data.list[0].main.temp);
   removeFails(temperature);
   document.querySelector("#temp").innerHTML = `${temperature}`;
 
-  //let city = response.data.city.name;
-  //let country = response.data.city.country;
-  //cityNot(city, country);
   document.querySelector(
     "span.city"
   ).innerHTML = `${response.data.city.name.toUpperCase()} (${
@@ -199,9 +206,7 @@ function showWeather(response) {
   document.querySelector("h6.iconic").innerHTML = description;
   let humidity = response.data.list[0].main.humidity;
   let wind = Math.round(response.data.list[0].wind.speed);
-  /* document.querySelector(
-    "#precipitation"
-  ).innerHTML = `Precipitation: ${precipitation} %`;*/
+
   document.querySelector("#humidity").innerHTML = `Humidity: ${humidity}%`;
   document.querySelector("#wind").innerHTML = `Wind: ${wind} m/s`;
   let forecast = document.querySelectorAll("h6>span.forecast");
@@ -210,7 +215,6 @@ function showWeather(response) {
   let time = dateUTC.slice(11, 13);
 
   let lists = response.data.list;
-  //console.table(lists);
   getTemperaturesForecast(lists, "12", forecast);
   getTemperaturesForecast(lists, "00", forecastNight);
   let iconsForecast = document.querySelectorAll("img.icon-forecast");
@@ -295,7 +299,11 @@ function compareTemp(initTemp, changedTemp) {
 }
 /**/
 let unitCelsius = document.querySelector("#celsius-link");
+unitCelsius.style.color = "#D67256";
+
 let unitFahrenheit = document.querySelector("#farenheit-link");
+unitFahrenheit.style.color = "#1ab2a8";
+
 function changeUnitstoFahrenheit(event) {
   event.preventDefault();
 
