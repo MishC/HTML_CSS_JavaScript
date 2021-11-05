@@ -1,0 +1,25 @@
+html {
+  display: block;
+}
+body {
+  width: 100vh;
+  margin: 10px auto;
+  background: #f8e8a6;
+}
+h1,
+p {
+  text-align: center;
+}
+footer {
+  text-align: center;
+}
+footer a {
+  margin: 0 10px;
+  color: green;
+}
+.croissant-photo {
+  max-width: 100%;
+  border-radius: 10px;
+  display: block;
+  margin: 30px auto;
+}
