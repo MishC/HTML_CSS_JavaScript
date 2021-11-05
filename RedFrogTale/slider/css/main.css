@@ -1,112 +1,114 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 body {
-    background-image: url('../../images/frog_bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-	min-height: 100vh;
-    /*background-color:#9ccc9c;*/
-    margin:0px;
-	font-size:18px;
-    font-family: Helvetica, sans-serif;
+  background-image: url("../../images/frog_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*background-color:#9ccc9c;*/
+  margin: 0 auto;
+  font-size: 18px;
+  font-family: Helvetica, sans-serif;
 }
 
 /*SIDE PANEL*/
-.sidepanel  {  
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    max-height:30vh;
-    margin-top: 0;
-    margin-left: 0;
-    background-color: #9ccc9c;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 70px;
-	padding-bottom: 50px;
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  max-height: 30vh;
+  margin-top: 0;
+  margin-left: 0;
+  background-color: #9ccc9c;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 70px;
+  padding-bottom: 50px;
 }
 
 .sidepanel a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 30px;
-    color: black;
-    display: block;
-    transition: 0.3s;
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+  display: block;
+  transition: 0.3s;
 }
 
 .sidepanel a:hover {
-	color: #f1f1f1;
+  color: #f1f1f1;
 }
 .sidepanel .closebtn {
-	position: absolute;
-	top: 0;
-	right: 25px;
-	font-size: 32px;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 32px;
 }
 
 .openbtn {
-	font-size: 24px;
-	font-family: Helvetica, sans-serif;
-	font-weight:bolder;
-	cursor: pointer;
-	background-color: #9ccc9c;
-	color: black;
-	padding: 10px 15px;
-    border: none;
+  font-size: 24px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: #9ccc9c;
+  color: black;
+  padding: 10px 15px;
+  border: none;
 }
 
 .openbtn:hover {
-    background-color:#444;
+  background-color: #444;
 }
 /*SIDE PANEL END*/
 
 /*header*/
 #header {
-	margin:auto;
-	max-width:1170px;
-    padding: 20px 0px 20px 0px;
-    text-align: center;
-    background-color: white;
-	
-    color:#f3072d;
-    font-family: Copperplate, Copperplate Gothic Light, fantasy; 
-    font-style: bolder; font-variant: bolder; font-weight: 800;
-	top:0px; -webkit-font-smoothing: antialiased;
-	border-width: 15px 15px 0px 15px;
-	 border-style:solid; 
-	 border-color:#9ccc9c;
-    
+  margin: auto;
+  max-width: 1170px;
+  padding: 20px 0px 20px 0px;
+  text-align: center;
+  background-color: white;
+
+  color: #f3072d;
+  font-family: Copperplate, Copperplate Gothic Light, fantasy;
+  font-style: bolder;
+  font-variant: bolder;
+  font-weight: 800;
+  top: 0px;
+  -webkit-font-smoothing: antialiased;
+  border-width: 15px 15px 0px 15px;
+  border-style: solid;
+  border-color: #9ccc9c;
 }
 
 #header h2 {
-    font-size: 2.5em;
-} 
+  font-size: 2.5em;
+}
 /*header*/
 
 /* SLIDER START */
 .slider {
-     
-     background-color:white;
-     margin:auto;
-     max-width:1200px;
-     padding:0px;
-     top:-50px;
-     bottom:20px;
-	 border-width: 0px 15px 15px 15px;
-	 border-style:solid; 
-	 border-color:#9ccc9c;
+  background-color: white;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0px;
+  top: -50px;
+  bottom: 20px;
+  border-width: 0px 15px 15px 15px;
+  border-style: solid;
+  border-color: #9ccc9c;
 }
 
 .slide {
-    margin: auto;
-    padding: 30px;
+  margin: auto;
+  padding: 30px;
 }
 .slide img {
-    margin: auto;
-    padding:10px;
-	width:80%;height:80%;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
+  height: 80%;
 }
 
 /* SLIDER END */
@@ -114,112 +116,138 @@ body {
 /*DEVICES START*/
 /*mobile*/
 @media screen and (max-width: 768px) {
-body {
-	font-size:14px;
-}
-#header {padding:20px;
-		border:none;}
-#header h2 {font-size: 1.5em;
-			margin-top:0px;
-}
-/*SIDE PANEL START*/
-#mySidepanel{max-width: 20vh;
-           max-height: 30vh;
-		   padding-top:60px;
-		   font-size:1.5em;
-		   z-index:2;} 
-.sidepanel a{font-size:1em;}		   
-.sidepanel closebtn{font-size:1em;}
-.closebtn{font-size:1em;}		   
-.openbtn {font-size: 1em;}
-/*SIDE PANEL END*/
+  body {
+    font-size: 14px;
+  }
+  #header {
+    padding: 20px;
+    border: none;
+  }
+  #header h2 {
+    font-size: 1.5em;
+    margin-top: 0px;
+  }
+  /*SIDE PANEL START*/
+  #mySidepanel {
+    max-width: 20vh;
+    max-height: 30vh;
+    padding-top: 60px;
+    font-size: 1.5em;
+    z-index: 2;
+  }
+  .sidepanel a {
+    font-size: 1em;
+  }
+  .sidepanel closebtn {
+    font-size: 1em;
+  }
+  .closebtn {
+    font-size: 1em;
+  }
+  .openbtn {
+    font-size: 1em;
+  }
+  /*SIDE PANEL END*/
 
-/*SLIDER START*/
-.slider { top:-40px; 
-		bottom:20px;
-		 border:0px;	
-}
-.slick-prev,
-.slick-next {
-width: 5px;
-height: 5px;
-z-index:1;
-}
-.slick-prev {
+  /*SLIDER START*/
+  .slider {
+    top: -40px;
+    bottom: 20px;
+    border: 0px;
+  }
+  .slick-prev,
+  .slick-next {
+    width: 5px;
+    height: 5px;
+    z-index: 1;
+  }
+  .slick-prev {
     left: 30px;
-	
-}
+  }
 
-.slick-next {
-	right: 40px;
-	
-}
-/*SLIDER END*/
+  .slick-next {
+    right: 40px;
+  }
+  /*SLIDER END*/
 }
 
 /*iPad Pro*/
-@media only screen 
-  and (min-width: 1024px) 
-  and (max-height: 1366px)
-  and (-webkit-min-device-pixel-ratio: 1.5)  {
-body{
-	font-size:20px;
-}
-#header  {padding:20px;
-		border:0px;
-		}
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  body {
+    font-size: 20px;
+  }
+  #header {
+    padding: 20px;
+    border: 0px;
+  }
 
-#header h2 {font-size: 1.5em; 
-			margin-top:20px;
-}
+  #header h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
 
-/*SIDE PANEL START*/
-#mySidepanel{max-width: 20vh;
-           max-height: 30vh;
-		   padding-top:60px;
-		   font-size:1.5em;}
-.sidepanel a{font-size:1em;}		   
-.sidepanel closebtn{font-size:1em;}
-.closebtn{font-size:1em;}		   
-.openbtn {font-size: 1em;}
-/*SIDE PANEL END*/
+  /*SIDE PANEL START*/
+  #mySidepanel {
+    max-width: 20vh;
+    max-height: 30vh;
+    padding-top: 60px;
+    font-size: 1.5em;
+  }
+  .sidepanel a {
+    font-size: 1em;
+  }
+  .sidepanel closebtn {
+    font-size: 1em;
+  }
+  .closebtn {
+    font-size: 1em;
+  }
+  .openbtn {
+    font-size: 1em;
+  }
+  /*SIDE PANEL END*/
 
-/*SLIDER START*/
-.slider {border:0px;}
-.slick-prev,
-.slick-next {
-width: 20px;
-height: 20px;
-}
-.slick-prev {
+  /*SLIDER START*/
+  .slider {
+    border: 0px;
+  }
+  .slick-prev,
+  .slick-next {
+    width: 20px;
+    height: 20px;
+  }
+  .slick-prev {
     left: 40px;
-}
+  }
 
-.slick-next {
-	right: 40px;
-}
-/*SLIDER END*/
+  .slick-next {
+    right: 40px;
+  }
+  /*SLIDER END*/
 }
 
 /*iPad*/
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px)  { 
-body{
-	font-size:18px;
-}
-#header  {padding:20px; border:0px;
-}
-#header h2 {font-size: 2em; 
-			margin-top:0px;
-}
-#mySidepanel{max-width: 20vh;
-           max-height: 20vh;
-		   padding-top:60px;
-		   padding-bottom:0px;
-		   font-size:1.5em;
-		  
-}	
-.slider {max-width:80vh;
-         border:0px;}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+  #header {
+    padding: 20px;
+    border: 0px;
+  }
+  #header h2 {
+    font-size: 2em;
+    margin-top: 0px;
+  }
+  #mySidepanel {
+    max-width: 20vh;
+    max-height: 20vh;
+    padding-top: 60px;
+    padding-bottom: 0px;
+    font-size: 1.5em;
+  }
+  .slider {
+    max-width: 80vh;
+    border: 0px;
+  }
 }
