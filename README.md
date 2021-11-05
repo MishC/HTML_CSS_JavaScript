@@ -17,11 +17,11 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *paper-kit-2-html-v2.2.0* - About Norway - UI kit Creative Tim. Code needs to be cleaned. Functions style in JS should be E6. (I was playing -> Looks ugly :D))
 
-*project-prettify_template* - Zero2Mastery (ZTM) layout.
+*project-pretify_template* - Zero2Mastery (ZTM) layout.
 
 *random_pass_generator* - Sololearn challenge Random password generator.
 
-*robot* - Animation Robot is dancing (Inspiration: ZTM Web Development Course)
+*robot* - CSS animation Robot is dancing (Inspiration: ZTM Web Development Course)
 
 *song_quiz* - Guess the song from few seconds cut. HTML, CSS, JS.
 
