@@ -11,7 +11,6 @@ body {
   font-size: 30px;
   text-justify: inter-word;
 }
-h1,
 p {
   text-align: center;
   margin: 0 200px;
@@ -21,6 +20,7 @@ h1 {
   font-size: 80px;
   font-weight: 600;
   margin-bottom: 50px;
+  text-align: center;
 }
 .intro {
   font-size: 25px;
@@ -124,17 +124,18 @@ img {
 
 .home {
   right: 100px;
-
   background: #ff6f3c;
 }
 
 .photos {
   right: 40px;
+
   background: #ff9a3c;
 }
 
 .contact {
   right: -20px;
+
   background: #ffc93c;
 }
 
