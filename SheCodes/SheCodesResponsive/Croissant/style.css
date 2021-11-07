@@ -1,25 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Pinyon+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;200;300;400;500;600;700&display=swap");
+
 html {
   display: block;
 }
 body {
-  width: 100vh;
-  margin: 10px auto;
+  max-width: 100%;
+  margin: 120px auto;
   background: #f8e8a6;
+  font-size: 22px;
 }
 h1,
 p {
   text-align: center;
 }
+h1 {
+  font-family: "Pinyon Script", cursive;
+  font-size: 80px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+.intro {
+  font-size: 25px;
+}
 footer {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
   text-align: center;
+  margin-top: 100px;
 }
 footer a {
   margin: 0 10px;
   color: green;
 }
-.croissant-photo {
-  max-width: 100%;
+img {
+  width: fit-content;
+  padding: 0;
   border-radius: 10px;
-  display: block;
-  margin: 30px auto;
+}
+.croissant-photo {
+}
+
+.container {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px 10px;
+  background: #fff;
+  padding: 20px 20px;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+.cell {
+  color: white;
+  padding: 10px 10px;
+}
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.cell-1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.cell-2 {
+  grid-column-start: 3;
+  grid-column-end: span col3-end;
+  grid-row-start: 1;
+  grid-row-end: span row2-end;
+}
+.cell-3 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.cell-4 {
+}
+.cell-5 {
+}
+.cell-7 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.cell-6 {
+  grid-column-start: 2;
+  grid-column-end: 3 span;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    margin: 50px auto;
+    max-width: 75%;
+  }
+  .container {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 30%;
+    max-width: 80%;
+  }
+  h1 {
+    font-size: 52px;
+  }
+  .cell-5 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  .cell-4 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
 }
