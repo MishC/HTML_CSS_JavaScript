@@ -8,11 +8,13 @@ body {
   max-width: 100%;
   margin: 120px auto;
   background: #f8e8a6;
-  font-size: 22px;
+  font-size: 30px;
+  text-justify: inter-word;
 }
 h1,
 p {
   text-align: center;
+  margin: 0 60px;
 }
 h1 {
   font-family: "Pinyon Script", cursive;
@@ -22,9 +24,11 @@ h1 {
 }
 .intro {
   font-size: 25px;
+  justify-content: left;
 }
 footer {
   position: -webkit-sticky;
+  font-size: 40px;
   position: sticky;
   top: 20px;
   text-align: center;
@@ -33,6 +37,7 @@ footer {
 footer a {
   margin: 0 10px;
   color: green;
+  text-decoration: none;
 }
 img {
   width: fit-content;
@@ -84,20 +89,20 @@ img {
 }
 .cell-5 {
 }
-.cell-7 {
+.cell-6 {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
 }
-.cell-6 {
+.cell-7 {
   grid-column-start: 2;
   grid-column-end: 3 span;
   grid-row-start: 3;
   grid-row-end: 3;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 760px) {
   body {
     margin: 50px auto;
     max-width: 75%;
@@ -108,19 +113,15 @@ img {
     flex-wrap: wrap;
     flex: 30%;
   }
+
   h1 {
     font-size: 52px;
   }
-  .cell-5 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+  p {
+    margin: 0;
   }
-  .cell-4 {
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 1;
+
+  p.intro {
+    font-size: 25px;
   }
 }
