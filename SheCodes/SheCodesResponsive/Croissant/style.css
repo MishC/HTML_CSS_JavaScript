@@ -14,7 +14,7 @@ body {
 h1,
 p {
   text-align: center;
-  margin: 0 60px;
+  margin: 0 200px;
 }
 h1 {
   font-family: "Pinyon Script", cursive;
@@ -24,7 +24,6 @@ h1 {
 }
 .intro {
   font-size: 25px;
-  justify-content: left;
 }
 footer {
   position: -webkit-sticky;
@@ -32,11 +31,15 @@ footer {
   position: sticky;
   top: 20px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 70px;
+  font-weight: bold;
 }
 footer a {
   margin: 0 10px;
-  color: green;
+  color: rgb(252, 170, 17);
+  text-decoration: none;
+}
+footer a:hover {
   text-decoration: none;
 }
 img {
@@ -59,7 +62,7 @@ img {
   vertical-align: middle;
 }
 .cell {
-  color: white;
+  color: #fff;
   padding: 10px 10px;
 }
 img {
@@ -101,6 +104,41 @@ img {
   grid-row-start: 3;
   grid-row-end: 3;
 }
+/**/
+#mySidenav a {
+  position: absolute;
+  top: -70px;
+  transition: 0.3s;
+  padding: 10px;
+  width: 135px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  transform: rotate(90deg);
+}
+
+#mySidenav a:hover {
+  top: 40px;
+}
+
+.home {
+  right: 100px;
+
+  background: #ff6f3c;
+}
+
+.photos {
+  right: 40px;
+  background: #ff9a3c;
+}
+
+.contact {
+  right: -20px;
+  background: #ffc93c;
+}
+
+/**/
 
 @media only screen and (max-width: 760px) {
   body {
