@@ -107,7 +107,6 @@ img {
     display: flex;
     flex-wrap: wrap;
     flex: 30%;
-    max-width: 80%;
   }
   h1 {
     font-size: 52px;
