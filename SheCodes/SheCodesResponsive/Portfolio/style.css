@@ -161,7 +161,7 @@ footer .contact-box {
   border-radius: 10px;
 }
 /*end footer*/
-/*about*/
+/*about and contact page*/
 
 .content {
   margin: 120px 0 50px 0;
@@ -187,6 +187,11 @@ footer .contact-box {
   background: var(--secondary-color);
   padding: 30px 120px;
   border-radius: 10px;
+}
+.content h3 {
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: var(--default-font-family);
 }
 
 /********************************/
