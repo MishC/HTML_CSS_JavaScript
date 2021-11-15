@@ -1,3 +1,4 @@
+/*This a copy of SheCodes responsive project*/
 :root {
   --primary-color: #6c63ff;
   --secondary-color: #f9f7fe;
@@ -91,6 +92,9 @@ img {
   color: var(--primary-color);
   text-align: center;
   display: block;
+}
+nav img {
+  max-width: 50%;
 }
 /*End of navigation*/
 /*Introduction*/
