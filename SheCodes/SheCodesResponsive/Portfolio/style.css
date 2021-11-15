@@ -28,7 +28,6 @@ h1 {
 
 h2 {
   font-size: 64px;
-  text-align: center;
 }
 
 h3 {
@@ -136,8 +135,16 @@ img {
 /*end of buttons*/
 
 /*Footer*/
-footer {
+footer .email-link {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
 }
+
+footer .email-link:hover {
+  color: var(--primary-color);
+}
+
 footer .social-links a {
   margin: 0 20px;
   color: var(--primary-color);
@@ -155,25 +162,31 @@ footer .contact-box {
 }
 /*end footer*/
 /*about*/
-.about-paragraphs {
-  display: flex;
-  margin: 30px 0;
-}
 
-.about-paragraphs p {
-  margin: 10px;
+.content {
+  margin: 120px 0 50px 0;
 }
-
-.email-link {
-  display: flex;
-  justify-content: center;
-  color: var(--primary-color);
-  font-size: 28px;
-  text-decoration: none;
+.content h1 {
+  font-size: 64px;
+  line-height: 80px;
+  text-align: left;
 }
-
-.email-link:hover {
-  text-decoration: underline;
+.content h2 {
+  font-size: 18px;
+  font-family: var(--default-font-family);
+}
+.content p {
+  font-size: 14px;
+  padding: 0;
+}
+.img-fluid {
+  max-width: 80%;
+  height: auto;
+}
+footer .contact-box {
+  background: var(--secondary-color);
+  padding: 30px 120px;
+  border-radius: 10px;
 }
 
 /********************************/
