@@ -8,8 +8,8 @@
 
 html {
   display: block;
-  position: relative;
   margin: 0;
+  position: relative;
 }
 
 body {
@@ -17,10 +17,10 @@ body {
   margin: 0 auto;
   font-family: var(--default-font-family);
   color: var(--primary-color);
-  min-width: 100%;
-  min-height: 100%;
+  max-width: 100%;
 }
 .container {
+  max-width: 100vh;
   text-align: center;
   display: block;
   background: #1b1b1b;
@@ -106,7 +106,7 @@ nav img {
 /*Gallery*/
 .gallery-grid {
   max-width: 100%;
-  padding: 3em 3em;
+  padding: 3em 2em;
   margin: 0 auto;
 }
 .gallery-grid .row {
@@ -130,7 +130,8 @@ footer {
 
   font-size: 16px;
   position: relative;
-  float: bottom;
+
+  bottom: 0;
 }
 footer img {
   width: 40%;
@@ -215,16 +216,16 @@ footer p {
 /*media*/
 @media (max-width: 800px) {
   .gallery-grid img {
-    max-height: 200px;
-    padding: 10px;
+    max-height: 280px;
   }
   .gallery-grid .row {
-    max-height: 200px;
+    max-height: 280px;
     max-width: 100%;
   }
   h1 {
-    font-size: 36px;
-    line-height: 1;
+    font-size: 40px;
+    line-height: 42px;
+    text-align: center;
   }
 
   h2 {
