@@ -42,9 +42,8 @@ h6 {
 }
 /*Navigation bar*/
 nav {
-  height: 100px;
   vertical-align: middle;
-  padding: 0;
+  padding: 40px 140px;
 }
 .container nav {
   background-color: #202020;
@@ -131,7 +130,7 @@ footer {
   bottom: 0;
 }
 footer img {
-  max-width: 15%;
+  max-width: 8%;
 }
 
 footer a {
