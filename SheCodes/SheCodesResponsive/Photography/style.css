@@ -49,7 +49,9 @@ nav {
   background-color: #202020;
 }
 nav img {
-  max-width: 50%;
+  max-width: 40%;
+  padding: 0;
+  margin: 0;
 }
 .bg-dark {
   background-color: #202020 !important;
@@ -281,6 +283,9 @@ footer p {
 }
 @media (max-width: 500px) {
   .display {
+    display: none;
+  }
+  a.navbar-brand {
     display: none;
   }
 }
