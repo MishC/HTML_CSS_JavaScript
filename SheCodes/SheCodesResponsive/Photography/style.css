@@ -264,9 +264,12 @@ footer p {
   footer img {
     display: none;
   }
+  footer .social-links {
+    padding-bottom: 15px;
+  }
   footer .social-links a {
-    font-size: 12px;
-    justify-content: start;
+    font-size: 18px;
+    padding: 20px;
   }
   footer p {
     margin: 0px;
