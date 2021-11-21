@@ -27,6 +27,9 @@ h4 {
   font-size: 36px;
   line-height: 49px;
 }
+h5 {
+  font-weight: 700;
+}
 p {
   font-size: 18px;
 }
@@ -181,6 +184,7 @@ footer p {
   }
   footer {
     flex-direction: column;
+    text-align: center;
   }
   .abundant {
     display: none;
@@ -191,6 +195,7 @@ footer p {
   }
   footer .social-links {
     padding: 20px;
+    display: flex;
   }
   .main figcaption {
     font-size: 24px;
