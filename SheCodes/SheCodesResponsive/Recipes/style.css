@@ -27,6 +27,9 @@ h4 {
   font-size: 36px;
   line-height: 49px;
 }
+p {
+  font-size: 18px;
+}
 /*Nav bar*/
 nav.navbar {
   vertical-align: middle;
@@ -154,12 +157,12 @@ footer {
   background: #e5e5e5e5;
   font-size: 16px;
   line-height: 22px;
-  padding: 40px 0;
+  padding: 50px 140px;
   min-width: 100%;
   margin: 0;
 }
 footer img {
-  margin-left: 8%;
+  margin-left: 0%;
 }
 
 footer p {
