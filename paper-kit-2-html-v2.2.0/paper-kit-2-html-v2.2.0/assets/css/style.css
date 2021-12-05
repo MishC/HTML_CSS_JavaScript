@@ -60,7 +60,7 @@ body {
 }
 #subject_5 {
   display: none;
-  min-height: 120vh;
+  min-height: 100vh;
   min-height: 80vh;
   padding: 40px 0;
   padding-bottom: 3%;
@@ -68,7 +68,7 @@ body {
   border-radius: 10px;
 }
 .weather {
-  min-height: 120vh;
+  min-height: 100vh;
 }
 #subject_6 {
   display: none;
@@ -398,7 +398,7 @@ button.toggle_child2 {
 }
 .weather {
   margin: 3em 0.5em;
-  text-align: left;
+  margin: 0 auto;
   border: none;
 }
 
@@ -496,14 +496,10 @@ footer.footer {
     padding: 0;
   }
   .weather {
+    min-height: 120vh;
     margin: 1em 0em 5em 1em;
-    position: relative;
   }
-  footer.footer {
-    float: bottom;
-    bottom: 0;
-    min-width: 100%;
-  }
+
   .footer {
     font-size: 16px;
   }
@@ -535,6 +531,9 @@ footer.footer {
   }
   div#subject_4 .container {
     min-width: 100%;
+  }
+  .weather {
+    min-height: 200vh;
   }
 }
 /*End of my section*/
