@@ -97,8 +97,6 @@ let showMore = {
   },
   displayMore: function (data, j) {
     for (i = j; i < j + 3; i++) {
-      console.log(data);
-
       const { icon, description } = data.list[i].weather[0];
       const { temp, humidity } = data.list[i].main;
       const { speed } = data.list[i].wind;

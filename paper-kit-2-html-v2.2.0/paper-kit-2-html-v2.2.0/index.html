@@ -223,7 +223,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="col-md-12">&nbsp;</div>
         <div class="col-md-12">&nbsp;</div>
 
-        <div class="d-flex flex-wrap justify-content-around shadow-lg">
+        <div class="d-flex flex-wrap justify-content-around">
           <button
             type="button"
             class="btn btn-info btn-round"
@@ -289,6 +289,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/bleik-beach-andoya.jpg"
           alt="Andoya beach"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="top"
           title="North sea beach"
@@ -296,6 +297,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/athlantic_road.jpg"
           alt="Ålesund"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="top"
           title="Athlantic road Ålesund"
@@ -303,6 +305,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/bergen-historic-centre.jpg"
           alt="Bergen"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="top"
           title="Bergen Bryggen"
@@ -310,6 +313,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/voringsfos.jpg"
           alt="Vøringsfossen"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="bottom"
           title="Vøringsfossen Waterfall"
@@ -317,6 +321,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/senja02.jpg"
           alt="Senja"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="bottom"
           title="Senja near Tromsø"
@@ -324,6 +329,7 @@ The above copyright notice and this permission notice shall be included in all c
         <img
           src="assets/img/gallery/midnight-sun-north-cape-norway-jon-lundal.jpg"
           alt="North Cape"
+          class="img-fluid"
           data-toggle="popover"
           data-placement="bottom"
           title="North Cape :: Midnight sun"
@@ -496,7 +502,7 @@ The above copyright notice and this permission notice shall be included in all c
     <!----------------*-UNESCO-*-------------------------------------------------->
 
     <div id="subject_3" style="display: none">
-      <div class="container">
+      <div class="container mt-5">
         <br />
         <h3 class="text-center mt-5 mb-5 p-3">
           List of Norwegian UNESCO Heritage
@@ -804,6 +810,7 @@ The above copyright notice and this permission notice shall be included in all c
           <img
             src="./assets/img/geomagnetic_field.jpg"
             alt="https://www.swpc.noaa.gov/phenomena/coronal-mass-ejections"
+            class="img-fluid"
             width="620"
             height="320"
           />
@@ -858,9 +865,9 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- _________________Weather_____________________________________________-->
     <div id="subject_5" style="display: none">
-      <div class="container mb-5 mt-5 text-center">
+      <div class="container w-80 mb-5 mt-5 text-center">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
+          <div class="col-lg-4 col-md-4 d-md-block d-none">
             <h5>Current weather:</h5>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-auto">
@@ -893,7 +900,7 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
 
         <div class="weather loading">
-          <div class="city mb-3 text-left"></div>
+          <div class="city mb-3 text-center py-5"></div>
 
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
@@ -1157,12 +1164,14 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
     <!-- ________________________END OF CAROUSEL______________________________________________________---->
     <!--_________________________FOOTER________________________________________________________________-->
-    <footer class="footer">
+    <footer class="footer w-100">
       <div class="container">
         <div class="row">
-          <nav class="footer-nav">
+          <nav
+            class="d-flex justify-content-end navbar  fixed-bottom w-100"
+          >
             <ul>
-              <li>
+              <li class="justify-content-start">
                 <a href="https://www.yr.no/nb" target="_blank"
                   >Wheather in Norway</a
                 >
@@ -1173,21 +1182,23 @@ The above copyright notice and this permission notice shall be included in all c
                 >
               </li>
               <li>
-                <a href="https://www.lonelyplanet.com/norway" target="_blank"
+                <a
+                  href="https://www.lonelyplanet.com/norway"
+                  target="_blank"
+                  style="position: relative"
                   >Lonely Planet</a
                 >
               </li>
+              <li class="justify-content-end">
+                <a href="#" target="_blank">
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  MishC
+                </a>
+              </li>
             </ul>
           </nav>
-          <div class="credits ml-auto">
-            <span class="copyright">
-              ©
-              <script>
-                document.write(new Date().getFullYear());
-              </script>
-              by Creative Tim and MishC
-            </span>
-          </div>
         </div>
       </div>
     </footer>
