@@ -39,10 +39,11 @@ The above copyright notice and this permission notice shall be included in all c
       rel="stylesheet"
     />
     <!--Font Awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <script
+      src="https://kit.fontawesome.com/1b2099cb12.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!--Google Font-->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
@@ -149,7 +150,7 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
       </div>
     </nav>
-    <!--MAin -->
+    <!--Main -->
     <div id="initial">
       <div
         class="page-header section-dark"
@@ -341,7 +342,7 @@ The above copyright notice and this permission notice shall be included in all c
     <div id="subject_2" style="display: none">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 ms-0 me-5 pe-5">
+          <div class="col-md-6 ms-0 me-5 pe-5">
             <div class="wrapper">
               <button
                 class="toggle_child2 shadow shadow"
@@ -354,7 +355,7 @@ The above copyright notice and this permission notice shall be included in all c
 
               <div class="content_child2">
                 <p>
-                  Trolltunga (together with Prekestoilen) is the most famous
+                  Trolltunga (together with Preikestoilen) is the most famous
                   rock formation in Norway. I was in Trolltunga 3 times in
                   different weather conditions with different people.<br />
                   Once it was early spring in April where all the water melted
@@ -865,7 +866,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- _________________Weather_____________________________________________-->
     <div id="subject_5" style="display: none">
-      <div class="container w-80 mb-5 mt-5 text-center">
+      <div class="container w-80 mb-5 mt-5 pl-5 text-center">
         <div class="row">
           <div class="col-lg-4 col-md-4 d-lg-block d-none mb-5">
             <h5>Current weather:</h5>
@@ -1002,11 +1003,12 @@ The above copyright notice and this permission notice shall be included in all c
               type="button"
               class="btn btn-primary btn-round"
               style="display: none"
+              onclick=""
             >
               &nbsp;&nbsp;More&nbsp; &nbsp;
             </button>
           </div>
-          <div class="container-2">
+          <div class="container-2 mb-5">
             <div class="row">
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-auto">
                 <div class="today"></div>
@@ -1164,42 +1166,65 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
     <!-- ________________________END OF CAROUSEL______________________________________________________---->
     <!--_________________________FOOTER________________________________________________________________-->
-    <footer class="footer w-100">
-      <div class="container">
+
+    <footer class="footer text-center text-lg-start sticky-bottom">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
         <div class="row">
-          <nav class="d-flex justify-content-end navbar fixed-bottom w-100">
-            <ul>
-              <li class="justify-content-start">
-                <a href="https://www.yr.no/nb" target="_blank"
-                  >Wheather in Norway</a
-                >
-              </li>
-              <li>
-                <a href="https://www.visitnorway.no/" target="_blank"
-                  >Visit Norway</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.lonelyplanet.com/norway"
-                  target="_blank"
-                  style="position: relative"
-                  >Lonely Planet</a
-                >
-              </li>
-              <li class="justify-content-end">
-                <a href="#" target="_blank">
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  MishC
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <!--Grid column-->
+          <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+            <a
+              href="https://www.yr.no/nb"
+              target="_blank"
+              class="text-uppercase text-dark font-weight-bold"
+              ><i class="fas fa-umbrella"></i> Wheather in Norway</a
+            >
+          </div>
+          <!--Grid column-->
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <a
+              href="https://www.visitnorway.no/"
+              target="_blank"
+              class="text-uppercase text-dark font-weight-bold"
+              >🌲 Visit Norway</a
+            >
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <a
+              href="https://www.lonelyplanet.com/norway"
+              target="_blank"
+              style="position: relative"
+              class="text-uppercase text-dark font-weight-bold"
+              >🌏 Lonely Planet</a
+            >
+          </div>
+          <!--Grid column-->
         </div>
+        <!--Grid row-->
       </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div
+        class="text-center p-3 font-weight-bold text-muted"
+        style="background-color: aliceblue"
+      >
+        ©
+        <a href="#" target="_blank" class="text-muted font-weight-bold">
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          MishC
+        </a>
+      </div>
+      <!-- Copyright -->
     </footer>
+
     <!---END OF FOOTER--->
     <!---END OF display none--->
 

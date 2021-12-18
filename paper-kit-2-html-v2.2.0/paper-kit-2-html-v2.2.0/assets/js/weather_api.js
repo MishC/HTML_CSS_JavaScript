@@ -136,18 +136,24 @@ let showMore = {
 /*____________________*/
 document
   .querySelectorAll("button.btn-primary")[0]
-  .addEventListener("click", function () {
+  .addEventListener("click", () => {
+    subject5 = document.querySelector("#subject_5");
+    subject5.style.marginBottom =
+      parseInt(subject5.style.marginBottom.replace("px", "")) + 500;
     document.querySelector(".container-1").style.display = "block";
     showMore.search(parseInt(3));
+
     document.querySelectorAll("button.btn-primary")[1].style.display =
       "inline-block";
   });
 
 document
   .querySelectorAll("button.btn-primary")[1]
-  .addEventListener("click", function () {
+  .addEventListener("click", () => {
+    subject5 = document.querySelector("#subject_5");
+    subject5.style.marginBottom =
+      parseInt(subject5.style.marginBottom.replace("px", "")) + 500;
     document.querySelector(".container-2").style.display = "block";
-
     showMore.search(parseInt(6));
   });
 //wheather.fetchWeather("Oslo"); */
