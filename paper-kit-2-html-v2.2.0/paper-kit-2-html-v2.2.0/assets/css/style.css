@@ -66,9 +66,7 @@ body {
   margin: 0 0 20px 0;
   border-radius: 10px;
 }
-.weather {
-  min-height: 100vh;
-}
+
 #subject_6 {
   display: none;
   padding-bottom: 0%;
@@ -338,9 +336,9 @@ button.toggle_child2 {
 #subject_5 > .container {
   align-items: center;
 
-  padding: 50px 40px 70px 40px;
-  display: block;
-  margin: 20px auto;
+  padding: 50px 40px 20px 40px;
+
+  margin: 10px auto;
   max-width: 80%;
 }
 #subject_5 > .container1 {
@@ -394,10 +392,6 @@ div#subject_5 > .container > .row {
 }
 .search_bar {
   float: left;
-}
-.weather {
-  margin: 3em 0.5em;
-  border: none;
 }
 
 #subject_5 > .button {
@@ -500,8 +494,7 @@ footer.footer {
   }
 
   .weather {
-    min-height: 100%;
-    margin: 1em 0em 5em 1em;
+    margin: 1em 0em 0em 1em;
     position: relative;
   }
 
