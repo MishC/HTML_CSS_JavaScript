@@ -485,7 +485,7 @@ footer.footer {
   width: 57px;
   height: 57px;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 870px) {
   .svg-icon.search-icon {
     width: 30px;
     height: 30px;
@@ -534,6 +534,11 @@ footer.footer {
     margin: 10px;
   }
 }
+@media screen and (max-width: 1000px) {
+  div#subject_5 > .container > .row {
+    padding: 60px 20px;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .rightbox,
@@ -549,6 +554,15 @@ footer.footer {
   }
   footer > nav {
     display: block;
+  }
+  #subjet_5 > .container {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  div#subject_5 > .container > .row {
+    border: 0px !important;
+    padding: 0;
   }
 }
 /*End of my section*/
