@@ -7,8 +7,6 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *RedFrogTale* - JS slider imported from Slick. Text&design: Jakub Visnak. Coding&design: Michaela Chovancova
 
-*CareerFoundry Web Development Short Course* - CareerFoundry Web Development Short Course. Free!
-
 *formular_01* - PHP solution to the discussion forum connected to the database. Live: http://naturalsession.wz.cz/php_files/formular1.phphttp://naturalsession.wz.cz/php_files/formular1.php
 
 *hello_world* - Animation with Canvas. Live: https://code.sololearn.com/WTyX9oACReS5
@@ -17,14 +15,24 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *paper-kit-2-html-v2.2.0* - About Norway - UI kit Creative Tim. Code needs to be cleaned. Functions style in JS should be E6. (I was playing -> Looks ugly :D))
 
-*project-pretify_template* - Zero2Mastery (ZTM) layout.
-
 *random_pass_generator* - Sololearn challenge Random password generator.
-
-*robot* - CSS animation Robot is dancing (Inspiration: ZTM Web Development Course)
 
 *song_quiz* - Guess the song from few seconds cut. HTML, CSS, JS.
 
-*startup_files* - One side web page. Click&SignUp for e-mails. Mailchimp.
+*SheCodes* 
+<ul>
+<li>static responsive WebPage - https://boring-williams-24f4ea.netlify.app/ </li> 
+<li>static responsive WebPage - https://heuristic-sammet-2b1ab4.netlify.app/ (bootstrap layout - based on Figma design)  </li>
+<li>      static resposive WebPage - https://elegant-nightingale-3dee6e.netlify.app/ (bootstrap layout - based on Figma design)  </li>
+<li>     static responsive WebPage - https://stupefied-hamilton-4b16e7.netlify.app/  (bootstrap layout- based on Figma design)  </li>
+ <li>     weatherApp - VanillaJS https://weather-app-mishc.netlify.app/  </li>
+  <li>    weatherApp - React  https://weather-react-mishc.netlify.app  </li>
+  <li>    dictionaryApp - React https://dictionary-project-mishc.netlify.app  </li>
+</ul> 
 
-*SheCodes* - weatherApp - VanillaJS https://weather-app-mishc.netlify.app/
+
+*Pokemon* - Pokemon API, just display information on selected pokemon written in the searchbar, showing image from Google Image, This needs to be finished + better design
+
+*Web_Img_Recognition* - FrontEnd Sign-in formular and Clarifai API. Based on Udemy Web Development Course.
+             
+             
