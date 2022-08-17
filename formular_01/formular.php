@@ -127,7 +127,7 @@ echo $cc;
 	/* if ($a==b||$a==c||$a==$d)
 	 if ($a==($b||$c||$d)) */
 	
-		$spojeni = mysql_connect('mysql.webzdarma.cz', 'naturalsessio', 'Travnica_11' );
+		$spojeni = mysql_connect('mysql.webzdarma.cz', 'naturalsessio', '*******' );
 			mysql_select_db(naturalsessio, $spojeni);
         $c = Date("H:i:s    d.m.Y");
 		$ID = $_POST['ID'];
