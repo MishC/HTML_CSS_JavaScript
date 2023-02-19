@@ -33,6 +33,7 @@ Short beginners projects - self-explanatory. **It's fun!**
 
 *Pokemon* - Pokemon API, just display information on selected pokemon written in the searchbar, showing image from Google Image, This needs to be finished + better design
 
-*Web_Img_Recognition* - FrontEnd + Backend Server+ Database Clarifai API. Based on Udemy Web Development Course. Deployed on heroku: https://smart-brain-yours.herokuapp.com/
+*Web_Img_Recognition* - FrontEnd + Backend Server+ Database Clarifai API. Based on Udemy Web Development Course. Deployed on heroku: https://smart-brain-yours.herokuapp.com/ > Heroku dissapointed a lot, no hosted to other platform yet
+
              
              
