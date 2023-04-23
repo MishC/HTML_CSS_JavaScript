@@ -205,6 +205,8 @@ const HTMLOutput = async (data) => {
 function hideForm() {
   formHTML.style.display = "none";
   gridHTML.style.display = "flex";
+  document.querySelectorAll(".icon")[1].style.display = "inline-block";
+
   Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);
 
   HTMLOutput(getJSON());
