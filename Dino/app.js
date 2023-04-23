@@ -90,7 +90,7 @@ const compareWeight = {
         return `You are heavier than a dinosaur ${this.name}!`;
       }
     } else {
-      return `Small dinosaurs like compsognnathus weigh approx. like a human baby.`;
+      return `Smallest dinosaurs had weight like a human baby.`;
     }
   },
 };
@@ -176,7 +176,6 @@ const HTMLOutput = async (data) => {
 
   arr.splice(4, 0, "human");
   //console.log(arr);
-  console.log(!arr.some((obj) => obj.species === "Pigeon"));
   if (!arr.some((obj) => obj.species === "Pigeon")) {
     arr.splice(randomIndex(), 1, data[7]);
   }
