@@ -140,6 +140,8 @@ input {
   padding: 0.7em;
   background: #fff;
   border: 0;
+
+  margin: 5px;
 }
 
 .form-field__short {
@@ -181,6 +183,9 @@ select {
   width: 100px;
   height: 80px;
   cursor: pointer;
+}
+#weight {
+  max-width: 200px;
 }
 
 /*___________________*/
