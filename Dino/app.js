@@ -1,8 +1,10 @@
-const gridHTML = document.getElementById("grid");
-const formHTML = document.getElementById("dino-compare");
+const grid = document.getElementById("grid");
+const form = document.getElementById("dino-compare");
 const btn = document.getElementById("btn");
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("dinoModal");
+const modalContent = document.getElementsByClassName("modal-content")[0];
 const closeBtn = document.getElementsByClassName("close")[0];
+console.log(closeBtn);
 
 const lenJSON = 7; //8 is length of dinos array in JSON file, but one of them is a pigeon
 
@@ -24,26 +26,6 @@ function Dino(data) {
   this.diet = data.diet;
 }
 
-Dino.prototype.findtheClosestDino = function (weightH, heightH, dietH) {
-  let closestDino = null;
-  let closestDifference = Infinity;
-  dinos.forEach((dino) => {
-    // Calculate the difference between the inputted dinosaur and the current dinosaur
-    const heightDiff = Math.abs(inputDino.height - dino.height);
-    const weightDiff = Math.abs(inputDino.weight - dino.weight);
-    const dietDiff = inputDino.diet !== dino.diet ? 1 : 0;
-    const totalDiff = heightDiff + weightDiff + dietDiff;
-
-    // If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
-    if (totalDiff < closestDifference) {
-      closestDino = dino;
-      closestDifference = totalDiff;
-    }
-  });
-
-  return closestDino;
-};
-
 // Create Dino Objects
 const dinoArr = async (data) => {
   data = await data;
@@ -54,6 +36,38 @@ const dinoArr = async (data) => {
   //console.log(dinos.length);
   return dinos;
 };
+
+async function findClosestDino(weightH, heightH, dietH, data = getJSON()) {
+  let closestDino = null;
+  let closestDifference = Infinity;
+  let weightDiff;
+  let heightDiff;
+  const dinos = await dinoArr(data);
+  dinos.forEach((dino) => {
+    // Calculate the difference between the inputted dinosaur and the current dinosaur
+    if (!isNaN(this.weightH)) {
+      weightDiff = Math.abs(weightH - dino.weight);
+    } else {
+      weightDiff = 1;
+    }
+    if (!isNaN(this.heightH)) {
+      heightDiff = Math.abs(heightH - dino.height);
+    } else {
+      heightDiff = 1;
+    }
+
+    let dietDiff = dietH !== dino.diet ? 1 : 0;
+    let totalDiff = heightDiff + weightDiff + dietDiff;
+
+    // If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
+    if (totalDiff < closestDifference) {
+      closestDino = dino;
+      closestDifference = totalDiff;
+    }
+  });
+
+  return closestDino;
+}
 // Create Human Object
 // Use IIFE to get human data from form
 
@@ -91,6 +105,7 @@ const randomDino = async (data = getJSON()) => {
   const randomNum = Math.floor(Math.random() * lenJSON);
 
   const dinos = await dinoArr(data);
+
   return dinos[randomNum];
 };
 
@@ -102,8 +117,11 @@ const compareWeight = {
     this.weightH = parseInt(human.getWeight());
     this.name = await randomDino().then((dino) => dino.name);
     this.weightD = await randomDino().then((dino) => dino.weight);
-    if (!isNaN(this.weightH)) {
-      console.log(this.weightH);
+    if (
+      !isNaN(this.weightH) &&
+      this.weightH !== 0 &&
+      this.weight != undefined
+    ) {
       if (this.weightD > this.weightH) {
         return `The ${this.name} is ${Math.round(
           this.weightD / this.weightH
@@ -127,7 +145,11 @@ const compareHeight = {
     this.heightH = parseInt(human.getHeight());
     this.name = await randomDino().then((dino) => dino.name);
     this.heightD = await randomDino().then((dino) => dino.weight);
-    if (this.heightH != 0 && this.heightH !== undefined) {
+    if (
+      !isNaN(this.heightH) &&
+      this.heightH != 0 &&
+      this.heightH !== undefined
+    ) {
       if (this.heightD > this.heightH) {
         return `The ${this.name} is ${Math.round(
           this.heightD / this.heightH
@@ -184,7 +206,7 @@ const randomFact = {
 // Add tiles to DOM +
 // Remove form from screen
 
-const HTMLOutput = async (data) => {
+const GridOutput = async (data) => {
   const arr = await data;
   arr.splice(8);
   const randomIndex = (len = 9) => {
@@ -206,7 +228,7 @@ const HTMLOutput = async (data) => {
   const fact = await human.generateFact();
   arr.forEach((item, index) => {
     if (index === 4) {
-      gridHTML.innerHTML += `
+      grid.innerHTML += `
     <div class="grid-item">
     <h3>Human</h3>
 <img src="./images/human.png">
@@ -214,7 +236,7 @@ const HTMLOutput = async (data) => {
 </div>
 `;
     } else {
-      gridHTML.innerHTML += `
+      grid.innerHTML += `
     <div class="grid-item">
     <h3>${item.species}</h3>
 <img src="./images/${item.species.toLowerCase()}.png">
@@ -224,20 +246,39 @@ const HTMLOutput = async (data) => {
     }
   });
 };
+const ModalOutput = async () => {
+  const dino = await findClosestDino(
+    parseInt(human.getWeight()),
+    parseInt(human.getHeight()),
+    human.getDiet().toLowerCase()
+  ).then((dino) => dino);
+  modalContent.innerHTML += `
+ 
+         
+    <div class="modal-item"> <img src="./images/human.png" />
+    <ul><li>${human.getWeight()} lbs</li>
+    <li>${human.getHeight()} inch</li><ul>
+        <li>${human.getDiet()} inch</li><ul>
 
+    </div>
+    <div class="modal-item"><img src="./images/${dino.name}.png" /
+    ><ul><li>${dino.height} lbs</li>
+    <li>${dino.weight} inch</li><ul>
+        <li>${dino.diet} inch</li><ul>
+</div>`;
+};
 function hideForm() {
-  formHTML.style.display = "none";
-  gridHTML.style.display = "flex";
+  form.style.display = "none";
+  grid.style.display = "flex";
+  modal.style.display = "block";
   document.querySelectorAll(".icon")[1].style.display = "inline-block";
 
   Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);
 
-  HTMLOutput(getJSON());
-  modal.style.display = "block";
+  GridOutput(getJSON());
+  ModalOutput();
+
   // When the user clicks on <span> (x), close the modal
-  closeBtn.onclick = function () {
-    modal.style.display = "none";
-  };
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
@@ -247,6 +288,9 @@ function hideForm() {
   };
 }
 btn.addEventListener("click", hideForm);
+closeBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
 
 const icon = document.querySelectorAll(".icon");
 icon.forEach((el) =>
