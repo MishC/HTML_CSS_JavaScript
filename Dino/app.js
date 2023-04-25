@@ -1,6 +1,9 @@
 const gridHTML = document.getElementById("grid");
 const formHTML = document.getElementById("dino-compare");
 const btn = document.getElementById("btn");
+const modal = document.getElementById("myModal");
+const closeBtn = document.getElementsByClassName("close")[0];
+
 const lenJSON = 7; //8 is length of dinos array in JSON file, but one of them is a pigeon
 
 const getJSON = async () => {
@@ -20,6 +23,27 @@ function Dino(data) {
   this.heiht = data.height;
   this.diet = data.diet;
 }
+
+Dino.prototype.findtheClosestDino = function (weightH, heightH, dietH) {
+  let closestDino = null;
+  let closestDifference = Infinity;
+  dinos.forEach((dino) => {
+    // Calculate the difference between the inputted dinosaur and the current dinosaur
+    const heightDiff = Math.abs(inputDino.height - dino.height);
+    const weightDiff = Math.abs(inputDino.weight - dino.weight);
+    const dietDiff = inputDino.diet !== dino.diet ? 1 : 0;
+    const totalDiff = heightDiff + weightDiff + dietDiff;
+
+    // If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
+    if (totalDiff < closestDifference) {
+      closestDino = dino;
+      closestDifference = totalDiff;
+    }
+  });
+
+  return closestDino;
+};
+
 // Create Dino Objects
 const dinoArr = async (data) => {
   data = await data;
@@ -114,7 +138,7 @@ const compareHeight = {
         return `You are taller than a dinosaur ${this.name}!`;
       }
     } else {
-      return `Velciraptors are just 1 meter tall, shorter than most of the adult humans`;
+      return `Some dinosaurs are just 1 meter tall, shorter than most of the adult humans`;
     }
   },
 };
@@ -175,7 +199,6 @@ const HTMLOutput = async (data) => {
   arr.sort(() => Math.random() - 0.5);
 
   arr.splice(4, 0, "human");
-  //console.log(arr);
   if (!arr.some((obj) => obj.species === "Pigeon")) {
     arr.splice(randomIndex(), 1, data[7]);
   }
@@ -210,6 +233,18 @@ function hideForm() {
   Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);
 
   HTMLOutput(getJSON());
+  modal.style.display = "block";
+  // When the user clicks on <span> (x), close the modal
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 }
 btn.addEventListener("click", hideForm);
 
