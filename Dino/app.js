@@ -4,7 +4,6 @@ const btn = document.getElementById("btn");
 const modal = document.getElementById("dinoModal");
 const modalContent = document.getElementsByClassName("modal-content")[0];
 const closeBtn = document.getElementsByClassName("close")[0];
-console.log(closeBtn);
 
 const lenJSON = 7; //8 is length of dinos array in JSON file, but one of them is a pigeon
 
@@ -22,7 +21,7 @@ const getJSON = async () => {
 function Dino(data) {
   this.name = data.species;
   this.weight = data.weight;
-  this.heiht = data.height;
+  this.height = data.height;
   this.diet = data.diet;
 }
 
@@ -40,28 +39,30 @@ const dinoArr = async (data) => {
 async function findClosestDino(weightH, heightH, dietH, data = getJSON()) {
   let closestDino = null;
   let closestDifference = Infinity;
-  let weightDiff;
-  let heightDiff;
+
   const dinos = await dinoArr(data);
   dinos.forEach((dino) => {
     // Calculate the difference between the inputted dinosaur and the current dinosaur
-    if (!isNaN(this.weightH)) {
+    if (!isNaN(weightH)) {
       weightDiff = Math.abs(weightH - dino.weight);
+      //console.log(weightDiff, dino.weight);
     } else {
       weightDiff = 1;
     }
-    if (!isNaN(this.heightH)) {
+    if (!isNaN(heightH)) {
       heightDiff = Math.abs(heightH - dino.height);
+      //console.log(heightH, dino.height);
     } else {
       heightDiff = 1;
     }
 
     let dietDiff = dietH !== dino.diet ? 1 : 0;
     let totalDiff = heightDiff + weightDiff + dietDiff;
-
+    console.log(totalDiff);
     // If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
     if (totalDiff < closestDifference) {
       closestDino = dino;
+
       closestDifference = totalDiff;
     }
   });
@@ -252,9 +253,9 @@ const ModalOutput = async () => {
     parseInt(human.getHeight()),
     human.getDiet().toLowerCase()
   ).then((dino) => dino);
+  console.log(dino);
   modalContent.innerHTML += `
- 
-         
+          
     <div class="modal-item"> <img src="./images/human.png" />
     <ul><li>${human.getWeight()} lbs</li>
     <li>${human.getHeight()} inch</li><ul>
@@ -267,6 +268,7 @@ const ModalOutput = async () => {
         <li>${dino.diet} inch</li><ul>
 </div>`;
 };
+
 function hideForm() {
   form.style.display = "none";
   grid.style.display = "flex";
