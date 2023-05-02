@@ -219,6 +219,16 @@ const randomFact = {
 
 //Onclick method for each tile
 //This should be onclick Modal Window for each tile
+const close = () => {
+  document.querySelector(".modal-close").onclick = function () {
+    modal.style.display = "none";
+  };
+  modal.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+};
 
 const generateModalOnClick = async (event) => {
   const clickedElement = event.target;
@@ -240,22 +250,30 @@ const generateModalOnClick = async (event) => {
   const dino = dinos[index];
   targetName !== "human"
     ? (modalContent.innerHTML = `
-            <h2>${dino.name}</h2>
-            <div class="modal-item">
+            <h2><span class="modal-close">&times;</span></h2>
+            <div class="modal-item"><h2>${dino.name} </h2>
               <img src="./images/${dino.name.toLowerCase()}.png" />
               <ul>
                 <li>Height: ${dino.height} lbs</li>
                 <li>Weight: ${dino.weight} inch</li>
                 <li>Diet: ${dino.diet} </li>
               </ul>
-            </div>`)
-    : (modalContent.innerHTML = ` 
+            </div>
             <div class="modal-item">
-            <h2>${human.name}</h2>
+            <h2>${human.name ? human.name : "Human"} </h2>
+              <img src="./images/human.png" />
+                ${human.defList()}
+          </div>`)
+    : (modalContent.innerHTML = ` 
+                } <span class="modal-close">&times;</span></h2>
+
+            <div class="modal-item">
+            <h2>${human.name ? human.name : "Human"}
               <img src="./images/human.png" />
                 ${human.defList()}
           </div>
         `);
+  close();
 };
 
 // Generate Tiles for each Dino in Array
@@ -379,29 +397,20 @@ const ModalOutput = async (human) => {
   modalContent.innerHTML += `
                   <h2>Your Closest Match: <span class="modal-close">&times;</span></h2>
 
-    <div class="modal-item"> <img src="./images/human.png" />
+    <div class="modal-item"> <h2>You</h2><img src="./images/human.png" />
 ${human.defList()}
 
 
     </div>
-    <div class="modal-item"><img src="./images/${dino.name}.png" /
+    <div class="modal-item"><h2>${dino.name}</h2>
+    <img src="./images/${dino.name}.png" /
     ><ul><li>${dino.height} lbs</li>
     <li>${dino.weight} inch</li>
         <li>${dino.diet} </li></ul>
 </div>`;
-
-  const closeBtn = document.querySelector(".modal-close");
-
-  closeBtn.onclick = function () {
-    modal.style.display = "none";
-  };
-  modal.onclick = function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  };
+  close();
 };
-
+//This connects all functions when onclicked
 async function hideForm() {
   form.style.display = "none";
   grid.style.display = "flex";
