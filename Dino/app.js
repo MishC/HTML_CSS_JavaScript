@@ -265,10 +265,10 @@ const generateModalOnClick = async (event) => {
                 ${human.defList()}
           </div>`)
     : (modalContent.innerHTML = ` 
-                } <span class="modal-close">&times;</span></h2>
+                <h2><span class="modal-close">&times;</span></h2>
 
             <div class="modal-item">
-            <h2>${human.name ? human.name : "Human"}
+            <h2>${human.name ? human.name : "Human"}</h2>
               <img src="./images/human.png" />
                 ${human.defList()}
           </div>
