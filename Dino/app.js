@@ -225,20 +225,17 @@ function getNameImg() {
   const imgName = imgSrc.map((img) => img.split("/").pop().split(".")[0]);
   return imgName;
 }
-const generateModalOnClick = async () => {
-  const imagesGrid = document.querySelectorAll(".grid-item img");
+const generateModalOnClick = async (event) => {
+  const clickedElement = event.target;
 
-  const modalGrid = document.createElement("div");
-  modalGrid.classList.add("modal", "modal-tile");
+  const targetName = clickedElement.src.split("/").pop().split(".")[0];
+  console.log(targetName);
+  const modalContent = document.querySelector(".modal-content");
 
   const dinos = await dinoArr(getJSON(), lenJSON + 1);
   const itemArrNames = getNameImg();
 
-  imagesGrid.forEach((item, i) => {
-    addEventListener("click", () => {
-      grid.appendChild(modalGrid);
-      const modalContent = document.querySelector(".modal-tile");
-      const index = dinos.findIndex(
+  /*const index = dinos.findIndex(
         (dino) =>
           dino.name.replace(/\s/g, "").toLowerCase() ===
           itemArrNames[i].replace(/\s/g, "").toLowerCase()
@@ -262,9 +259,7 @@ const generateModalOnClick = async () => {
                 ${human.defList()}
             </div>
           </div>
-        `);
-    });
-  });
+        `);*/
 };
 
 // Generate Tiles for each Dino in Array
@@ -299,7 +294,7 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${human.name ? human.name : "Human"}</h3>
-<img src="./images/human.png" name=${index} " >
+<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event)})" >
 <p class="random-fact" name="human" style="background:none;"></p>
 </div>
 `;
@@ -307,7 +302,7 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${item.species}</h3>
-<img src="./images/${item.species.toLowerCase()}.png" name=${index} " />
+<img src="./images/${item.species.toLowerCase()}.png" name=${index} onclick="generateModalOnClick(event)" />
 
 <p class="random-fact" name=${item.species.replace(/\s/g, "")}> ${
         item.fact
@@ -316,7 +311,6 @@ const GridOutput = async (data) => {
 `;
     }
   });
-  generateModalOnClick();
 };
 async function getfactsP() {
   return document.getElementsByClassName("random-fact");
@@ -375,8 +369,6 @@ async function factaOnHover(data = getJSON()) {
     });
   });
 }
-
-// Your code that uses the factsP variable
 
 //Modal Window with findClosestDino at the beginning
 const ModalOutput = async (human) => {
