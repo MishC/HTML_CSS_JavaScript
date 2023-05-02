@@ -232,8 +232,7 @@ const generateModalOnClick = async (event) => {
     .split("/")
     .pop()
     .split(".")[0]
-    .replace(/\s/g, "")
-    .toLowerCase();
+    .replace("%20", "");
   console.log(targetName);
   const dinos = await dinoArr(getJSON(), lenJSON + 1);
 
