@@ -1,12 +1,13 @@
 const grid = document.getElementById("grid");
+
 const form = document.getElementById("dino-compare");
 const btn = document.getElementById("btn");
 const modal = document.getElementById("dinoModal");
 const modalContent = document.getElementsByClassName("modal-content")[0];
-const closeBtn = document.getElementsByClassName("close")[0];
+const factDino = document.getElementsByClassName("grid-element");
 
 const lenJSON = 7; //8 is length of dinos array in JSON file, but one of them is a pigeon
-
+//GET DATA
 const getJSON = async () => {
   try {
     const response = await fetch("dino.json");
@@ -16,7 +17,6 @@ const getJSON = async () => {
     console.error("Error:", error);
   }
 };
-//console.log(getJSON());
 // Create Dino Constructor
 function Dino(data) {
   this.name = data.species;
@@ -26,53 +26,27 @@ function Dino(data) {
 }
 
 // Create Dino Objects
-const dinoArr = async (data) => {
+const dinoArr = async (data, len = lenJSON) => {
   data = await data;
-  data.splice(lenJSON); //we will not compare a pigeon
+  data.splice(len); //we will not compare a pigeon
   const dinos = await data.map(function (item) {
     return new Dino(item);
   });
-  //console.log(dinos.length);
   return dinos;
 };
-
-async function findClosestDino(weightH, heightH, dietH, data = getJSON()) {
-  let closestDino = null;
-  let closestDifference = Infinity;
-
-  const dinos = await dinoArr(data);
-  dinos.forEach((dino) => {
-    // Calculate the difference between the inputted dinosaur and the current dinosaur
-    if (!isNaN(weightH)) {
-      weightDiff = Math.abs(weightH - dino.weight);
-      //console.log(weightDiff, dino.weight);
-    } else {
-      weightDiff = 1;
-    }
-    if (!isNaN(heightH)) {
-      heightDiff = Math.abs(heightH - dino.height);
-      //console.log(heightH, dino.height);
-    } else {
-      heightDiff = 1;
-    }
-
-    let dietDiff = dietH !== dino.diet ? 1 : 0;
-    let totalDiff = heightDiff + weightDiff + dietDiff;
-    console.log(totalDiff);
-    // If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
-    if (totalDiff < closestDifference) {
-      closestDino = dino;
-
-      closestDifference = totalDiff;
-    }
-  });
-
-  return closestDino;
-}
 // Create Human Object
+function Human(name, height, weight, diet) {
+  this.name = name;
+  this.height = height;
+  this.weight = weight;
+  this.diet = diet;
+}
+
 // Use IIFE to get human data from form
 
-let human = (function () {
+let human = new Human();
+
+(function () {
   let userName, height, weight, diet;
 
   btn.addEventListener("click", () => {
@@ -82,23 +56,66 @@ let human = (function () {
     height = Math.round(feet * 12 + inches);
     weight = document.querySelector("#weight").value;
     diet = document.querySelector("#diet").value;
+    human.update(userName, height, weight, diet);
   });
-  return {
-    getUserName: function () {
-      console.log(userName);
-      return userName;
-    },
-    getHeight: function () {
-      return height;
-    },
-    getWeight: function () {
-      return weight;
-    },
-    getDiet: function () {
-      return diet;
-    },
-  };
 })();
+//Human prototype function update
+Human.prototype.update = function (name, height, weight, diet) {
+  this.name = name;
+  this.height = height;
+  this.weight = weight;
+  this.diet = diet;
+};
+Human.prototype.list = function () {
+  this.defList = function () {
+    return `<ul style="list-style:none;">
+        <li>${this.weight} lbs</li>
+        <li>${this.height} inch</li>
+        <li>${this.diet} </li>
+      </ul>`;
+  };
+};
+Human.prototype.check = function (x) {
+  if (this[x] !== "") {
+    const newDiv = document.createElement("div");
+    form.parentNode.insertBefore(newDiv, form.nextSibling);
+    newDiv.innerHTML += `Please fill the form.`;
+  }
+  return null;
+};
+
+//Find Closest Dino to human (YOU). Function for entering modal window
+async function findClosestDino(weightH, heightH, dietH, data = getJSON()) {
+  let closestDino = null;
+  let closestDifference = Infinity;
+
+  const dinos = await dinoArr(data);
+  dinos.forEach((dino) => {
+    //=> Calculate the difference between the inputted dinosaur and the current dinosaur
+    if (!isNaN(weightH)) {
+      weightDiff = Math.abs(weightH - dino.weight);
+    } else {
+      weightDiff = 1;
+    }
+    if (!isNaN(heightH)) {
+      heightDiff = Math.abs(heightH - dino.height);
+    } else {
+      heightDiff = 1;
+    }
+
+    let dietDiff = dietH !== dino.diet ? 1 : 0;
+    let totalDiff = heightDiff + weightDiff + dietDiff;
+    //=> If the current dinosaur is closer than the previous closest dinosaur, update the closest dinosaur
+    if (totalDiff < closestDifference) {
+      closestDino = dino;
+
+      closestDifference = totalDiff;
+    }
+  });
+
+  return closestDino;
+}
+
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
 //8 is length of dinos array in JSON file, but one of them is a pigeon
@@ -111,11 +128,8 @@ const randomDino = async (data = getJSON()) => {
 };
 
 const compareWeight = {
-  weightH: 0,
-  name: "",
-  weightD: 0,
   randomfactW: async function () {
-    this.weightH = parseInt(human.getWeight());
+    this.weightH = human.weight;
     this.name = await randomDino().then((dino) => dino.name);
     this.weightD = await randomDino().then((dino) => dino.weight);
     if (
@@ -143,7 +157,7 @@ const compareWeight = {
 
 const compareHeight = {
   randomfactH: async function () {
-    this.heightH = parseInt(human.getHeight());
+    this.heightH = parseInt(human.height);
     this.name = await randomDino().then((dino) => dino.name);
     this.heightD = await randomDino().then((dino) => dino.weight);
     if (
@@ -169,7 +183,7 @@ const compareHeight = {
 // NOTE: Weight in JSON file is in lbs, height in inches.
 const compareDiet = {
   randomfactD: async function () {
-    this.dietH = human.getDiet().toLowerCase();
+    this.dietH = human.diet.toLowerCase();
     this.name = await randomDino().then((dino) => dino.name);
     this.dietD = await randomDino().then((dino) => dino.diet);
     if (this.dietD === this.dietH) {
@@ -187,6 +201,7 @@ const compareDiet = {
     }
   },
 };
+//Random fact being displayed on human tile
 const randomFact = {
   generateFact: async function () {
     switch (Math.floor(Math.random() * 3)) {
@@ -201,9 +216,59 @@ const randomFact = {
     }
   },
 };
+
+//Onclick method for each tile
+//This should be onclick Modal Window for each tile
+function getNameImg() {
+  const imagesGrid = document.querySelectorAll(".grid-item img");
+  const imgSrc = Array.from(imagesGrid, (image) => image.getAttribute("src"));
+  const imgName = imgSrc.map((img) => img.split("/").pop().split(".")[0]);
+  return imgName;
+}
+const generateModalOnClick = async () => {
+  const imagesGrid = document.querySelectorAll(".grid-item img");
+
+  const modalGrid = document.createElement("div");
+  modalGrid.classList.add("modal", "modal-tile");
+
+  const dinos = await dinoArr(getJSON(), lenJSON + 1);
+  const itemArrNames = getNameImg();
+
+  imagesGrid.forEach((item, i) => {
+    addEventListener("click", () => {
+      grid.appendChild(modalGrid);
+      const modalContent = document.querySelector(".modal-tile");
+      const index = dinos.findIndex(
+        (dino) =>
+          dino.name.replace(/\s/g, "").toLowerCase() ===
+          itemArrNames[i].replace(/\s/g, "").toLowerCase()
+      );
+      const dino = dinos[index];
+      itemArrNames[i] !== "human"
+        ? (modalContent.innerHTML += `
+          <div class="modal-content">
+            <h2>${dino.species}</h2>
+            <div class="modal-item">
+              <img src="./images/${dino.name.toLowerCase()}.png" />
+              <ul>
+                <li>Height: ${dino.height} lbs</li>
+                <li>Weight: ${dino.weight} inch</li>
+                <li>Diet: ${dino.diet} </li>
+              </ul>
+            </div></div>`)
+        : (modalContent.innerHTML += `<div class="modal-content">
+            <div class="modal-item">
+              <img src="./images/human.png" />
+                ${human.defList()}
+            </div>
+          </div>
+        `);
+    });
+  });
+};
+
 // Generate Tiles for each Dino in Array
 // On button click, prepare and display infographic
-
 // Add tiles to DOM +
 // Remove form from screen
 
@@ -226,73 +291,142 @@ const GridOutput = async (data) => {
     arr.splice(randomIndex(), 1, data[7]);
   }
 
+  //Generate human fact;
   const fact = await human.generateFact();
+  //Generates tiles for the array of images (JSON)
   arr.forEach((item, index) => {
     if (index === 4) {
       grid.innerHTML += `
     <div class="grid-item">
-    <h3>Human</h3>
-<img src="./images/human.png">
-<p>${fact}</p>
+    <h3>${human.name ? human.name : "Human"}</h3>
+<img src="./images/human.png" name=${index} " >
+<p class="random-fact" name="human" style="background:none;"></p>
 </div>
 `;
     } else {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${item.species}</h3>
-<img src="./images/${item.species.toLowerCase()}.png">
-<p>${item.fact}</p>
-</div>
+<img src="./images/${item.species.toLowerCase()}.png" name=${index} " />
+
+<p class="random-fact" name=${item.species.replace(/\s/g, "")}> ${
+        item.fact
+      } </p>
+
 `;
     }
   });
+  generateModalOnClick();
 };
-const ModalOutput = async () => {
+async function getfactsP() {
+  return document.getElementsByClassName("random-fact");
+}
+
+async function factaOnHover(data = getJSON()) {
+  const factsP = await getfactsP();
+
+  const factsPArr = Array.from(factsP);
+  const factsPVal = Array.from(factsP, (fact) => fact.outerText);
+  const dinos = await dinoArr(data, lenJSON + 1);
+  const dinosArr = dinos.map((item) => item.name);
+  dinos.name = dinosArr;
+
+  const dinoNames = Array.from(factsP, (fact) => fact.getAttribute("name"));
+  factsPArr.forEach((item, i) => {
+    item.addEventListener("mouseover", () => {
+      const ul = document.createElement("ul");
+      ul.style.listStyle = "none";
+
+      const index = dinos.findIndex(
+        (dino) => dino.name.replace(/\s/g, "") === dinoNames[i]
+      );
+      if (index !== -1) {
+        const dino = dinos[index];
+
+        const li1 = document.createElement("li");
+        li1.textContent = `Weight:${dino.weight} lbs`;
+        ul.appendChild(li1);
+
+        const li2 = document.createElement("li");
+        li2.textContent = `Height: ${dino.height} inch`;
+        ul.appendChild(li2);
+
+        const li3 = document.createElement("li");
+        li3.textContent = `Diet: ${dino.diet}`;
+        ul.appendChild(li3);
+
+        item.innerHTML = "";
+        item.appendChild(ul);
+      }
+      if (dinoNames[i] === "human") {
+        human.list();
+        item.innerHTML = `${human.defList()}`;
+        item.style.background = "rgba(000, 000, 000, 0.3)";
+      }
+    });
+  });
+
+  factsPArr.forEach((item, i) => {
+    item.addEventListener("mouseout", () => {
+      item.innerHTML = `${factsPVal[i]}`;
+      if (dinoNames[i] === "human") {
+        item.style.background = "none";
+      }
+    });
+  });
+}
+
+// Your code that uses the factsP variable
+
+//Modal Window with findClosestDino at the beginning
+const ModalOutput = async (human) => {
   const dino = await findClosestDino(
-    parseInt(human.getWeight()),
-    parseInt(human.getHeight()),
-    human.getDiet().toLowerCase()
+    parseInt(human.weight),
+    parseInt(human.height),
+    human.diet.toLowerCase()
   ).then((dino) => dino);
-  console.log(dino);
+  human.list();
+
+  human.weight === "" ? (human.weight = 0) : human.weight;
   modalContent.innerHTML += `
-          
+                  <h2>Your Closest Match: <span class="modal-close">&times;</span></h2>
+
     <div class="modal-item"> <img src="./images/human.png" />
-    <ul><li>${human.getWeight()} lbs</li>
-    <li>${human.getHeight()} inch</li><ul>
-        <li>${human.getDiet()} inch</li><ul>
+${human.defList()}
+
 
     </div>
     <div class="modal-item"><img src="./images/${dino.name}.png" /
     ><ul><li>${dino.height} lbs</li>
-    <li>${dino.weight} inch</li><ul>
-        <li>${dino.diet} inch</li><ul>
+    <li>${dino.weight} inch</li>
+        <li>${dino.diet} </li></ul>
 </div>`;
+
+  const closeBtn = document.querySelector(".modal-close");
+
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+  modal.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
 };
 
-function hideForm() {
+async function hideForm() {
   form.style.display = "none";
   grid.style.display = "flex";
   modal.style.display = "block";
   document.querySelectorAll(".icon")[1].style.display = "inline-block";
 
   Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);
-
-  GridOutput(getJSON());
-  ModalOutput();
-
-  // When the user clicks on <span> (x), close the modal
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  };
+  await GridOutput(getJSON());
+  await ModalOutput(human);
+  await factaOnHover();
 }
+
 btn.addEventListener("click", hideForm);
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
-});
 
 const icon = document.querySelectorAll(".icon");
 icon.forEach((el) =>
