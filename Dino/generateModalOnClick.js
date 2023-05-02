@@ -1,7 +1,6 @@
 const generateModalOnClick = async (event) => {
   event.preventDefault;
   const clickedElement = event.target;
-  const elementName = clickedElement.tagName;
   console.log(clickedElement);
   const imagesGrid = document.querySelectorAll(".grid-item img");
 
