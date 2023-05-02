@@ -219,12 +219,7 @@ const randomFact = {
 
 //Onclick method for each tile
 //This should be onclick Modal Window for each tile
-/*function getNameImg() {
-  const imagesGrid = document.querySelectorAll(".grid-item img");
-  const imgSrc = Array.from(imagesGrid, (image) => image.getAttribute("src"));
-  const imgName = imgSrc.map((img) => img.split("/").pop().split(".")[0]);
-  return imgName;
-}*/
+
 const generateModalOnClick = async (event) => {
   const clickedElement = event.target;
 
@@ -233,18 +228,16 @@ const generateModalOnClick = async (event) => {
     .pop()
     .split(".")[0]
     .replace("%20", "");
-  console.log(targetName);
   const dinos = await dinoArr(getJSON(), lenJSON + 1);
 
   const modalContent = document.querySelector(".modal-content");
   modal.style.display = "block";
+  human.list();
 
-  console.log(modalContent);
   const index = dinos.findIndex(
     (dino) => dino.name.replace(/\s/g, "").toLowerCase() === targetName
   );
   const dino = dinos[index];
-  console.log(dino);
   targetName !== "human"
     ? (modalContent.innerHTML = `
             <h2>${dino.name}</h2>
@@ -256,8 +249,9 @@ const generateModalOnClick = async (event) => {
                 <li>Diet: ${dino.diet} </li>
               </ul>
             </div>`)
-    : (modalContent.innerHTML = `
+    : (modalContent.innerHTML = ` 
             <div class="modal-item">
+            <h2>${human.name}</h2>
               <img src="./images/human.png" />
                 ${human.defList()}
           </div>
@@ -296,7 +290,7 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${human.name ? human.name : "Human"}</h3>
-<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event))" >
+<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event)" >
 <p class="random-fact" name="human" style="background:none;"></p>
 </div>
 `;
