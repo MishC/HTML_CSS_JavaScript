@@ -219,32 +219,36 @@ const randomFact = {
 
 //Onclick method for each tile
 //This should be onclick Modal Window for each tile
-function getNameImg() {
+/*function getNameImg() {
   const imagesGrid = document.querySelectorAll(".grid-item img");
   const imgSrc = Array.from(imagesGrid, (image) => image.getAttribute("src"));
   const imgName = imgSrc.map((img) => img.split("/").pop().split(".")[0]);
   return imgName;
-}
+}*/
 const generateModalOnClick = async (event) => {
   const clickedElement = event.target;
 
-  const targetName = clickedElement.src.split("/").pop().split(".")[0];
+  const targetName = clickedElement.src
+    .split("/")
+    .pop()
+    .split(".")[0]
+    .replace(/\s/g, "")
+    .toLowerCase();
   console.log(targetName);
-  const modalContent = document.querySelector(".modal-content");
-
   const dinos = await dinoArr(getJSON(), lenJSON + 1);
-  const itemArrNames = getNameImg();
 
-  /*const index = dinos.findIndex(
-        (dino) =>
-          dino.name.replace(/\s/g, "").toLowerCase() ===
-          itemArrNames[i].replace(/\s/g, "").toLowerCase()
-      );
-      const dino = dinos[index];
-      itemArrNames[i] !== "human"
-        ? (modalContent.innerHTML += `
-          <div class="modal-content">
-            <h2>${dino.species}</h2>
+  const modalContent = document.querySelector(".modal-content");
+  modal.style.display = "block";
+
+  console.log(modalContent);
+  const index = dinos.findIndex(
+    (dino) => dino.name.replace(/\s/g, "").toLowerCase() === targetName
+  );
+  const dino = dinos[index];
+  console.log(dino);
+  targetName !== "human"
+    ? (modalContent.innerHTML = `
+            <h2>${dino.name}</h2>
             <div class="modal-item">
               <img src="./images/${dino.name.toLowerCase()}.png" />
               <ul>
@@ -252,14 +256,13 @@ const generateModalOnClick = async (event) => {
                 <li>Weight: ${dino.weight} inch</li>
                 <li>Diet: ${dino.diet} </li>
               </ul>
-            </div></div>`)
-        : (modalContent.innerHTML += `<div class="modal-content">
+            </div>`)
+    : (modalContent.innerHTML = `
             <div class="modal-item">
               <img src="./images/human.png" />
                 ${human.defList()}
-            </div>
           </div>
-        `);*/
+        `);
 };
 
 // Generate Tiles for each Dino in Array
@@ -294,7 +297,7 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${human.name ? human.name : "Human"}</h3>
-<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event)})" >
+<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event))" >
 <p class="random-fact" name="human" style="background:none;"></p>
 </div>
 `;
