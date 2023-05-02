@@ -1,4 +1,9 @@
-const generateModalOnClick = async () => {
+const generateModalOnClick = async (event) => {
+  event.preventDefault;
+  const clickedElement = event.target;
+  const elementName = clickedElement.tagName;
+  const elementId = clickedElement.id;
+  console.log(clickedElement);
   const imagesGrid = document.querySelectorAll(".grid-item img");
 
   const modalGrid = document.createElement("div");
