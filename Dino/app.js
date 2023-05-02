@@ -88,6 +88,8 @@ Human.prototype.check = function (x) {
 async function findClosestDino(weightH, heightH, dietH, data = getJSON()) {
   let closestDino = null;
   let closestDifference = Infinity;
+  let weightDiff;
+  let heightDiff;
 
   const dinos = await dinoArr(data);
   dinos.forEach((dino) => {
@@ -266,7 +268,6 @@ const generateModalOnClick = async (event) => {
           </div>`)
     : (modalContent.innerHTML = ` 
                 <h2><span class="modal-close">&times;</span></h2>
-
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"}</h2>
               <img src="./images/human.png" />
@@ -317,11 +318,9 @@ const GridOutput = async (data) => {
     <div class="grid-item">
     <h3>${item.species}</h3>
 <img src="./images/${item.species.toLowerCase()}.png" name=${index} onclick="generateModalOnClick(event)" />
-
 <p class="random-fact" name=${item.species.replace(/\s/g, "")}> ${
         item.fact
       } </p>
-
 `;
     }
   });
@@ -396,11 +395,8 @@ const ModalOutput = async (human) => {
   human.weight === "" ? (human.weight = 0) : human.weight;
   modalContent.innerHTML += `
                   <h2>Your Closest Match: <span class="modal-close">&times;</span></h2>
-
     <div class="modal-item"> <h2>You</h2><img src="./images/human.png" />
 ${human.defList()}
-
-
     </div>
     <div class="modal-item"><h2>${dino.name}</h2>
     <img src="./images/${dino.name}.png" /

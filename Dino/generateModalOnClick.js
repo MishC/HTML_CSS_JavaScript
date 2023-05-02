@@ -1,44 +1,45 @@
-const generateModalOnClick = async (event) => {
-  event.preventDefault;
+export async function generateModalOnClick(event) {
   const clickedElement = event.target;
-  console.log(clickedElement);
-  const imagesGrid = document.querySelectorAll(".grid-item img");
 
-  const modalGrid = document.createElement("div");
-  modalGrid.classList.add("modal", "modal-tile");
-
+  const targetName = clickedElement.src
+    .split("/")
+    .pop()
+    .split(".")[0]
+    .replace("%20", "");
   const dinos = await dinoArr(getJSON(), lenJSON + 1);
-  const itemArrNames = getNameImg();
 
-  imagesGrid.forEach((item, i) => {
-    addEventListener("click", () => {
-      grid.appendChild(modalGrid);
-      const modalContent = document.querySelector(".modal-tile");
-      const index = dinos.findIndex(
-        (dino) =>
-          dino.name.replace(/\s/g, "").toLowerCase() ===
-          itemArrNames[i].replace(/\s/g, "").toLowerCase()
-      );
-      const dino = dinos[index];
-      itemArrNames[i] !== "human"
-        ? (modalContent.innerHTML += `
-          <div class="modal-content">
-            <h2>${dino.species}</h2>
-            <div class="modal-item">
+  const modalContent = document.querySelector(".modal-content");
+  modal.style.display = "block";
+  human.list();
+
+  const index = dinos.findIndex(
+    (dino) => dino.name.replace(/\s/g, "").toLowerCase() === targetName
+  );
+  const dino = dinos[index];
+  targetName !== "human"
+    ? (modalContent.innerHTML = `
+            <h2><span class="modal-close">&times;</span></h2>
+            <div class="modal-item"><h2>${dino.name} </h2>
               <img src="./images/${dino.name.toLowerCase()}.png" />
               <ul>
                 <li>Height: ${dino.height} lbs</li>
                 <li>Weight: ${dino.weight} inch</li>
                 <li>Diet: ${dino.diet} </li>
               </ul>
-            </div></div>`)
-        : (modalContent.innerHTML += `<div class="modal-content">
+            </div>
             <div class="modal-item">
+            <h2>${human.name ? human.name : "Human"} </h2>
               <img src="./images/human.png" />
                 ${human.defList()}
-            </div>
+          </div>`)
+    : (modalContent.innerHTML = ` 
+                <h2><span class="modal-close">&times;</span></h2>
+
+            <div class="modal-item">
+            <h2>${human.name ? human.name : "Human"}</h2>
+              <img src="./images/human.png" />
+                ${human.defList()}
           </div>
         `);
-    });
-  });
-};
+  close();
+}
