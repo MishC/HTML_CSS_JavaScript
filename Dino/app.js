@@ -66,14 +66,12 @@ Human.prototype.update = function (name, height, weight, diet) {
   this.weight = weight;
   this.diet = diet;
 };
-Human.prototype.list = function () {
-  this.defList = function () {
-    return `<ul style="list-style:none;">
+Human.prototype.list = function (height, weight, diet) {
+  return `<ul style="list-style:none;">
         <li>${this.weight} lbs</li>
         <li>${this.height} inch</li>
         <li>${this.diet} </li>
       </ul>`;
-  };
 };
 Human.prototype.check = function (x) {
   if (this[x] !== "") {
@@ -244,7 +242,6 @@ const generateModalOnClick = async (event) => {
 
   const modalContent = document.querySelector(".modal-content");
   modal.style.display = "block";
-  human.list();
 
   const index = dinos.findIndex(
     (dino) => dino.name.replace(/\s/g, "").toLowerCase() === targetName
@@ -264,14 +261,14 @@ const generateModalOnClick = async (event) => {
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"} </h2>
               <img src="./images/human.png" />
-                ${human.defList()}
+                ${human.list()}
           </div>`)
     : (modalContent.innerHTML = ` 
                 <h2><span class="modal-close">&times;</span></h2>
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"}</h2>
               <img src="./images/human.png" />
-                ${human.defList()}
+                ${human.list()}
           </div>
         `);
   close();
@@ -366,8 +363,7 @@ async function factaOnHover(data = getJSON()) {
         item.appendChild(ul);
       }
       if (dinoNames[i] === "human") {
-        human.list();
-        item.innerHTML = `${human.defList()}`;
+        item.innerHTML = `${human.list()}`;
         item.style.background = "rgba(000, 000, 000, 0.3)";
       }
     });
@@ -390,13 +386,12 @@ const ModalOutput = async (human) => {
     parseInt(human.height),
     human.diet.toLowerCase()
   ).then((dino) => dino);
-  human.list();
 
   human.weight === "" ? (human.weight = 0) : human.weight;
   modalContent.innerHTML += `
                   <h2>Your Closest Match: <span class="modal-close">&times;</span></h2>
     <div class="modal-item"> <h2>You</h2><img src="./images/human.png" />
-${human.defList()}
+${human.list()}
     </div>
     <div class="modal-item"><h2>${dino.name}</h2>
     <img src="./images/${dino.name}.png" /
