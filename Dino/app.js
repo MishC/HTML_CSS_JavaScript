@@ -306,7 +306,7 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${human.name ? human.name : "Human"}</h3>
-<img src="./images/human.png" name=${index} onclick="generateModalOnClick(event)" >
+<img src="./images/human.png" name=${index} >
 <p class="random-fact" name="human" style="background:none;"></p>
 </div>
 `;
@@ -314,13 +314,17 @@ const GridOutput = async (data) => {
       grid.innerHTML += `
     <div class="grid-item">
     <h3>${item.species}</h3>
-<img src="./images/${item.species.toLowerCase()}.png" name=${index} onclick="generateModalOnClick(event)" />
+<img src="./images/${item.species.toLowerCase()}.png" name=${index}  />
 <p class="random-fact" name=${item.species.replace(/\s/g, "")}> ${
         item.fact
       } </p>
 `;
     }
   });
+  const images = document.querySelectorAll(".grid-item>img");
+  images.forEach((item) =>
+    item.addEventListener("click", generateModalOnClick)
+  );
 };
 async function getfactsP() {
   return document.getElementsByClassName("random-fact");
