@@ -321,10 +321,6 @@ const GridOutput = async (data) => {
 `;
     }
   });
-  const images = document.querySelectorAll(".grid-item>img");
-  images.forEach((item) =>
-    item.addEventListener("click", generateModalOnClick)
-  );
 };
 async function getfactsP() {
   return document.getElementsByClassName("random-fact");
@@ -416,6 +412,10 @@ async function hideForm() {
   await GridOutput(getJSON());
   await ModalOutput(human);
   await factaOnHover();
+  const images = document.querySelectorAll(".grid-item>img");
+  images.forEach((item) =>
+    item.addEventListener("click", generateModalOnClick)
+  );
 }
 
 btn.addEventListener("click", hideForm);
