@@ -1,11 +1,18 @@
 const root = document.getElementById("root");
 
-let store = {
+const store = {
   user: { name: "Student" },
   apod: {},
   rovers: ["Curiosity", "Opportunity", "Spirit"],
-  info: {},
+  info: Immutable.Map({
+    name: "",
+    status: "",
+    launch_date: "",
+    landing_date: "",
+  }),
 };
+let maps = [];
+//const mapsI = Immutable.List([]);
 
 // ------------------------------------------------------  COMPONENTS
 
@@ -88,20 +95,12 @@ const getImageOfTheDay = (state) => {
 };
 
 const getRoverInfo = (state, i) => {
-  let { info } = state;
-  fetch(`http://localhost:3000/manifest?rover=${state.rovers[i]}`)
+  const { rovers } = state;
+  fetch(`http://localhost:3000/manifest?rover=${rovers[i]}`)
     .then((res) => res.json())
-    .then((manifest) => {
-      info = {
-        name: manifest.info.photo_manifest.name,
-        status: manifest.info.photo_manifest.status,
-        launch_date: manifest.info.photo_manifest.launch_date,
-        landing_date: manifest.info.photo_manifest.landing_date,
-      };
+    .then((info) => {
       updateStore(state, { info });
-      console.log(state);
     });
-  return info;
 };
 
 // -------------------------------------------------------
@@ -142,24 +141,70 @@ const ImageOfTheDay = (state, apod) => {
   }
 };
 const RoverInfo = (state, i) => {
-  let { info, rovers } = state;
-  if (!info.status) {
-    console.log(info);
+  const { info, rovers } = state;
+  if (!info.info) {
     getRoverInfo(state, i);
-  } else {return info}}
-const generateList=(data=RoverInfo(state,i))=>{
-    if (data) {return `<div>
-<ul><li>Name:${data[i].name}</li><li>Status:${data[i].status}</li>
-<li>Launch date:${data[i].launch_date}</li>
-<li>Landing date:${data[i].landing_date}</li>
-<li>Photos Click here!
-</li></ul>
-</div>`}
-}
+  } else {
+    const template = Immutable.Map({
+      name: info.info.photo_manifest.name,
+      status: info.info.photo_manifest.status,
+      launch_date: info.info.photo_manifest.launch_date,
+      landing_date: info.info.photo_manifest.landing_date,
+      last_photos: info.info.photo_manifest.max_date,
+    });
+    return template;
+  }
+};
+
+let iList = Immutable.List();
+
+const renderHTMLRover = (state) => {
+  const { rovers } = state;
+  const sizeRovers = Array.from(Array(rovers.length).keys());
+
+  sizeRovers.forEach((i) => {
+    const template = RoverInfo(state, i);
+
+    if (template && rovers[i] === template.get("name")) {
+      // console.log(template);
+      iList = iList.push(template);
+    }
+  });
+
+  return iList; // Return the updated iList after iterating over sizeRovers
+};
+
+const renderHTML = (state) => {
+  if (iList.size < state.rovers.length) {
+    iList = renderHTMLRover(state);
+  }
+
+  const html = iList.map((item) => {
+    return `<div class="rovers">
+              <ul>
+                <li>Name: ${item.get("name")}</li>
+                <li>Status: ${item.get("status")}</li>
+                                <li>Launch date: ${item.get("launch_date")}</li>
+                                                                <li>Landing date: ${item.get(
+                                                                  "landing_date"
+                                                                )}</li>
+                                                                 <li>Last photos taken: ${item.get(
+                                                                   "last_photos"
+                                                                 )}</li>
+
+
+              </ul>
+            </div>`;
+  });
+
+  return html.join("");
+};
 
 // create content
 const App = (state) => {
-  let { rovers, apod } = state;
+  // let { info, rovers, apod } = state;
+  // const html0 = rendering(state, 0);
+  //const html1 = rendering(state, 1);
 
   return `
         <header><img src="./assets/images/NASA_logo.png" style="float:left"></header>
@@ -170,12 +215,9 @@ const App = (state) => {
                 <h3>${Greeting(state.user.name)}</h3>                
                <p>${currentDate(new Date())}</p>
 
-                <div>
-               ${RoverInfo(state, 0)}
-                 ${RoverInfo(state, 1)}
-                  
-                              ${RoverInfo(state, 2)}
-                  
+                <div class="rovers">
+               ${renderHTML(state)}
+                            
 
 
                 </div>
@@ -190,7 +232,7 @@ const App = (state) => {
 };
 // add our markup to the page
 
-const render = async (root, state) => {
+const render = (root, state) => {
   root.innerHTML = App(state);
 };
 
