@@ -60,6 +60,11 @@ figure h2 {
 
   justify-self: left;
 }
+.rovers {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 25px;
+}
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
   /* use mobile */

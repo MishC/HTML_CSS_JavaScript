@@ -197,10 +197,16 @@ const renderHTML = (state) => {
   }
 
   const html = iList.map((item) => {
-    return `<div>
+    return `<div class="rovers">
               <ul>
                 <li>Name: ${item.get("name")}</li>
                 <li>Status: ${item.get("status")}</li>
+                                <li>Launch date: ${item.get("launch_date")}</li>
+                                                                <li>Landing date: ${item.get(
+                                                                  "landing_date"
+                                                                )}</li>
+
+
               </ul>
             </div>`;
   });
@@ -223,7 +229,7 @@ const App = (state) => {
                 <h3>${Greeting(state.user.name)}</h3>                
                <p>${currentDate(new Date())}</p>
 
-                <div>
+                <div class="rovers">
                ${renderHTML(state)}
                             
 
