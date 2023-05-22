@@ -43,7 +43,7 @@ app.get("/photos", async (req, res) => {
     let rover = req.query.rover;
     let earth_date = req.query.earth_date; // Retrieve the value of the "rover" query parameter
     let photos = await fetch(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos/earth_date=${earth_date}/?api_key=${process.env.API_KEY}`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earth_date}&api_key=${process.env.API_KEY}`
     ).then((res) => res.json());
     res.send({ photos }); // Send the manifest JSON data as the response
   } catch (err) {

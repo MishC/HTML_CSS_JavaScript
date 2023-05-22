@@ -131,10 +131,12 @@ const ImageOfTheDay = (state, apod) => {
         `;
     } else {
       return `<div class="apod">
-        <figure> <h2 >Image of the day: ${apod.image.title}</h2>
+        <figure> <h3>Image of the day: ${apod.image.title}</h3>
 
-            <img src="${apod.image.url}" /> <p>${apod.image.explanation}</p>
+            <img src="${apod.image.url}" onhover=""/> <p>${apod.image.explanation}</p>
             </figure>
+                             
+
            </div>
         `;
     }
@@ -145,14 +147,16 @@ const RoverInfo = (state, i) => {
   if (!info.info) {
     getRoverInfo(state, i);
   } else {
-    const template = Immutable.Map({
-      name: info.info.photo_manifest.name,
-      status: info.info.photo_manifest.status,
-      launch_date: info.info.photo_manifest.launch_date,
-      landing_date: info.info.photo_manifest.landing_date,
-      last_photos: info.info.photo_manifest.max_date,
-    });
-    return template;
+    if (info.info.photo_manifest.name) {
+      const template = Immutable.Map({
+        name: info.info.photo_manifest.name,
+        status: info.info.photo_manifest.status,
+        launch_date: info.info.photo_manifest.launch_date,
+        landing_date: info.info.photo_manifest.landing_date,
+        last_photos: info.info.photo_manifest.max_date,
+      });
+      return template;
+    }
   }
 };
 
@@ -175,12 +179,15 @@ const renderHTMLRover = (state) => {
 };
 
 const renderHTML = (state) => {
-  if (iList.size < state.rovers.length) {
+  if (iList.size < state.rovers.length + 1) {
     iList = renderHTMLRover(state);
   }
 
-  const html = iList.map((item) => {
-    return `<div class="rovers">
+  const html = iList
+    .toSet()
+    .toList()
+    .map((item) => {
+      return `<div class="rovers">
               <ul>
                 <li>Name: ${item.get("name")}</li>
                 <li>Status: ${item.get("status")}</li>
@@ -195,9 +202,20 @@ const renderHTML = (state) => {
 
               </ul>
             </div>`;
-  });
+    });
 
   return html.join("");
+};
+const renderFrame = () => {
+  const tagApod = document.getElementsByTagName(figure);
+  console.log(tagApod);
+  var element = ` <iframe
+        src="https://mars.nasa.gov/layout/embed/image/mslweather/"
+        width="40%"
+        height="40%"
+      ></iframe>`;
+
+  tagApod.appendChild(element);
 };
 
 // create content
@@ -213,17 +231,15 @@ const App = (state) => {
             <h1>Mars Dashboard</h1>
             <section>
                 <h3>${Greeting(state.user.name)}</h3>                
-               <p>${currentDate(new Date())}</p>
-
-                <div class="rovers">
+               <p>${currentDate(new Date())}</p>  <div class="rovers">
                ${renderHTML(state)}
-                            
-
-
+                          
                 </div>
-                <div>
+<div class="apod">
                 ${ImageOfTheDay(state, state.apod)}
                 </div>
+              
+                
                 
             </section>
         </main>
@@ -245,3 +261,6 @@ const updateStore = (store, newState) => {
 window.addEventListener("load", () => {
   render(root, store);
 });
+window.onload = function () {
+  renderFrame();
+};
