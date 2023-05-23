@@ -35,7 +35,10 @@ section {
  footer styles 
 }*/
 
-#more-info h3 {
+#more-info {
+  margin-top: 40px;
+}
+#more-info > h3 {
 }
 ul,
 p {
@@ -79,7 +82,8 @@ iframe {
   justify-items: center;
   flex-wrap: wrap;
 }
-#more-info {
+#more-info > h2 {
+  margin-top: 20px;
 }
 
 #container img {
@@ -127,9 +131,16 @@ ul > li:first-child {
   font-size: large;
   font-weight: bold;
 }
+ul > li:last-child {
+  text-decoration: underline;
+  color: #0b3d91;
+}
 
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 680px) {
+  ul {
+    font-size: 16px;
+  }
   .rovers-gallery {
     display: grid;
 
@@ -150,12 +161,15 @@ ul > li:first-child {
 
   ul > li:last-child {
     font-size: normal;
+    text-decoration: underline;
+    color: #0b3d91;
   }
   header img {
     width: 250px;
   }
   iframe {
     height: 60vh;
+    max-width: 100%;
     margin-right: 20px;
   }
 
