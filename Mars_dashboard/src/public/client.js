@@ -1,12 +1,31 @@
 const root = document.getElementById("root");
 
+<<<<<<< HEAD
 const store = {
   user: { name: "" },
+||||||| e138e29
+let store = {
+  user: { name: "Student" },
+=======
+const store = {
+  user: { name: "Student" },
+>>>>>>> new_branch
   apod: {},
   rovers: ["Curiosity", "Opportunity", "Spirit"],
+<<<<<<< HEAD
   info: {},
   photos: {},
   ready: 0,
+||||||| e138e29
+  info: {},
+=======
+  info: Immutable.Map({
+    name: "",
+    status: "",
+    launch_date: "",
+    landing_date: "",
+  }),
+>>>>>>> new_branch
 };
 let maps = [];
 //const mapsI = Immutable.List([]);
@@ -104,6 +123,7 @@ const getRoverInfo = (state, i) => {
     .then((info) => {
       updateStore(state, { info });
     });
+<<<<<<< HEAD
 };
 const getRoverPhoto = (state, i) => {
   const { rovers, photos } = state;
@@ -118,6 +138,10 @@ const getRoverPhoto = (state, i) => {
     .then((photos) => {
       updateStore(state, { photos });
     });
+||||||| e138e29
+  return info;
+=======
+>>>>>>> new_branch
 };
 
 // -------------------------------------------------------
@@ -159,6 +183,98 @@ const ImageOfTheDay = (state, apod) => {
     }
   }
 };
+<<<<<<< HEAD
+||||||| e138e29
+const RoverInfo = (state, i) => {
+  let { info, rovers } = state;
+  if (!info.status) {
+    console.log(info);
+    getRoverInfo(state, i);
+  } else {return info}}
+const generateList=(data=RoverInfo(state,i))=>{
+    if (data) {return `<div>
+<ul><li>Name:${data[i].name}</li><li>Status:${data[i].status}</li>
+<li>Launch date:${data[i].launch_date}</li>
+<li>Landing date:${data[i].landing_date}</li>
+<li>Photos Click here!
+</li></ul>
+</div>`}
+}
+=======
+const RoverInfo = (state, i) => {
+  const { info, rovers } = state;
+  if (!info.info) {
+    getRoverInfo(state, i);
+  } else {
+    const template = Immutable.Map({
+      name: info.info.photo_manifest.name,
+      status: info.info.photo_manifest.status,
+      launch_date: info.info.photo_manifest.launch_date,
+      landing_date: info.info.photo_manifest.landing_date,
+    });
+    return template;
+  }
+};
+/*`<div>
+                  <ul>
+                    <li>Name: ${info.info.photo_manifest["name"]}</li>
+                    <li>Status: ${info.info.photo_manifest["status"]}</li>
+                  </ul>
+                </div>`;*/
+// const list2 = mapsI.push(template2);
+// console.log(template2.toObject());
+// console.log(list2.toArray());}
+
+//maps[i] = { name: info.name,  };
+
+//await Object.freeze(maps[i]);
+/*return `<div>
+                  <ul>
+                    <li>Name: ${list2.get(i).get("name")}</li>
+                  </ul>
+                </div>`;*/
+
+let iList = Immutable.List();
+
+const renderHTMLRover = (state) => {
+  const { rovers } = state;
+  const sizeRovers = Array.from(Array(rovers.length).keys());
+
+  sizeRovers.forEach((i) => {
+    const template = RoverInfo(state, i);
+
+    if (template && rovers[i] === template.get("name")) {
+      // console.log(template);
+      iList = iList.push(template);
+    }
+  });
+
+  return iList; // Return the updated iList after iterating over sizeRovers
+};
+
+const renderHTML = (state) => {
+  if (iList.size < state.rovers.length) {
+    iList = renderHTMLRover(state);
+  }
+
+  const html = iList.map((item) => {
+    return `<div class="rovers">
+              <ul>
+                <li>Name: ${item.get("name")}</li>
+                <li>Status: ${item.get("status")}</li>
+                                <li>Launch date: ${item.get("launch_date")}</li>
+                                                                <li>Landing date: ${item.get(
+                                                                  "landing_date"
+                                                                )}</li>
+
+
+              </ul>
+            </div>`;
+  });
+
+  return html.join("");
+};
+>>>>>>> new_branch
 
 let iList = Immutable.List();
 const RoverInfo = (state, i) => {
@@ -285,22 +401,55 @@ const renderFrame = () => {
 };
 // create content
 const App = (state) => {
+<<<<<<< HEAD
   // let { info, rovers, apod } = state;
   // const html0 = rendering(state, 0);
   //const html1 = rendering(state, 1);
   const { Maps, List } = require(Immutable);
+||||||| e138e29
+  let { rovers, apod } = state;
+
+=======
+  // let { info, rovers, apod } = state;
+  // const html0 = rendering(state, 0);
+  //const html1 = rendering(state, 1);
+
+>>>>>>> new_branch
   return `
         <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
             
             <h1>Mars Dashboard</h1>
             <section>
+<<<<<<< HEAD
                <p style="text-align:center;"><b>${currentDate(
                  new Date()
                )}</b></p> 
                <div class="rovers">
                ${renderHTMLRover(state)}
                <div class="rovers-gallery"></div>
+||||||| e138e29
+                <h3>${Greeting(state.user.name)}</h3>                
+               <p>${currentDate(new Date())}</p>
+
+                <div>
+               ${RoverInfo(state, 0)}
+                 ${RoverInfo(state, 1)}
+                  
+                              ${RoverInfo(state, 2)}
+                  
+
+
+=======
+                <h3>${Greeting(state.user.name)}</h3>                
+               <p>${currentDate(new Date())}</p>
+
+                <div class="rovers">
+               ${renderHTML(state)}
+                            
+
+
+>>>>>>> new_branch
                 </div>
                 </section>
           <div id="more-info">
