@@ -73,16 +73,21 @@ function makeCounter() {
     return count++;
   };
 }
-const clearPhotos = (state) => {
-  const newState = {
-    photos: {},
-  };
+const overlayImageByText = () => {
+  const container = document.getElementById("container");
+  if (container) {
+    container.addEventListener("mouseover", function () {
+      const overlay = document.getElementById("overlay");
+      overlay.style.opacity = "1";
+    });
 
-  updateStore(state, newState);
+    container.addEventListener("mouseout", function () {
+      const overlay = document.getElementById("overlay");
+      overlay.style.opacity = "0";
+    });
+  }
 };
-const changeState = (state) => {
-  state.ready === 0 ? (state.ready = 1) : (state.ready = 0);
-};
+
 // ------------------------------------------------------  API CALLS
 
 // Example API call
@@ -107,10 +112,7 @@ const getRoverInfo = (state, i) => {
 };
 const getRoverPhoto = (state, i) => {
   const { rovers, photos } = state;
-  //updateStore(state, { photos: {} });
-  //const { earth_date } = state.last_photos;
-  //console.log(rovers[i]);
-  //console.log(earth_date);
+
   fetch(
     `http://localhost:3000/photos?rover=${rovers[i]}` //?earth_date=${earth_date}
   )
@@ -121,8 +123,6 @@ const getRoverPhoto = (state, i) => {
 };
 
 // -------------------------------------------------------
-//console.log(photodate.getDate(), today.getDate());
-//console.log(photodate.getDate() === today.getDate());
 
 // Example of a pure function that renders infomation requested from the backend
 
@@ -147,13 +147,12 @@ const ImageOfTheDay = (state, apod) => {
             </div>
         `;
     } else {
-      return `<div class="apod">
-        <figure> <h2>Image of the day: ${apod.image.title}</h2>
+      return `
+    <div id="container"> 
 
-            <img src="${apod.image.url}" onhover=""/> <p>${apod.image.explanation}</p>
-            </figure>
-                             
-
+            <img src="${apod.image.url}" onhover="" id="image"/> 
+            <div id="overlay"><p>${apod.image.explanation}</p>
+            </div>
            </div>
         `;
     }
@@ -248,7 +247,7 @@ const renderHTMLRover = (state) => {
       }
       return `<div class="rover">
               <ul>
-                <li name="name">Name: ${item.get("name")}</li>
+                <li name="name" class="rover-name"> ${item.get("name")}</li>
                 <li name="status">Status: ${item.get("status")}</li>
                 <li>Launch date: ${item.get("launch_date")}</li>
                 <li>Landing date: ${item.get("landing_date")}</li>
@@ -271,11 +270,13 @@ const renderFrame = () => {
 
   if (tagWeather) {
     const element = document.createElement("iframe");
+    const label = document.createElement("h2");
+    label.innerHTML = "Weather report";
     element.src = "https://mars.nasa.gov/layout/embed/image/mslweather/";
     element.setAttribute("allowfullscreen", "true");
     element.setAttribute("frameborder", 0);
     // element.classList.add("iframe-class");
-    element.innerHTML = "Weather report";
+    tagWeather.appendChild(label);
     tagWeather.appendChild(element);
   } else {
     console.error(
@@ -303,9 +304,10 @@ const App = (state) => {
                 </div>
                 </section>
           <div id="more-info">
+          
               <div id="weather"></div>
                 <div class="apod">
-                
+                <h2>Image of the day!</h2>
                 ${ImageOfTheDay(state, state.apod)}
                 </div>
                 </div>
@@ -333,6 +335,8 @@ const updateStore = (store, newState) => {
 // listening for load event because page should load before any JS is called
 window.addEventListener("load", () => {
   render(root, store);
-
-  setTimeout(() => renderFrame(), 6000);
+  setTimeout(() => renderFrame(), 7000);
+  if (window.innerWidth >= 720) {
+    overlayImageByText();
+  }
 });
