@@ -168,8 +168,8 @@ ul > li:first-child {
   }
   #overlay {
     position: absolute;
-    top: 0px;
-    left: 80px;
+    top: 20px;
+    left: 100px;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
