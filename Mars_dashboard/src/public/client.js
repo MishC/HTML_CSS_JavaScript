@@ -288,7 +288,7 @@ const App = (state) => {
   // let { info, rovers, apod } = state;
   // const html0 = rendering(state, 0);
   //const html1 = rendering(state, 1);
-
+  const { Maps, List } = require(Immutable);
   return `
         <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
