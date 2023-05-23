@@ -41,14 +41,15 @@ app.get("/manifest", async (req, res) => {
 app.get("/photos", async (req, res) => {
   try {
     let rover = req.query.rover;
-    let earth_date = req.query.earth_date; // Retrieve the value of the "rover" query parameter
+    //let earth_date = req.query.earth_date;
+    //`https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earth_date}&api_key=${process.env.API_KEY}`
+    //gives back just rover object? photos.photos.photos[0]
     let photos = await fetch(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?earth_date=${earth_date}&api_key=${process.env.API_KEY}`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/latest_photos?api_key=${process.env.API_KEY}`
     ).then((res) => res.json());
-    res.send({ photos }); // Send the manifest JSON data as the response
+    res.send({ photos });
   } catch (err) {
     console.log("Error:", err);
-    res.status(500).send("An error occurred."); // Return an error response to the frontend
   }
 });
 
