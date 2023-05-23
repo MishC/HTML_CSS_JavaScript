@@ -1,15 +1,12 @@
 const root = document.getElementById("root");
 
 const store = {
-  user: { name: "Student" },
+  user: { name: "" },
   apod: {},
   rovers: ["Curiosity", "Opportunity", "Spirit"],
-  info: Immutable.Map({
-    name: "",
-    status: "",
-    launch_date: "",
-    landing_date: "",
-  }),
+  info: {},
+  photos: {},
+  ready: 0,
 };
 let maps = [];
 //const mapsI = Immutable.List([]);
@@ -76,10 +73,16 @@ function makeCounter() {
     return count++;
   };
 }
+const clearPhotos = (state) => {
+  const newState = {
+    photos: {},
+  };
 
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
+  updateStore(state, newState);
+};
+const changeState = (state) => {
+  state.ready === 0 ? (state.ready = 1) : (state.ready = 0);
+};
 // ------------------------------------------------------  API CALLS
 
 // Example API call
@@ -100,6 +103,20 @@ const getRoverInfo = (state, i) => {
     .then((res) => res.json())
     .then((info) => {
       updateStore(state, { info });
+    });
+};
+const getRoverPhoto = (state, i) => {
+  const { rovers, photos } = state;
+  //updateStore(state, { photos: {} });
+  //const { earth_date } = state.last_photos;
+  //console.log(rovers[i]);
+  //console.log(earth_date);
+  fetch(
+    `http://localhost:3000/photos?rover=${rovers[i]}` //?earth_date=${earth_date}
+  )
+    .then((res) => res.json())
+    .then((photos) => {
+      updateStore(state, { photos });
     });
 };
 
@@ -131,7 +148,7 @@ const ImageOfTheDay = (state, apod) => {
         `;
     } else {
       return `<div class="apod">
-        <figure> <h3>Image of the day: ${apod.image.title}</h3>
+        <figure> <h2>Image of the day: ${apod.image.title}</h2>
 
             <img src="${apod.image.url}" onhover=""/> <p>${apod.image.explanation}</p>
             </figure>
@@ -142,12 +159,14 @@ const ImageOfTheDay = (state, apod) => {
     }
   }
 };
+
+let iList = Immutable.List();
 const RoverInfo = (state, i) => {
-  const { info, rovers } = state;
+  const { info } = state;
   if (!info.info) {
     getRoverInfo(state, i);
   } else {
-    if (info.info.photo_manifest.name) {
+    if (info.info.photo_manifest) {
       const template = Immutable.Map({
         name: info.info.photo_manifest.name,
         status: info.info.photo_manifest.status,
@@ -160,9 +179,7 @@ const RoverInfo = (state, i) => {
   }
 };
 
-let iList = Immutable.List();
-
-const renderHTMLRover = (state) => {
+const ListRover = (state) => {
   const { rovers } = state;
   const sizeRovers = Array.from(Array(rovers.length).keys());
 
@@ -174,50 +191,98 @@ const renderHTMLRover = (state) => {
       iList = iList.push(template);
     }
   });
-
   return iList; // Return the updated iList after iterating over sizeRovers
 };
+/***************************Photo_Gallery***********************/
+const generatePhotoGallery = (i, state = store) => {
+  const { photos } = state;
+  updateStore(state, { photos: {} });
 
-const renderHTML = (state) => {
+  if (!photos.photos) {
+    getRoverPhoto(state, i);
+  } else {
+    const images = photos.photos.latest_photos.map((array) => {
+      return array.img_src;
+    });
+
+    const gallery = PhotoGalleryHTML(images);
+    const element = document.querySelector(".rovers-gallery");
+
+    element.innerHTML = gallery; // Set the gallery HTML as the content of the element
+  }
+};
+
+const PhotoGalleryHTML = (images) => {
+  const gallery = images
+    .map((image) => {
+      return `<div><img src="${image}" width=300/></div>`;
+    })
+    .join("");
+  return gallery;
+};
+
+const addPhotoGallery = (state) => {
+  const galleries = document.getElementsByName("gallery");
+  //updateStore(state, { photos: {} });
+
+  if (galleries) {
+    galleries.forEach((gallery, i) => {
+      gallery.addEventListener("click", () => {
+        generatePhotoGallery(i, state);
+      });
+    });
+  }
+};
+
+const renderHTMLRover = (state) => {
   if (iList.size < state.rovers.length + 1) {
-    iList = renderHTMLRover(state);
+    iList = ListRover(state);
   }
 
   const html = iList
     .toSet()
     .toList()
-    .map((item) => {
-      return `<div class="rovers">
+    .map((item, id) => {
+      if (id === state.rovers.length - 1) {
+        state.ready = 1;
+      }
+      return `<div class="rover">
               <ul>
-                <li>Name: ${item.get("name")}</li>
-                <li>Status: ${item.get("status")}</li>
-                                <li>Launch date: ${item.get("launch_date")}</li>
-                                                                <li>Landing date: ${item.get(
-                                                                  "landing_date"
-                                                                )}</li>
-                                                                 <li>Last photos taken: ${item.get(
-                                                                   "last_photos"
-                                                                 )}</li>
-
-
+                <li name="name">Name: ${item.get("name")}</li>
+                <li name="status">Status: ${item.get("status")}</li>
+                <li>Launch date: ${item.get("launch_date")}</li>
+                <li>Landing date: ${item.get("landing_date")}</li>
+                <li name="last_photos">Last photos taken: ${item.get(
+                  "last_photos"
+                )}</li>
+                <li name="gallery" style="cursor:pointer;font-weight:bold;" >View Gallery</li>
               </ul>
             </div>`;
     });
 
-  return html.join("");
+  if (state.ready === 1) {
+    // addPhotoGallery(state);
+    return html.join("");
+  }
 };
+
 const renderFrame = () => {
-  const tagApod = document.getElementsByTagName(figure);
-  console.log(tagApod);
-  var element = ` <iframe
-        src="https://mars.nasa.gov/layout/embed/image/mslweather/"
-        width="40%"
-        height="40%"
-      ></iframe>`;
+  const tagWeather = document.getElementById("weather");
 
-  tagApod.appendChild(element);
+  if (tagWeather) {
+    const element = document.createElement("iframe");
+    element.src = "https://mars.nasa.gov/layout/embed/image/mslweather/";
+    element.setAttribute("allowfullscreen", "true");
+    element.frameborder = 0;
+    // element.classList.add("iframe-class");
+    element.innerHTML = "Weather report";
+    tagWeather.appendChild(element);
+  } else {
+    console.error(
+      "Element with class 'weather' not found or insufficient elements."
+    );
+  }
 };
-
 // create content
 const App = (state) => {
   // let { info, rovers, apod } = state;
@@ -225,20 +290,28 @@ const App = (state) => {
   //const html1 = rendering(state, 1);
 
   return `
-        <header><img src="./assets/images/NASA_logo.png" style="float:left"></header>
+        <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
             
             <h1>Mars Dashboard</h1>
             <section>
-                <h3>${Greeting(state.user.name)}</h3>                
-               <p>${currentDate(new Date())}</p>  <div class="rovers">
-               ${renderHTML(state)}
-                          
+               <p style="text-align:center;"><b>${currentDate(
+                 new Date()
+               )}</b></p> 
+               <div class="rovers">
+               ${renderHTMLRover(state)}
+               <div class="rovers-gallery"></div>
                 </div>
-<div class="apod">
+                </section>
+          <div id="more-info">
+              <div id="weather"></div>
+                <div class="apod">
+                
                 ${ImageOfTheDay(state, state.apod)}
                 </div>
-              
+                </div>
+                             
+
                 
                 
             </section>
@@ -250,6 +323,7 @@ const App = (state) => {
 
 const render = (root, state) => {
   root.innerHTML = App(state);
+  addPhotoGallery(state);
 };
 
 const updateStore = (store, newState) => {
@@ -260,7 +334,6 @@ const updateStore = (store, newState) => {
 // listening for load event because page should load before any JS is called
 window.addEventListener("load", () => {
   render(root, store);
+
+  setTimeout(() => renderFrame(), 6000);
 });
-window.onload = function () {
-  renderFrame();
-};
