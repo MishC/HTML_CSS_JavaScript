@@ -58,14 +58,18 @@ figure h2 {
 
   justify-self: left;
 }
-<<<<<<< HEAD
+ul,
+p {
+  font-size: 15px;
+}
+
 iframe {
   margin-top: 30px;
-  min-width: 90%;
   height: 70vh;
   padding: 0;
   justify-content: center;
   text-align: center;
+  z-index: 2;
 }
 .rovers {
   margin: 50px auto;
@@ -91,16 +95,9 @@ iframe {
 }
 figure p {
   max-width: 340px;
+  text-align: center;
 }
 
-||||||| e138e29
-=======
-.rovers {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px 25px;
-}
->>>>>>> new_branch
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
   iframe {
