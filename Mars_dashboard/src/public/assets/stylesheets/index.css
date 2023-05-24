@@ -92,18 +92,15 @@ iframe {
 
   max-width: 350px;
 }
+
+#container {
+  position: relative;
+}
 #container p {
   max-width: 350px;
   text-align: justify;
   margin: auto 0;
   padding: 20px;
-}
-#container {
-  position: relative;
-}
-
-#container:hover #overlay {
-  opacity: 1;
 }
 #weather {
   justify-self: baseline;
@@ -128,8 +125,11 @@ section p {
   font-size: larger;
 }
 ul > li:first-child {
-  font-size: large;
+  font-size: larger;
   font-weight: bold;
+}
+b {
+  font-size: normal;
 }
 ul > li:last-child {
   text-decoration: underline;
@@ -140,6 +140,10 @@ ul > li:last-child {
 @media (min-width: 680px) {
   ul {
     font-size: 16px;
+  }
+  ul > li:first-child {
+    font-size: larger;
+    font-weight: bold;
   }
   .rovers-gallery {
     display: grid;
@@ -163,8 +167,16 @@ ul > li:last-child {
   }
 }
 @media (min-width: 768px) {
-  ul {
-    font-size: 16px;
+  ul,
+  header,
+  section,
+  main {
+    font-size: 1.1em;
+  }
+
+  ul > li:first-child {
+    font-size: x-large;
+    font-weight: bold;
   }
 
   ul > li:last-child {
@@ -187,6 +199,10 @@ ul > li:last-child {
     padding: 0;
     max-width: 70%;
   }
+
+  #container:hover #overlay {
+    opacity: 1;
+  }
   #more-info {
     display: flex;
     flex-direction: row;
@@ -201,7 +217,7 @@ ul > li:last-child {
     color: white;
     padding: 10px;
     opacity: 0;
-    width: 350px;
+    max-width: 50%;
     transition: opacity 0.3s;
   }
 
@@ -211,6 +227,13 @@ ul > li:last-child {
 /* -------------------  DESKTOP  -------------------- */
 
 @media (min-width: 1224px) {
+  b {
+    font-size: normal;
+  }
+  header img {
+    width: 320px;
+  }
+
   .rovers-gallery {
     grid-template-columns: 400px 400px 400px;
   }
@@ -229,17 +252,22 @@ ul > li:last-child {
 @media (min-width: 1660px) {
   /* use mobile */
   header img {
-    width: 320px;
+    width: 420px;
   }
   ul,
-  .rover-name,
   header,
   section,
   main {
-    font-size: 1.1em;
-  }
-  ul > li:first-child {
     font-size: larger;
+  }
+
+  ul > li:first-child {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  ul > li:last-child {
+    margin-top: 10px;
   }
 
   .rovers {
@@ -278,9 +306,12 @@ ul > li:last-child {
     object-fit: contain;
   }
   h1 {
-    font-size: 2.5em;
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2.1em;
   }
   b {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
