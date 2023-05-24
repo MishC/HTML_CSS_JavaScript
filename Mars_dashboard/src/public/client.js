@@ -110,11 +110,11 @@ const getRoverInfo = (state, i) => {
       updateStore(state, { info });
     });
 };
-const getRoverPhoto = (state, i) => {
+const getRoverPhoto = (state, name) => {
   const { rovers, photos } = state;
   //rovers[0]=""
   fetch(
-    `http://localhost:3000/photos?rover=${rovers[i]}` //?earth_date=${earth_date}
+    `http://localhost:3000/photos?rover=${name}` //?earth_date=${earth_date}
   )
     .then((res) => res.json())
     .then((photos) => {
@@ -193,12 +193,12 @@ const ListRover = (state) => {
   return iList; // Return the updated iList after iterating over sizeRovers
 };
 /***************************Photo_Gallery***********************/
-const generatePhotoGallery = (i, state = store) => {
+const generatePhotoGallery = (name, state = store) => {
   const { photos } = state;
   updateStore(state, { photos: {} });
 
   if (!photos.photos) {
-    getRoverPhoto(state, i);
+    getRoverPhoto(state, name);
   } else {
     const images = photos.photos.latest_photos.map((array) => {
       return array.img_src;
@@ -222,11 +222,12 @@ const PhotoGalleryHTML = (images) => {
 
 const addPhotoGallery = (state) => {
   const galleries = document.getElementsByName("gallery");
+  const rover_names = document.getElementsByClassName("rover-name");
 
-  if (galleries) {
+  if (galleries && rover_names) {
     galleries.forEach((gallery, i) => {
       gallery.addEventListener("click", () => {
-        generatePhotoGallery(i, state);
+        generatePhotoGallery(rover_names[i].innerText, state);
       });
     });
   }
@@ -244,12 +245,8 @@ const renderHTMLRover = (state) => {
       if (id === state.rovers.length - 1) {
         state.ready = 1;
       }
-      if (
-        (id === 0 && item.get("name") === state.rovers[0]) ||
-        (id === 1 && item.get("name") === state.rovers[1]) ||
-        (id === 2 && item.get("name") === state.rovers[2])
-      ) {
-        return `<div class="rover">
+
+      return `<div class="rover">
               <ul>
                 <li name="name" class="rover-name"> ${item.get("name")}</li>
                 <li name="status">Status: ${item.get("status")}</li>
@@ -258,10 +255,9 @@ const renderHTMLRover = (state) => {
                 <li name="last_photos">Last photos taken: ${item.get(
                   "last_photos"
                 )}</li>
-                <li name="gallery" style="cursor:pointer;font-weight:bold;" >View Gallery</li>
+                <li name="gallery" style="cursor:pointer;font-weight:bold;"> View Gallery</li>
               </ul>
             </div>`;
-      }
     });
 
   if (state.ready === 1) {
