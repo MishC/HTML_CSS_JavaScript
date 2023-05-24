@@ -249,7 +249,11 @@ const renderHTMLRover = (state) => {
       return `<div class="rover">
               <ul>
                 <li name="name" class="rover-name"> ${item.get("name")}</li>
-                <li name="status">Status: ${item.get("status")}</li>
+                <li name="status" class="status">Status: ${
+                  item.get("name") === "Curiosity"
+                    ? `<b>${item.get("status")}</b>`
+                    : item.get("status")
+                }</li>
                 <li>Launch date: ${item.get("launch_date")}</li>
                 <li>Landing date: ${item.get("landing_date")}</li>
                 <li name="last_photos">Last photos taken: ${item.get(
@@ -260,9 +264,7 @@ const renderHTMLRover = (state) => {
             </div>`;
     });
 
-  if (state.ready === 1) {
-    return html.join("");
-  }
+  if (state.ready === 1) return html.join("");
 };
 
 const renderFrame = () => {
@@ -290,11 +292,11 @@ const App = (state) => {
         <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
             
-            <h1>Mars Dashboard</h1>
+            <h1>Mars Dashboard</h1><h2 style="text-align:center;">${currentDate(
+              new Date()
+            )}</h2> 
             <section>
-               <p style="text-align:center;"><b>${currentDate(
-                 new Date()
-               )}</b></p> 
+               
                <div class="rovers">
                ${renderHTMLRover(state)}
                <div class="rovers-gallery"></div>
