@@ -31,9 +31,9 @@ section {
   padding: 0;
 }
 
-/*footer {
- footer styles 
-}*/
+footer {
+  min-height: 50px;
+}
 
 #more-info {
   margin-top: 40px;
@@ -96,7 +96,7 @@ iframe {
   max-width: 350px;
   text-align: justify;
   margin: auto 0;
-  padding: 0;
+  padding: 20px;
 }
 #container {
   position: relative;
