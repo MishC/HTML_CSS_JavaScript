@@ -144,6 +144,10 @@ ul > li:last-child {
   ul > li:first-child {
     font-size: larger;
     font-weight: bold;
+    margin-bottom: 10px;
+  }
+  ul > li:last-child {
+    margin-top: 10px;
   }
   .rovers-gallery {
     display: grid;
