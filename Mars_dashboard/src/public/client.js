@@ -214,7 +214,7 @@ const generatePhotoGallery = (i, state = store) => {
 const PhotoGalleryHTML = (images) => {
   const gallery = images
     .map((image) => {
-      return `<div><img src="${image}" width=300/></div>`;
+      return `<div><img src="${image}" class="gallery-image" /></div>`;
     })
     .join("");
   return gallery;
