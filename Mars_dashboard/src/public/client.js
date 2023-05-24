@@ -112,7 +112,7 @@ const getRoverInfo = (state, i) => {
 };
 const getRoverPhoto = (state, i) => {
   const { rovers, photos } = state;
-
+  //rovers[0]=""
   fetch(
     `http://localhost:3000/photos?rover=${rovers[i]}` //?earth_date=${earth_date}
   )
@@ -222,7 +222,6 @@ const PhotoGalleryHTML = (images) => {
 
 const addPhotoGallery = (state) => {
   const galleries = document.getElementsByName("gallery");
-  //updateStore(state, { photos: {} });
 
   if (galleries) {
     galleries.forEach((gallery, i) => {
@@ -245,7 +244,12 @@ const renderHTMLRover = (state) => {
       if (id === state.rovers.length - 1) {
         state.ready = 1;
       }
-      return `<div class="rover">
+      if (
+        (id === 0 && item.get("name") === state.rovers[0]) ||
+        (id === 1 && item.get("name") === state.rovers[1]) ||
+        (id === 2 && item.get("name") === state.rovers[2])
+      ) {
+        return `<div class="rover">
               <ul>
                 <li name="name" class="rover-name"> ${item.get("name")}</li>
                 <li name="status">Status: ${item.get("status")}</li>
@@ -257,10 +261,10 @@ const renderHTMLRover = (state) => {
                 <li name="gallery" style="cursor:pointer;font-weight:bold;" >View Gallery</li>
               </ul>
             </div>`;
+      }
     });
 
   if (state.ready === 1) {
-    // addPhotoGallery(state);
     return html.join("");
   }
 };
@@ -286,9 +290,6 @@ const renderFrame = () => {
 };
 // create content
 const App = (state) => {
-  // let { info, rovers, apod } = state;
-  // const html0 = rendering(state, 0);
-  //const html1 = rendering(state, 1);
   return `
         <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
