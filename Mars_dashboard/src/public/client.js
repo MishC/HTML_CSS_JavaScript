@@ -334,7 +334,7 @@ const updateStore = (store, newState) => {
 // listening for load event because page should load before any JS is called
 window.addEventListener("load", () => {
   render(root, store);
-  setTimeout(() => renderFrame(), 7000);
+  setTimeout(() => renderFrame(), 6000);
   if (window.innerWidth >= 720) {
     overlayImageByText();
   }

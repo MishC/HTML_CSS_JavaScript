@@ -141,6 +141,7 @@ ul > li:last-child {
   ul {
     font-size: 16px;
   }
+
   ul > li:first-child {
     font-size: larger;
     font-weight: bold;
@@ -188,6 +189,9 @@ ul > li:last-child {
     text-decoration: underline;
     color: #0b3d91;
   }
+  .rovers {
+    margin: 200px 0;
+  }
   header img {
     width: 250px;
   }
@@ -229,6 +233,11 @@ ul > li:last-child {
 }
 
 /* -------------------  DESKTOP  -------------------- */
+@media (min-width: 1110px) {
+  .rovers {
+    justify-content: space-between;
+  }
+}
 
 @media (min-width: 1224px) {
   b {
@@ -237,7 +246,9 @@ ul > li:last-child {
   header img {
     width: 320px;
   }
-
+  .rovers {
+    margin: 200px auto auto auto;
+  }
   .rovers-gallery {
     grid-template-columns: 400px 400px 400px;
   }
@@ -304,6 +315,7 @@ ul > li:last-child {
   .gallery-image {
     width: 100%;
   }
+
   .rovers-gallery img {
     width: 100%;
     height: auto;
