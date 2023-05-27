@@ -6,7 +6,7 @@ const store = {
   rovers: ["Curiosity", "Opportunity", "Spirit"],
   info: {},
   photos: {},
-  ready: 0,
+  ready: Immutable.List(),
 };
 let maps = [];
 //const mapsI = Immutable.List([]);
@@ -237,15 +237,11 @@ const renderHTMLRover = (state) => {
   if (iList.size < state.rovers.length + 1) {
     iList = ListRover(state);
   }
-
+  const readyList = Immutable.List();
   const html = iList
     .toSet()
     .toList()
     .map((item, id) => {
-      if (id === state.rovers.length - 1) {
-        state.ready = 1;
-      }
-
       return `<div class="rover">
               <ul>
                 <li name="name" class="rover-name"> ${item.get("name")}</li>
@@ -263,29 +259,20 @@ const renderHTMLRover = (state) => {
               </ul>
             </div>`;
     });
+  //console.log(html.size);
+  if (html.size === 3) {
+    state.ready = readyList.set(0, 1);
 
-  if (state.ready === 1) return html.join("");
+    return html.join("");
+  }
+  state.ready = readyList.set(0, 0);
 };
 
 const renderFrame = () => {
-  const tagWeather = document.getElementById("weather");
-
-  if (tagWeather) {
-    const element = document.createElement("iframe");
-    const label = document.createElement("h2");
-    label.innerHTML = "Weather report";
-    element.src = "https://mars.nasa.gov/layout/embed/image/mslweather/";
-    element.setAttribute("allowfullscreen", "true");
-    element.setAttribute("frameborder", 0);
-    // element.classList.add("iframe-class");
-    tagWeather.appendChild(label);
-    tagWeather.appendChild(element);
-  } else {
-    console.error(
-      "Element with class 'weather' not found or insufficient elements."
-    );
-  }
+  return `<iframe src="https://mars.nasa.gov/layout/embed/image/mslweather/" allow="fullscreen" frameborder="0"></iframe>
+`;
 };
+
 // create content
 const App = (state) => {
   return `
@@ -303,8 +290,13 @@ const App = (state) => {
                 </div>
                 </section>
           <div id="more-info">
-          
-              <div id="weather"></div>
+        
+              <div id="weather">${
+                state.ready.get(0)
+                  ? `<h2>Weather Report</h2><iframe src="https://mars.nasa.gov/layout/embed/image/mslweather/" allow="fullscreen" frameborder="0">
+                </iframe></div>`
+                  : `<div></div>`
+              }
                 <div class="apod">
                 <h2>Image of the day!</h2>
                 ${ImageOfTheDay(state, state.apod)}
@@ -324,8 +316,16 @@ const App = (state) => {
 const render = (root, state) => {
   root.innerHTML = App(state);
   addPhotoGallery(state);
-};
 
+  /* promise
+    .then((result) => {
+      console.log(result);
+      // Promise fulfilled, initial rendering complete
+    })
+    .catch((error) => {
+      console.error(error);
+    });*/
+};
 const updateStore = (store, newState) => {
   store = Object.assign(store, newState);
   render(root, store);
@@ -334,8 +334,9 @@ const updateStore = (store, newState) => {
 // listening for load event because page should load before any JS is called
 window.addEventListener("load", () => {
   render(root, store);
-  setTimeout(() => renderFrame(), 6000);
+
   if (window.innerWidth >= 720) {
     overlayImageByText();
   }
 });
+//setTimeout(() => renderFrame(), 6000);
