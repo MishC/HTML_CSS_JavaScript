@@ -6,7 +6,7 @@ const store = {
   rovers: ["Curiosity", "Opportunity", "Spirit"],
   info: {},
   photos: {},
-  ready: Immutable.List(),
+  ready: 0,
 };
 let maps = [];
 //const mapsI = Immutable.List([]);
@@ -237,7 +237,7 @@ const renderHTMLRover = (state) => {
   if (iList.size < state.rovers.length + 1) {
     iList = ListRover(state);
   }
-  const readyList = Immutable.List();
+
   const html = iList
     .toSet()
     .toList()
@@ -261,11 +261,9 @@ const renderHTMLRover = (state) => {
     });
   //console.log(html.size);
   if (html.size === 3) {
-    state.ready = readyList.set(0, 1);
-
+    state.ready = 1;
     return html.join("");
   }
-  state.ready = readyList.set(0, 0);
 };
 
 const renderFrame = () => {
@@ -275,6 +273,7 @@ const renderFrame = () => {
 
 // create content
 const App = (state) => {
+  console.log(state.ready);
   return `
         <header><img src="./assets/images/NASA_logo.png" ></header>
         <main>
@@ -292,7 +291,7 @@ const App = (state) => {
           <div id="more-info">
         
               <div id="weather">${
-                state.ready.get(0)
+                state.ready
                   ? `<h2>Weather Report</h2><iframe src="https://mars.nasa.gov/layout/embed/image/mslweather/" allow="fullscreen" frameborder="0">
                 </iframe></div>`
                   : `<div></div>`
