@@ -113,12 +113,11 @@ async function handleCreateRace() {
     store = Object.assign(store, { race });
     console.log(store.race);
   });
+
   // TODO - call the async function runCountdown
   await runCountdown();
-
   // TODO - call the async function startRace
-
-  //await startRace(race_id,track_id);
+  await startRace(race_id, track_id);
   // TODO - call the async function runRace
 }
 
@@ -142,28 +141,18 @@ function runRace(raceID) {
 }
 
 async function runCountdown() {
-  try {
-    // wait for the DOM to load
-    await delay(1000);
-    let timer = 3;
+  let timer = 3;
+  const interval = setInterval(() => {
+    document.getElementById("big-numbers").innerHTML = timer;
 
-    return new Promise((resolve) => {
-      // TODO - use Javascript's built in setInterval method to count down once per second
-      // decrement the countdown for the user
-      timer--;
+    timer--; // Decrement the countdown
 
-      // update the DOM with the current countdown value
-      document.getElementById("big-numbers").innerHTML = timer;
-
-      // if the countdown is done, clear the interval, resolve the promise, and return
-      if (timer < 1) {
-        clearInterval(interval);
-        resolve();
-      }
-    }, 1000);
-  } catch (error) {
-    console.log(error);
-  }
+    // Check if countdown reached zero
+    if (timer < 0) {
+      clearInterval(interval); // Stop the interval
+      console.log("Countdown finished!");
+    }
+  }, 1000);
 }
 
 function handleSelectPodRacer(target) {
@@ -377,7 +366,7 @@ async function getRacers() {
     if (!res.ok) {
       throw new Error("Network response was not OK");
     }
-    const json = await res.json();
+    const json = res.json();
     return json;
   } catch (error) {
     console.error("Error fetching tracks:", error);
@@ -385,19 +374,22 @@ async function getRacers() {
   }
 }
 
-function createRace(player_id, track_id) {
+async function createRace(player_id, track_id) {
   player_id = parseInt(player_id);
   track_id = parseInt(track_id);
   const body = { player_id, track_id };
 
-  return fetch(`${SERVER}/api/races`, {
-    method: "POST",
-    ...defaultFetchOpts(),
-    dataType: "jsonp",
-    body: JSON.stringify(body),
-  })
-    .then((res) => res.json())
-    .catch((err) => console.log("Problem with createRace request::", err));
+  try {
+    const res = await fetch(`${SERVER}/api/races`, {
+      method: "POST",
+      ...defaultFetchOpts(),
+      dataType: "jsonp",
+      body: JSON.stringify(body),
+    });
+    return res.json();
+  } catch (err) {
+    return console.log("Problem with createRace request::", err);
+  }
 }
 
 async function getRace(id) {
@@ -407,7 +399,7 @@ async function getRace(id) {
     if (!res.ok) {
       throw new Error("Network response was not OK");
     }
-    const json = await res.json();
+    const json = res.json();
     return json;
   } catch (error) {
     console.error("Error fetching tracks:", error);
