@@ -9,7 +9,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 header {
-  background-image: url('https://via.placeholder.com/1150');
+  background-image: url("../images/EA-F1-Career-Challenge-PIC-1-R.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -32,8 +32,8 @@ header {
 }
 
 h1 {
-  color: white;
-  text-shadow: 3px 2px hsl(0, 2%, 51%);
+  color: rgb(0, 120, 218);
+  text-shadow: 3px 2px hsl(249, 100%, 50%);
   font-size: 70px;
   text-transform: uppercase;
 }
@@ -82,12 +82,14 @@ p {
 
 main {
   flex: 1;
+  margin: auto;
 }
 
 section {
+  display: block;
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 30px 0;
+  margin: auto;
+  padding: 30px 30px;
 }
 
 footer {

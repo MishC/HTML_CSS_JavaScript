@@ -121,9 +121,10 @@ async function handleCreateRace() {
   // TODO - call the async function runRace
 }
 
-function runRace(raceID) {
+async function runRace(raceID) {
   return new Promise((resolve) => {
     // TODO - use Javascript's built in setInterval method to get race info every 500ms
+    const interval = setInterval(() => {}, 500);
     /* 
 		TODO - if the race info status property is "in-progress", update the leaderboard by calling:
 
@@ -366,8 +367,7 @@ async function getRacers() {
     if (!res.ok) {
       throw new Error("Network response was not OK");
     }
-    const json = res.json();
-    return json;
+    return res.json();
   } catch (error) {
     console.error("Error fetching tracks:", error);
     throw error; // rethrow the error to propagate it to the caller
@@ -399,8 +399,7 @@ async function getRace(id) {
     if (!res.ok) {
       throw new Error("Network response was not OK");
     }
-    const json = res.json();
-    return json;
+    return res.json();
   } catch (error) {
     console.error("Error fetching tracks:", error);
     throw error; // rethrow the error to propagate it to the caller
@@ -413,7 +412,7 @@ async function startRace(id) {
       method: "POST",
       ...defaultFetchOpts(),
     });
-    return await res.json();
+    return res;
   } catch (err) {
     return console.log("Problem with getRace request::", err);
   }
@@ -428,7 +427,7 @@ async function accelerate(id) {
       method: "POST",
       ...defaultFetchOpts(),
     });
-    return await res.json();
+    return res.json();
   } catch (err) {
     return console.log("Problem with getRace request::", err);
   }
