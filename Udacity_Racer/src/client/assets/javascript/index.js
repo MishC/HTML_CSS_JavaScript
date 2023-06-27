@@ -31,7 +31,7 @@ async function onPageLoad() {
   }
 }
 
-function setupClickHandlers() {
+function setupClickHandlers(race_id) {
   document.addEventListener(
     "click",
     function (event) {
@@ -57,7 +57,7 @@ function setupClickHandlers() {
 
       // Handle acceleration click
       if (target.matches("#gas-peddle")) {
-        handleAccelerate();
+        handleAccelerate(target);
       }
     },
     false
@@ -197,10 +197,14 @@ function handleSelectTrack(target) {
   store.track_id = target.id;
 }
 
-function handleAccelerate(id) {
-  console.log("accelerate button clicked");
-  // TODO - Invoke the API call to accelerate
-  accelerate(id);
+function handleAccelerate() {
+  try {
+    console.log("accelerate button clicked");
+    // Invoke the API call to accelerate
+    accelerate(store.race_id);
+  } catch (error) {
+    console.log(`handleAccelerate error: ${error}`);
+  }
 }
 
 // HTML VIEWS ------------------------------------------------
@@ -435,7 +439,7 @@ async function accelerate(id) {
       method: "POST",
       ...defaultFetchOpts(),
     });
-    return res.json();
+    res.json();
   } catch (err) {
     return console.log("Problem with getRace request::", err);
   }
