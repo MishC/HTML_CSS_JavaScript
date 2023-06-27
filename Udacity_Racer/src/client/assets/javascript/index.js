@@ -117,28 +117,36 @@ async function handleCreateRace() {
   // TODO - call the async function runCountdown
   await runCountdown();
   // TODO - call the async function startRace
-  await startRace(race_id, track_id);
+  await startRace(race_id);
   // TODO - call the async function runRace
+  await runRace(race_id);
 }
 
-async function runRace(raceID) {
-  return new Promise((resolve) => {
-    // TODO - use Javascript's built in setInterval method to get race info every 500ms
-    const interval = setInterval(() => {}, 500);
-    /* 
-		TODO - if the race info status property is "in-progress", update the leaderboard by calling:
-
-		renderAt('#leaderBoard', raceProgress(res.positions))
-	*/
-    /* 
-		TODO - if the race info status property is "finished", run the following:
-
-		clearInterval(raceInterval) // to stop the interval from repeating
-		renderAt('#race', resultsView(res.positions)) // to render the results view
-		resolve(res) // resolve the promise
-	*/
-  });
-  // remember to add error handling for the Promise
+function runRace(raceID) {
+  try {
+    return new Promise((resolve) => {
+      // use Javascript's built in setInterval method to get race info every 500ms
+      const raceInterval = setInterval(async () => {
+        try {
+          let res = await getRace(raceID);
+          if (res.status === "in-progress") {
+            // If the race info status property is "in-progress", update the leaderboard by calling:
+            renderAt("#leaderBoard", raceProgress(res.positions));
+          } else {
+            // If the race info status property is "finished", run the following:
+            clearInterval(raceInterval); // to stop the interval from repeating
+            renderAt("#race", resultsView(res.positions)); // to render the results view
+            resolve(res); // resolve the promise
+          }
+        } catch (error) {
+          console.log(`runRace error: ${error}`);
+        }
+      }, 500);
+    });
+  } catch (error) {
+    // remember to add error handling for the Promise
+    console.log(`runRace error: ${error}`);
+  }
 }
 
 async function runCountdown() {
