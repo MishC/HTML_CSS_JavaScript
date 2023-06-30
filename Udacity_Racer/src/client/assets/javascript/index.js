@@ -157,7 +157,7 @@ async function runCountdown() {
     timer--; // Decrement the countdown
 
     // Check if countdown reached zero
-    if (timer < 0) {
+    if (timer <= 0) {
       clearInterval(interval); // Stop the interval
       console.log("Countdown finished!");
     }
@@ -201,7 +201,9 @@ function handleAccelerate() {
   try {
     console.log("accelerate button clicked");
     // Invoke the API call to accelerate
-    accelerate(store.race_id);
+    document
+      .getElementById("gas-peddle")
+      .addEventListener("click", accelerate(store.race_id));
   } catch (error) {
     console.log(`handleAccelerate error: ${error}`);
   }
@@ -439,7 +441,7 @@ async function accelerate(id) {
       method: "POST",
       ...defaultFetchOpts(),
     });
-    res.json();
+    return res.json();
   } catch (err) {
     return console.log("Problem with getRace request::", err);
   }
