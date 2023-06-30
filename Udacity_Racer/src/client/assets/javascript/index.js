@@ -150,18 +150,28 @@ function runRace(raceID) {
 }
 
 async function runCountdown() {
-  let timer = 3;
-  const interval = setInterval(() => {
-    document.getElementById("big-numbers").innerHTML = timer;
+  try {
+    // wait for the DOM to load
+    await delay(1000);
+    let timer = 3;
 
-    timer--; // Decrement the countdown
+    return new Promise((resolve) => {
+      // TODO - use Javascript's built in setInterval method to count down once per second
+      let stopInterval = setInterval(() => {
+        // run this DOM manipulation to decrement the countdown for the user
+        document.getElementById("big-numbers").innerHTML = --timer;
 
-    // Check if countdown reached zero
-    if (timer <= 0) {
-      clearInterval(interval); // Stop the interval
-      console.log("Countdown finished!");
-    }
-  }, 1000);
+        // TODO - if the countdown is done, clear the interval, resolve the promise, and return
+        if (timer <= 0) {
+          console.log(`Timer: ${timer}`);
+          clearInterval(stopInterval);
+          resolve();
+        }
+      }, 1000);
+    });
+  } catch (error) {
+    console.log(`runCountdown error: ${error}`);
+  }
 }
 
 function handleSelectPodRacer(target) {
@@ -428,7 +438,7 @@ async function startRace(id) {
     });
     return res;
   } catch (err) {
-    return console.log("Problem with getRace request::", err);
+    return console.log("Problem with startRace request::", err);
   }
 }
 
@@ -441,8 +451,9 @@ async function accelerate(id) {
       method: "POST",
       ...defaultFetchOpts(),
     });
-    return res.json();
+
+    return res;
   } catch (err) {
-    return console.log("Problem with getRace request::", err);
+    return console.log("Problem with acceleration::", err);
   }
 }
