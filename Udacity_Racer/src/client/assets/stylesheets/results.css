@@ -1,11 +1,14 @@
 /* RESULTS PAGE SPECIFIC STYLES */
 
 /* -------------------  MOBILE  --------------------- */
-
-
+#results {
+  background-image: url("../images/results.jpg");
+}
+.title-leaderboard {
+  color: #008000;
+}
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
-
 }
 
 /* -------------------  DESKTOP  -------------------- */

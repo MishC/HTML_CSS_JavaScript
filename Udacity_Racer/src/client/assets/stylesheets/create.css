@@ -1,10 +1,28 @@
 /* CREATE PAGE SPECIFIC STYLES */
 
-/* -------------------  MOBILE  --------------------- */
-
+section#create-race > h2,
+section#create-race > h3 {
+  text-align: center;
+  color: #008000;
+  margin: 20px;
+}
+form#create-race {
+  margin: 50px 0 0 30px;
+}
+form#create-race > h3 {
+  text-align: left;
+  color: #0078da;
+  padding: 20px;
+}
+form#create-race > ul {
+  background-color: rgb(245, 245, 220, 0.95);
+  margin: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(237, 230, 237, 1);
+}
 header {
   background-image: url("../images/standing_start.jpg");
 }
+/* -------------------  MOBILE  --------------------- */
 
 /* -------------------  TABLET  --------------------- */
 @media (min-width: 768px) {
