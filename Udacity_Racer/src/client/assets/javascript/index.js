@@ -46,6 +46,7 @@ function setupClickHandlers() {
         // Submit create race form
         event.preventDefault();
         // start race
+        checkUserInput(store.player_id, store.track_id);
         handleCreateRace();
       } else if (target.matches("#gas-peddle")) {
         // Handle acceleration click
@@ -308,6 +309,7 @@ function renderRaceStartView(track, racers) {
 
 			<section id="accelerate">
 				<h3>Directions</h3>
+        <br/>
 				<p>Click the button as fast as you can to make your racer go faster!</p>
 				<button id="gas-peddle">Click Me To Win!</button>
 			</section>
@@ -325,9 +327,10 @@ function resultsView(positions) {
 		</header>
 		<main>
 			${raceProgress(positions)}
-			<a href="/race">Start a new race</a>
-      <footer></footer>
+			<a href="/race">Start a new race</a>    <br/>
+
 		</main>
+          <footer></footer>
 	`;
 }
 
