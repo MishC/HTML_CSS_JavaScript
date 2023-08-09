@@ -1,4 +1,4 @@
-export async function generateModalOnClick(event) {
+const generateModalOnClick = async (event) => {
   const clickedElement = event.target;
 
   const targetName = clickedElement.src
@@ -10,7 +10,6 @@ export async function generateModalOnClick(event) {
 
   const modalContent = document.querySelector(".modal-content");
   modal.style.display = "block";
-  human.list();
 
   const index = dinos.findIndex(
     (dino) => dino.name.replace(/\s/g, "").toLowerCase() === targetName
@@ -30,16 +29,15 @@ export async function generateModalOnClick(event) {
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"} </h2>
               <img src="./images/human.png" />
-                ${human.defList()}
+                ${human.list()}
           </div>`)
     : (modalContent.innerHTML = ` 
                 <h2><span class="modal-close">&times;</span></h2>
-
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"}</h2>
               <img src="./images/human.png" />
-                ${human.defList()}
+                ${human.list()}
           </div>
         `);
   close();
-}
+};
