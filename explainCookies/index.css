@@ -1,0 +1,139 @@
+html {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 95%;
+    line-height: 1.5;
+    height: 100vh;
+  }
+  
+  body {
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  main {
+    margin: 0 30px 20px;
+  }
+  
+  nav {
+    width: 100%;
+    font-size: 0.9em;
+    text-align: left;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    font-size: 1em;
+    padding: 5px;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  row {
+    display: inline-block;
+    width: 100%;
+    line-height: 1.8;
+  }
+  
+  row column {
+    display: inline-block;
+  }
+  
+  h1, h2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+  }
+  
+  h1 {
+    font-size: 2em;
+    border-width: 0 0 0 20px;
+    border-style: solid;
+    border-color: rgb(0, 130, 0);
+    padding: 0 0 0 20px;
+  }
+  
+  h2 {
+    padding-left: 5px;
+  }
+  
+  .decor {
+    border-width: 0 0 0 20px;
+    border-style: solid;
+    border-color: rgb(0, 129, 0);
+    opacity: 0.33;
+  }
+  
+  p {
+    padding: 0 50px 0 40px;
+    max-width: 80vw;
+    text-align: justify;
+  }
+  
+  ul li {
+    margin-left: 15px;
+  }
+  
+  ul p {
+    padding: 0;
+    margin: 15px;
+  }
+  
+  footer {
+    position: relative;
+    bottom: 0;
+    background-color: rgba(38, 85, 127, 1);
+    height: auto;
+    width: 100%;
+    margin-top: 80px;
+    padding: 10px;
+    text-align: center;
+    line-height: 4em;
+  }
+  
+  footer a {
+    padding: 0 20px;
+    color: #fff;
+  }
+  
+  .presentation row {
+    background: rgba(38, 85, 127, 1);
+    color: #fff;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .presentation a {
+    color: #fff;
+    padding: 0;
+    text-align: justify;
+  }
+  
+  .presentation a:hover {
+    text-decoration: none;
+  }
+  
+  .presentation column {
+    border-top: 5px solid transparent;
+  }
+  
+  .presentation column:hover {
+    border-top: 5px solid rgba(242, 154, 2, 1);
+    border-bottom: 5px solid rgba(242, 154, 2, 1);
+
+  }
+  
+  @media screen and (max-width: 600px) {
+    .presentation row {
+      display: none;
+    }
+  }
+  
