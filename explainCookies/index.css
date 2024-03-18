@@ -104,8 +104,8 @@ html {
   .presentation row {
     background: rgba(38, 85, 127, 1);
     color: #fff;
-    height: 50px;
-    padding: 5px;
+    height: 40px;
+    padding: 0px;
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
@@ -127,7 +127,7 @@ html {
   
   .presentation column:hover {
     border-top: 5px solid rgba(242, 154, 2, 1);
-    border-bottom: 5px solid rgba(242, 154, 2, 1);
+    /*border-bottom: 5px solid rgba(242, 154, 2, 1);*/
 
   }
   
