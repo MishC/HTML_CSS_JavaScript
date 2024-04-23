@@ -12,7 +12,7 @@ form#create-race {
 form#create-race > h3 {
   text-align: left;
   color: #0078da;
-  padding: 20px;
+  padding: 10px;
 }
 form#create-race > ul {
   margin: 20px;
@@ -20,6 +20,7 @@ form#create-race > ul {
 header {
   background-image: url("../images/standing_start.jpg");
 }
+
 /* -------------------  MOBILE  --------------------- */
 
 /* -------------------  TABLET  --------------------- */
