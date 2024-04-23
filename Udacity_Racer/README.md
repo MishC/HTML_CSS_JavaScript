@@ -4,7 +4,7 @@
 
 Here is a partially built-out game that races cars—your job is to complete it! Throughout the game logic, you will find _"TODO"_ comments that must be completed in order for the game to work. You are going to use the asynchronous skills you gained in the course to fill in the blanks in this game.
 
-The game mechanics are this: you select a player and track, the game begins and you accelerate your racer by clicking an acceleration button. As you accelerate so do the other players and the leaderboard live-updates as players change position on the track. The final view is a results page displaying the players' rankings.
+The game mechanics are this: the player selects a racer and track from dropdown menus and starts the game. Once the race begins, you accelerate a racer by clicking an acceleration button. The other racers are pre-programmed to accelerate and so the racers progress along the track and a leaderboard live-updates as players change position. The final view is a results page displaying the players' rankings.
 
 The game has three main views:
 
@@ -18,9 +18,9 @@ The game has three main views:
 
 We have supplied you with the following:
 
-1. An API. The API is provided in the form of a binary held in the bin folder. You never need to open the binary file, as there are no edits you can make to it. Your work will be 100% in the front end.
+1. An API. The API is entirely written for you and you do not have to open the folder at all as a part of this project. This server is written in Go and is where the logic lives that controls the racers and tracks. All you have to do is run a terminal command to start the server and then send requests to it as you run the project.
 
-2. HTML Views. The focus of this course is not UI development or styling practice, so we have already provided you with pieces of UI, all you have to do is call them at the right times.
+2. HTML Views. The focus of this course is not UI development or styling practice, so we have already provided you with chunks of the UI, all you have to do is call them (render them to the view) at the right times. That said, if you want to add some color, images, and other snazziness to your project, go right ahead!
 
 ## Getting Started
 
@@ -28,31 +28,17 @@ In order to build this game, we need to run two things: the game engine API and 
 
 ### Start the Server
 
-The game engine has been compiled down to a binary so that you can run it on any system. Because of this, you cannot edit the API in any way, it is just a black box that we interact with via the API endpoints.
+To start the server, open a terminal and go to the api folder: `$ cd api`
+Compile the Go code with: `$ go build`
+Then start the server: `$ go run .`
 
-To run the server, locate your operating system and run the associated command in your terminal at the root of the project.
-
-| Your OS               | Command to start the API                                              |
-| --------------------- | --------------------------------------------------------------------- |
-| Mac                   | `ORIGIN_ALLOWED=http://localhost:3000 ./bin/server-darwin-amd64`      |
-| Windows               | `ORIGIN_ALLOWED=http://localhost:3000 ./bin/server-windows-amd64.exe` |
-| Linux (Ubuntu, etc..) | `ORIGIN_ALLOWED=http://localhost:3000 ./bin/server-linux-amd64`       |
-
-Note that this process will use your terminal tab, so you will have to open a new tab and navigate back to the project root to start the front end.
-
-#### WINDOWS USERS -- Setting Environment Variables
-
-If you are using a windows machine:
-
-1. `cd` into the root of the project containing data.json
-2. Run the following command to add the environment variable:
-   `set DATA_FILE=./data.json`
-   c
-   If you still run into issues running the API server on your machine, you can run this project in the Udacity classroom.
+You should see the server start and run on port 3001. After this point, you don't have to touch the API again!
 
 ### Start the Frontend
 
-First, run your preference of `npm install && npm start` or `yarn && yarn start` at the root of this project. Then you should be able to access http://localhost:3000.
+First, run your preference of `npm install && npm start` at the root of this project. When you see the notification come up you can click 'Open browser', or, you can go to the PORTS tab of your terminal window, right click on port 3002, and select the first option `Open in browser`. When you make code changes in the code, just refresh the browser tab to see the changes. 
+
+TIP: You might find it easier to break off the project browser tab and keep the code and the project in two seprate windows, so that you can full screen the code. 
 
 ## Project Requirements
 
@@ -106,3 +92,4 @@ Accelerate a car
 - Returns nothing
 
 To complete the race logic, find all the TODO tags in index.js and read the instructions.
+
