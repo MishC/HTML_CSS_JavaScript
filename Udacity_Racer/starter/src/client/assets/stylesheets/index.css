@@ -34,7 +34,7 @@ header {
 h1 {
   color: rgb(0, 120, 218);
   text-shadow: 3px 2px hsl(249, 100%, 50%);
-  font-size: 70px;
+  font-size: 30px;
   text-transform: uppercase;
   background-color: beige; border-radius: 10px;padding:20px;
 
@@ -108,6 +108,9 @@ a .again {size:2.5em; text-decoration: none; color:#0078da; padding:20px; text-a
   header {
     height: 100vh;
   }
+  h1 {font-size:48px;}
+
+
 }
 
 /* -------------------  DESKTOP  -------------------- */
@@ -116,6 +119,7 @@ a .again {size:2.5em; text-decoration: none; color:#0078da; padding:20px; text-a
   header {
     height: 700px;
   }
+  h1 {font-size:70px;}
 }
 
 /* -------------------  LARGE SCREENS  -------------- */

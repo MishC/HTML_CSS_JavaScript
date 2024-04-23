@@ -40,7 +40,7 @@ function setupClickHandlers() {
       // Race track form field
       if (target.matches(".card.track")) {
         handleSelectTrack(target);
-      } else if (target.matches(".card.podracer")) {
+      } else if (target.matches(".checkbox.racer")) {
         // Podracer form field
         handleSelectPodRacer(target);
       } else if (target.matches("#submit-create-race")) {
@@ -119,7 +119,7 @@ async function handleCreateRace() {
     renderAt("#race", renderRaceStartView(race.Track));
 
     // Update the store with the race id
-    store.race_id = race.ID - 1;
+    store.race_id = race.ID;
 
     await getRace(store.race_id).then((race) => {
       store = Object.assign(store, { race });
@@ -158,7 +158,7 @@ async function runRace(raceID) {
       clearInterval(raceInterval);
       console.log(`runRace error: ${error}`);
       renderAt("#race", "<h2>Error retrieving race results</h2>");
-      return; // Stop further execution if an error occurs
+      return; 
     }
 
     if (res.status === "in-progress") {
@@ -176,7 +176,6 @@ async function runRace(raceID) {
 
 async function runCountdown() {
   try {
-    // wait for the DOM to load
     await delay(1000);
     let timer = 3;
 
@@ -200,17 +199,23 @@ async function runCountdown() {
 }
 
 function handleSelectPodRacer(target) {
-  document.querySelectorAll(".card.podracer.selected").forEach(option => {
-    option.classList.remove("selected");
+  const checkboxes = document.querySelectorAll('.checkbox.racer');
+  checkboxes.forEach(checkbox => {
+    checkbox.classList.toggle('select', checkbox === target);
+    checkbox.checked = checkbox === target;
   });
-  target.classList.add("selected");
 
-  console.log("selected a pod", target.id);
-
-
-  // TODO - save the selected racer to the store
   store.player_id = parseInt(target.id);
+    console.log("selected a track", target.id);
+
 }
+
+document.querySelectorAll('.checkbox.racer').forEach(checkbox => {
+  checkbox.addEventListener('change', (event) => {
+    handleCheckboxChange(event.target);
+  });
+});
+
 
 function handleSelectTrack(target) {
   document.querySelectorAll(".card.track.selected").forEach(option => {
@@ -261,12 +266,29 @@ function renderRacerCard(racer) {
   if (!id){id="1";}
 
   return `
-		<li class="card podracer" id="${id}">
+  <div>
+		<li>
 			<h3 class=="card podracer">Name: ${driver_name}</h3>
 			<p class=="card podracer">Top Speed: ${top_speed}</p>
 			<p class=="card podracer">Acceleration: ${acceleration}</p>
 			<p class=="card podracer">Handling: ${handling}</p>
-		</li>
+		
+    
+    <div class="checkbox-wrapper-30">
+    <span class="checkbox">
+      <input type="checkbox" id="${id}" class="checkbox racer" />
+      <svg>
+        <use xlink:href="#checkbox-30" class="checkbox racer" ></use>
+      </svg>
+    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+      <symbol id="checkbox-30" viewBox="0 0 22 22">
+        <path fill="none" stroke="currentColor" d="M5.5,11.3L9,14.8L20.2,3.3l0,0c-0.5-1-1.5-1.8-2.7-1.8h-13c-1.7,0-3,1.3-3,3v13c0,1.7,1.3,3,3,3h13 c1.7,0,3-1.3,3-3v-13c0-0.4-0.1-0.8-0.3-1.2"/>
+      </symbol>
+    </svg>
+  </div>
+  </li>
+    </div>
 	`;
 }
 
