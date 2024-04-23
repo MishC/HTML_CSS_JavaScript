@@ -1,0 +1,37 @@
+/* CREATE PAGE SPECIFIC STYLES */
+
+section#create-race > h2,
+section#create-race > h3 {
+  text-align: center;
+  color: #008000;
+  margin: 20px;
+}
+form#create-race {
+  margin: 50px 0 0 30px;
+}
+form#create-race > h3 {
+  text-align: left;
+  color: #0078da;
+  padding: 20px;
+}
+form#create-race > ul {
+  margin: 20px;
+}
+header {
+  background-image: url("../images/standing_start.jpg");
+}
+/* -------------------  MOBILE  --------------------- */
+
+/* -------------------  TABLET  --------------------- */
+@media (min-width: 768px) {
+}
+
+/* -------------------  DESKTOP  -------------------- */
+
+@media (min-width: 1224px) {
+}
+
+/* -------------------  LARGE SCREENS  -------------- */
+
+@media (min-width: 1824px) {
+}
