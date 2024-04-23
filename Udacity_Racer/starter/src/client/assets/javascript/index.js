@@ -137,7 +137,7 @@ async function handleCreateRace() {
 }
 
 async function runRace(raceID) {
-  const maxDuration = 20000; // 20 seconds in milliseconds
+  const maxDuration = 20000; 
   const startTime = Date.now();
   const raceInterval = setInterval(async () => {
     const elapsedTime = Date.now() - startTime;
@@ -146,6 +146,7 @@ async function runRace(raceID) {
     let res;
     try {
       res = await getRace(raceID);
+      console.log(res.positions);
       if (elapsedTime >= maxDuration) {
       clearInterval(raceInterval);
       console.log('Maximum duration reached');
@@ -268,7 +269,7 @@ function renderRacerCard(racer) {
   return `
   <div>
 		<li>
-			<h3 class=="card podracer">Name: ${driver_name}</h3>
+			<h4 class=="card podracer">Name: ${driver_name}</h4>
 			<p class=="card podracer">Top Speed: ${top_speed}</p>
 			<p class=="card podracer">Acceleration: ${acceleration}</p>
 			<p class=="card podracer">Handling: ${handling}</p>
@@ -313,7 +314,7 @@ function renderTrackCard(track) {
 
   return `
 		<li id="${id}" class="card track">
-			<h3 class="card track">${name}</h3>
+			<h4>${name}</h4>
 		</li>
 	`;
 }
@@ -371,7 +372,8 @@ function raceProgress(positions) {
   userPlayer.driver_name += " (you)";
 
   positions = positions.sort((a, b) => (a.segment > b.segment ? -1 : 1));
-  let count = 1;
+  console.log("Positions:")
+  let count = 1;//at the start we are first
 
   const results = positions.map((p) => {
     return `
