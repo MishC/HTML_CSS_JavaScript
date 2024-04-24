@@ -206,7 +206,7 @@ function handleSelectPodRacer(target) {
   });
 
   store.player_id = parseInt(target.id);
-    console.log("selected a track", target.id);
+    console.log("selected a racer", target.id);
 
 }
 
