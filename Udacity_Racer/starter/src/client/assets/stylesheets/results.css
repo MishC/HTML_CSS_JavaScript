@@ -10,7 +10,7 @@ h1{background-color: beige; border-radius: 10px;padding:20px;}
 .title-leaderboard {
   color: var(--color-green); margin:40px auto;
 }
-button.back_home {font-size:1.8em; text-decoration: none; background-color:var(--color-green); color:#fff;padding:20px; 
+button.back_home {font-size:1.8em; text-decoration: none; background-color:var(--green-color); color:#fff;padding:20px; 
   text-align: center;
   margin: 40px auto;}
   a {size:1.5em; text-decoration: 
