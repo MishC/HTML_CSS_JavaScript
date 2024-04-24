@@ -2,8 +2,12 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch')
 const path = require('path')
+const { createServer } = require('node:http');
+
 
 const app = express()
+const server = createServer(app);
+
 const port = 3002
 
 // setup the ability to see into response bodies
@@ -23,4 +27,5 @@ app.get('/race', async (req, res) => {
     res.sendFile(path.join(__dirname, '../client/pages/race.html'));
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+server.listen(port, () => console.log(`Example app listening on port ${port}!`))
+//here could be set multifunctionality
