@@ -3,7 +3,7 @@
 section#create-race > h2,
 section#create-race > h3 {
   text-align: center;
-  color: #008000;
+  color: var(--green-color);
   margin: 20px;
 }
 form#create-race {
