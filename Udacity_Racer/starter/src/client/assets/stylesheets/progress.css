@@ -19,8 +19,8 @@ section#accelerate button {
   width: 300px;
   margin: 30px auto;
   border-radius: 180%;
-  background-color: green;
-  border-color: rgb(14, 166, 6);
+  background-color: var(--green-color);
+  border-color: var(--border-color);
   border-width: 0.5em;
   cursor: pointer;
   color:#fff;

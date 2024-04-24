@@ -140,13 +140,12 @@ async function runRace(raceID) {
   const maxDuration = 20000; 
   const startTime = Date.now();
   const raceInterval = setInterval(async () => {
-    const elapsedTime = Date.now() - startTime;
-
+  const elapsedTime = Date.now() - startTime;
+  let leftTime= Math.round((maxDuration-elapsedTime)/1000);
     
     let res;
     try {
       res = await getRace(raceID);
-      console.log(res.positions);
       if (elapsedTime >= maxDuration) {
       clearInterval(raceInterval);
       console.log('Maximum duration reached');
@@ -164,9 +163,9 @@ async function runRace(raceID) {
 
     if (res.status === "in-progress") {
       try{
-      renderAt("#leaderBoard", raceProgress(res.positions));}
-      catch(error) {      clearInterval(raceInterval);
-        console.log(`Racer is over! `)};
+      renderAt("#leaderBoard", raceProgress(res.positions,leftTime));}
+      catch(error) { clearInterval(raceInterval);
+        console.log(`Race is over! `)};
     } else {
       clearInterval(raceInterval);
       renderAt("#race", resultsView(res.positions));
@@ -268,11 +267,11 @@ function renderRacerCard(racer) {
 
   return `
   <div>
-		<li>
-			<h4 class=="card podracer">Name: ${driver_name}</h4>
-			<p class=="card podracer">Top Speed: ${top_speed}</p>
-			<p class=="card podracer">Acceleration: ${acceleration}</p>
-			<p class=="card podracer">Handling: ${handling}</p>
+		<li class="card podracer">
+			<h4>Name: ${driver_name}</h4>
+			<p>Top Speed: ${top_speed}</p>
+			<p>Acceleration: ${acceleration}</p>
+			<p>Handling: ${handling}</p>
 		
     
     <div class="checkbox-wrapper-30">
@@ -326,7 +325,7 @@ function renderCountdown(count) {
 	`;
 }
 
-function renderRaceStartView(track, racers) {
+function renderRaceStartView(track) {
   return `
 		<header id="progress">
 			<h1>Race: ${track.name}</h1>
@@ -341,6 +340,8 @@ function renderRaceStartView(track, racers) {
 				<h3>Directions</h3>
         <br/>
 				<p>Click the button as fast as you can to make your racer go faster!</p>
+        <p>Wait for the countdown!</p>
+
 				<button id="gas-peddle">Click Me To Win!</button>
 			</section>
 		</main>
@@ -356,8 +357,9 @@ function resultsView(positions) {
 			<h1>Race Results</h1>
 		</header>
 		<main>
+    <br/>
     <h3 class="title-leaderboard">Leaderbord</h3>
-			${raceProgress(positions)}
+			${raceProgress(positions,0)}
 			<button class="back_home"><a  href="/race">Start a new race</a>  </botton>  <br/>
 
 		</main>
@@ -365,16 +367,15 @@ function resultsView(positions) {
 	`;
 }
 
-function raceProgress(positions) {
+function raceProgress(positions,leftTime) {
   const userPlayer = positions.find(
     (e) => parseInt(e.id) === parseInt(store.player_id)
   );
   userPlayer.driver_name += " (you)";
 
   positions = positions.sort((a, b) => (a.segment > b.segment ? -1 : 1));
-  console.log("Positions:")
   let count = 1;//at the start we are first
-
+  let time= leftTime!=0?`<h3>${leftTime} s</h3>`:`<h5></h5>`;
   const results = positions.map((p) => {
     return `
 			<tr>
@@ -385,13 +386,11 @@ function raceProgress(positions) {
 		`;
   });
 
-  return `
+  return time +`
 		<main>
-    <br/>
-			<section id="ledearBoard">
-      
+      <table>
 				${results}
-			</section>
+        </table>
 		</main>
 	`;
 }
@@ -414,7 +413,7 @@ function defaultFetchOpts() {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": SERVER,
-    },
+    }
   };
 }
 
@@ -458,7 +457,7 @@ async function createRace(player_id, track_id) {
       method: "POST",
       ...defaultFetchOpts(),
       dataType: "jsonp",
-      body: JSON.stringify(body),
+      body: JSON.stringify(body)
     });
     return await res.json();
   } catch (err) {
@@ -484,7 +483,7 @@ async function startRace(id) {
   try {
     const res = await fetch(`${SERVER}/api/races/${id}/start`, {
       method: "POST",
-      ...defaultFetchOpts(),
+      ...defaultFetchOpts()
     });
     return res;
   } catch (err) {
@@ -497,7 +496,7 @@ async function accelerate(id) {
   try {
     const res = await fetch(`${SERVER}/api/races/${id}/accelerate`, {
       method: "POST",
-      ...defaultFetchOpts(),
+      ...defaultFetchOpts()
     });
 
     return res;
