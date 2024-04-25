@@ -36,4 +36,3 @@ app.get('/race', async (req, res) => {
 })
 
 server.listen(port, () => console.log(`Example app listening on port ${port}!`))
-//here could be set multifunctionality

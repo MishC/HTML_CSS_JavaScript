@@ -1,12 +1,12 @@
 // PROVIDED CODE BELOW (LINES 1 - 80) DO NOT REMOVE
+const socket = io();
 
 // The store will hold all information needed globally
 let store = {
   track_id: undefined,
   player_id: undefined,
   race_id: undefined,
-  race: undefined
-  ,
+  race: undefined,
 };
 
 // We need our javascript to wait until the DOM is loaded
@@ -40,6 +40,8 @@ function setupClickHandlers() {
       // Race track form field
       if (target.matches(".card.track")) {
         handleSelectTrack(target);
+                socket.emit('trackSelected', { trackId: target.id });
+
       } else if (target.matches(".checkbox.racer")) {
         // Podracer form field
         handleSelectPodRacer(target);
@@ -119,7 +121,7 @@ async function handleCreateRace() {
     renderAt("#race", renderRaceStartView(race.Track));
 
     // Update the store with the race id
-    store.race_id = race.ID;
+    store.race_id = race.ID-1;
 
     await getRace(store.race_id).then((race) => {
       store = Object.assign(store, { race });
