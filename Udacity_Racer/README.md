@@ -36,9 +36,8 @@ You should see the server start and run on port 3001. After this point, you don'
 
 ### Start the Frontend
 
-First, run your preference of `npm install && npm start` at the root of this project. When you see the notification come up you can click 'Open browser', or, you can go to the PORTS tab of your terminal window, right click on port 3002, and select the first option `Open in browser`. When you make code changes in the code, just refresh the browser tab to see the changes. 
+Go to /starter and run  `npm install && npm start`. Application will start at 3002 port(http://127.0.0.1:3002/) (http://localhost:3002)ss
 
-TIP: You might find it easier to break off the project browser tab and keep the code and the project in two seprate windows, so that you can full screen the code. 
 
 ## Project Requirements
 
