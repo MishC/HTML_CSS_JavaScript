@@ -34,7 +34,7 @@ const dinoArr = async (data, len = lenJSON) => {
   });
   return dinos;
 };
-// Create Human Object
+// Create Human Constructor
 function Human(name, height, weight, diet) {
   this.name = name;
   this.height = height;
