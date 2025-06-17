@@ -18,8 +18,8 @@ export async function generateModalOnClick(event) {
   const dino = dinos[index];
   targetName !== "human"
     ? (modalContent.innerHTML = `
-            <h2><span class="modal-close">&times;</span></h2>
-            <div class="modal-item"><h2>${dino.name} </h2>
+            <div><span class="modal-close">&#10006;</span></h2>
+            <div class="modal-item"><h2>${dino.name} </div>
               <img src="./images/${dino.name.toLowerCase()}.png" />
               <ul>
                 <li>Height: ${dino.height} lbs</li>
@@ -33,7 +33,7 @@ export async function generateModalOnClick(event) {
                 ${human.defList()}
           </div>`)
     : (modalContent.innerHTML = ` 
-                <h2><span class="modal-close">&times;</span></h2>
+                <h2><span class="modal-close">&#10006;</span></h2>
 
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"}</h2>

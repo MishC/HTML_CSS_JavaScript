@@ -249,7 +249,7 @@ const generateModalOnClick = async (event) => {
   const dino = dinos[index];
   targetName !== "human"
     ? (modalContent.innerHTML = `
-            <h2><span class="modal-close">&times;</span></h2>
+            <h2> <span class="modal-close">  &#10006;</span></h2>
             <div class="modal-item"><h2>${dino.name} </h2>
               <img src="./images/${dino.name.toLowerCase()}.png" />
               <ul>
@@ -264,7 +264,7 @@ const generateModalOnClick = async (event) => {
                 ${human.list()}
           </div>`)
     : (modalContent.innerHTML = ` 
-                <h2><span class="modal-close">&times;</span></h2>
+                <h2><span class="modal-close">&#10006;</span></h2>
             <div class="modal-item">
             <h2>${human.name ? human.name : "Human"}</h2>
               <img src="./images/human.png" />
@@ -389,7 +389,7 @@ const ModalOutput = async (human) => {
 
   human.weight === "" ? (human.weight = 0) : human.weight;
   modalContent.innerHTML += `
-                  <h2>Your Closest Match: <span class="modal-close">&times;</span></h2>
+                  <h2>Your Closest Match: <span class="modal-close">&#10006;</span></h2>
     <div class="modal-item"> <h2>You</h2><img src="./images/human.png" />
 ${human.list()}
     </div>
