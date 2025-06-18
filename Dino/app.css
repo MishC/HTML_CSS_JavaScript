@@ -18,12 +18,13 @@ body {
   max-width: fit-content;
   max-width:1260px;
   margin: 30px auto;
+  
 }
 
 h1 {
   margin: 0;
   font-family: "Frijole", cursive;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 400;
 }
 h2.title-question {font-size:2em;}
@@ -128,7 +129,7 @@ p {
   background: #eee;
   padding: 1.3em;
   text-align: left;
-  max-width: 600px;
+  max-width: 500px;
   line-height: 1.5;
   margin: 0 auto;
   font-size:1.5rem;
