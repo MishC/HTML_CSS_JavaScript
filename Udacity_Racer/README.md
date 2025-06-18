@@ -13,7 +13,7 @@ How to run the game?
     go build
     go run .
 ```    
-You build only once go application.
+You build only once go application. Go server URL "http://localhost:3001";
 
 2. Frontend
 
