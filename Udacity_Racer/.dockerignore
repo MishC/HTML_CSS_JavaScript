@@ -1,0 +1,35 @@
+# Node modules (huge and unnecessary to copy)
+starter/node_modules
+
+# Dependency caches
+npm-debug.log
+yarn-error.log
+
+# OS / editor / temp files
+.DS_Store
+*.swp
+*.swo
+*.tmp
+
+# Git & config
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+
+# IDE files
+.vscode
+.idea
+
+# Go build artifacts
+api/api-server
+/goapp
+*.exe
+*.out
+*.test
+
+# Coverage/test files
+coverage
+*.lcov

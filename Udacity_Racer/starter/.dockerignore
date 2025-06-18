@@ -1,0 +1,13 @@
+# Node modules (huge and unnecessary to copy)
+node_modules
+
+# Dependency caches
+npm-debug.log
+yarn-error.log
+
+# OS / editor / temp files
+.DS_Store
+*.swp
+*.swo
+*.tmp
+

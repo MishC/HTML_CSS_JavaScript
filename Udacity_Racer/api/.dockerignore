@@ -1,0 +1,19 @@
+
+# Docker
+Dockerfile
+.dockerignore
+
+# IDE files
+.vscode
+.idea
+
+# Go build artifacts
+/api-server
+/goapp
+*.exe
+*.out
+*.test
+
+# Coverage/test files
+coverage
+*.lcov
