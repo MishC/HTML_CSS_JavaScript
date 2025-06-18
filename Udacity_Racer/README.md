@@ -1,6 +1,37 @@
 # Welcome to the One and only UdaciRacer Simulation Game
 
-## Project Introduction
+Hello! This is just a simple clicking game where I made the frontend. API (backend) in Go was made by Udacity and I didn't touch it at all. 
+
+How to run the game?
+1. API run in separate terminal 
+``` cd /api
+    go run .
+```    
+
+2. Frontend
+
+Then in a separate terminal run
+
+``` cd /starter
+    npm install
+    npm start
+```
+You need to install node_modules only once.
+
+## How to play the game
+
+Start the race. There are different tracks by name and racer with different statistics. Choose the track number and racer number by clicking.
+
+Then you wait for 3 seconds to start the game. You click on big round  button with title "Click me" and that's how you accelarate. This is only what you do: clicking on the big round button.
+Faster you click, bigger the accelaration.
+
+Other players accelaration are programmed in API which I didn't touch.
+
+## What is interesting in the code
+
+The game is steered by async JS functions.
+
+## Instructions of the task from Udacity: Project Introduction: Instructions
 
 Here is a partially built-out game that races cars—your job is to complete it! Throughout the game logic, you will find _"TODO"_ comments that must be completed in order for the game to work. You are going to use the asynchronous skills you gained in the course to fill in the blanks in this game.
 
