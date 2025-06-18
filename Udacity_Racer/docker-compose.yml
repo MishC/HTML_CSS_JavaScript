@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  goapi:
+    build:
+      context: ./api
+    ports:
+      - "3001:3001"
+
+  frontend:
+    build:
+      context: ./starter
+    ports:
+      - "3002:3002"
+    depends_on:
+      - goapi
