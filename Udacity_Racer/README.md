@@ -1,13 +1,19 @@
 # Welcome to the One and only UdaciRacer Simulation Game
 
-Hello! This is just a simple clicking game where I made the frontend. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
+Hello! This is just a simple racing game, where you race by clicking on the button. No directions, just increasse in speed: Faster you click on the button,
+you accelarate more. But: You can choose the right racer at the right track to win, checkout data about racers and tracks in `/api/bin/data.json`
+
+
+I filled out some tasks in frontend JS files and made some changes in HTML and CSS. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
 
 How to run the game?
 1. API run in separate terminal 
 ``` 
     cd /api
+    go build
     go run .
 ```    
+You build only once go application.
 
 2. Frontend
 
@@ -18,9 +24,29 @@ Then in a separate terminal run
     npm install
     npm start
 ```
-You need to install node_modules only once.
+You need to install node_modules only once. You will find the app at http:// localhost:3002
 
-## How to play the game
+In /api folder is Go backend with all the functionalities for a car, like acceleration, deacceleration, position in leaderboard. On client site,
+there is a js files, htmls files and express file in /starter/server/index.js. This express server is
+exposing different htmls to the URL (at the port 3002):
+
+```
+app.get('/', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/pages/home.html'));
+
+})
+io.on('connection', (socket) => {
+    console.log('a user connected');
+  });
+
+app.get('/race', async (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/pages/race.html'));
+})
+```
+
+The homepage is http://127.0.0.1:3002 or http://localhost:3002.
+
+## How to play the racer game
 
 Start the race. There are different tracks by name and racer with different statistics (statistics is seen in api/bin/data.json). Choose the track number and racer number by clicking.
 
