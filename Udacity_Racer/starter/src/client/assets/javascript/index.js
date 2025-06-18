@@ -408,7 +408,7 @@ function renderAt(element, html) {
 
 // API CALLS ------------------------------------------------
 
-const SERVER = "http://localhost:3001";
+const SERVER =  "https://racer-goapi-latest.onrender.com";
 
 function defaultFetchOpts() {
   return {
