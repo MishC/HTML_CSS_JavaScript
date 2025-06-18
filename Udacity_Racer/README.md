@@ -1,7 +1,7 @@
 # Welcome to the One and only UdaciRacer Simulation Game
 
 Hello! This is just a simple racing game, where you race by clicking on the button. No directions, just increasse in speed: Faster you click on the button,
-you accelarate more. But: You can choose the right racer at the right track to win, checkout data about racers and tracks in `/api/bin/data.json`
+you accelarate more. But: You can choose the right racer at the right track to win, checkout data about racers and tracks in `/api/data.json`
 
 
 I filled out some tasks in frontend JS files and made some changes in HTML and CSS. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
@@ -48,7 +48,7 @@ The homepage is http://127.0.0.1:3002 or http://localhost:3002.
 
 ## How to play the racer game
 
-Start the race. There are different tracks by name and racer with different statistics (statistics is seen in api/bin/data.json). Choose the track number and racer number by clicking.
+Start the race. There are different tracks by name and racer with different characteristics (statistics is seen in `api/data.json`). Choose the track number and racer number by clicking.
 
 Then you wait for 3 seconds to start the game. You click on big round  button with title "Click me" and that's how you accelarate. This is only what you do: clicking on the big round button.
 Faster you click, bigger the accelaration.
