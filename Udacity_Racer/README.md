@@ -1,6 +1,6 @@
 # Welcome to the One and only UdaciRacer Simulation Game
 
-Hello! This is just a simple clicking game where I made the frontend. API (backend) in Go was made by Udacity and I didn't touch it at all. 
+Hello! This is just a simple clicking game where I made the frontend. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
 
 How to run the game?
 1. API run in separate terminal 
@@ -29,9 +29,80 @@ Other players accelaration are programmed in API which I didn't touch.
 
 ## What is interesting in the code
 
-The game is steered by async JS functions.
+The game is steered by asynchronous (non-blocking) JS functions. Word `async` turn functions to promises and they are awaited to be resolved or rejected by the keyword `await`. JS will pause the sequence while staying in that function marked with `await` keyword  until promise is resolved or rejected.
 
-## Instructions of the task from Udacity: Project Introduction: Instructions
+```  
+try {
+    // const race = TODO - invoke the API call to create the race, then save the result
+    
+    const race = await createRace(store.player_id, store.track_id); 
+
+    // TODO: render starting UI
+    
+    renderAt("#race", renderRaceStartView(race.Track));
+
+    // Update the store with the race id
+    
+    store.race_id = race.ID-1;
+
+    await getRace(store.race_id).then((race) => {
+      store = Object.assign(store, { race });
+    });
+
+    // TODO - call the async function runCountdown
+    
+    await runCountdown();
+    
+    // TODO - call the async function startRace
+    
+    await startRace(store.race_id);
+    
+    // TODO - call the async function runRace
+    
+    await runRace(store.race_id);
+  } catch (error) {
+    console.log(`handleCreateRace Error: ${error}`);
+  }
+```
+ So first start runCountdown() and JS is waiting to finish it. Then starts startRace() and when that finish it will start runRace().
+
+We play this game by async function handleAccelarate(). But we call it without the word `await`,
+so it means other functions are running simulataneously and JS is not awaiting for it to be resolved/finnished.
+
+It is a good practice to use await also when we fetch data from API servers:
+
+```
+async function accelerate(id) {
+  try {
+    const res = await fetch(`${SERVER}/api/races/${id}/accelerate`, {
+      method: "POST",
+      ...defaultFetchOpts()
+    });
+
+    return res;
+  } catch (err) {
+    console.error("Problem with acceleration:", err);
+    throw err;
+  }
+}
+```
+
+All click events are steered with this global click event listener:
+
+```
+document.addEventListener("click", function (event) {
+const { target } = event;
+  
+});
+if (target.matches("#gas-peddle")) {
+  handleAccelerate(target);
+}
+```
+
+
+
+
+# Instructions of the task from Udacity
 
 Here is a partially built-out game that races cars—your job is to complete it! Throughout the game logic, you will find _"TODO"_ comments that must be completed in order for the game to work. You are going to use the asynchronous skills you gained in the course to fill in the blanks in this game.
 
