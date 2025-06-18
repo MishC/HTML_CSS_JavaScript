@@ -3,8 +3,9 @@
 Hello! This is just a simple racing game, where you race by clicking on the button. No directions, just increasse in speed: Faster you click on the button,
 you accelarate more. But: You can choose the right racer at the right track to win, checkout data about racers and tracks in `/api/data.json`
 
-
 I filled out some tasks in frontend JS files and made some changes in HTML and CSS. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
+
+I deployed at Render: https://racer-frontend-latest.onrender.com
 
 How to run the game?
 1. API run in separate terminal 
