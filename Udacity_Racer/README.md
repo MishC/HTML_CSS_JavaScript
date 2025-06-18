@@ -4,7 +4,8 @@ Hello! This is just a simple clicking game where I made the frontend. API (backe
 
 How to run the game?
 1. API run in separate terminal 
-``` cd /api
+``` 
+    cd /api
     go run .
 ```    
 
@@ -12,7 +13,8 @@ How to run the game?
 
 Then in a separate terminal run
 
-``` cd /starter
+``` 
+    cd /starter
     npm install
     npm start
 ```
