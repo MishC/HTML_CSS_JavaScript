@@ -22,7 +22,7 @@ You need to install node_modules only once.
 
 ## How to play the game
 
-Start the race. There are different tracks by name and racer with different statistics. Choose the track number and racer number by clicking.
+Start the race. There are different tracks by name and racer with different statistics (statistics is seen in api/bin/data.json). Choose the track number and racer number by clicking.
 
 Then you wait for 3 seconds to start the game. You click on big round  button with title "Click me" and that's how you accelarate. This is only what you do: clicking on the big round button.
 Faster you click, bigger the accelaration.
