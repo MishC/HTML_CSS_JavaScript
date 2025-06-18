@@ -49,6 +49,7 @@ p {
   /*_________*/
   display: none;
   /*_________*/
+  zoom: 100%;
 }
 
 .grid-item {
