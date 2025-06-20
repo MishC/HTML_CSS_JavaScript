@@ -5,7 +5,7 @@ Hello! This is just a simple racing game, where you race by clicking on the butt
 I filled out some tasks in frontend JS files and made some changes in HTML and CSS. API (backend) in Go was made by Udacity and I didn't touch it at all. I fill out the code in frontend where was assignement by "TODO " comments.
 
 I deployed at Render: https://racer-frontend-latest.onrender.com
-!Ooops: Please wait for 
+!Ooops: Please wait for the backend to start. It happens to start a race for the second time, to actually start with counting down and the game will start.
 
 How to run the game?
 1. API run in separate terminal 
