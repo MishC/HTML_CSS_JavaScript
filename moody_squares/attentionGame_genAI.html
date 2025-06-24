@@ -7,12 +7,10 @@
       font-family: sans-serif;
       text-align: center;
     }
-
     table {
       border-spacing: 8px;
       margin: auto;
     }
-
     .square {
       width: 80px;
       height: 80px;
@@ -21,17 +19,14 @@
       border-radius: 6px;
       transition: background-color 0.2s ease;
     }
-
     #scoreboard {
       font-size: 20px;
       margin: 15px;
     }
-
     #result-list, #history {
       margin-top: 20px;
       font-size: 18px;
     }
-
     .color-box {
       display: inline-block;
       width: 20px;
@@ -57,7 +52,8 @@
 
 <div id="scoreboard" style="display: none;">
   Time left: <span id="time">60</span>s |
-  Score: <span id="score">0</span>
+  Score: <span id="score">0</span> |
+  Out of target hits: <span id="misses">0</span>
 </div>
 
 <table id="grid" style="display: none;"></table>
@@ -76,6 +72,7 @@
   const similarColors = ["violet", "magenta", "lime", "orange", "turquoise", "blue", "green", "yellow"];
 
   let score = 0;
+  let misses = 0;
   let timeLeft = gameDuration;
   let targetColor = "magenta";
   let targetCells = new Set();
@@ -87,6 +84,7 @@
   const grid = document.getElementById("grid");
   const scoreDisplay = document.getElementById("score");
   const timeDisplay = document.getElementById("time");
+  const missesDisplay = document.getElementById("misses");
   const scoreboard = document.getElementById("scoreboard");
   const resultList = document.getElementById("result-list");
   const historyDiv = document.getElementById("history");
@@ -129,9 +127,11 @@
 
     targetColor = colorSelector.value;
     score = 0;
+    misses = 0;
     timeLeft = gameDuration;
     scoreDisplay.textContent = score;
     timeDisplay.textContent = timeLeft;
+    missesDisplay.textContent = misses;
     scoreboard.style.display = "block";
     grid.style.display = "table";
     resultList.innerHTML = "";
@@ -148,6 +148,9 @@
       scoreDisplay.textContent = score;
       targetCells.delete(id);
       document.getElementById(id).style.backgroundColor = "lightgray";
+    } else {
+      misses++;
+      missesDisplay.textContent = misses;
     }
   }
 
@@ -214,12 +217,12 @@
     grid.style.display = "none";
 
     const result = document.createElement("p");
-    result.innerHTML = `⏱️ Time's up! <strong>${playerName}</strong> clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s).`;
+    result.innerHTML = `⏱️ Time's up! <strong>${playerName}</strong> clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s). Out of target hits: <strong>${misses}</strong>`;
     resultList.appendChild(result);
 
     // Save result to localStorage
     const existing = JSON.parse(localStorage.getItem("moodyResults") || "[]");
-    existing.push({ name: playerName, color: targetColor, score });
+    existing.push({ name: playerName, color: targetColor, score, misses });
     localStorage.setItem("moodyResults", JSON.stringify(existing));
 
     loadHistory();
@@ -233,7 +236,7 @@
     }
 
     historyDiv.innerHTML = "<ul>" +
-      data.map(entry => `<li><strong>${entry.name}</strong> – <span style='color:${entry.color}'>${entry.color}</span>: ${entry.score} point(s)</li>`).join("") +
+      data.map(entry => `<li><strong>${entry.name}</strong> – <span style='color:${entry.color}'>${entry.color}</span>: ${entry.score} point(s), Out of target hits: ${entry.misses || 0}</li>`).join("") +
       "</ul>";
   }
 
