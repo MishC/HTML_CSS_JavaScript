@@ -7,10 +7,12 @@
       font-family: sans-serif;
       text-align: center;
     }
+
     table {
       border-spacing: 8px;
       margin: auto;
     }
+
     .square {
       width: 80px;
       height: 80px;
@@ -19,14 +21,17 @@
       border-radius: 6px;
       transition: background-color 0.2s ease;
     }
+
     #scoreboard {
       font-size: 20px;
       margin: 15px;
     }
+
     #result-list, #history {
       margin-top: 20px;
       font-size: 18px;
     }
+
     .color-box {
       display: inline-block;
       width: 20px;
@@ -34,6 +39,8 @@
       margin-left: 5px;
       border-radius: 3px;
     }
+
+    li { list-style: none;}
   </style>
 </head>
 <body>
@@ -66,8 +73,8 @@
 <script>
   const gridSize = 5;
   const maxTargetColor = 3;
-  const minInterval = 500;
-  const maxInterval = 1000;
+  const minInterval = 900;
+  const maxInterval = 1100;
   const gameDuration = 60;
   const similarColors = ["violet", "magenta", "lime", "orange", "turquoise", "blue", "green", "yellow"];
 
@@ -83,8 +90,8 @@
   const colorPreview = document.getElementById("colorPreview");
   const grid = document.getElementById("grid");
   const scoreDisplay = document.getElementById("score");
-  const timeDisplay = document.getElementById("time");
   const missesDisplay = document.getElementById("misses");
+  const timeDisplay = document.getElementById("time");
   const scoreboard = document.getElementById("scoreboard");
   const resultList = document.getElementById("result-list");
   const historyDiv = document.getElementById("history");
@@ -130,8 +137,8 @@
     misses = 0;
     timeLeft = gameDuration;
     scoreDisplay.textContent = score;
-    timeDisplay.textContent = timeLeft;
     missesDisplay.textContent = misses;
+    timeDisplay.textContent = timeLeft;
     scoreboard.style.display = "block";
     grid.style.display = "table";
     resultList.innerHTML = "";
@@ -217,7 +224,7 @@
     grid.style.display = "none";
 
     const result = document.createElement("p");
-    result.innerHTML = `⏱️ Time's up! <strong>${playerName}</strong> clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s). Out of target hits: <strong>${misses}</strong>`;
+    result.innerHTML = `⏱️ Time's up! <strong>${playerName}</strong> clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s). You missed <strong>${misses}</strong> times.`;
     resultList.appendChild(result);
 
     // Save result to localStorage
@@ -236,9 +243,25 @@
     }
 
     historyDiv.innerHTML = "<ul>" +
-      data.map(entry => `<li><strong>${entry.name}</strong> – <span style='color:${entry.color}'>${entry.color}</span>: ${entry.score} point(s), Out of target hits: ${entry.misses || 0}</li>`).join("") +
+      data.map((entry, idx) =>
+        `<li>
+          <strong>${entry.name}</strong> –
+          <span style='color:${entry.color}'>${entry.color}</span>:
+          ${entry.score} point(s),
+          missed <strong>${entry.misses || 0}</strong> times
+          <button onclick="deleteResult(${idx})" style="margin-left:10px;">🗑️ Delete</button>
+        </li>`
+      ).join("") +
       "</ul>";
   }
+
+  function deleteResult(idx) {
+    let data = JSON.parse(localStorage.getItem("moodyResults") || "[]");
+    data.splice(idx, 1);
+    localStorage.setItem("moodyResults", JSON.stringify(data));
+    loadHistory();
+  }
+  window.deleteResult = deleteResult;
 
   loadHistory();
 </script>
