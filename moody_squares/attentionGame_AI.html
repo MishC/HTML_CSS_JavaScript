@@ -1,195 +1,243 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Moody Squares Game</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-        }
+  <title>Moody Squares Game</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
 
-        table {
-            border-spacing: 8px;
-            margin: auto;
-        }
+    table {
+      border-spacing: 8px;
+      margin: auto;
+    }
 
-        .square {
-            width: 80px;
-            height: 80px;
-            background-color: lightgray;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: background-color 0.2s ease;
-        }
+    .square {
+      width: 80px;
+      height: 80px;
+      background-color: lightgray;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
 
-        #scoreboard {
-            font-size: 20px;
-            margin: 15px;
-        }
+    #scoreboard {
+      font-size: 20px;
+      margin: 15px;
+    }
 
-        #result-list {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+    #result-list, #history {
+      margin-top: 20px;
+      font-size: 18px;
+    }
 
-        .hidden {
-            display: none;
-        }
-    </style>
+    .color-box {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left: 5px;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
 
 <h2>Moody Squares Attention Game</h2>
 
 <div>
-    🎯 Choose your target color:
-    <select id="colorSelector">
-        <option value="magenta">Magenta</option>
-        <option value="violet">Violet</option>
-        <option value="lime">Lime</option>
-        <option value="orange">Orange</option>
-        <option value="turquoise">Turquoise</option>
-    </select>
-    <button onclick="startGame()">Start Game</button>
+  👤 Name: <input type="text" id="playerName" placeholder="Your name">
+  <br><br>
+  🎯 Choose your target color:
+  <select id="colorSelector"></select>
+  <span id="colorPreview" class="color-box"></span>
+  <br><br>
+  <button onclick="startGame()">Start Game</button>
 </div>
 
-<div id="scoreboard" class="hidden">
-    Time left: <span id="time">60</span>s |
-    Score: <span id="score">0</span>
+<div id="scoreboard" style="display: none;">
+  Time left: <span id="time">60</span>s |
+  Score: <span id="score">0</span>
 </div>
 
-<table id="grid" class="hidden"></table>
+<table id="grid" style="display: none;"></table>
 
 <div id="result-list"></div>
 
+<h3>📋 Previous Results</h3>
+<div id="history"></div>
+
 <script>
-    const gridSize = 5;
-    const maxTargetColor = 3;
-    const similarColors = ["violet", "magenta", "lime", "orange", "turquoise", "blue", "green", "yellow"];
-    let score = 0;
-    let timeLeft = 60;
-    let targetColor = "magenta";
-    let targetCells = new Set();
-    let blinkTimer = null;
-    let countdownTimer = null;
+  const gridSize = 5;
+  const maxTargetColor = 3;
+  const minInterval = 700;
+  const maxInterval = 1000;
+  const gameDuration = 60;
+  const similarColors = ["violet", "magenta", "lime", "orange", "turquoise", "blue", "green", "yellow"];
 
-    const grid = document.getElementById("grid");
-    const scoreDisplay = document.getElementById("score");
-    const timeDisplay = document.getElementById("time");
-    const scoreboard = document.getElementById("scoreboard");
-    const resultList = document.getElementById("result-list");
+  let score = 0;
+  let timeLeft = gameDuration;
+  let targetColor = "magenta";
+  let targetCells = new Set();
+  let blinkTimer = null;
+  let countdownTimer = null;
 
-    function createGrid() {
-        grid.innerHTML = "";
-        for (let i = 0; i < gridSize; i++) {
-            const row = document.createElement("tr");
-            for (let j = 0; j < gridSize; j++) {
-                const cell = document.createElement("td");
-                const id = `cell-${i}-${j}`;
-                cell.id = id;
-                cell.className = "square";
-                cell.onclick = () => handleClick(id);
-                row.appendChild(cell);
-            }
-            grid.appendChild(row);
-        }
+  const colorSelector = document.getElementById("colorSelector");
+  const colorPreview = document.getElementById("colorPreview");
+  const grid = document.getElementById("grid");
+  const scoreDisplay = document.getElementById("score");
+  const timeDisplay = document.getElementById("time");
+  const scoreboard = document.getElementById("scoreboard");
+  const resultList = document.getElementById("result-list");
+  const historyDiv = document.getElementById("history");
+
+  // Initialize color dropdown with preview
+  similarColors.forEach(color => {
+    const option = document.createElement("option");
+    option.value = color;
+    option.textContent = color;
+    colorSelector.appendChild(option);
+  });
+  colorSelector.addEventListener("change", () => {
+    targetColor = colorSelector.value;
+    colorPreview.style.backgroundColor = targetColor;
+  });
+  colorPreview.style.backgroundColor = colorSelector.value;
+
+  function createGrid() {
+    grid.innerHTML = "";
+    for (let i = 0; i < gridSize; i++) {
+      const row = document.createElement("tr");
+      for (let j = 0; j < gridSize; j++) {
+        const cell = document.createElement("td");
+        const id = `cell-${i}-${j}`;
+        cell.id = id;
+        cell.className = "square";
+        cell.onclick = () => handleClick(id);
+        row.appendChild(cell);
+      }
+      grid.appendChild(row);
+    }
+  }
+
+  function startGame() {
+    const playerName = document.getElementById("playerName").value.trim();
+    if (!playerName) {
+      alert("Please enter your name.");
+      return;
     }
 
-    function startGame() {
-        targetColor = document.getElementById("colorSelector").value;
-        score = 0;
-        timeLeft = 60;
-        scoreDisplay.textContent = score;
-        timeDisplay.textContent = timeLeft;
-        scoreboard.classList.remove("hidden");
-        grid.classList.remove("hidden");
-        resultList.innerHTML = "";
-        targetCells.clear();
-        createGrid();
+    targetColor = colorSelector.value;
+    score = 0;
+    timeLeft = gameDuration;
+    scoreDisplay.textContent = score;
+    timeDisplay.textContent = timeLeft;
+    scoreboard.style.display = "block";
+    grid.style.display = "table";
+    resultList.innerHTML = "";
+    targetCells.clear();
+    createGrid();
 
-        // Start countdown and blinking
-        runCountdown();
-        adjustBlinkingSpeed(); // calls blinking first time
+    runCountdown(playerName);
+    adjustBlinkingSpeed();
+  }
+
+  function handleClick(id) {
+    if (targetCells.has(id)) {
+      score++;
+      scoreDisplay.textContent = score;
+      targetCells.delete(id);
+      document.getElementById(id).style.backgroundColor = "lightgray";
+    }
+  }
+
+  function blinkSquares() {
+    const allCells = document.querySelectorAll(".square");
+    targetCells.clear();
+
+    const available = Array.from(allCells);
+    const chosen = [];
+
+    while (chosen.length < maxTargetColor && available.length > 0) {
+      const rand = Math.floor(Math.random() * available.length);
+      chosen.push(available[rand]);
+      available.splice(rand, 1);
     }
 
-    function handleClick(id) {
-        if (targetCells.has(id)) {
-            score++;
-            scoreDisplay.textContent = score;
-            targetCells.delete(id);
-            document.getElementById(id).style.backgroundColor = "lightgray";
-        }
+    allCells.forEach(cell => {
+      if (chosen.includes(cell)) {
+        cell.style.backgroundColor = targetColor;
+        targetCells.add(cell.id);
+      } else {
+        let color;
+        do {
+          color = similarColors[Math.floor(Math.random() * similarColors.length)];
+        } while (color === targetColor);
+        cell.style.backgroundColor = color;
+      }
+    });
+  }
+
+  function adjustBlinkingSpeed() {
+    const elapsed = gameDuration - timeLeft;
+    let interval;
+
+    if (timeLeft > 10) {
+      const progress = elapsed / 50;
+      interval = maxInterval - progress * (maxInterval - minInterval);
+    } else {
+      interval = minInterval;
     }
 
-    function blinkSquares() {
-        const allCells = document.querySelectorAll(".square");
-        targetCells.clear();
+    clearInterval(blinkTimer);
+    blinkSquares();
+    blinkTimer = setInterval(blinkSquares, interval);
+  }
 
-        const available = Array.from(allCells);
-        const chosen = [];
+  function runCountdown(playerName) {
+    countdownTimer = setInterval(() => {
+      timeLeft--;
+      timeDisplay.textContent = timeLeft;
 
-        while (chosen.length < maxTargetColor && available.length > 0) {
-            const rand = Math.floor(Math.random() * available.length);
-            chosen.push(available[rand]);
-            available.splice(rand, 1);
-        }
+      if (timeLeft <= 0) {
+        endGame(playerName);
+      } else {
+        adjustBlinkingSpeed();
+      }
+    }, 1000);
+  }
 
-        allCells.forEach(cell => {
-            if (chosen.includes(cell)) {
-                cell.style.backgroundColor = targetColor;
-                targetCells.add(cell.id);
-            } else {
-                let color;
-                do {
-                    color = similarColors[Math.floor(Math.random() * similarColors.length)];
-                } while (color === targetColor);
-                cell.style.backgroundColor = color;
-            }
-        });
+  function endGame(playerName) {
+    clearInterval(blinkTimer);
+    clearInterval(countdownTimer);
+    scoreboard.style.display = "none";
+    grid.style.display = "none";
+
+    const result = document.createElement("p");
+    result.innerHTML = `⏱️ Time's up! <strong>${playerName}</strong> clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s).`;
+    resultList.appendChild(result);
+
+    // Save result to localStorage
+    const existing = JSON.parse(localStorage.getItem("moodyResults") || "[]");
+    existing.push({ name: playerName, color: targetColor, score });
+    localStorage.setItem("moodyResults", JSON.stringify(existing));
+
+    loadHistory();
+  }
+
+  function loadHistory() {
+    const data = JSON.parse(localStorage.getItem("moodyResults") || "[]");
+    if (data.length === 0) {
+      historyDiv.innerHTML = "<p>No past results yet.</p>";
+      return;
     }
 
-    function adjustBlinkingSpeed() {
-        const elapsed = 60 - timeLeft;
-        const minInterval = 500;
-        const maxInterval = 1100;
+    historyDiv.innerHTML = "<ul>" +
+      data.map(entry => `<li><strong>${entry.name}</strong> – <span style='color:${entry.color}'>${entry.color}</span>: ${entry.score} point(s)</li>`).join("") +
+      "</ul>";
+  }
 
-        let interval;
-        if (timeLeft > 10) {
-            const progress = elapsed / 50;
-            interval = maxInterval - progress * (maxInterval - minInterval);
-        } else {
-            interval = minInterval;
-        }
-
-        clearInterval(blinkTimer);
-        blinkSquares(); // do one immediately
-        blinkTimer = setInterval(blinkSquares, interval);
-    }
-
-    function runCountdown() {
-        countdownTimer = setInterval(() => {
-            timeLeft--;
-            timeDisplay.textContent = timeLeft;
-            if (timeLeft <= 0) {
-                endGame();
-            } else {
-                adjustBlinkingSpeed();
-            }
-        }, 1000);
-    }
-
-    function endGame() {
-        clearInterval(blinkTimer);
-        clearInterval(countdownTimer);
-        scoreboard.classList.add("hidden");
-        grid.classList.add("hidden");
-
-        const result = document.createElement("p");
-        result.innerHTML = `⏱️ Time's up! You clicked <strong style="color:${targetColor}">${targetColor}</strong> squares <strong>${score}</strong> time(s).`;
-        resultList.appendChild(result);
-    }
+  loadHistory();
 </script>
 
 </body>
