@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Object Oriented Javascript
 
 URL: https://papaya-empanada-773b87.netlify.app/
@@ -54,6 +55,64 @@ Human.prototype.list = function (height, weight, diet) {
 - Inheritance & Composition: The human object later receives new behaviors (compareWeight, compareHeight, etc.) through Object.assign(), demonstrating dynamic extension of object functionality.
 
 ` Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);`
+||||||| 64ce353
+# Object Oriented Javascript 
+=======
+# Object Oriented Javascript
+
+## Project Overview: Using JSON with OOP in JavaScript
+
+### 1. Import JSON Data
+
+```
+const getJSON = async () => {
+  const response = await fetch("dino.json");
+  const data = await response.json();
+  return data.Dinos;
+};
+```
+
+### 2. Creating a Constructor Function (Dino and Human):
+
+This is an example of encapsulation of properties `name, weight, height, diet` inside the constructors.
+
+``` function Dino(data) {
+function Dino(data) {
+  this.name = data.species;
+  this.weight = data.weight;
+  this.height = data.height;
+  this.diet = data.diet;
+}
+
+function Human(name, height, weight, diet) {
+  this.name = name;
+  this.height = height;
+  this.weight = weight;
+  this.diet = diet;
+}
+```
+
+### 3. Using OOP Principles
+
+- Encapsulation: The Dino and Human constructors encapsulate related properties.
+
+- Prototype Methods: Custom methods to the Human prototype, such as update, list, and check, showing code reuse and separation of concerns.
+  e.g.
+
+Human.prototype.list = function (height, weight, diet) {
+  return `<ul style="list-style:none;">
+<li>${this.weight} lbs</li>
+        <li>${this.height} inch</li>
+<li>${this.diet} </li>
+</ul>`;
+};
+};
+```
+
+- Inheritance & Composition: The human object later receives new behaviors (compareWeight, compareHeight, etc.) through Object.assign(), demonstrating dynamic extension of object functionality.
+
+` Object.assign(human, compareDiet, compareHeight, compareWeight, randomFact);`
+>>>>>>> origin/temp_branch
 
 ## Student Instructions
 
