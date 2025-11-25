@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nordic Imaging Center – Private Medical Healthcare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Optional Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #ffffff;
+      --bg-soft: #f5f7fb;
+      --accent: #2d9cdb;       /* calm medical blue */
+      --accent-soft: #e1f1fb;
+      --accent-alt: #28b5a0;   /* teal accent */
+      --text-main: #1b1f3b;
+      --text-muted: #7a7f92;
+      --border-soft: #e3e6f0;
+      --shadow-soft: 0 20px 40px rgba(15, 35, 52, 0.06);
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --transition-fast: 0.2s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout Helpers */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(227, 230, 240, 0.7);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #2d9cdb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.8rem;
+      box-shadow: 0 8px 20px rgba(45, 156, 219, 0.4);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+      color: var(--text-muted);
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all var(--transition-fast);
+      background: white;
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      border-color: var(--border-soft);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(45, 156, 219, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 35px rgba(45, 156, 219, 0.45);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-main);
+      background-color: rgba(227, 230, 240, 0.5);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 40px 0 70px;
+      background: radial-gradient(circle at top right, #f0f8ff 0, #ffffff 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-alt);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent-alt);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 3.2vw, 3rem);
+      letter-spacing: -0.03em;
+      margin: 0 0 14px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-size: 0.85rem;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(45, 156, 219, 0.15);
+      background: rgba(225, 241, 251, 0.5);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note strong {
+      color: var(--text-main);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .hero-room-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-room-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-room-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-room-meta-spot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #2ecc71;
+      box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.25);
+    }
+
+    .hero-float {
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #2d9cdb);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-thumb-strip {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .thumb-pill {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(227, 230, 240, 0.7);
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .thumb-badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* PARALLAX SECTIONS */
+    .parallax-section {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0;
+      background: var(--bg-soft);
+    }
+
+    .parallax-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .section-lead {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 480px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .badge-chip {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      background: #ffffff;
+    }
+
+    .parallax-image-wrapper {
+      position: relative;
+      height: 260px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #e5edf7;
+    }
+
+    .parallax-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transform: translateY(0px);
+      transition: transform 0.1s linear;
+    }
+
+    /* Placeholders – replace URLs with real MRI/CT/RTG room photos */
+    .parallax-image.mri {
+      background-image: url("https://images.pexels.com/photos/7089397/pexels-photo-7089397.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .parallax-image.ct {
+      background-image: url("https://images.pexels.com/photos/7089010/pexels-photo-7089010.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .parallax-image.xray {
+      background-image: url("https://images.pexels.com/photos/4421494/pexels-photo-4421494.jpeg?auto=compress&cs=tinysrgb&w=1200");
+    }
+
+    .parallax-label {
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .parallax-label-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #2ecc71;
+    }
+
+    /* BOOKING SECTION */
+    .booking {
+      padding: 60px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 30px;
+      align-items: start;
+    }
+
+    .booking-left h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .booking-left p {
+      margin: 0 0 18px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .login-options {
+      display: inline-flex;
+      border-radius: 999px;
+      background: #f3f4fb;
+      padding: 3px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(227, 230, 240, 0.9);
+      font-size: 0.82rem;
+    }
+
+    .login-toggle {
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .login-toggle.active {
+      background: #ffffff;
+      color: var(--accent);
+      box-shadow: 0 8px 20px rgba(15, 35, 52, 0.08);
+    }
+
+    form {
+      margin-top: 8px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      font-size: 0.86rem;
+    }
+
+    .form-group label {
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast),
+        background-color var(--transition-fast);
+      background-color: #fdfdff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(45, 156, 219, 0.12);
+      background-color: #ffffff;
+    }
+
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    .form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .form-footer small strong {
+      color: var(--text-main);
+    }
+
+    .booking-right {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 16px 16px 14px;
+    }
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .calendar-header h3 {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .calendar-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+    }
+
+    .calendar-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #f8f9ff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .calendar-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .calendar-grid {
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      padding: 8px;
+      background: #fcfdff;
+      display: grid;
+      row-gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .calendar-weekdays,
+    .calendar-week {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      font-size: 0.7rem;
+    }
+
+    .calendar-weekdays span {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      padding-bottom: 4px;
+    }
+
+    .calendar-day {
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      margin: 1px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .calendar-day--muted {
+      opacity: 0.35;
+    }
+
+    .calendar-day--today {
+      border: 1px solid rgba(45, 156, 219, 0.6);
+    }
+
+    .calendar-day--selected {
+      background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(45, 156, 219, 0.35);
+    }
+
+    .booking-summary {
+      border-radius: 16px;
+      border: 1px dashed rgba(227, 230, 240, 0.9);
+      padding: 10px 12px;
+      background: #f8f9ff;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .summary-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .summary-line {
+      color: var(--text-muted);
+    }
+
+    .summary-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .summary-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(45, 156, 219, 0.2);
+      background: rgba(225, 241, 251, 0.8);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* RESEARCH + INFO SECTION */
+    .research {
+      padding: 50px 0 60px;
+      background: #ffffff;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .research h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .research p {
+      margin: 0 0 12px;
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      max-width: 550px;
+    }
+
+    .research-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 6px;
+    }
+
+    .research-tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #f4fbf7;
+      color: #2d8544;
+      font-size: 0.77rem;
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+
+    .info-card {
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      background: #f8faff;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .info-label {
+      color: var(--text-muted);
+    }
+
+    .info-value {
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #101322;
+      color: rgba(244, 246, 255, 0.82);
+      padding: 28px 0 18px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 30px;
+      font-size: 0.84rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffffff, #2d9cdb);
+    }
+
+    .footer-heading {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: rgba(244, 246, 255, 0.75);
+      margin-bottom: 3px;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: 18px;
+      padding-top: 10px;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(244, 246, 255, 0.62);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .parallax-row,
+      .booking-grid,
+      .research-grid,
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .nav-links {
+        display: none; /* simple mobile version */
+      }
+
+      .booking-right {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding-bottom: 50px;
+      }
+
+      .hero-card {
+        border-radius: 18px;
+      }
+
+      form {
+        padding: 14px;
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">NI</div>
+        <div>
+          Nordic Imaging Center<br />
+          <small style="font-weight:400; font-size:0.72rem; color:var(--text-muted);">
+            Private MRI · CT · X-ray
+          </small>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#booking">Book appointment</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-ghost">EN / NO</button>
+        <button class="btn btn-outline">Log in</button>
+        <button class="btn btn-primary">Book without login</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span> Private medical imaging
+        </div>
+        <h1>
+         Precise <span>MRI · CT · X-ray</span> when you need it.
+        </h1>
+        <p class="hero-subtitle">
+          Choose your own date and time, with or without referral. Simple booking,
+          short waiting times, and a team focused on comfort and clarity.
+        </p>
+
+        <div class="hero-highlights">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Same-week MRI in most cases
+          </div>
+          <div class="pill">
+            <span class="pill-dot" style="background: var(--accent-alt);"></span>
+            Reports from board-certified radiologists
+          </div>
+          <div class="pill">
+            <span class="pill-dot" style="background:#f6c344;"></span>
+            Evening &amp; Saturday appointments
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('booking').scrollIntoView()">
+            Book appointment
+          </button>
+          <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView()">
+            View imaging services
+          </button>
+        </div>
+
+        <div class="hero-note">
+          <strong>No account required.</strong> You can complete the booking as a guest
+          and add login later if you wish.
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card">
+          <div class="hero-tag">MRI Suite · Bergen</div>
+          <div class="hero-room-text">
+            “The room feels more like a quiet lounge than a scanner. Our staff guide
+            you through every step.”
+          </div>
+          <div class="hero-room-meta">
+            <span>
+              <span class="hero-room-meta-spot"></span>
+              Next MRI slot today · 19:30
+            </span>
+            <span>Average visit: 35–45 min</span>
+          </div>
+          <div class="hero-float"></div>
+        </div>
+
+        <div class="hero-thumb-strip">
+          <div class="thumb-pill">
+            <div class="thumb-badge">MRI</div>
+            <span>High-field scanner, low-noise mode</span>
+          </div>
+          <div class="thumb-pill">
+            <div class="thumb-badge">CT</div>
+            <span>Low-dose protocols for chest &amp; abdomen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES – with parallax images -->
+  <section class="parallax-section" id="services">
+    <div class="container parallax-row">
+      <div>
+        <h2 class="section-title">Imaging services</h2>
+        <p class="section-lead">
+          We offer private MRI, CT and conventional X-ray for adults and children.
+          You select the modality and body part, we handle the protocol and reporting.
+        </p>
+        <div class="badge-row">
+          <span class="badge-chip">MRI · brain, spine, joints, abdomen</span>
+          <span class="badge-chip">CT · chest, abdomen, colon, angiography</span>
+          <span class="badge-chip">X-ray · skeleton, lungs, general</span>
+        </div>
+        <p class="section-lead" style="margin-top:8px;">
+          Our booking form guides you step-by-step. If you’re unsure which exam to choose,
+          select “Help me decide” and a radiographer will contact you.
+        </p>
+        <button class="btn btn-outline"
+                onclick="document.getElementById('booking').scrollIntoView()">
+          Start booking
+        </button>
+      </div>
+
+      <div class="parallax-image-wrapper">
+        <div class="parallax-image mri" data-parallax-speed="0.4"></div>
+        <div class="parallax-label">
+          <span class="parallax-label-dot"></span> MRI room – patient in scan
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="parallax-section">
+    <div class="container parallax-row" style="grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);">
+      <div class="parallax-image-wrapper">
+        <div class="parallax-image ct" data-parallax-speed="0.3"></div>
+        <div class="parallax-label">
+          <span class="parallax-label-dot"></span> CT scanner – low dose protocol
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title">A calm visit from arrival to report</h2>
+        <p class="section-lead">
+          We know imaging can feel stressful. Our clinic is designed to be quiet,
+          bright and simple to navigate, from waiting room to changing area.
+        </p>
+        <div class="badge-row">
+          <span class="badge-chip">Online forms in advance</span>
+          <span class="badge-chip">Warm blankets &amp; headphones</span>
+          <span class="badge-chip">Clear explanations before each scan</span>
+        </div>
+        <p class="section-lead" style="margin-top:8px;">
+          Most reports are delivered within 24–48 hours and sent both to you and
+          your referring doctor (if any).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="parallax-section">
+    <div class="container parallax-row">
+      <div>
+        <h2 class="section-title">Digital, but feels like paper.</h2>
+        <p class="section-lead">
+          Our booking calendar is laid out like a printed schedule: clear days,
+          visible times, and no clutter. Choose your day, pick a time, and confirm.
+        </p>
+        <p class="section-lead">
+          You can always call us if you’d rather schedule over the phone.
+        </p>
+      </div>
+
+      <div class="parallax-image-wrapper">
+        <div class="parallax-image xray" data-parallax-speed="0.25"></div>
+        <div class="parallax-label">
+          <span class="parallax-label-dot"></span> X-ray room – standing &amp; table
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section class="booking" id="booking">
+    <div class="container booking-grid">
+      <!-- LEFT: Form -->
+      <div class="booking-left">
+        <h2>Book your imaging appointment</h2>
+        <p>
+          Choose MRI, CT or X-ray, then select the day and time that works for you.
+          You can book as a guest or log in to see your previous exams.
+        </p>
+
+        <div class="login-options" role="tablist" aria-label="Booking mode">
+          <button class="login-toggle active" id="book-as-guest" type="button" role="tab">
+            Continue as guest
+          </button>
+          <button class="login-toggle" id="book-with-login" type="button" role="tab">
+            Log in &amp; book
+          </button>
+        </div>
+
+        <form id="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="exam-type">Exam type</label>
+              <select id="exam-type" required>
+                <option value="MRI">MRI</option>
+                <option value="CT">CT</option>
+                <option value="X-ray">X-ray</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="body-region">Body region</label>
+              <select id="body-region" required>
+                <option value="Brain / head">Brain / head</option>
+                <option value="Spine">Spine</option>
+                <option value="Joints">Joints</option>
+                <option value="Chest / lungs">Chest / lungs</option>
+                <option value="Abdomen / pelvis">Abdomen / pelvis</option>
+                <option value="Other / unsure">Other / unsure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date-input">Preferred date</label>
+              <input type="date" id="date-input" required />
+            </div>
+            <div class="form-group">
+              <label for="time-input">Preferred time</label>
+              <input type="time" id="time-input" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="full-name">Full name</label>
+              <input type="text" id="full-name" placeholder="First and last name" required />
+            </div>
+            <div class="form-group">
+              <label for="id-number">Date of birth / ID</label>
+              <input type="text" id="id-number" placeholder="DDMMYYYY / national ID" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Mobile number</label>
+              <input type="tel" id="phone" placeholder="+47 ..." required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notes">Notes for radiographer (optional)</label>
+            <textarea id="notes" placeholder="Example: metal implants, claustrophobia, pregnancy, previous exams…"></textarea>
+          </div>
+
+          <div class="form-footer">
+            <small>
+              <strong>Book without login.</strong>
+              We only use your data to handle the appointment and medical report.
+            </small>
+            <button class="btn btn-primary" type="submit">
+              Confirm appointment request
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- RIGHT: Printed-style calendar + summary -->
+      <aside class="booking-right" aria-label="Calendar and summary">
+        <div class="calendar-header">
+          <h3>Calendar</h3>
+          <div class="calendar-controls">
+            <button class="calendar-btn" id="prev-month-btn" type="button" aria-label="Previous month">‹</button>
+            <span id="calendar-month-label">Month YYYY</span>
+            <button class="calendar-btn" id="next-month-btn" type="button" aria-label="Next month">›</button>
+          </div>
+        </div>
+
+        <div class="calendar-grid">
+          <div class="calendar-weekdays">
+            <span>Mo</span>
+            <span>Tu</span>
+            <span>We</span>
+            <span>Th</span>
+            <span>Fr</span>
+            <span>Sa</span>
+            <span>Su</span>
+          </div>
+          <div id="calendar-weeks"></div>
+        </div>
+
+        <div class="booking-summary">
+          <div class="summary-title">Appointment summary</div>
+          <div class="summary-line">
+            <strong>Exam:</strong> <span id="summary-exam">MRI</span> ·
+            <span id="summary-region">Brain / head</span>
+          </div>
+          <div class="summary-line">
+            <strong>Date:</strong> <span id="summary-date">Not selected</span><br />
+            <strong>Time:</strong> <span id="summary-time">Not selected</span>
+          </div>
+          <div class="summary-line">
+            <strong>Patient:</strong> <span id="summary-name">—</span>
+          </div>
+          <div class="summary-pill-row">
+            <div class="summary-pill">Order can be placed without login</div>
+            <div class="summary-pill">You’ll receive an SMS &amp; e-mail confirmation</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- RESEARCH / CONTACT -->
+  <section class="research" id="research">
+    <div class="container research-grid">
+      <div>
+        <h2>Clinical care and imaging research, side by side.</h2>
+        <p>
+          Nordic Imaging Center participates in imaging research projects together with
+          hospitals and universities. With your consent, anonymised data from your scan
+          can contribute to better diagnostics for future patients.
+        </p>
+        <p>
+          Research participation is always optional and does not change your clinical
+          exam or report.
+        </p>
+        <div class="research-tags">
+          <span class="research-tag">MRI sequencing &amp; reconstruction</span>
+          <span class="research-tag">AI-assisted image analysis</span>
+          <span class="research-tag">Low-dose CT protocols</span>
+        </div>
+      </div>
+
+      <div class="info-card" id="contact">
+        <div class="info-row">
+          <span class="info-label">Clinic address</span>
+          <span class="info-value">Example Street 12, 5000 Bergen</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Opening hours</span>
+          <span class="info-value">Mon–Fri 08:00–20:00 · Sat 10:00–16:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Phone</span>
+          <span class="info-value">+47 55 00 00 00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">E-mail</span>
+          <span class="info-value">post@nordicimaging.no</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Emergency</span>
+          <span class="info-value">We do not handle acute emergencies – call 113</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-mark"></div>
+            <div>Nordic Imaging Center</div>
+          </div>
+          <p>
+            Private MRI, CT and X-ray with simple, calm booking for patients and
+            referring doctors.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <div class="footer-links">
+            <a href="#top">Home</a>
+            <a href="#services">Services</a>
+            <a href="#booking">Book appointment</a>
+            <a href="#research">Research</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">Legal &amp; privacy</div>
+          <div class="footer-links">
+            <a href="#">Privacy policy</a>
+            <a href="#">Cookies</a>
+            <a href="#">Patient rights</a>
+            <a href="#">Referrer information</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year-span"></span> Nordic Imaging Center AS</span>
+        <span>Built with focus on calm, accessible patient experience.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple parallax effect for MRI / CT / X-ray photos
+    const parallaxImages = document.querySelectorAll(".parallax-image");
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      parallaxImages.forEach((img) => {
+        const speed = parseFloat(img.dataset.parallaxSpeed || "0.3");
+        img.style.transform = `translateY(${scrollY * speed * -0.05}px)`;
+      });
+    });
+
+    // Booking mode toggle (guest vs login)
+    const guestBtn = document.getElementById("book-as-guest");
+    const loginBtn = document.getElementById("book-with-login");
+    const form = document.getElementById("booking-form");
+
+    function setBookingMode(mode) {
+      const isGuest = mode === "guest";
+      guestBtn.classList.toggle("active", isGuest);
+      loginBtn.classList.toggle("active", !isGuest);
+
+      // Example behaviour: if login required, show small alert (you can replace with modal)
+      if (!isGuest) {
+        alert("In a real system, this would open a login window. The booking form still shows as a demo.");
+      }
+    }
+
+    guestBtn.addEventListener("click", () => setBookingMode("guest"));
+    loginBtn.addEventListener("click", () => setBookingMode("login"));
+
+    // Printed-style calendar: generate simple month grid
+    const calendarLabel = document.getElementById("calendar-month-label");
+    const calendarWeeksEl = document.getElementById("calendar-weeks");
+    const prevMonthBtn = document.getElementById("prev-month-btn");
+    const nextMonthBtn = document.getElementById("next-month-btn");
+
+    let currentMonth = new Date().getMonth();
+    let currentYear = new Date().getFullYear();
+    let selectedDateStr = null;
+
+    function renderCalendar(year, month) {
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const firstWeekday = (firstDay.getDay() + 6) % 7; // make Monday = 0
+      const daysInMonth = lastDay.getDate();
+
+      const today = new Date();
+      const todayStr = today.toISOString().split("T")[0];
+
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+
+      calendarLabel.textContent = `${monthNames[month]} ${year}`;
+      calendarWeeksEl.innerHTML = "";
+
+      let dayCounter = 1;
+      const totalCells = Math.ceil((firstWeekday + daysInMonth) / 7) * 7;
+      for (let cellIndex = 0; cellIndex < totalCells; cellIndex++) {
+        if (cellIndex % 7 === 0) {
+          var weekRow = document.createElement("div");
+          weekRow.className = "calendar-week";
+          calendarWeeksEl.appendChild(weekRow);
+        }
+
+        const dayEl = document.createElement("div");
+        dayEl.className = "calendar-day";
+
+        if (cellIndex < firstWeekday || dayCounter > daysInMonth) {
+          dayEl.classList.add("calendar-day--muted");
+          weekRow.appendChild(dayEl);
+          continue;
+        }
+
+        const dateObj = new Date(year, month, dayCounter);
+        const dateStr = dateObj.toISOString().split("T")[0];
+        dayEl.textContent = dayCounter;
+
+        if (dateStr === todayStr) {
+          dayEl.classList.add("calendar-day--today");
+        }
+
+        if (selectedDateStr === dateStr) {
+          dayEl.classList.add("calendar-day--selected");
+        }
+
+        dayEl.addEventListener("click", () => {
+          selectedDateStr = dateStr;
+          const dateInput = document.getElementById("date-input");
+          dateInput.value = dateStr;
+          updateSummary();
+          renderCalendar(currentYear, currentMonth); // re-render to highlight selection
+        });
+
+        weekRow.appendChild(dayEl);
+        dayCounter++;
+      }
+    }
+
+    prevMonthBtn.addEventListener("click", () => {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    nextMonthBtn.addEventListener("click", () => {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(currentYear, currentMonth);
+    });
+
+    // Booking summary update
+    const examSelect = document.getElementById("exam-type");
+    const regionSelect = document.getElementById("body-region");
+    const dateInputEl = document.getElementById("date-input");
+    const timeInputEl = document.getElementById("time-input");
+    const nameInputEl = document.getElementById("full-name");
+
+    const summaryExamEl = document.getElementById("summary-exam");
+    const summaryRegionEl = document.getElementById("summary-region");
+    const summaryDateEl = document.getElementById("summary-date");
+    const summaryTimeEl = document.getElementById("summary-time");
+    const summaryNameEl = document.getElementById("summary-name");
+
+    function formatDatePretty(isoDateStr) {
+      if (!isoDateStr) return "Not selected";
+      const date = new Date(isoDateStr);
+      if (isNaN(date.getTime())) return "Not selected";
+      return date.toLocaleDateString(undefined, {
+        weekday: "short",
+        year: "numeric",
+        month: "short",
+        day: "numeric"
+      });
+    }
+
+    function updateSummary() {
+      summaryExamEl.textContent = examSelect.value;
+      summaryRegionEl.textContent = regionSelect.value;
+      summaryDateEl.textContent = formatDatePretty(dateInputEl.value);
+      summaryTimeEl.textContent = timeInputEl.value || "Not selected";
+      summaryNameEl.textContent = nameInputEl.value || "—";
+    }
+
+    [examSelect, regionSelect, dateInputEl, timeInputEl, nameInputEl].forEach(el => {
+      el.addEventListener("input", updateSummary);
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      updateSummary();
+      alert("This is a design demo. In production, this would send your booking to the clinic.");
+    });
+
+    // Set footer year and initial calendar
+    document.getElementById("year-span").textContent = new Date().getFullYear();
+    renderCalendar(currentYear, currentMonth);
+    updateSummary();
+  </script>
+</body>
+</html>
+
