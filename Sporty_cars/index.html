@@ -86,7 +86,7 @@
     }
 
     initTheme();
-    loadNavbar().then(() => applyTheme(localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'dark'));
+    loadNavbar().then(() => applyTheme(localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'light'));
 
     hero.addEventListener('mousemove', (event) => {
       const rect = hero.getBoundingClientRect();
