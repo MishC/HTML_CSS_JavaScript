@@ -4,183 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sporty Cars — Motion Parallax Showcase</title>
-  <style>
-    :root {
-      --bg: #080b11;
-      --panel: #101722;
-      --text: #ecf2ff;
-      --muted: #97a6c5;
-      --accent: #4cc9f0;
-      --accent-2: #f72585;
-    }
+    <link rel="stylesheet" href="style.css" />
+  <script src="gallery/gallery.js" defer></script>
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      isolation: isolate;
-      overflow: hidden;
-    }
-
-    .parallax-layer {
-      position: absolute;
-      inset: -10%;
-      background-size: cover;
-      background-position: center;
-      transform: translate3d(0,0,0);
-      will-change: transform;
-      transition: transform 0.1s linear;
-    }
-
-    .layer-back {
-      background-image: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(8,11,17,.8)),
-        url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1800&q=80');
-      filter: brightness(0.6) saturate(1.2);
-      z-index: -3;
-    }
-
-    .layer-mid {
-      background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=80');
-      mix-blend-mode: screen;
-      opacity: 0.35;
-      z-index: -2;
-    }
-
-    .layer-front {
-      background: radial-gradient(circle at center, transparent 30%, rgba(8,11,17,0.8) 78%);
-      z-index: -1;
-    }
-
-    .hero-content h1 {
-      font-size: clamp(2.2rem, 5vw, 4.8rem);
-      margin: 0;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      text-shadow: 0 12px 25px rgba(0,0,0,.5);
-    }
-
-    .hero-content p {
-      color: var(--muted);
-      max-width: 760px;
-      margin: 1rem auto 0;
-      font-size: clamp(1rem, 2vw, 1.25rem);
-    }
-
-    .cta {
-      margin-top: 2rem;
-      display: inline-block;
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 0.85rem 1.4rem;
-      border-radius: 999px;
-      box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 5rem 1.5rem;
-    }
-
-    .section h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      margin-bottom: 0.6rem;
-    }
-
-    .section p.lead {
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 2rem;
-    }
-
-    .gallery-track {
-      display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(280px, 34vw);
-      gap: 1rem;
-      overflow-x: auto;
-      padding: 0.75rem 0.25rem 1.2rem;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-    }
-
-    .gallery-track::-webkit-scrollbar { height: 10px; }
-    .gallery-track::-webkit-scrollbar-thumb {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      border-radius: 99px;
-    }
-
-    .slide {
-      scroll-snap-align: center;
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      overflow: hidden;
-      transform: perspective(1000px) rotateY(-7deg) skewX(-1deg);
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-      box-shadow: 0 12px 30px rgba(0,0,0,.25);
-    }
-
-    .slide:hover {
-      transform: perspective(1000px) rotateY(0deg) scale(1.02);
-      border-color: rgba(255,255,255,.3);
-      box-shadow: 0 16px 38px rgba(247,37,133,.25);
-    }
-
-    .slide img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      filter: saturate(1.15) contrast(1.06);
-    }
-
-    .slide .body {
-      padding: 1rem;
-    }
-
-    .parallax-band {
-      min-height: 60vh;
-      background-image: linear-gradient(rgba(6,10,18,.45), rgba(6,10,18,.55)),
-        url('https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=2000&q=80');
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .quote {
-      max-width: 840px;
-      font-size: clamp(1.3rem, 3vw, 2.4rem);
-      font-weight: 700;
-      text-shadow: 0 10px 28px rgba(0,0,0,.5);
-    }
-
-    footer {
-      padding: 2rem 1.5rem 3rem;
-      text-align: center;
-      color: var(--muted);
-    }
-  </style>
 </head>
 <body>
+  <div class="nav-shell" id="nav-shell"></div>
+
   <header class="hero" id="hero">
     <div class="parallax-layer layer-back" data-speed="0.02"></div>
     <div class="parallax-layer layer-mid" data-speed="0.045"></div>
@@ -194,51 +24,7 @@
   </header>
 
   <main>
-    <section class="section" id="gallery">
-      <h2>Beautiful Machines</h2>
-      <p class="lead">From iconic supercars to agile track weapons, each model blends engineering and art into a truly unforgettable driving experience.</p>
-      <div class="gallery-track" aria-label="Swipeable sporty car gallery">
-        <article class="slide">
-          <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80" alt="Red sporty car on a mountain road" />
-          <div class="body">
-            <h3>Performance DNA</h3>
-            <p>Turbocharged acceleration, razor-sharp handling, and breathtaking top speed.</p>
-          </div>
-        </article>
-
-        <article class="slide">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80" alt="Luxury sports coupe at sunset" />
-          <div class="body">
-            <h3>Luxury Meets Speed</h3>
-            <p>Premium interiors and race-inspired details for comfort and control.</p>
-          </div>
-        </article>
-
-        <article class="slide">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80" alt="Dark sports car in city lights" />
-          <div class="body">
-            <h3>Street Presence</h3>
-            <p>Bold curves, aerodynamic styling, and iconic lighting signatures.</p>
-          </div>
-        </article>
-
-        <article class="slide">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Sports car racing on a track" />
-          <div class="body">
-            <h3>Track Ready</h3>
-            <p>Low stance, huge grip, and braking confidence tuned for the apex.</p>
-          </div>
-        </article>
-
-        <article class="slide">
-          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80" alt="Blue sports car parked under neon lights" />
-          <div class="body">
-            <h3>Night Pulse</h3>
-            <p>Neon reflections and sculpted lines that command attention after dark.</p>
-          </div>
-        </article>
-      </div>
-    </section>
+    <div id="gallery-shell"></div>
 
     <section class="parallax-band">
       <p class="quote">"A sports car is not just transportation — it is motion, sound, and passion sculpted in metal."</p>
@@ -253,6 +39,55 @@
     const hero = document.getElementById('hero');
     const layers = document.querySelectorAll('.parallax-layer');
 
+
+
+
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      const btn = document.getElementById('theme-toggle');
+      if (btn) {
+        const light = theme === 'light';
+        btn.textContent = light ? '🌙 Dark' : '☀️ Light';
+        btn.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+    }
+
+    function initTheme() {
+      const saved = localStorage.getItem('theme');
+      const preferred = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      applyTheme(preferred);
+    }
+
+    async function loadNavbar() {
+      const shell = document.getElementById('nav-shell');
+      try {
+        const response = await fetch('navbar.html');
+        shell.innerHTML = await response.text();
+        const toggle = shell.querySelector('.nav-toggle');
+        const themeToggle = shell.querySelector('#theme-toggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            applyTheme(next);
+          });
+        }
+        const links = shell.querySelector('.links');
+        if (toggle && links) {
+          toggle.addEventListener('click', () => {
+            const isOpen = links.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+          });
+        }
+      } catch {
+        shell.innerHTML = '<nav class="main-nav"><a class="brand" href="#hero">Velocity<span>Drive</span></a></nav>';
+      }
+    }
+
+    initTheme();
+    loadNavbar().then(() => applyTheme(localStorage.getItem('theme') || document.documentElement.getAttribute('data-theme') || 'dark'));
+
     hero.addEventListener('mousemove', (event) => {
       const rect = hero.getBoundingClientRect();
       const x = event.clientX - rect.left - rect.width / 2;
@@ -265,6 +100,20 @@
         layer.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
       });
     });
+  
+
+    async function loadGallery() {
+      const shell = document.getElementById('gallery-shell');
+      try {
+        const response = await fetch('gallery/gallery.html');
+        shell.innerHTML = await response.text();
+        if (typeof initGallerySwipe === 'function') initGallerySwipe();
+      } catch {
+        shell.innerHTML = '<section class="section" id="gallery"><h2>Gallery unavailable</h2></section>';
+      }
+    }
+
+    loadGallery();
   </script>
 </body>
 </html>
