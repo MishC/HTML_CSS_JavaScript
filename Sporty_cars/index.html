@@ -107,28 +107,49 @@
       margin-bottom: 2rem;
     }
 
-    .cards {
+    .gallery-track {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(280px, 34vw);
       gap: 1rem;
+      overflow-x: auto;
+      padding: 0.75rem 0.25rem 1.2rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
     }
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.1);
+    .gallery-track::-webkit-scrollbar { height: 10px; }
+    .gallery-track::-webkit-scrollbar-thumb {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      border-radius: 99px;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: 18px;
       overflow: hidden;
-      backdrop-filter: blur(6px);
+      transform: perspective(1000px) rotateY(-7deg) skewX(-1deg);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
     }
 
-    .card img {
+    .slide:hover {
+      transform: perspective(1000px) rotateY(0deg) scale(1.02);
+      border-color: rgba(255,255,255,.3);
+      box-shadow: 0 16px 38px rgba(247,37,133,.25);
+    }
+
+    .slide img {
       width: 100%;
-      height: 210px;
+      height: 220px;
       object-fit: cover;
       display: block;
+      filter: saturate(1.15) contrast(1.06);
     }
 
-    .card .body {
+    .slide .body {
       padding: 1rem;
     }
 
@@ -176,28 +197,44 @@
     <section class="section" id="gallery">
       <h2>Beautiful Machines</h2>
       <p class="lead">From iconic supercars to agile track weapons, each model blends engineering and art into a truly unforgettable driving experience.</p>
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1000&q=80" alt="Red sporty car on a mountain road" />
+      <div class="gallery-track" aria-label="Swipeable sporty car gallery">
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1200&q=80" alt="Red sporty car on a mountain road" />
           <div class="body">
             <h3>Performance DNA</h3>
             <p>Turbocharged acceleration, razor-sharp handling, and breathtaking top speed.</p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1000&q=80" alt="Luxury sports coupe at sunset" />
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80" alt="Luxury sports coupe at sunset" />
           <div class="body">
             <h3>Luxury Meets Speed</h3>
             <p>Premium interiors and race-inspired details for comfort and control.</p>
           </div>
         </article>
 
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1000&q=80" alt="Dark sports car in city lights" />
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80" alt="Dark sports car in city lights" />
           <div class="body">
             <h3>Street Presence</h3>
             <p>Bold curves, aerodynamic styling, and iconic lighting signatures.</p>
+          </div>
+        </article>
+
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Sports car racing on a track" />
+          <div class="body">
+            <h3>Track Ready</h3>
+            <p>Low stance, huge grip, and braking confidence tuned for the apex.</p>
+          </div>
+        </article>
+
+        <article class="slide">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80" alt="Blue sports car parked under neon lights" />
+          <div class="body">
+            <h3>Night Pulse</h3>
+            <p>Neon reflections and sculpted lines that command attention after dark.</p>
           </div>
         </article>
       </div>
