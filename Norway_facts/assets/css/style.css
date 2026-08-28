@@ -490,6 +490,55 @@ footer.footer {
   width: 57px;
   height: 57px;
 }
+
+  
+  
+  #initial { min-height: 100vh; }
+
+    #siteFooter,
+    #siteFooter .footer-links,
+    #siteFooter .footer-copyright {
+      background: transparent !important;
+    }
+
+    #siteFooter a,
+    #siteFooter .footer-copyright {
+      transition: color 0.25s ease;
+    }
+
+    body.initial-view #siteFooter {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+      width: 100%;
+      background: transparent !important;
+
+      /* Do not block the ENTER button behind the transparent footer. */
+      pointer-events: none;
+    }
+
+    /* Footer links themselves stay clickable. */
+    body.initial-view #siteFooter a {
+      pointer-events: auto;
+    }
+
+    body.initial-view #siteFooter a,
+    body.initial-view #siteFooter .footer-copyright {
+      color: #ffffff !important;
+    }
+
+    body.content-view #siteFooter {
+      position: relative;
+      width: 100%;
+      background: transparent !important;
+    }
+
+    body.content-view #siteFooter a,
+    body.content-view #siteFooter .footer-copyright {
+      color: #343a40 !important;
+    }
 @media screen and (max-width: 870px) {
   .svg-icon.search-icon {
     width: 30px;

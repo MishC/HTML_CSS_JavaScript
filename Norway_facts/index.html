@@ -37,9 +37,14 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="assets/css/style.css" rel="stylesheet" />
   <!--JS Files-->
   <script src="https://kit.fontawesome.com/1b2099cb12.js" crossorigin="anonymous"></script>
+
+  <style>
+  
+  </style>
+
 </head>
 
-<body class="index-page sidebar-collapse">
+<body class="index-page sidebar-collapse initial-view">
   <!---Nav content-->
 
 
@@ -102,7 +107,14 @@ The above copyright notice and this permission notice shall be included in all c
     </nav>
 
 
-    <div class="page-header section-dark" style="background-image: url('./assets/img/norway_summer_03.jpg')">
+    <div class="page-header section-dark" style="
+      background-image: url('./assets/img/norway_summer_03.jpg');
+      min-height: 100vh;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    ">
       <div class="filter"></div>
       <div class="content-center">
         <div class="container">
@@ -135,8 +147,12 @@ The above copyright notice and this permission notice shall be included in all c
           <div class="col-md-12">&nbsp;</div>
           <div class="content" style="vertical-align: middle; text-align: center">
             <p style="text-align: center">
-              <button type="button" class="btn btn-info btn-round seeMore"
-                onclick="changeVisibility('initial', 'content_main')">
+              <button
+                type="button"
+                class="btn btn-info btn-round seeMore"
+                style="position: relative; z-index: 1000; pointer-events: auto; margin-bottom: 160px;"
+                onclick="changeVisibility('initial', 'content_main')"
+              >
                 &nbsp;&nbsp;ENTER&nbsp; &nbsp;
               </button>
             </p>
@@ -993,51 +1009,33 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- ________________________END OF CAROUSEL______________________________________________________---->
   <!--_________________________FOOTER________________________________________________________________-->
 
-  <footer class="footer text-center align-center text-lg-start sticky-bottom">
-    <!-- Grid container -->
-   <div class="container p-4">
-  <div
-    class="d-flex justify-content-center align-items-center flex-wrap"
-    style="gap: 40px;"
-  >
-    <a
-      href="https://www.yr.no/nb"
-      target="_blank"
-      class="text-uppercase text-dark font-weight-bold"
-    >
-      <i class="fas fa-umbrella"></i>
-      Weather in Norway
-    </a>
+  <footer id="siteFooter" class="footer text-center text-lg-start">
+    <div class="container p-4 footer-links">
+      <div class="d-flex justify-content-center align-items-center flex-wrap" style="gap: 40px;">
+        <a href="https://www.yr.no/nb" target="_blank" rel="noopener noreferrer"
+          class="text-uppercase font-weight-bold">
+          <i class="fas fa-umbrella"></i> Weather in Norway
+        </a>
 
-    <a
-      href="https://www.visitnorway.no/"
-      target="_blank"
-      class="text-uppercase text-dark font-weight-bold"
-    >
-      🌲 Visit Norway
-    </a>
+        <a href="https://www.visitnorway.no/" target="_blank" rel="noopener noreferrer"
+          class="text-uppercase font-weight-bold">
+          🌲 Visit Norway
+        </a>
 
-    <a
-      href="https://www.lonelyplanet.com/norway"
-      target="_blank"
-      class="text-uppercase text-dark font-weight-bold"
-    >
-      🌏 Lonely Planet
-    </a>
-  </div>
-</div>
+        <a href="https://www.lonelyplanet.com/norway" target="_blank" rel="noopener noreferrer"
+          class="text-uppercase font-weight-bold">
+          🌏 Lonely Planet
+        </a>
+      </div>
+    </div>
 
-    <!-- Copyright -->
-    <div class="text-center p-3 font-weight-bold ">
+    <div class="text-center p-3 font-weight-bold footer-copyright">
       ©
-      <a href="#" target="_blank" class="text-black font-weight-bold">
-        <script>
-          document.write(new Date().getFullYear());
-        </script>
+      <a href="#" class="font-weight-bold">
+        <script>document.write(new Date().getFullYear());</script>
         MishC
       </a>
     </div>
-    <!-- Copyright -->
   </footer>
 
   <!---END OF FOOTER--->
@@ -1072,17 +1070,13 @@ The above copyright notice and this permission notice shall be included in all c
         navbar.style.backgroundColor = "#6ec7e0";
       }
     });
-    document.addEventListener("DOMContentLoaded", () => {
-  const initial = document.getElementById("initial");
-  const footer = document.querySelector("footer");
-
-  if (initial && initial.style.display !== "none") {
-    footer.style.backgroundColor = "transparent";
-  }
-});
+    
     function changeVisibility(id1, id2) {
       document.getElementById("initial").style.display = "none";
       document.getElementById("content_main").style.display = "block";
+
+      document.body.classList.remove("initial-view");
+      document.body.classList.add("content-view");
       /*  document
          .querySelector(".navbar")
          .classList.remove("navbar-transparent");
