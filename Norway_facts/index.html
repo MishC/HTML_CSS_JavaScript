@@ -62,14 +62,14 @@ The above copyright notice and this permission notice shall be included in all c
 
   <body class="index-page sidebar-collapse">
     <!---Nav content-->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-transparent max-height-20 margin-0" id="nav_style" style="
+    <nav class="navbar fixed-top navbar-expand-lg navbar-transparent max-height-20 margin-0 w-100" id="nav_style" style="
     z-index: 9999;
     padding-top:0px;
     width: 100%;
     background-color: transparent; box-shadow: none; transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;" color-on-scroll="500">
           <div class="container" style="padding-left: 20px; padding-right: 20px;">
             <div class="navbar-translate">
-              <a class="navbar-brand" href="javascript:void(0);" rel="tooltip" title="Coded by Creative Tim" data-placement="bottom">
+              <a class="navbar-brand justify-content-start" href="index.html" rel="tooltip" title="My Norway home" data-placement="bottom">
                 My Norway
               </a>
               <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
@@ -164,7 +164,7 @@ The above copyright notice and this permission notice shall be included in all c
                 <button
                   type="button"
                   class="btn btn-info btn-round seeMore"
-                  onclick="changeVisibility(initial,content_main)"
+                  onclick="changeVisibility('initial', 'content_main')"
                 >
                   &nbsp;&nbsp;ENTER&nbsp; &nbsp;
                 </button>
@@ -192,7 +192,7 @@ The above copyright notice and this permission notice shall be included in all c
         <div class="col-md-12">&nbsp;</div>
         <div class="col-md-12">&nbsp;</div>
 
-        <nav class="d-flex flex-wrap justify-content-around font-size-lg fixed-top max-height-50" >
+        <nav class="d-flex flex-wrap justify-content-around font-size-lg fixed-top max-height-50 z-0" >
           <span 
             class="text-white" 
             style="cursor: pointer; transition: color 0.2s; font-size:16px; padding-top:20px" 
@@ -1207,18 +1207,29 @@ The above copyright notice and this permission notice shall be included in all c
           .querySelector(".navbar")
           .classList.remove("navbar-transparent");
           document.querySelectorAll("nav#nav_style, nav#nav_style *").forEach(function (element) {
-            element.style.backgroundColor = "#6ec7e0"; element.style.color = "grey";
-             element.style.padding = "0px"; 
+            element.style.backgroundColor = "#6ec7e0"; 
+            element.style.color = "grey";
+            element.style.padding = "0px"; 
             element.style.borderRadius = "0px"; 
             element.style.fontSize = "0.9rem"; 
-            element.style.justifyContent = "space-between"; 
-            element.style.zIndex = "600";
+            element.style.zIndex = "9999";
+            element.style.pointerEvents = "auto";
           });
-          document.querySelector("nav#nav_style .navbar-brand").style.marginLeft = "30px";
+          document.querySelector("nav#nav_style").style.zIndex = "9999";
+          document.querySelector("nav#nav_style").style.pointerEvents = "auto";
+                    document.querySelector("nav#nav_style").style.width = "100%";
+
+          document.querySelector("nav#nav_style .navbar-brand").style.marginLeft = "20px";
+          document.querySelector("nav#nav_style .navbar-brand").style.paddingLeft = "0px";
+
           document.querySelector("nav#nav_style .navbar-brand").style.color = "grey";
           document.querySelector("nav#nav_style .navbar-brand").style.fontSize = "0.9rem";
-          document.querySelector("nav#nav_style .navbar-brand").style.zIndex = "1000";
+          document.querySelector("nav#nav_style .navbar-brand").style.zIndex = "9999";
+          document.querySelector("nav#nav_style .navbar-brand").style.pointerEvents = "auto";
           document.querySelector("nav#nav_style .navbar-nav").style.marginRight = "20px";
+          document.querySelector("nav#nav_style .navbar-nav").style.pointerEvents = "auto";
+          document.querySelector("nav#nav_style .navbar-nav").style.zIndex = "9999";
+
       }
 
       function toggleDiv(id) {
