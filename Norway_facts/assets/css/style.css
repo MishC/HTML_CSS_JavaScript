@@ -469,6 +469,9 @@ hr.style-four {
   font-size: 20px;
 }
 footer{position: sticky; bottom : 0px;}
+#initial > footer {
+  background-color: transparent;
+}
 footer.footer {
   background-color: #6ec7e0;
   position: relative;

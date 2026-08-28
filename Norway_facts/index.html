@@ -1072,6 +1072,15 @@ The above copyright notice and this permission notice shall be included in all c
         navbar.style.backgroundColor = "#6ec7e0";
       }
     });
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const initial = document.getElementById("initial");
+  const footer = document.querySelector("footer");
+
+  if (initial && initial.style.display !== "none") {
+    footer.style.backgroundColor = "transparent";
+  }
+});
     function changeVisibility(id1, id2) {
       document.getElementById("initial").style.display = "none";
       document.getElementById("content_main").style.display = "block";
